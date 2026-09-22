@@ -1,0 +1,22 @@
+/* keyboardDiv */
+/* !!! псевдоклассы писать без пробелов !!! */
+.such1_keyboardDiv_sml{
+	position: absolute; top: 3px; left: 170px; width: 391px; height: 120px;
+	padding: 2px; z-index: 1;
+}
+.such1_keyboardDiv_med{
+	position: absolute; top: 3px; left: 85px; width: 575px; height: 162px;
+	padding: 2px; z-index: 1;
+}
+.such1_keyboardDiv_big{
+	position: absolute; top: 3px; left: 2px; width: 732px; height: 198px;
+	padding: 2px; z-index: 1;
+}
+
+/* FJ underlining */
+.such1_fj_underline{
+	border-bottom: 1px solid maroon; padding-bottom: 2px;
+}
+/* FJ underlining */
+
+/* keyboardDiv */

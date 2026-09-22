@@ -1,0 +1,2691 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-09-22T14:17:18.977Z",
+  "modules": {
+    "src/lib/prefs.ts": {
+      "filePath": "src/lib/prefs.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "prefsGet",
+          "kind": "function",
+          "sourceModule": "src/lib/prefs.ts",
+          "isReExport": false
+        },
+        {
+          "name": "prefsSet",
+          "kind": "function",
+          "sourceModule": "src/lib/prefs.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/lib/fit.ts": {
+      "filePath": "src/lib/fit.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "FitResult",
+          "kind": "type",
+          "sourceModule": "src/lib/fit.ts",
+          "isReExport": false
+        },
+        {
+          "name": "fitScale",
+          "kind": "function",
+          "sourceModule": "src/lib/fit.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/lib/stats.ts": {
+      "filePath": "src/lib/stats.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "lz",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "isReExport": false
+        },
+        {
+          "name": "Hms",
+          "kind": "type",
+          "sourceModule": "src/lib/stats.ts",
+          "isReExport": false
+        },
+        {
+          "name": "timeHMS",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "isReExport": false
+        },
+        {
+          "name": "countPerc",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "isReExport": false
+        },
+        {
+          "name": "speed",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/lib/keymap.ts": {
+      "filePath": "src/lib/keymap.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "MapFileName",
+          "kind": "type",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        },
+        {
+          "name": "parseMapFileName",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        },
+        {
+          "name": "SelectedMaps",
+          "kind": "type",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        },
+        {
+          "name": "selectedMapsPair",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        },
+        {
+          "name": "nextMap",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        },
+        {
+          "name": "ChKeys",
+          "kind": "type",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        },
+        {
+          "name": "mapChangerMatch",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/kblib.ts": {
+      "filePath": "src/kblib.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "prefsGet",
+          "kind": "function",
+          "sourceModule": "src/lib/prefs.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "prefsSet",
+          "kind": "function",
+          "sourceModule": "src/lib/prefs.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "fitScale",
+          "kind": "function",
+          "sourceModule": "src/lib/fit.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "lz",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "timeHMS",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "countPerc",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "speed",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "parseMapFileName",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "selectedMapsPair",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "nextMap",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "mapChangerMatch",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        }
+      ],
+      "importedBindings": [
+        {
+          "name": "prefsGet",
+          "kind": "function",
+          "sourceModule": "src/lib/prefs.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "prefsSet",
+          "kind": "function",
+          "sourceModule": "src/lib/prefs.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "fitScale",
+          "kind": "function",
+          "sourceModule": "src/lib/fit.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "lz",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "timeHMS",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "countPerc",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "speed",
+          "kind": "function",
+          "sourceModule": "src/lib/stats.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "parseMapFileName",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "selectedMapsPair",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "nextMap",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        },
+        {
+          "name": "mapChangerMatch",
+          "kind": "function",
+          "sourceModule": "src/lib/keymap.ts",
+          "importKind": "named",
+          "isReExport": true
+        }
+      ],
+      "dependencies": [
+        "src/lib/prefs.ts",
+        "src/lib/fit.ts",
+        "src/lib/stats.ts",
+        "src/lib/keymap.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/lib/charset.ts": {
+      "filePath": "src/lib/charset.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "stripBom",
+          "kind": "function",
+          "sourceModule": "src/lib/charset.ts",
+          "isReExport": false
+        },
+        {
+          "name": "decodeBuf",
+          "kind": "function",
+          "sourceModule": "src/lib/charset.ts",
+          "isReExport": false
+        },
+        {
+          "name": "encodeStr",
+          "kind": "function",
+          "sourceModule": "src/lib/charset.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [
+        {
+          "name": "iconv",
+          "kind": "unknown",
+          "sourceModule": "node_modules/iconv-lite/lib/index.d.ts",
+          "importKind": "namespace",
+          "isReExport": false,
+          "external": true
+        }
+      ],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/lib/geometry.ts": {
+      "filePath": "src/lib/geometry.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "DESIGN_W",
+          "kind": "const",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "DESIGN_H",
+          "kind": "const",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "ZOOM_FACTOR",
+          "kind": "const",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "Size",
+          "kind": "type",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "Rect",
+          "kind": "type",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "clampToArea",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "centeredXY",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "clampPos",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "zoomSize",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        },
+        {
+          "name": "initialContentSize",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/lib/windowState.ts": {
+      "filePath": "src/lib/windowState.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "WindowState",
+          "kind": "type",
+          "sourceModule": "src/lib/windowState.ts",
+          "isReExport": false
+        },
+        {
+          "name": "parseWindowState",
+          "kind": "function",
+          "sourceModule": "src/lib/windowState.ts",
+          "isReExport": false
+        },
+        {
+          "name": "serializeWindowState",
+          "kind": "function",
+          "sourceModule": "src/lib/windowState.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/smoke.ts": {
+      "filePath": "src/smoke.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "runSmoke",
+          "kind": "function",
+          "sourceModule": "src/smoke.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [
+        {
+          "name": "app",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "BrowserWindow",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "screen",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "WSSession",
+          "kind": "unknown",
+          "sourceModule": "node_modules/@mnemonica/strategy/lib/index.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        }
+      ],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": [
+        "fs",
+        "path"
+      ]
+    },
+    "src/main.ts": {
+      "filePath": "src/main.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "app",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "BrowserWindow",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "dialog",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ipcMain",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "screen",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "decodeBuf",
+          "kind": "function",
+          "sourceModule": "src/lib/charset.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "encodeStr",
+          "kind": "function",
+          "sourceModule": "src/lib/charset.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "clampPos",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "clampToArea",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "initialContentSize",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "zoomSize",
+          "kind": "function",
+          "sourceModule": "src/lib/geometry.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "Size",
+          "kind": "type",
+          "sourceModule": "src/lib/geometry.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "parseWindowState",
+          "kind": "function",
+          "sourceModule": "src/lib/windowState.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "serializeWindowState",
+          "kind": "function",
+          "sourceModule": "src/lib/windowState.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "WindowState",
+          "kind": "type",
+          "sourceModule": "src/lib/windowState.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "runSmoke",
+          "kind": "function",
+          "sourceModule": "src/smoke.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "src/lib/charset.ts",
+        "src/lib/geometry.ts",
+        "src/lib/windowState.ts",
+        "src/smoke.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": [
+        "fs",
+        "os",
+        "path"
+      ]
+    },
+    "src/domain/loadTopology.ts": {
+      "filePath": "src/domain/loadTopology.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "TopoNode",
+          "kind": "type",
+          "sourceModule": "src/domain/loadTopology.ts",
+          "isReExport": false
+        },
+        {
+          "name": "Topology",
+          "kind": "type",
+          "sourceModule": "src/domain/loadTopology.ts",
+          "isReExport": false
+        },
+        {
+          "name": "DefineFn",
+          "kind": "type",
+          "sourceModule": "src/domain/loadTopology.ts",
+          "isReExport": false
+        },
+        {
+          "name": "ModuleMap",
+          "kind": "type",
+          "sourceModule": "src/domain/loadTopology.ts",
+          "isReExport": false
+        },
+        {
+          "name": "loadTopology",
+          "kind": "function",
+          "sourceModule": "src/domain/loadTopology.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/domain/collection.ts": {
+      "filePath": "src/domain/collection.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "KbCollection",
+          "kind": "type",
+          "sourceModule": "src/domain/collection.ts",
+          "isReExport": false
+        },
+        {
+          "name": "createKbCollection",
+          "kind": "function",
+          "sourceModule": "src/domain/collection.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [
+        {
+          "name": "createTypesCollection",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "TypesCollection",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "TypeRegistry",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        }
+      ],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/chain.ts": {
+      "filePath": "models/chain.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "StatsCells",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "ProfileCells",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "LessonChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "BookChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "ViewControlChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "RunControlChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "KeyStrokeChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "BookDeleteRequestChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "TimerChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        },
+        {
+          "name": "KeyMods",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/domain/store.ts": {
+      "filePath": "src/domain/store.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "ScreenSize",
+          "kind": "type",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "BootOptions",
+          "kind": "type",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "BootedProgram",
+          "kind": "type",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "LiveSession",
+          "kind": "type",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "KbStore",
+          "kind": "type",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "USER_ALIASES",
+          "kind": "const",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "VARS_STATS",
+          "kind": "const",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        },
+        {
+          "name": "bootStoreWith",
+          "kind": "function",
+          "sourceModule": "src/domain/store.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [
+        {
+          "name": "Topology",
+          "kind": "type",
+          "sourceModule": "src/domain/loadTopology.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "KbCollection",
+          "kind": "type",
+          "sourceModule": "src/domain/collection.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "Program",
+          "kind": "unknown",
+          "sourceModule": ".tactica/types.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "Session",
+          "kind": "unknown",
+          "sourceModule": ".tactica/types.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "Session_EventHandler",
+          "kind": "unknown",
+          "sourceModule": ".tactica/types.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "Timer",
+          "kind": "unknown",
+          "sourceModule": ".tactica/types.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "StatsCells",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "src/domain/loadTopology.ts",
+        "src/domain/collection.ts",
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/preload.ts": {
+      "filePath": "src/preload.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "ipcRenderer",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "bootStoreWith",
+          "kind": "function",
+          "sourceModule": "src/domain/store.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "createKbCollection",
+          "kind": "function",
+          "sourceModule": "src/domain/collection.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "src/domain/store.ts",
+        "src/domain/collection.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": [
+        "path",
+        "fs"
+      ]
+    },
+    "src/renderer/engine.ts": {
+      "filePath": "src/renderer/engine.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/renderer/layouts.ts": {
+      "filePath": "src/renderer/layouts.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/renderer/libIsland.ts": {
+      "filePath": "src/renderer/libIsland.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/renderer/modeIsland.ts": {
+      "filePath": "src/renderer/modeIsland.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/renderer/setsIsland.ts": {
+      "filePath": "src/renderer/setsIsland.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/renderer/skins.ts": {
+      "filePath": "src/renderer/skins.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "src/renderer/topIsland.ts": {
+      "filePath": "src/renderer/topIsland.ts",
+      "definedTypes": [],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/index.ts": {
+      "filePath": "models/Program/index.ts",
+      "definedTypes": [
+        "Program"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/FileDialog/index.ts": {
+      "filePath": "models/Program/FileDialog/index.ts",
+      "definedTypes": [
+        "Program.FileDialog"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/FileDialog/DirList/index.ts": {
+      "filePath": "models/Program/FileDialog/DirList/index.ts",
+      "definedTypes": [
+        "Program.FileDialog.DirList"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/FileDialog/FilePick/index.ts": {
+      "filePath": "models/Program/FileDialog/FilePick/index.ts",
+      "definedTypes": [
+        "Program.FileDialog.FilePick"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/KeyFlash/index.ts": {
+      "filePath": "models/Program/KeyFlash/index.ts",
+      "definedTypes": [
+        "Program.KeyFlash"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/KeyLight/index.ts": {
+      "filePath": "models/Program/KeyLight/index.ts",
+      "definedTypes": [
+        "Program.KeyLight"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/LibDialog/index.ts": {
+      "filePath": "models/Program/LibDialog/index.ts",
+      "definedTypes": [
+        "Program.LibDialog"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/LibDialog/BookDeleteRequest/index.ts": {
+      "filePath": "models/Program/LibDialog/BookDeleteRequest/index.ts",
+      "definedTypes": [
+        "Program.LibDialog.BookDeleteRequest"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/LibDialog/BookDeleteRequest/BookDeleted/index.ts": {
+      "filePath": "models/Program/LibDialog/BookDeleteRequest/BookDeleted/index.ts",
+      "definedTypes": [
+        "Program.LibDialog.BookDeleteRequest.BookDeleted"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "BookDeleteRequestChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/LibDialog/BookImport/index.ts": {
+      "filePath": "models/Program/LibDialog/BookImport/index.ts",
+      "definedTypes": [
+        "Program.LibDialog.BookImport"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/LibDialog/BookMark/index.ts": {
+      "filePath": "models/Program/LibDialog/BookMark/index.ts",
+      "definedTypes": [
+        "Program.LibDialog.BookMark"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/LibDialog/BookSelect/index.ts": {
+      "filePath": "models/Program/LibDialog/BookSelect/index.ts",
+      "definedTypes": [
+        "Program.LibDialog.BookSelect"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/Log/index.ts": {
+      "filePath": "models/Program/Log/index.ts",
+      "definedTypes": [
+        "Program.Log"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ModeDialog/index.ts": {
+      "filePath": "models/Program/ModeDialog/index.ts",
+      "definedTypes": [
+        "Program.ModeDialog"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ModeDialog/BookPick/index.ts": {
+      "filePath": "models/Program/ModeDialog/BookPick/index.ts",
+      "definedTypes": [
+        "Program.ModeDialog.BookPick"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ModeDialog/LessonPick/index.ts": {
+      "filePath": "models/Program/ModeDialog/LessonPick/index.ts",
+      "definedTypes": [
+        "Program.ModeDialog.LessonPick"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ModeDialog/ModeSet/index.ts": {
+      "filePath": "models/Program/ModeDialog/ModeSet/index.ts",
+      "definedTypes": [
+        "Program.ModeDialog.ModeSet"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/SettingsDialog/index.ts": {
+      "filePath": "models/Program/SettingsDialog/index.ts",
+      "definedTypes": [
+        "Program.SettingsDialog"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/SettingsDialog/MapsPairSet/index.ts": {
+      "filePath": "models/Program/SettingsDialog/MapsPairSet/index.ts",
+      "definedTypes": [
+        "Program.SettingsDialog.MapsPairSet"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/SettingsDialog/PrefSet/index.ts": {
+      "filePath": "models/Program/SettingsDialog/PrefSet/index.ts",
+      "definedTypes": [
+        "Program.SettingsDialog.PrefSet"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/SettingsDialog/SkinPreview/index.ts": {
+      "filePath": "models/Program/SettingsDialog/SkinPreview/index.ts",
+      "definedTypes": [
+        "Program.SettingsDialog.SkinPreview"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/UserProfile/index.ts": {
+      "filePath": "models/Program/UserProfile/index.ts",
+      "definedTypes": [
+        "Program.UserProfile"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ViewControl/index.ts": {
+      "filePath": "models/Program/ViewControl/index.ts",
+      "definedTypes": [
+        "Program.ViewControl"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ViewControl/ZoomIn/index.ts": {
+      "filePath": "models/Program/ViewControl/ZoomIn/index.ts",
+      "definedTypes": [
+        "Program.ViewControl.ZoomIn"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "{ MAX_ZOOM, ZOOM_STEP }",
+          "kind": "unknown",
+          "sourceModule": "models/Program/helpers.js",
+          "importKind": "require",
+          "isReExport": false
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/ViewControl/ZoomOut/index.ts": {
+      "filePath": "models/Program/ViewControl/ZoomOut/index.ts",
+      "definedTypes": [
+        "Program.ViewControl.ZoomOut"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "{ MIN_ZOOM, ZOOM_STEP }",
+          "kind": "unknown",
+          "sourceModule": "models/Program/helpers.js",
+          "importKind": "require",
+          "isReExport": false
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/WindowState/index.ts": {
+      "filePath": "models/Program/WindowState/index.ts",
+      "definedTypes": [
+        "Program.WindowState"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "ProgramChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/index.ts": {
+      "filePath": "models/Session/index.ts",
+      "definedTypes": [
+        "Session"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/EventHandler/index.ts": {
+      "filePath": "models/Session/EventHandler/index.ts",
+      "definedTypes": [
+        "Session.EventHandler"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "KeyMods",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/KeyStroke/index.ts": {
+      "filePath": "models/Session/KeyStroke/index.ts",
+      "definedTypes": [
+        "Session.KeyStroke"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/KeyStroke/Correct/index.ts": {
+      "filePath": "models/Session/KeyStroke/Correct/index.ts",
+      "definedTypes": [
+        "Session.KeyStroke.Correct"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "KeyStrokeChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/KeyStroke/Correct/StatUpdate/index.ts": {
+      "filePath": "models/Session/KeyStroke/Correct/StatUpdate/index.ts",
+      "definedTypes": [
+        "Session.KeyStroke.Correct.StatUpdate"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/KeyStroke/Mistake/index.ts": {
+      "filePath": "models/Session/KeyStroke/Mistake/index.ts",
+      "definedTypes": [
+        "Session.KeyStroke.Mistake"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "KeyStrokeChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/KeyStroke/Mistake/StatUpdate/index.ts": {
+      "filePath": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts",
+      "definedTypes": [
+        "Session.KeyStroke.Mistake.StatUpdate"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "KeyStrokeChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/LetterPick/index.ts": {
+      "filePath": "models/Session/LetterPick/index.ts",
+      "definedTypes": [
+        "Session.LetterPick"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF1/index.ts": {
+      "filePath": "models/Session/ModeF1/index.ts",
+      "definedTypes": [
+        "Session.ModeF1"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF12/index.ts": {
+      "filePath": "models/Session/ModeF12/index.ts",
+      "definedTypes": [
+        "Session.ModeF12"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF2/index.ts": {
+      "filePath": "models/Session/ModeF2/index.ts",
+      "definedTypes": [
+        "Session.ModeF2"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF3/index.ts": {
+      "filePath": "models/Session/ModeF3/index.ts",
+      "definedTypes": [
+        "Session.ModeF3"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF4/index.ts": {
+      "filePath": "models/Session/ModeF4/index.ts",
+      "definedTypes": [
+        "Session.ModeF4"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF5/index.ts": {
+      "filePath": "models/Session/ModeF5/index.ts",
+      "definedTypes": [
+        "Session.ModeF5"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF7/index.ts": {
+      "filePath": "models/Session/ModeF7/index.ts",
+      "definedTypes": [
+        "Session.ModeF7"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/ModeF8/index.ts": {
+      "filePath": "models/Session/ModeF8/index.ts",
+      "definedTypes": [
+        "Session.ModeF8"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/index.ts": {
+      "filePath": "models/Session/Run/index.ts",
+      "definedTypes": [
+        "Session.Run"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Book/index.ts": {
+      "filePath": "models/Session/Run/Book/index.ts",
+      "definedTypes": [
+        "Session.Run.Book"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Book/Native/index.ts": {
+      "filePath": "models/Session/Run/Book/Native/index.ts",
+      "definedTypes": [
+        "Session.Run.Book.Native"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Book/Paragraph/index.ts": {
+      "filePath": "models/Session/Run/Book/Paragraph/index.ts",
+      "definedTypes": [
+        "Session.Run.Book.Paragraph"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Finish/index.ts": {
+      "filePath": "models/Session/Run/Finish/index.ts",
+      "definedTypes": [
+        "Session.Run.Finish"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Lesson/index.ts": {
+      "filePath": "models/Session/Run/Lesson/index.ts",
+      "definedTypes": [
+        "Session.Run.Lesson"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Lesson/Native/index.ts": {
+      "filePath": "models/Session/Run/Lesson/Native/index.ts",
+      "definedTypes": [
+        "Session.Run.Lesson.Native"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Lesson/Paragraph/index.ts": {
+      "filePath": "models/Session/Run/Lesson/Paragraph/index.ts",
+      "definedTypes": [
+        "Session.Run.Lesson.Paragraph"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "RunChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/Run/Vocabulary/index.ts": {
+      "filePath": "models/Session/Run/Vocabulary/index.ts",
+      "definedTypes": [
+        "Session.Run.Vocabulary"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/index.ts": {
+      "filePath": "models/Session/RunControl/index.ts",
+      "definedTypes": [
+        "Session.RunControl"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/BaseNext/index.ts": {
+      "filePath": "models/Session/RunControl/BaseNext/index.ts",
+      "definedTypes": [
+        "Session.RunControl.BaseNext"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/LessonNext/index.ts": {
+      "filePath": "models/Session/RunControl/LessonNext/index.ts",
+      "definedTypes": [
+        "Session.RunControl.LessonNext"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/LessonPrev/index.ts": {
+      "filePath": "models/Session/RunControl/LessonPrev/index.ts",
+      "definedTypes": [
+        "Session.RunControl.LessonPrev"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/Pause/index.ts": {
+      "filePath": "models/Session/RunControl/Pause/index.ts",
+      "definedTypes": [
+        "Session.RunControl.Pause"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/Quit/index.ts": {
+      "filePath": "models/Session/RunControl/Quit/index.ts",
+      "definedTypes": [
+        "Session.RunControl.Quit"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/RunControl/Resume/index.ts": {
+      "filePath": "models/Session/RunControl/Resume/index.ts",
+      "definedTypes": [
+        "Session.RunControl.Resume"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Session/WordPick/index.ts": {
+      "filePath": "models/Session/WordPick/index.ts",
+      "definedTypes": [
+        "Session.WordPick"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "SessionChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Timer/index.ts": {
+      "filePath": "models/Timer/index.ts",
+      "definedTypes": [
+        "Timer"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Timer/Tick/index.ts": {
+      "filePath": "models/Timer/Tick/index.ts",
+      "definedTypes": [
+        "Timer.Tick"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [
+        {
+          "name": "{ utils }",
+          "kind": "unknown",
+          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
+          "importKind": "require",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "TimerChain",
+          "kind": "type",
+          "sourceModule": "models/chain.ts",
+          "importKind": "named",
+          "isReExport": false
+        }
+      ],
+      "dependencies": [
+        "models/chain.ts"
+      ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    }
+  },
+  "edges": [],
+  "cycles": []
+}

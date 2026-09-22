@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>kbTrainer Settings</title>
+<meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
+<script language = "JavaScript" src = "kbDialogChild.js"></script>
+
+<script language = "JavaScript" src = "../jq/jquery-1.4.2.min.js"></script>
+<script language = "JavaScript" src = "kblib.js"></script>
+<script language = "JavaScript" src = "alf.js"></script>
+<script language = "JavaScript" src = "mixer.js"></script>
+<script language = "JavaScript" src = "ev.js"></script>
+<script language = "JavaScript" src = "fns.js"></script>
+<script language = "JavaScript" >
+	window.moveTo(150, 20);
+	window.resizeTo(750,680);
+</script>
+
+<style type = "text/css">
+<!--
+div{
+	padding-left: 10px;
+}
+legend{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 12px;
+}
+fieldset{
+	border: 1px solid gray;
+	padding-left: 5px;
+}
+label, div, span, td, .stndt{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	margin: 1px 3px 5px 11px;
+	text-align: left;
+}
+br{
+	font-size: 2px;
+}
+input[name='snk_keybSize_radio_id']{
+	margin: 5px;
+}
+//-->
+</style>
+</head>
+<body>
+<div style = "position: absolute; top: 0px; left: 0px; width: 600px; padding: 20px;" id = "questorDiv">
+</div>
+<div style = "position: absolute; top: 0px; left: 0px; width: 600px; padding: 20px;" id = "historyDiv">
+</div>
+
+<div style = "position: absolute; top: 0px; left: 0px; width: 702px; " id = "mainDiv">
+	<p id = "titl" style = "position: absolute; width: 90%; top: 5px; left: 5px;
+	 font-size: 12px; padding-left: 30px; height: 20px;">&nbsp;</p>
+
+	<div style = "position: absolute; top: 42px; left: 4px; width: 680px; text-align: center; ">
+		<fieldset style = "width: 650px; text-align: left;">
+			<legend id = "msL">&nbsp;</legend>
+			<table border = "0" cellpadding = "2" cellspacing = "2">
+				<tr><td valign = "top" style = "width: 320px">&nbsp;
+				</td><td valign = "top" style = "width: 320px">
+					<div id = "msmapsCaption">&nbsp;</div>
+				</td><tr>
+				<tr><td valign = "top" style = "width: 320px">
+					<input tabindex = 1 type="checkbox" id = "snk.errMode.chk" onclick = "snk.setsClicker()"
+					><label for= "snk.errMode.chk" >&nbsp;</label><br />
+					<input tabindex = 2 type="checkbox" id = "snk.oneErrOnly.chk" onclick = "snk.setsClicker()"
+					><label for="snk.oneErrOnly.chk" > &nbsp; </label><br />
+					<input tabindex = 3 type="checkbox" id = "snk.ErrAlwaysCount.chk" onclick = "snk.setsClicker()"
+					><label for="snk.ErrAlwaysCount.chk" > &nbsp; </label><br />
+					<input tabindex = 4 type="checkbox" id = "snk.skipNonTypedCharacters.chk" onclick = "snk.setsClicker()"
+					><label for="snk.skipNonTypedCharacters.chk" > &nbsp; </label><br />
+					<input tabindex = 5 type="checkbox" id = "snk.hideStatsOnPause.chk" onclick = "snk.setsClicker()"
+					><label for="snk.hideStatsOnPause.chk" > &nbsp; </label><br /><br />
+
+				</td><td valign = "top" style = "width: 320px; padding: 9px 5px 5px 20px;
+						overflow: auto; border: 1px solid gray" id = "msmaps">&nbsp;
+				</td><tr>
+			</table>
+		</fieldset>
+		<br />
+
+		<fieldset style = "width: 630px; text-align: left; " >
+			<legend id = "kbL">&nbsp;</legend>
+			<table border = 0 cellpadding = 2 cellspacing = 2>
+				<tr><td valign = "top">
+
+					<fieldset style = "width: 620px; text-align: left; " >
+						<legend id = "kbLL">&nbsp;</legend>
+						<table border = "0" cellpadding = "2" cellspacing = "2">
+							<tr><td>
+								<nobr>&nbsp;
+								<input type = "radio" id ="snk_kbCH_radio_id1" onclick = "snk.resetKbChanger(1)"
+									name ="snk_kbCH_radio_id"
+								><label for = "snk_kbCH_radio_id1" > Alt + Shift </label> &nbsp;
+
+								<input type = "radio" id ="snk_kbCH_radio_id2" onclick = "snk.resetKbChanger(2)"
+									name ="snk_kbCH_radio_id"
+								><label for = "snk_kbCH_radio_id2" > Ctrl + Shift </label>
+								</nobr>
+							</td><td id = "kbLLDivText" style = "padding-left: 30px; font-size: 11px">
+							</td><tr>
+						</table>
+					</fieldset>
+
+				</td></tr><tr><td valign = "top">
+
+					<fieldset style = "width: 620px; text-align: left; " >
+					<legend id = "kbKL">&nbsp;</legend>
+
+						<table border = 0 cellpadding = 0 cellspacing = 0>
+							<tr><td width = "400px" valign = "top">
+							
+								<input type = "checkbox" id = "snk.keybView.chk" onclick = "snk.setskeybView()"
+								><label for = "snk.keybView.chk" >&nbsp;</label>
+
+								<table border = "0" cellpadding = "0" cellspacing = "1" style = "margin: 5px 0px 5px 15px">
+									<tr>
+										<td>
+											<input type="checkbox" id = "snk.hider.chk" onclick = "snk.setskeybView()"
+											><label for = "snk.hider.chk" >&nbsp;</label>
+										</td>
+										<td valign = "bottom">
+											<input type = "text" id = "snk.hiderInterval.txt" class = "stndt" 
+												style = "height: 16px; border: 0px solid black; padding: 1px; padding-left: 7px;"
+												maxlength = 3 size = 3 value = "" onchange = "snk.checkHiderInterval()" />
+										</td>
+									</tr>
+									<tr><td colspan = "2">
+<!--
+										<input type="checkbox" id = "snk.shiftControl.chk" onclick = "snk.setsClicker()"
+										><label for="snk.shiftControl.chk" > &nbsp; </label><br>
+//-->
+										<input type = "checkbox" id = "snk.spaceIsShiftSensentive.chk" onclick = "snk.setsClicker()"
+										><label for = "snk.spaceIsShiftSensentive.chk" >&nbsp;</label><br>
+
+										<input type = "checkbox" id = "snk.spaceInvert.chk" onclick = "snk.setsClicker()"
+										><label for = "snk.spaceInvert.chk" >&nbsp;</label><br />
+									</td></tr>
+								</table>
+									
+							</td><td width = "220px" valign = "top">
+								<nobr id = "strings.s25">&nbsp;</nobr><br />
+								<select id = "snk_layout_select_id" size = "4" onchange = "snk.reselectLayout()" style = "margin: 5px 0px">
+								</select>
+							</td></tr>
+						</table>
+
+					</fieldset>
+
+				</td></tr>
+			</table>
+
+			<br />
+		</fieldset>
+		<br />
+
+		<fieldset style = "width: 640px; text-align: left; " >
+			<legend id = "kbKKL">&nbsp;</legend>
+				<table border = 0 cellpadding = 0 cellspacing = 0>
+					<tr><td width = "300px" style = "padding: 5px 5px 5px 15px">
+						<nobr id = "strings.s23">&nbsp;</nobr><br />
+						<select id = "snk_skin_select_id" style = "width: 250px; margin: 10px 10px 10px 10px;"
+							size = "5" onchange = "snk.reselectSkin()" onfocus = "scroller()" >
+						</select>
+						<br />
+						<div id = "kbKKLDivCont" style = "width: 225px; padding: 3px 10px 4px 11px; 
+							border: 1px solid white; background: black; color: white">&nbsp;</div>
+						<br />
+					</td><td width = "320px" valign = "top" >
+						<nobr id = "strings.s39">&nbsp;</nobr><br /><br />
+						
+						<nobr>
+							<input type = "radio" id = "snk_keybSize_radio_id1"
+							onclick = "snk.reselectKbSize(1)"
+							onfocus = "scroller()"
+							name = "snk_keybSize_radio_id" value = "big">
+							<label for = "snk_keybSize_radio_id1" >&nbsp;</label>
+						</nobr><br />
+
+						<nobr>
+							<input type = "radio" id = "snk_keybSize_radio_id2"
+							onclick = "snk.reselectKbSize(2)"
+							onfocus = "scroller()"
+							name = "snk_keybSize_radio_id" value = "med">
+							<label for = "snk_keybSize_radio_id2" >&nbsp;</label>
+						</nobr><br />
+
+						<nobr>
+							<input type = "radio" id = "snk_keybSize_radio_id3"
+							onclick = "snk.reselectKbSize(3)"
+							onfocus = "scroller()"
+							name = "snk_keybSize_radio_id" value = "sml">
+							<label for = "snk_keybSize_radio_id3" >&nbsp;</label>
+						</nobr><br />
+						
+					</td></tr>
+				</table>
+		</fieldset>
+
+		<br /><br />
+
+		<hr size = 1>
+		<hr size = 1>
+		<center>
+		&nbsp;
+			<!--
+			<input type = "button" value = "" id = "historyButton" style = "border: 1px solid gray; color: white; background: black">
+			//-->
+		</center>
+		<hr size = 1>
+		<hr size = 1>
+	</div>
+</div>
+
+</body>
+
+<script language="JavaScript">
+<!--
+var questor;
+
+scroller = function(){ try{ document.body.scrollTop = parseInt(document.body.scrollTop) + 50; }catch(e){}finally{} }
+
+snk = {
+	  setsClicker			: function(){
+		usr.errMode = mix("snk.errMode.chk").checked ? true : false;
+		if(!mix("snk.errMode.chk").checked){ mix("snk.oneErrOnly.chk").checked = false; }
+		mix("snk.oneErrOnly.chk").disabled = usr.errMode ? false : true;
+		usr.oneErrOnly = mix("snk.oneErrOnly.chk").checked ? true : false;
+
+		usr.ErrAlwaysCount = mix("snk.ErrAlwaysCount.chk").checked ? true : false;
+		usr.skipNonTypedCharacters = mix("snk.skipNonTypedCharacters.chk").checked ? true : false;
+		usr.hideStatsOnPause = mix("snk.hideStatsOnPause.chk").checked ? true : false;
+
+		//usr.shiftControl = mix("snk.shiftControl.chk").checked ? true : false;
+
+		usr.spaceIsShiftSensentive = mix("snk.spaceIsShiftSensentive.chk").checked ? true : false;
+		if(mix("snk.spaceIsShiftSensentive.chk").checked){
+			mix("snk.spaceInvert.chk").disabled = false;
+			usr.spaceInvert = mix("snk.spaceInvert.chk").checked ? true : false;
+		}else{
+			mix("snk.spaceInvert.chk").disabled = true;
+		}
+	}
+	, reselectMapsArr		: function(par){
+
+		layouts.resizer(0);
+
+		var arr = par.split(".");
+		var selm = "";
+		var selmi = "";
+		for(var i in usr.selectedMaps){
+			var sm = usr.selectedMaps[i].split(".");
+			if(sm[0] == arr[0]){
+				selm = usr.selectedMaps[i];
+				selmi = i;
+			}
+		}
+		if(selm !== ""){ // 1 from 1
+
+			usr.selectedMaps[selmi] = par;
+			kb.loadselectedmaps();
+			usr.currentMap = par.split(".")[0];
+			kb.changeMap.map = usr.currentMap;
+			//kb.langObj.In(kb.map[usr.currentMap].name);
+			layouts.evaluator(usr.layouts);
+
+			mix("snk."+selm+".chk").disabled = false;
+			mix("snk."+selm+".chk").checked = false;
+			mix.s("snk."+selm+".lbl").fontWeight = "normal";
+
+			mix("snk."+par+".chk").disabled = true;
+			mix("snk."+par+".chk").checked = true;
+			mix.s("snk."+par+".lbl").fontWeight = "bold";
+
+			layouts.resizer();
+			layouts.resizer(true);
+			layouts.translator(1);
+			document.body.focus();
+			snks.keychkb();
+		}else{ // 1 from 2
+			snk.reselectMapsArr.secondArr = [];
+			snk.reselectMapsArr.secondArr[0] = [par, usr.selectedMaps[1]];
+			snk.reselectMapsArr.secondArr[1] = [usr.selectedMaps[0], par];
+
+			mix("snk."+par+".chk").checked = false;
+
+			questor = snk.reselectMapsArr.secondArr;
+			var ssm = "<form name = \"genF\">";
+
+			tabindC = 0;
+			for(var i in questor){
+			  tabindC++;
+				ssm += "<input type = \"radio\" id =\"radio_id_map" + i + "\" ";
+				ssm += "name =\"radio_id_map\" value = \"" + i + "\"";
+				ssm += " tabindex = " + tabindC + " ";
+				if(i == 0){ ssm += " CHECKED "; }
+				ssm += ">";
+				ssm += "<label for=\"radio_id_map"+i+"\" >";
+				ssm += " &nbsp;&nbsp;" + questor[i][0] + " &nbsp;&nbsp;&amp;&nbsp;&nbsp; " + questor[i][1] + " ";
+				ssm += "</label><br />";
+			}
+			tabindC++;
+			ssm += "<hr width = \"30%\" style = \"margin-left: 15px\">";
+			ssm += "<input type = \"button\" tabindex = " + tabindC;
+			ssm += " onclick = \"snk.selectNewMaps()\" value = \"OK\" style = \"width: 50px; margin-left: 50px\">"
+			ssm += "</form>";
+
+			mix.Fhide("mainDiv");
+			mix.Fshow("questorDiv");
+			mix.In("questorDiv", ssm);
+			ssm = "";
+		}
+
+	}
+	, selectNewMaps 		: function(){
+		var mdaqwest = (mix("radio_id_map0").checked) ? 0 : 1;
+		usr.selectedMaps = questor[mdaqwest];
+		kb.loadselectedmaps();
+		usr.currentMap = usr.selectedMaps[0].split(".")[0];
+		kb.current_map = usr.currentMap;
+		//kb.langObj.In(kb.map[usr.currentMap].name);
+		for(var i in kb.mapsarr){
+			if((usr.selectedMaps[0]==kb.mapsarr[i])
+					|| (usr.selectedMaps[1]==kb.mapsarr[i])){
+				mix("snk."+kb.mapsarr[i]+".chk").disabled = true;
+				mix("snk."+kb.mapsarr[i]+".chk").checked = true;
+				mix.s("snk."+kb.mapsarr[i]+".lbl").fontWeight = "bold";
+			}else{
+				mix("snk."+kb.mapsarr[i]+".chk").disabled = false;
+				mix("snk."+kb.mapsarr[i]+".chk").checked = false;
+				mix.s("snk."+kb.mapsarr[i]+".lbl").fontWeight = "normal";
+			}
+		}
+		layouts.evaluator();
+		layouts.resizer();
+		layouts.resizer(true);
+		layouts.translator(1);
+		mix.Fhide("questorDiv");
+		mix.Fshow("mainDiv");
+		mix.In("questorDiv", " ");
+		snks.keychkb();
+	}	
+	, resetKbChanger		: function(par){
+		if(par == 1){ usr.mapChanger = new Array(0, 1, 1); }
+		if(par == 2){ usr.mapChanger = new Array(1, 1, 0); }
+	}
+	, setskeybView			: function(){
+		usr.keybView = mix("snk.keybView.chk").checked ? true : false;
+		if(usr.keybView){
+
+			mix("snk_keybSize_radio_id1").disabled = false;
+			mix("snk_keybSize_radio_id2").disabled = false;
+			mix("snk_keybSize_radio_id3").disabled = false;
+			//mix.Fshow("snk_keybSize_radio_id1");
+			//mix.Fshow("snk_keybSize_radio_id2");
+			//mix.Fshow("snk_keybSize_radio_id3");
+
+			//$("label[for='snk_keybSize_radio_id1']").show();
+			//$("label[for='snk_keybSize_radio_id3']").show();
+			//$("label[for='snk_keybSize_radio_id2']").show();
+			
+			mix("snk_layout_select_id").disabled = false;
+			//mix.Fshow("snk_layout_select_id");
+			mix("snk_layout_select_id").disabled = false;
+			mix("snk.spaceInvert.chk").disabled = false;
+			mix("snk.spaceIsShiftSensentive.chk").disabled = false;
+			//mix.Fshow("strings.s25");
+			//mix.Fshow("strings.s39");
+			mix("snk.hiderInterval.txt").value = usr.hiderInterval;
+			mix("snk.hider.chk").disabled = false;
+			mix("snk.hiderInterval.txt").disabled = false;
+			
+		}else{
+
+			mix("snk_keybSize_radio_id1").disabled = true;
+			mix("snk_keybSize_radio_id2").disabled = true;
+			mix("snk_keybSize_radio_id3").disabled = true;
+			//mix.Fhide("snk_keybSize_radio_id1");
+			//mix.Fhide("snk_keybSize_radio_id2");
+			//mix.Fhide("snk_keybSize_radio_id3");
+
+			//$("label[for='snk_keybSize_radio_id1']").hide();
+			//$("label[for='snk_keybSize_radio_id2']").hide();
+			//$("label[for='snk_keybSize_radio_id3']").hide();
+
+			mix("snk_layout_select_id").disabled = true;
+			mix("snk_layout_select_id").disabled = true;
+			mix("snk.spaceInvert.chk").disabled = true;
+			mix("snk.spaceIsShiftSensentive.chk").disabled = true;
+			//mix.Fhide("strings.s25");
+			//mix.Fhide("strings.s39");
+			mix("snk.hider.chk").disabled = true;
+			mix("snk.hiderInterval.txt").disabled = true;
+
+		}
+		if(!mix("snk.keybView.chk").checked){ 
+			mix("snk.hider.chk").checked = false; 
+		}
+		
+		usr.hider = mix("snk.hider.chk").checked ? true : false;
+		if(usr.hider){
+			$("label[for='snk.hider.chk']").html(strings.s36 + " " + strings.s37);
+			mix.Fshow("snk.hiderInterval.txt");
+		}else{
+			$("label[for='snk.hider.chk']").html(strings.s36);
+			mix.Fhide("snk.hiderInterval.txt");
+		}
+		layouts.resizer(usr.keybView);
+		document.body.focus();
+	}
+	, checkHiderInterval		: function(){
+		var par = parseInt(mix("snk.hiderInterval.txt").value);
+		if((par < 999) && (par > 50)){
+			usr.hiderInterval = par;
+		}else{
+			alert("Incorrect value. \n correct value is more than 50 but less than 999. ");
+			mix("snk.hiderInterval.txt").value = usr.hiderInterval;
+			mix("snk.hiderInterval.txt").focus();
+		}
+	}
+	, reselectLayout		: function(){
+		var ener = mix("snk_layout_select_id").value;
+		if(usr.layouts != ener){
+			usr.layouts = ener;
+			layouts.selted = layouts.arr[ener];
+			layouts.layoutLoad();
+			layouts.evaluator();
+			layouts.resizer();
+			layouts.resizer(true);
+			layouts.translator(1);
+			layouts.resizer(usr.keybView);
+			try{
+				document.body.focus();
+				mix("snk_layout_select_id").focus();
+			}catch(e){
+			}finally{}
+		}
+	}
+
+	, reselectKbSize 		: function(par){
+		if(usr.keybView){
+			var ener = mix("snk_keybSize_radio_id"+par).value;
+			if(usr.keybSize != ener){
+				usr.keybSize = mix("snk_keybSize_radio_id"+par).value;
+				//prefs.setCharPref("keybSize", usr.keybSize);
+				layouts.evaluator();
+				layouts.resizer();
+				layouts.resizer(true);
+				layouts.translator(1);
+				try{
+					document.body.focus();
+					mix("snk_keybSize_radio_id"+par).focus();
+				}catch(e){
+				}finally{}
+			}
+		}
+	}
+
+	, reselectSkin				: function(){
+		var ener = mix("snk_skin_select_id").value;
+		if(ener != skins.selted[1]){
+			var strptalm = "";
+			var skinval;
+
+			skinval = skins[ener];
+			if(skinval.author != ""){
+				strptalm += "powered by : " + skinval.author + "<br />";
+			}
+			if(skinval.link != ""){
+				strptalm += "<a href = \"" + skinval.link + "\">" + skinval.link + "</a><br />";
+			}
+			if(skinval.mail != ""){
+				strptalm += "<a href = \"mailto:" + skinval.mail + "\">" + skinval.mail + "</a><br />";
+			}
+			
+			mix.In("kbKKLDivCont", strptalm);
+			usr.skin = ener;
+			//prefs.setCharPref("skin", usr.skin);
+			skins.selted = skins.arr[ener];
+			skins.skinLoad();
+			//kernel.layouts.evaluator();
+			layouts.resizer();
+			layouts.resizer(true);
+			layouts.translator(1);
+			selector.fn();
+			//document.title = "here";
+		}
+		try{
+			document.body.focus();
+			mix("snk_skin_select_id").focus();
+		}catch(e){
+		}finally{}
+	}
+	, hideHistory 		: function(){
+		/*
+		mix.Fshow("mainDiv");
+		mix.Fhide("historyDiv");
+		mix.In("historyDiv"," ");
+		document.body.scrollTop = 0;
+		document.body.focus();
+		*/
+	}
+
+	, historyCleaner	: function(){
+		/*
+		if(window.confirm("Are You realy SHURE???") == 1){
+			var loc = fns.locator();
+			var path = ""+loc+"users/"+kernel.vars.user.name+".his";
+			var histF = FSO.CreateTextFile(path, true, -2);
+			histF.close();
+			snk.hideHistory();
+		}
+		*/
+	}
+	, revalver 			: function(){
+		/*
+		var loc = fns.locator();
+		var path = ""+loc+"users/"+usr.name+".his";
+
+		if(FSO.FileExists(path)==0){
+			alert(strings.s48);
+		}else{
+			//alert(strings.s43);
+			var histF = FSO.OpenTextFile(path, 1, false, -2);
+			hisStr = "";
+			try{
+				var hisStr = histF.ReadAll();
+				histF.close();
+				hisStr = hisStr.split("\n");
+				for(var i in hisStr){
+					hisStr[i] = hisStr[i].split("|||");
+				}
+			}catch(e){}
+			finally{}
+			var str = "";
+			str += "<table border = 0 width = \"100%\"";
+			str += " style = \"font-size: " + kernel.skins.snk.standartFS + "; border: "+kernel.skins.snk.standartBorder+"; \">";
+
+			str += "<tr><td>#</td><td> When </td><td> Speed </td><td> Time </td><td> Err %</td></tr>";
+			var num = hisStr.length;
+			if(num>0){
+				str += "<tr><td colspan = 5 aligh = \"center\" ";
+				str += " style = \"text-align: center; border: "+kernel.skins.snk.standartBorder+"; padding: 5px\">";
+				str += " <u onclick = \"snk.historyCleaner()\"> Clear History</u> &nbsp;&nbsp;&nbsp;[ Ctrl + D ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+				str += " <u onclick = \"snk.hideHistory()\"> Hide History</u> &nbsp;&nbsp;&nbsp;[ Ctrl + H ]</td></tr>";
+
+				do{
+					if(hisStr[num]){
+						if(hisStr[num][0] && hisStr[num][1] && hisStr[num][2] && hisStr[num][3]){
+							str += "<tr>";
+							str += "<td>"+num+"</td>";
+							str += "<td>"+hisStr[num][0]+"</td>";
+							str += "<td>"+hisStr[num][1]+"</td>";
+							str += "<td>"+hisStr[num][2]+"</td>";
+							str += "<td>"+hisStr[num][3]+"</td>";
+							str += "</tr>";
+						}}
+					num--;
+				}while(num > (-1));
+				str += "<tr><td colspan = 5 ";
+				str += " style = \"text-align: center; border: "+kernel.skins.snk.standartBorder+"; padding: 5px \">";
+				str += " <u onclick = \"snk.historyCleaner()\"> Clear History</u> &nbsp;&nbsp;&nbsp;[ Ctrl + D ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+				str += " <u onclick = \"snk.hideHistory()\"> Hide History</u> &nbsp;&nbsp;&nbsp;[ Ctrl + H ]</td></tr>";
+			}
+			str += "</table>";
+			mix.Fhide("mainDiv");
+			mix.Fshow("historyDiv");
+			mix.In("historyDiv",str);
+			str = "";
+			hisStr = "";
+			document.body.scrollTop = 0;
+			document.body.focus();
+		}
+		*/
+	}
+}
+
+starter = function(){
+
+	mix.In("titl", strings.s16);
+	mix.In("msL", strings.s26);
+
+	//$('#snk\\.errMode\\.chk').attr('checked', usr.errMode);
+	mix("snk.errMode.chk").checked = usr.errMode;
+	$("label[for='snk.errMode.chk']").html(strings.s21);
+
+	mix("snk.oneErrOnly.chk").checked = usr.oneErrOnly;
+	mix("snk.oneErrOnly.chk").disabled = !usr.errMode;
+	$("label[for='snk.oneErrOnly.chk']").html(strings.s31);
+
+	mix("snk.ErrAlwaysCount.chk").checked = usr.ErrAlwaysCount;
+	$("label[for='snk.ErrAlwaysCount.chk']").html(strings.s32);
+
+	mix("snk.skipNonTypedCharacters.chk").checked = usr.skipNonTypedCharacters;
+	$("label[for='snk.skipNonTypedCharacters.chk']").html(strings.s49);
+
+	mix("snk.hideStatsOnPause.chk").checked = usr.hideStatsOnPause;
+	$("label[for='snk.hideStatsOnPause.chk']").html(strings.s54);
+
+	mix.In("msmapsCaption", strings.s24);
+	mix.In("msmaps", "");
+	var tabindexCount = 6;
+
+	for(var i in kb.mapsarr){
+		var map_sel = mix.addObj("snk."+kb.mapsarr[i]+".chk", "msmaps", "INPUT", {
+			  type : "checkbox"
+			, tabIndex : tabindexCount
+		});
+		// var map_sel = mix.addObj("snk."+kb.mapsarr[i]+".chk", "msmaps");
+		// map_sel.m.type = "checkbox";
+		// map_sel.m.setAttribute("tabindex", tabindexCount, 0);
+		map_sel.m.setAttribute("map", kb.mapsarr[i], 0);
+		map_sel.m.onclick = function(){
+			this.blur();
+			snk.reselectMapsArr(this.getAttribute("map"));
+		};
+		var map_sel_lbl = mix.addObj("snk."+kb.mapsarr[i]+".lbl",	"msmaps", "LABEL");
+		map_sel_lbl.m.setAttribute("for", "snk."+kb.mapsarr[i]+".chk");
+		map_sel_lbl.In(kb.mapsarr[i]);
+		if((usr.selectedMaps[0]==kb.mapsarr[i]) || (usr.selectedMaps[1]==kb.mapsarr[i])){
+			map_sel.m.setAttribute("disabled", true, 0);
+			map_sel.m.setAttribute("checked", true, 0);
+			map_sel_lbl.FW("bold");
+		}else{
+			map_sel_lbl.FW("normal");
+		}
+		map_sel_lbl.q.after("<br />");
+	}
+
+	mix.In("kbL", strings.s29);
+	mix.In("kbLL", strings.s38);
+	mix.In("kbKL", strings.s44);
+	mix.In("kbKKL", strings.s28);
+
+
+	var mc = usr.mapChanger;
+	tabindexCount++;
+	mix("snk_kbCH_radio_id1").setAttribute("tabindex", tabindexCount, 0);
+	tabindexCount++;
+	mix("snk_kbCH_radio_id2").setAttribute("tabindex", tabindexCount, 0);
+	mix("snk_kbCH_radio_id1").checked = true;
+	if(!mc[0] && mc[1] && mc[2]) { mix("snk_kbCH_radio_id1").checked = true; }
+	if(mc[0] && mc[1] && !mc[2]) { mix("snk_kbCH_radio_id2").checked = true; }
+
+	mix.In("kbLLDivText", strings.s53);
+
+
+	tabindexCount++;
+	mix("snk.keybView.chk").checked = usr.keybView;
+	mix("snk.keybView.chk").setAttribute("tabindex", tabindexCount, 0);
+	$("label[for='snk.keybView.chk']").html(strings.s35);
+
+	tabindexCount++;
+	mix("snk.hider.chk").setAttribute("tabindex", tabindexCount, 0);
+	$("label[for='snk.hider.chk']").html(strings.s36);
+
+	mix("snk.hiderInterval.txt").setAttribute("tabindex", tabindexCount, 0);
+
+/*
+	tabindexCount++;
+	mix("snk.shiftControl.chk").setAttribute("tabindex", tabindexCount, 0);
+	mix("snk.shiftControl.chk").checked = usr.shiftControl;
+	$("label[for='snk.shiftControl.chk']").html(strings.s22);
+*/
+
+	tabindexCount++;
+	mix("snk.spaceIsShiftSensentive.chk").setAttribute("tabindex", tabindexCount, 0);
+	mix("snk.spaceIsShiftSensentive.chk").checked = usr.spaceIsShiftSensentive;
+	$("label[for='snk.spaceIsShiftSensentive.chk']").html(strings.s34);
+
+	tabindexCount++;
+	mix("snk.spaceInvert.chk").setAttribute("tabindex", tabindexCount, 0);
+	mix("snk.spaceInvert.chk").checked = usr.spaceInvert;
+	$("label[for='snk.spaceInvert.chk']").html(strings.s33);
+
+	if(mix("snk.spaceIsShiftSensentive.chk").checked){
+		mix("snk.spaceInvert.chk").disabled = false;
+	}else{
+		mix("snk.spaceInvert.chk").disabled = true;
+	}
+	
+	mix("snk.hiderInterval.txt").value = usr.hiderInterval;
+	mix.Fhide("snk.hiderInterval.txt");
+	if(usr.keybView){
+		mix("snk.hider.chk").checked = usr.hider;
+		if(usr.hider){
+			$("label[for='snk.hider.chk']").html(strings.s36 + " " + strings.s37);
+			tabindexCount++;
+			mix.Fshow("snk.hiderInterval.txt");
+		}
+		mix("snk.hiderInterval.txt").disabled = false;
+	}else{
+		mix("snk.hider.chk").disabled = true;
+//		mix("snk.shiftControl.chk").disabled = true;
+		mix("snk.spaceIsShiftSensentive.chk").disabled = true;
+		mix("snk.spaceInvert.chk").disabled = true;
+		mix("snk_layout_select_id").disabled = true;
+		
+		mix("snk_keybSize_radio_id1").disabled = true;
+		mix("snk_keybSize_radio_id2").disabled = true;
+		mix("snk_keybSize_radio_id3").disabled = true;
+		
+		mix("snk.hiderInterval.txt").disabled = true;
+	}
+
+	mix.In("strings.s25", strings.s25);
+	tabindexCount++;
+	mix("snk_layout_select_id").setAttribute("tabindex", tabindexCount, 0);
+
+
+	for (var i in layouts.arr){
+		var lo = layouts.arr[i][1];
+		var lo_sel = mix.addObj("snk_layout_" + lo + "_select_id", "snk_layout_select_id", "OPTION");
+		lo_sel.m.setAttribute("value", lo, 0);
+		if(i == usr.layouts) { lo_sel.m.setAttribute("selected", true, 0); }
+		var str = "" + ((layouts.arr[i][1] == "native") ? strings.s45 : ( (Math.round(Math.random()))? (""+strings.s46+" ?") : (""+strings.s47+" ?") )) + "&nbsp;&nbsp;&nbsp;";
+		lo_sel.In(str);
+	}
+
+	mix.In("strings.s23", strings.s23);
+	tabindexCount++;
+	mix("snk_skin_select_id").setAttribute("tabindex", tabindexCount, 0);
+
+	var strptalm = "";
+	for (var i in skins.arr){
+		var nmskn = skins.arr[i][1];
+		var skn_sel = mix.addObj("snk_skin_" + nmskn + "_select_id", "snk_skin_select_id", "OPTION");
+		skn_sel.m.setAttribute("value", nmskn, 0);
+		if(i == usr.skin) { 
+			skn_sel.m.setAttribute("selected", true, 0); 
+			var skinval = skins[nmskn];
+			if(skinval.author != ""){
+				strptalm += "powered by : " + skinval.author + "<br />";
+			}
+			if(skinval.link != ""){
+				strptalm += "<a href = \"" + skinval.link + "\">" + skinval.link + "</a><br />";
+			}
+			if(skinval.mail != ""){
+				strptalm += "<a href = \"mailto:" + skinval.mail + "\">" + skinval.mail + "</a><br />";
+			}
+		}
+		var str = "";
+		if(skins[nmskn].name !== ""){
+			str += "&nbsp;" + skins[nmskn].name + "&nbsp;";
+		}else{
+			str += "&nbsp;" + nmskn + "&nbsp;&nbsp;&nbsp;";
+		}
+		skn_sel.In(str);
+	}
+	mix.In("kbKKLDivCont", strptalm);
+
+	var ssm = "";
+
+	mix.In("strings.s39", strings.s39);
+
+	tabindexCount++;
+	mix("snk_keybSize_radio_id1").setAttribute("tabindex", tabindexCount, 0);
+	tabindexCount++;
+	mix("snk_keybSize_radio_id2").setAttribute("tabindex", tabindexCount, 0);
+	tabindexCount++;
+	mix("snk_keybSize_radio_id3").setAttribute("tabindex", tabindexCount, 0);
+	
+	if(usr.keybSize == "big"){ mix("snk_keybSize_radio_id1").checked = true; }
+	if(usr.keybSize == "med"){ mix("snk_keybSize_radio_id2").checked = true; }
+	if(usr.keybSize == "sml"){ mix("snk_keybSize_radio_id3").checked = true; }
+
+	$("label[for='snk_keybSize_radio_id1']").html(strings.s40);
+	$("label[for='snk_keybSize_radio_id2']").html(strings.s41);
+	$("label[for='snk_keybSize_radio_id3']").html(strings.s42);
+	
+	ev.t("document.body.focus()", 30);
+
+	document.title = "e == mc ^ 2";
+}
+
+kbDown = function(event){
+	var z = event.keyCode;
+	if (z == 116){ event.returnValue = false; window.close(); }
+	if(mix.hish("historyDiv")){
+		if(ctrlK && (z == 68)){ snk.historyCleaner(); }
+		if(ctrlK && (z == 72)){ snk.hideHistory(); }
+	}
+	if ((z == 10) || (z == 255) || ((z > 112) && (z < 116)) || ((z > 116) && (z < 123))){ fns.cancl(evt); } //!!! in place of return false !!!
+}
+
+
+var questor;
+var kb = window.dialogArguments.kb;
+var snks = window.dialogArguments.snk;
+var usr = window.dialogArguments.usr;
+var kernel = window.dialogArguments.kernel;
+var layouts = window.dialogArguments.layouts;
+var skins = window.dialogArguments.skins;
+var strings = window.dialogArguments.strings;
+
+ev.WinEvent("onkeydown", "kbDown");
+
+window.onbeforeunload = function(){
+	window.dialogArguments.usr = usr;
+}
+ev.t("starter()", 500);
+
+//-->
+</script>
+<script language = "JavaScript" src = "escEr.js"></script>
+<script language = "JavaScript" src = "selector.js"></script>
+</html>

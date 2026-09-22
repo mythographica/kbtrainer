@@ -1,0 +1,539 @@
+{
+  "version": 2,
+  "generatedAt": "2026-09-22T14:17:19.000Z",
+  "points": [],
+  "creationGraph": {
+    "nodes": [
+      {
+        "scopeId": "models/Session/ModeF8/index.ts:13:18",
+        "name": "ModeF8",
+        "kind": "function",
+        "filePath": "models/Session/ModeF8/index.ts",
+        "location": "models/Session/ModeF8/index.ts:13:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/ModeF5/index.ts:13:18",
+        "name": "ModeF5",
+        "kind": "function",
+        "filePath": "models/Session/ModeF5/index.ts",
+        "location": "models/Session/ModeF5/index.ts:13:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/ModeF4/index.ts:13:18",
+        "name": "ModeF4",
+        "kind": "function",
+        "filePath": "models/Session/ModeF4/index.ts",
+        "location": "models/Session/ModeF4/index.ts:13:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/WordPick/index.ts:17:18",
+        "name": "WordPick",
+        "kind": "function",
+        "filePath": "models/Session/WordPick/index.ts",
+        "location": "models/Session/WordPick/index.ts:17:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/Run/index.ts:18:18",
+        "name": "Run",
+        "kind": "function",
+        "filePath": "models/Session/Run/index.ts",
+        "location": "models/Session/Run/index.ts:18:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/LetterPick/index.ts:16:18",
+        "name": "LetterPick",
+        "kind": "function",
+        "filePath": "models/Session/LetterPick/index.ts",
+        "location": "models/Session/LetterPick/index.ts:16:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:13:20",
+        "name": "StatUpdate",
+        "kind": "function",
+        "filePath": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts",
+        "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:13:20",
+        "starter": false
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts",
+        "name": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts",
+        "kind": "module",
+        "filePath": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts",
+        "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:1:1",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20",
+        "name": "StatUpdate",
+        "kind": "function",
+        "filePath": "models/Session/KeyStroke/Correct/StatUpdate/index.ts",
+        "location": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20",
+        "starter": false
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Correct/StatUpdate/index.ts",
+        "name": "models/Session/KeyStroke/Correct/StatUpdate/index.ts",
+        "kind": "module",
+        "filePath": "models/Session/KeyStroke/Correct/StatUpdate/index.ts",
+        "location": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:1:1",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+        "name": "Mistake",
+        "kind": "function",
+        "filePath": "models/Session/KeyStroke/Mistake/index.ts",
+        "location": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+        "starter": false
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Mistake/index.ts",
+        "name": "models/Session/KeyStroke/Mistake/index.ts",
+        "kind": "module",
+        "filePath": "models/Session/KeyStroke/Mistake/index.ts",
+        "location": "models/Session/KeyStroke/Mistake/index.ts:1:1",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Correct/index.ts:15:17",
+        "name": "Correct",
+        "kind": "function",
+        "filePath": "models/Session/KeyStroke/Correct/index.ts",
+        "location": "models/Session/KeyStroke/Correct/index.ts:15:17",
+        "starter": false
+      },
+      {
+        "scopeId": "models/Session/KeyStroke/Correct/index.ts",
+        "name": "models/Session/KeyStroke/Correct/index.ts",
+        "kind": "module",
+        "filePath": "models/Session/KeyStroke/Correct/index.ts",
+        "location": "models/Session/KeyStroke/Correct/index.ts:1:1",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/EventHandler/index.ts:50:21",
+        "name": "models/Session/EventHandler/index.ts:50",
+        "kind": "arrow",
+        "filePath": "models/Session/EventHandler/index.ts",
+        "location": "models/Session/EventHandler/index.ts:50:21",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Session/index.ts:38:18",
+        "name": "Session",
+        "kind": "function",
+        "filePath": "models/Session/index.ts",
+        "location": "models/Session/index.ts:38:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+        "name": "LessonPick",
+        "kind": "function",
+        "filePath": "models/Program/ModeDialog/LessonPick/index.ts",
+        "location": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+        "name": "BookPick",
+        "kind": "function",
+        "filePath": "models/Program/ModeDialog/BookPick/index.ts",
+        "location": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+        "starter": true
+      },
+      {
+        "scopeId": "models/Program/index.ts:33:18",
+        "name": "Program",
+        "kind": "function",
+        "filePath": "models/Program/index.ts",
+        "location": "models/Program/index.ts:33:18",
+        "starter": true
+      },
+      {
+        "scopeId": "src/renderer/engine.ts:300:16",
+        "name": "keydown",
+        "kind": "function",
+        "filePath": "src/renderer/engine.ts",
+        "location": "src/renderer/engine.ts:300:16",
+        "starter": true
+      },
+      {
+        "scopeId": "src/preload.ts:47:17",
+        "name": "src/preload.ts:47",
+        "kind": "function",
+        "filePath": "src/preload.ts",
+        "location": "src/preload.ts:47:17",
+        "starter": true
+      },
+      {
+        "scopeId": "src/domain/store.ts:147:25",
+        "name": "src/domain/store.ts:147",
+        "kind": "arrow",
+        "filePath": "src/domain/store.ts",
+        "location": "src/domain/store.ts:147:25",
+        "starter": true
+      },
+      {
+        "scopeId": "src/domain/store.ts:92:30",
+        "name": "bootStoreWith",
+        "kind": "arrow",
+        "filePath": "src/domain/store.ts",
+        "location": "src/domain/store.ts:92:30",
+        "starter": false
+      },
+      {
+        "scopeId": "src/preload.ts",
+        "name": "src/preload.ts",
+        "kind": "module",
+        "filePath": "src/preload.ts",
+        "location": "src/preload.ts:1:1",
+        "starter": true
+      }
+    ],
+    "edges": [
+      {
+        "caller": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts",
+        "callee": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:13:20"
+      },
+      {
+        "caller": "models/Session/KeyStroke/Correct/StatUpdate/index.ts",
+        "callee": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20"
+      },
+      {
+        "caller": "models/Session/KeyStroke/Mistake/index.ts",
+        "callee": "models/Session/KeyStroke/Mistake/index.ts:18:17"
+      },
+      {
+        "caller": "models/Session/KeyStroke/Correct/index.ts",
+        "callee": "models/Session/KeyStroke/Correct/index.ts:15:17"
+      },
+      {
+        "caller": "src/preload.ts",
+        "callee": "src/domain/store.ts:92:30"
+      }
+    ],
+    "anchors": [
+      {
+        "location": "src/renderer/engine.ts:458:25",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.KeyStroke",
+        "constructorText": "kbstore.session.KeyStroke",
+        "variable": "keystroke"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:111:22",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.KeyStroke",
+        "constructorText": "session.KeyStroke",
+        "variable": "keystroke"
+      },
+      {
+        "location": "src/renderer/engine.ts:462:10",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.KeyStroke.Correct",
+        "constructorText": "keystroke.Correct"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:113:5",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.KeyStroke.Correct",
+        "constructorText": "keystroke.Correct"
+      },
+      {
+        "location": "src/renderer/engine.ts:465:10",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.KeyStroke.Mistake",
+        "constructorText": "keystroke.Mistake"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:114:5",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.KeyStroke.Mistake",
+        "constructorText": "keystroke.Mistake"
+      },
+      {
+        "location": "src/domain/store.ts:98:34",
+        "holderScopeId": "src/domain/store.ts:92:30",
+        "typePath": "Program",
+        "constructorText": "ProgramCtor",
+        "variable": "program"
+      },
+      {
+        "location": "src/domain/store.ts:102:18",
+        "holderScopeId": "src/domain/store.ts:92:30",
+        "typePath": "Session",
+        "constructorText": "SessionCtor",
+        "variable": "session"
+      },
+      {
+        "location": "src/domain/store.ts:103:24",
+        "holderScopeId": "src/domain/store.ts:92:30",
+        "typePath": "Timer",
+        "constructorText": "TimerCtor",
+        "variable": "timer"
+      },
+      {
+        "location": "src/domain/store.ts:147:33",
+        "holderScopeId": "src/domain/store.ts:147:25",
+        "typePath": "Timer.Tick",
+        "constructorText": "timer.Tick"
+      },
+      {
+        "location": "src/preload.ts:51:16",
+        "holderScopeId": "src/preload.ts:47:17",
+        "typePath": "Program.ViewControl",
+        "constructorText": "program.ViewControl",
+        "variable": "view"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:78:17",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Program.ViewControl",
+        "constructorText": "program!.ViewControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:82:17",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Program.ViewControl",
+        "constructorText": "program!.ViewControl",
+        "variable": "view"
+      },
+      {
+        "location": "src/preload.ts:52:17",
+        "holderScopeId": "src/preload.ts:47:17",
+        "typePath": "Program.ViewControl.ZoomIn",
+        "constructorText": "view.ZoomIn"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:79:11",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Program.ViewControl.ZoomIn",
+        "constructorText": "view.ZoomIn"
+      },
+      {
+        "location": "src/preload.ts:52:37",
+        "holderScopeId": "src/preload.ts:47:17",
+        "typePath": "Program.ViewControl.ZoomOut",
+        "constructorText": "view.ZoomOut"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:83:11",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Program.ViewControl.ZoomOut",
+        "constructorText": "view.ZoomOut"
+      },
+      {
+        "location": "src/renderer/engine.ts:307:22",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.RunControl",
+        "constructorText": "kbstore.session.RunControl",
+        "variable": "runControl"
+      },
+      {
+        "location": "src/renderer/engine.ts:314:26",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.RunControl",
+        "constructorText": "kbstore.session.RunControl",
+        "variable": "runControlEsc"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:89:19",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl",
+        "constructorText": "session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:96:19",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl",
+        "constructorText": "session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:102:19",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl",
+        "constructorText": "session.RunControl",
+        "variable": "runctl"
+      },
+      {
+        "location": "src/renderer/engine.ts:308:5",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.RunControl.Resume",
+        "constructorText": "runControl.Resume"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:103:11",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl.Resume",
+        "constructorText": "runctl.Resume"
+      },
+      {
+        "location": "src/renderer/engine.ts:315:6",
+        "holderScopeId": "src/renderer/engine.ts:300:16",
+        "typePath": "Session.RunControl.Pause",
+        "constructorText": "runControlEsc.Pause"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:97:46",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl.Pause",
+        "constructorText": "runctl.Pause"
+      },
+      {
+        "location": "models/Program/index.ts:47:17",
+        "holderScopeId": "models/Program/index.ts:33:18",
+        "typePath": "Program.UserProfile",
+        "constructorText": "this.UserProfile"
+      },
+      {
+        "location": "models/Program/ModeDialog/BookPick/index.ts:18:14",
+        "holderScopeId": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+        "typePath": "Session.Run",
+        "constructorText": "session.Run",
+        "variable": "run"
+      },
+      {
+        "location": "models/Program/ModeDialog/LessonPick/index.ts:18:14",
+        "holderScopeId": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+        "typePath": "Session.Run",
+        "constructorText": "session.Run",
+        "variable": "run"
+      },
+      {
+        "location": "models/Program/ModeDialog/BookPick/index.ts:19:15",
+        "holderScopeId": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+        "typePath": "Session.Run.Book",
+        "constructorText": "run.Book",
+        "variable": "book"
+      },
+      {
+        "location": "models/Program/ModeDialog/BookPick/index.ts:20:13",
+        "holderScopeId": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+        "typePath": "Session.Run.Book.Native",
+        "constructorText": "book.Native"
+      },
+      {
+        "location": "models/Program/ModeDialog/LessonPick/index.ts:20:13",
+        "holderScopeId": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+        "typePath": "Session.Run.Book.Native",
+        "constructorText": "lesson.Native"
+      },
+      {
+        "location": "models/Program/ModeDialog/LessonPick/index.ts:19:17",
+        "holderScopeId": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+        "typePath": "Session.Run.Lesson",
+        "constructorText": "run.Lesson",
+        "variable": "lesson"
+      },
+      {
+        "location": "models/Session/index.ts:54:17",
+        "holderScopeId": "models/Session/index.ts:38:18",
+        "typePath": "Session.EventHandler",
+        "constructorText": "this.EventHandler"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:73:11",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.ModeF2",
+        "constructorText": "session.ModeF2"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:90:11",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl.BaseNext",
+        "constructorText": "runctl.BaseNext"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:97:67",
+        "holderScopeId": "models/Session/EventHandler/index.ts:50:21",
+        "typePath": "Session.RunControl.Quit",
+        "constructorText": "runctl.Quit"
+      },
+      {
+        "location": "models/Session/KeyStroke/Correct/index.ts:18:20",
+        "holderScopeId": "models/Session/KeyStroke/Correct/index.ts:15:17",
+        "typePath": "Session.KeyStroke.Correct.StatUpdate",
+        "constructorText": "this.StatUpdate"
+      },
+      {
+        "location": "models/Session/KeyStroke/Mistake/index.ts:24:20",
+        "holderScopeId": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+        "typePath": "Session.KeyStroke.Correct.StatUpdate",
+        "constructorText": "this.StatUpdate"
+      },
+      {
+        "location": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:29:4",
+        "holderScopeId": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20",
+        "typePath": "Session.WordPick",
+        "constructorText": "session.WordPick"
+      },
+      {
+        "location": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:30:4",
+        "holderScopeId": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20",
+        "typePath": "Session.LetterPick",
+        "constructorText": "session.LetterPick"
+      },
+      {
+        "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:26:3",
+        "holderScopeId": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:13:20",
+        "typePath": "Program.KeyFlash",
+        "constructorText": "session.program.KeyFlash"
+      },
+      {
+        "location": "models/Session/LetterPick/index.ts:27:3",
+        "holderScopeId": "models/Session/LetterPick/index.ts:16:18",
+        "typePath": "Session.Run.Finish",
+        "constructorText": "run.Finish"
+      },
+      {
+        "location": "models/Session/WordPick/index.ts:30:3",
+        "holderScopeId": "models/Session/WordPick/index.ts:17:18",
+        "typePath": "Session.Run.Finish",
+        "constructorText": "run.Finish"
+      },
+      {
+        "location": "models/Session/LetterPick/index.ts:29:3",
+        "holderScopeId": "models/Session/LetterPick/index.ts:16:18",
+        "typePath": "Program.KeyLight",
+        "constructorText": "session.program.KeyLight"
+      },
+      {
+        "location": "models/Session/Run/index.ts:36:3",
+        "holderScopeId": "models/Session/Run/index.ts:18:18",
+        "typePath": "Program.KeyLight",
+        "constructorText": "session.program.KeyLight"
+      },
+      {
+        "location": "models/Session/WordPick/index.ts:32:3",
+        "holderScopeId": "models/Session/WordPick/index.ts:17:18",
+        "typePath": "Program.KeyLight",
+        "constructorText": "session.program.KeyLight"
+      },
+      {
+        "location": "models/Session/ModeF4/index.ts:15:24",
+        "holderScopeId": "models/Session/ModeF4/index.ts:13:18",
+        "typePath": "Program.ModeDialog",
+        "constructorText": "session.program!.ModeDialog"
+      },
+      {
+        "location": "models/Session/ModeF5/index.ts:15:24",
+        "holderScopeId": "models/Session/ModeF5/index.ts:13:18",
+        "typePath": "Program.SettingsDialog",
+        "constructorText": "session.program!.SettingsDialog"
+      },
+      {
+        "location": "models/Session/ModeF8/index.ts:15:24",
+        "holderScopeId": "models/Session/ModeF8/index.ts:13:18",
+        "typePath": "Program.LibDialog",
+        "constructorText": "session.program!.LibDialog"
+      }
+    ]
+  }
+}

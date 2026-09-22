@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>File Open ...</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=unicode">
+
+<style type = "text/css">
+<!--
+body {
+	background: buttonface;
+	margin: 0px;
+	padding: 5px;
+	color: black;
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+td{
+	font-family: Verdana;
+	font-size: 12px;
+}
+.tdfl {
+	cursor: hand;
+	padding-left: 5px;
+	height: 19px;
+	overflow: hidden;
+}
+
+.drv1{
+	padding: 5px;
+	padding-left: 15px;
+	font-family: Tahoma;
+	font-size: 12px;
+	cursor: hand;
+}
+.drv2{
+	padding: 5px;
+	padding-left: 25px;
+	font-family: Tahoma;
+	font-size: 12px;
+	cursor: hand;
+	text-decoration: underline;
+}
+.drv3{
+	padding: 5px;
+	padding-left: 15px;
+	font-family: Tahoma;
+	font-size: 11px;
+}
+
+.rootFold{
+	margin-left: 3px;
+	margin-bottom: 7px;
+	padding: 5px;
+	border-bottom: 1px solid gray;
+	width: 250px;
+	cursor: hand;
+	font-size: 14px;
+}
+.fold {
+	margin: 1px;
+	padding: 1px;
+	padding-left: 5px;
+	border: 1px solid gray;
+	border-top: 3px solid gray;
+	height: 15px;
+	width: 18px;
+	font-size: 1px;
+	font-family: Tahoma;
+	cursor: hand;
+}
+.fil {
+	margin-left: 2px;
+	height: 17px;
+	width: 17px;
+	font-size: 1px;
+	font-family: Tahoma;
+	cursor: hand;
+}
+.filSelected {
+	border: 1px solid gray;
+	margin: 1px;
+	padding: 2px 5px 1px 15px;
+	background: buttonface;
+	cursor: hand;
+}
+#quickPanel{
+	position: absolute; 
+	border: 1px solid gray; 
+	margin: 0px;
+	top: 45px; left: 5px; width: 120px; height: 370px; 
+	padding: 5px; 
+	z-index: 1
+}
+#quickPanel LI{
+	margin: 10px 0px 10px 10px;
+	text-decoration: underline;
+	cursor: crosshair;
+	list-style-type: none;
+}
+#quickPanel LI:hover{
+	margin: 10px 0px 10px 8px;
+}
+//-->
+</style>
+</head>
+<body  marginheight = "-1" marginwidth = "2">
+
+<div id = "buttonsLabel"
+style = "position: absolute; border-bottom: 1px solid gray; 
+top: 5px; left: 5px; width: 120px; height: 25px; text-align: right;
+padding-right: 5px; padding-top: 5px; overflow: hidden; z-index: 1">
+Folder:
+</div>
+
+<div id = "upFolderPanel"
+style = "position: absolute; border: 1px solid gray; background: white;
+top: 7px; left: 145px; width: 400px; height: 23px; padding: 2px 5px 1px 15px; 
+text-align: left; overflow: auto; z-index: 2">
+</div>
+
+<div id = "buttonUpPanel"
+style = "position: absolute; border: 1px solid gray; background: buttonface;
+top: 7px; left: 577px; width: 43px; height: 23px; text-align: center;
+font-family: Verdana; font-size: 12px; color: gray; 
+padding: 2px; overflow: hidden; z-index: 1">&uarr; Up</div>
+
+
+
+<ul id = "quickPanel">
+	<li id = "myDocsPanel">My Documents</li>
+	<li id = "desktopPanel">Desctop</li>
+	<li id = "myCompPanel">My Computer</li>
+</ul>
+
+<div id = "folderPanel"
+style = "position: absolute; border: 1px solid gray; overflow: auto; background: white;
+top: 45px; left: 145px; width: 500px; height: 320px; padding: 5px; z-index: 1">
+</div>
+
+
+<div id = "selectedPanel"
+style = "position: absolute; border: 1px solid gray; overflow: auto; background: white;
+top: 385px; left: 145px; width: 400px; height: 30px; padding: 5px; z-index: 1">
+</div>
+
+<div id = "selectedButton"
+style = "position: absolute; border: 2px solid gray; overflow: auto; background: white;
+top: 390px; left: 570px; width: 75px; height: 20px; padding: 7px 3px 3px 3px; z-index: 1; 
+font-weight: bold; text-align: center">
+ OK !
+</div>
+
+</body>
+<script language="JavaScript" type="text/javascript" defer="false">
+<!--
+mix = function(id){
+  if(document.getElementById(id)){  
+   return document.getElementById(id); 
+  }else{
+   if(document.all.item(id)){
+    return document.body.all.item(id);
+   }else{
+    return false;
+   } 
+  }
+}
+mix.s = function(id){ return mix(id).style; }
+
+mix.In = function(id, str){ if (str){ mix(id).innerHTML = str; } else { return mix(id).innerHTML; } }
+mix.InP = function(id, str){ if (str){ mix(id).innerHTML += str; }}
+mix.Ins = function(id, par, str){ if (str && par){ mix(id).insertAdjacentHTML(par, str); } }
+
+mix.B = function(id,par){ if (par){ mix.s(id).border = par; } else { return mix.s(id).border; } }
+
+document.body.onkeypress = function(){
+ if(event.keyCode == 27) window.close();
+}
+
+//-->
+</script>
+<script language="JavaScript" type="text/javascript" defer="false">
+<!--
+
+var FSO, WSH, currentDisc, currentPath, da;
+
+var currentDisc = "";
+var currentPath = "";
+
+var grFold = "<br>&nbsp;*&nbsp;*&nbsp;**<br>";
+grFold += "&nbsp;*&nbsp;*&nbsp;**<br>";
+grFold += "&nbsp;*&nbsp;*&nbsp;**";
+grFils = "&nbsp;&nbsp;------------<br>";
+grFils += "&nbsp;&nbsp;------------<br>";
+grFils += "&nbsp;&nbsp;------------<br>";
+grFils += "&nbsp;&nbsp;------------<br>";
+grFils += "&nbsp;&nbsp;------------<br>";
+grFils += "&nbsp;&nbsp;------------<br>";
+grFils += "&nbsp;&nbsp;------------<br>";
+
+d2f = function(par){ //disc to folder
+	return par + ":\\";
+}
+
+
+takePath = function(par, arr){
+	if(par === undefined){ par = currentPath; }
+	if(arr === undefined){ var arr = new Array(); }
+
+	var x = FSO.GetFolder(par);
+	if(x.IsRootFolder){
+		// z = FSO.GetDrive(FSO.GetDriveName(par));
+		arr[arr.length] = new Array(x.Path.toString(), x.Path.toString());
+		return arr;
+	}else{
+		arr[arr.length] = new Array(x.name.toString(), x.Path.toString(), "fol");
+		return takePath(FSO.GetParentFolderName(par), arr);
+	}
+}
+
+/*!! getContent Info
+par -- folder 
+needSise -- for sise in returned array
+needRecursion -- for all embeded folders and files in returned array
+*/
+getContent = function(par, needSise, needRecursion){
+	if(!par){ par = currentPath; }
+
+	var arr = new Array();
+
+	if(par == "root"){
+
+		var dre = new Enumerator(FSO.Drives);
+		for (; !dre.atEnd(); dre.moveNext()){
+			var x = dre.item();
+			if (x.IsReady){
+			var n;
+			if (x.DriveType == 3){
+				n = x.ShareName;
+			}else{
+				n = x.VolumeName;
+			}
+			var t;
+			switch (x.DriveType){
+				case 0: t = "Unknown"; break;
+				case 1: t = "Removable"; break;
+				case 2: t = "Fixed"; break;
+				case 3: t = "Network"; break;
+				case 4: t = "CD-ROM"; break;
+				case 5: t = "RAM Disk"; break;
+			}
+			arr[arr.length] = new Array(n, x.DriveLetter, t);
+			}
+		}
+	}else{
+		var gFolder = FSO.GetFolder(par);
+
+		var fSf = new Enumerator(gFolder.SubFolders);
+		for(; !fSf.atEnd(); fSf.moveNext()){
+			var x = fSf.item();
+			if(x.Attributes == 16){
+				if(needSise){
+					arr[arr.length] = new Array(x.name, x.Path, "fol", FSO.GetFolder(x.Path).size);
+				}else{
+					arr[arr.length] = new Array(x.name, x.Path, "fol");
+				}
+				if(needRecursion) {
+					getContent(x.Path, needSise, needRecursion);
+				}
+			}
+		}
+
+		var fF = new Enumerator(gFolder.files);
+		for(; !fF.atEnd(); fF.moveNext()){
+			var x = fF.item();
+			if((x.Attributes == 0) || (x.Attributes == 32) ){
+				arr[arr.length] = new Array(x.name, x.Path, "fil", x.type, FSO.GetFile(x.Path).size);
+			}
+		}
+	}
+  return arr;
+}
+
+
+retParnt = function(obj, tag){
+	if(obj.tagName.toUpperCase() != "BODY"){
+	if(obj.parentElement.tagName.toUpperCase() == tag.toUpperCase()){
+		return obj.parentElement;
+	}else{
+		return retParnt(obj.parentElement, tag);
+	}
+	}else{
+		return false;
+	}
+}
+
+gon = function(){
+	var src = event.srcElement;
+	var srcP = src.pathr;
+	if(srcP == "root"){
+		currentPath = "root";
+		makeRoot();
+		mix("buttonUpPanel").onclick = "";
+		with(mix.s("buttonUpPanel")){
+			background = "buttonface";
+			cursor = "default";
+			color = "gray";
+		}
+		makeFolderUpPanel();
+
+	}else{
+		if(FSO.FolderExists(srcP)){
+			currentPath = srcP;
+			makePath();
+		}
+		if(FSO.FileExists(srcP)){
+			var parntD = retParnt(src,"DIV").getElementsByTagName("TD");
+			for(var i in parntD){
+				x = parntD[i];
+				if(x.className == "filSelected"){
+					x.className = "tdfl"; 
+				}  
+			}
+			var parnt = retParnt(src,"TABLE").children;
+			for(var i in parnt){
+				x = parnt[i];
+				if(x.tagName){
+					if(x.className == "tdfl"){
+						x.className = "filSelected"; 
+					}
+				}
+			}
+
+			var parnt = retParnt(src,"TR");
+			for(var i in parnt.children){
+				x = parnt.children[i];
+				if(x.tagName){
+					if(x.className == "tdfl"){
+						x.className = "filSelected"; 
+					}
+				}
+			}
+			mix.In("selectedPanel", x.pathr);
+		}
+	}
+}
+
+
+
+makeFolderUpPanel = function(){
+
+	var str = "<div style = \"position: absolute; height: 18px; width: 364px; overflow: hidden\">";
+
+	if(currentPath != "root"){
+		var rf = FSO.GetFolder(currentPath);
+		str += ((rf.IsRootFolder) ? rf.Path : rf.Name);
+
+		with(mix.s("upFolderPanel")){
+			border = "1px solid gray";
+			background = "white";
+			height = "23px";
+			overflow = "hidden";
+			cursor = "hand";
+		}
+		mix("upFolderPanel").onclick = makeFolderUpPanelDown;
+
+	}else{
+		str += "My Computer";
+
+		with(mix.s("upFolderPanel")){
+			border = "1px solid gray";
+			background = "buttonface";
+			height = "23px";
+			overflow = "hidden";
+			cursor = "default";
+		}
+		mix("upFolderPanel").onclick = "";
+	}
+
+	str +=  "</div>";
+	str += "<div ";
+	str += " style = \"position: absolute; width: 22px; top: 2px; left: 374px;";
+	str += " border: 1px solid gray; color: gray; ";
+	str += " padding: 2px; font-size: 9px; text-align: center\""
+
+	str += " >&darr;-&darr;";
+	str += "</div>";
+
+	mix.In("upFolderPanel", str);
+
+	str = "";
+	
+}
+
+makeFolderUpPanelMouseOver = function(){
+	var src = event.srcElement;
+	with(src.style){
+		background = "buttonface";
+		borderBottom = "1px solid gray";
+		cursor = "crosshair";
+	}
+}
+
+makeFolderUpPanelMouseOut = function(){
+	var src = event.srcElement;
+	with(src.style){
+		background = "white";
+		borderBottom = "0px solid gray";
+		cursor = "auto";
+	}
+}
+
+makeFolderUpPanelDown = function(){
+	if(currentPath != "root"){
+		var rf = FSO.GetFolder(currentPath);
+
+		with(mix.s("upFolderPanel")){
+			border = "1px solid black";
+			background = "white";
+			height = "200px";
+			overflow = "auto";
+		}
+
+		var str = "";
+
+		str += "<div style = \"position: absolute; margin-left: 10px; padding-left: 5px; padding-right: 3px;";
+		str += " top: 2px;";
+		str += " left: 3px;";
+		str += " height: 20px; overflow: hidden;\""
+		str += " pathr = \"root\" onclick = \"gon()\""
+		str += " onmouseover = \"makeFolderUpPanelMouseOver()\" onmouseout = \"makeFolderUpPanelMouseOut()\" >";
+		str += "My Computer";
+		str += "</div>";
+
+		var arr = takePath(currentPath);
+		var dre = new Enumerator(FSO.Drives);
+		var nn = 1;
+
+		for (; !dre.atEnd(); dre.moveNext()){
+			var z = dre.item();
+			if (z.IsReady){
+				nn++;
+				var n;
+				if (z.DriveType == 3){
+					n = z.ShareName;
+				}else{
+					n = z.VolumeName;
+				}
+				str += "<div style = \"position: absolute; margin-left: 10px; padding-left: 5px; padding-right: 3px;";
+				str += " top: " + ((nn==1) ? 2 : ((nn-1)*20 + nn*1))  + "px;";
+				str += " left: 6px;";
+				str += " height: 20px; overflow: hidden\""
+				str += " pathr = \"" + d2f(z.DriveLetter) + "\" onclick = \"gon()\""
+				str += " onmouseover = \"makeFolderUpPanelMouseOver()\" onmouseout = \"makeFolderUpPanelMouseOut()\" >";
+				str += ""+z.Path+"\\ &nbsp;&nbsp;&nbsp;(" + n + ")";
+				str += "</div>";
+
+				if((""+z.Path+"\\") == arr[arr.length-1][1]){
+					var nn2m = nn;
+					for(var i = (arr.length-2); i >= 0; i--){
+						str += "<div style = \"position: absolute; margin-left: 10px; padding-left: 5px; padding-right: 3px;";
+						var m = arr.length-i+nn2m-1;
+						str += " top: " + ((m==1) ? 2 : ((m-1)*20 + m*1))  + "px;";
+						str += " left: " + (m*3 + 3) + "px;";
+						str += " height: 20px; overflow: hidden\""
+						str += " pathr = \"" + arr[i][1] + "\" onclick = \"gon()\""
+						str += " onmouseover = \"makeFolderUpPanelMouseOver()\" onmouseout = \"makeFolderUpPanelMouseOut()\" >";
+						str += "" + arr[i][0];
+						str += "</div>";
+						nn++;
+					}
+				}
+
+			}
+		}
+
+
+		mix.In("upFolderPanel", str);
+		mix("upFolderPanel").onclick = makeFolderUpPanel;
+
+		str = "";
+	}
+}
+
+
+
+makeRoot = function(){
+	var str;
+	var cc = getContent(); //current content
+
+	mix.In("folderPanel", " ");
+	str = "<table border = \"0\" style = \"margin-top: 25px; margin-left: 10px\">";
+
+	for(var i in cc){
+
+		str += "<tr>";
+		str += " <td class = \"drv1\" pathr = \"" + d2f(cc[i][1]);
+		str += "\" onclick = \"gon()\"> " + cc[i][1] + " : \\ </td>";
+		str += " <td class = \"drv2\" pathr = \"" + d2f(cc[i][1]);
+		str += "\" onclick = \"gon()\"> (" + cc[i][0] + ") </td>";
+		str += " <td class = \"drv3\"> " + cc[i][2] + " </td>";
+		str += "</tr>";
+
+	}
+
+	str += "</table>";
+	mix.Ins("folderPanel", "beforeEnd", str);
+
+}
+
+
+makePath = function(){
+	var str;
+	var cc = getContent(); //current content
+	var rf = FSO.GetFolder(currentPath);
+
+	//with(mix("buttonUpPanel")){ //because if so then .pathr will be undefined
+	if(rf.IsRootFolder){
+		mix("buttonUpPanel").pathr = "root";
+	}else{
+		mix("buttonUpPanel").pathr = "" + FSO.GetParentFolderName(rf);
+	}
+	mix("buttonUpPanel").onclick = gon;
+
+	with(mix.s("buttonUpPanel")){
+		background = "white";
+		cursor = "hand";
+		color = "black";
+	}
+
+	str = " ";
+	mix.In("folderPanel", str);
+
+	for(var i in cc){
+		str = "<table border = \"0\"><tr>";
+		if(cc[i][2] == "fol"){
+			str += "<td><span class = \"fold\" pathr = \"" + cc[i][1] + "\" ondblclick = \"gon()\">" + grFold+ "</span></td>"
+		}else{
+			str += "<td><span class = \"fil\" pathr = \"" + cc[i][1] + "\" onclick = \"gon()\">" + grFils+ "</span></td>"
+		}
+		str += " <td  class = \"tdfl\" pathr = \"" + cc[i][1] + "\"";
+		if(cc[i][2] == "fol"){
+			str += " ondblclick "
+		}else{
+			str += " onclick "
+		}
+		str += " = \"gon()\">" + cc[i][0] + "</td>";
+		str += "</tr></table>";
+		mix.Ins("folderPanel", "beforeEnd", str);
+	}
+
+	makeFolderUpPanel();
+
+	str = "";
+}
+
+fileSelection = function(par){
+	if(mix.In("selectedPanel").toString().length > 11){
+		if(FSO.FileExists(FSO.GetFile(mix.In("selectedPanel")))){
+			window.dialogArguments.path = FSO.GetFile(mix.In("selectedPanel"));
+			window.close();
+		}else{
+			if(confirm("You didn't select the file, Continue?")){
+				window.dialogArguments.path = false;
+				if(par !== undefined){ window.close(); }
+			}else{
+				event.returnValue = false;
+			}
+		}
+	}else{
+		if(confirm("You didn't select the file, Continue?")){
+			window.dialogArguments.path = false;
+			if(par !== undefined){ window.close(); }
+		}else{
+			event.returnValue = false;
+		}
+	}
+}
+
+init = function(){
+
+	if(window.dialogArguments){
+		var da = window.dialogArguments;
+
+		FSO = new ActiveXObject("Scripting.FileSystemObject");
+		WSH = new ActiveXObject("WScript.Shell");
+
+		mix("myDocsPanel").onclick = function(){ currentPath = WSH.SpecialFolders("MyDocuments").toString(); makePath(); makeFolderUpPanel(); }
+		mix("myCompPanel").onclick = function(){ currentPath = "root"; makeRoot(); makeFolderUpPanel(); }
+		mix("desktopPanel").onclick = function(){ currentPath = WSH.SpecialFolders("Desktop").toString(); makePath(); makeFolderUpPanel(); }
+		mix("selectedButton").onclick = function(){
+			return fileSelection(true);
+		}
+		
+		document.body.onbeforeunload = function(){
+			return fileSelection();
+		}
+
+		if(da.path && FSO.FolderExists(da.path)){
+			currentPath = da.path.toString();
+		}else{
+			currentPath = WSH.CurrentDirectory.toString();
+		}
+		makePath();
+		window.dialogArguments.path = false;
+		
+	}else{
+		alert("You must open this with window.dialogArguments");
+		window.close();
+	}
+}
+init();
+
+//-->
+</script>
+</html>

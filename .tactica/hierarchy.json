@@ -1,0 +1,388 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-09-22T14:17:19.001Z",
+  "roots": [
+    {
+      "name": "Program",
+      "fullPath": "Program",
+      "location": "models/Program/index.ts:33:18",
+      "children": [
+        {
+          "name": "FileDialog",
+          "fullPath": "Program.FileDialog",
+          "location": "models/Program/FileDialog/index.ts:17:15",
+          "children": [
+            {
+              "name": "DirList",
+              "fullPath": "Program.FileDialog.DirList",
+              "location": "models/Program/FileDialog/DirList/index.ts:11:18",
+              "children": []
+            },
+            {
+              "name": "FilePick",
+              "fullPath": "Program.FileDialog.FilePick",
+              "location": "models/Program/FileDialog/FilePick/index.ts:9:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "KeyFlash",
+          "fullPath": "Program.KeyFlash",
+          "location": "models/Program/KeyFlash/index.ts:14:18",
+          "children": []
+        },
+        {
+          "name": "KeyLight",
+          "fullPath": "Program.KeyLight",
+          "location": "models/Program/KeyLight/index.ts:15:18",
+          "children": []
+        },
+        {
+          "name": "LibDialog",
+          "fullPath": "Program.LibDialog",
+          "location": "models/Program/LibDialog/index.ts:19:15",
+          "children": [
+            {
+              "name": "BookDeleteRequest",
+              "fullPath": "Program.LibDialog.BookDeleteRequest",
+              "location": "models/Program/LibDialog/BookDeleteRequest/index.ts:15:18",
+              "children": [
+                {
+                  "name": "BookDeleted",
+                  "fullPath": "Program.LibDialog.BookDeleteRequest.BookDeleted",
+                  "location": "models/Program/LibDialog/BookDeleteRequest/BookDeleted/index.ts:14:18",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "BookImport",
+              "fullPath": "Program.LibDialog.BookImport",
+              "location": "models/Program/LibDialog/BookImport/index.ts:13:18",
+              "children": []
+            },
+            {
+              "name": "BookMark",
+              "fullPath": "Program.LibDialog.BookMark",
+              "location": "models/Program/LibDialog/BookMark/index.ts:14:18",
+              "children": []
+            },
+            {
+              "name": "BookSelect",
+              "fullPath": "Program.LibDialog.BookSelect",
+              "location": "models/Program/LibDialog/BookSelect/index.ts:13:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Log",
+          "fullPath": "Program.Log",
+          "location": "models/Program/Log/index.ts:16:18",
+          "children": []
+        },
+        {
+          "name": "ModeDialog",
+          "fullPath": "Program.ModeDialog",
+          "location": "models/Program/ModeDialog/index.ts:20:15",
+          "children": [
+            {
+              "name": "BookPick",
+              "fullPath": "Program.ModeDialog.BookPick",
+              "location": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+              "children": []
+            },
+            {
+              "name": "LessonPick",
+              "fullPath": "Program.ModeDialog.LessonPick",
+              "location": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+              "children": []
+            },
+            {
+              "name": "ModeSet",
+              "fullPath": "Program.ModeDialog.ModeSet",
+              "location": "models/Program/ModeDialog/ModeSet/index.ts:13:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SettingsDialog",
+          "fullPath": "Program.SettingsDialog",
+          "location": "models/Program/SettingsDialog/index.ts:22:15",
+          "children": [
+            {
+              "name": "MapsPairSet",
+              "fullPath": "Program.SettingsDialog.MapsPairSet",
+              "location": "models/Program/SettingsDialog/MapsPairSet/index.ts:13:18",
+              "children": []
+            },
+            {
+              "name": "PrefSet",
+              "fullPath": "Program.SettingsDialog.PrefSet",
+              "location": "models/Program/SettingsDialog/PrefSet/index.ts:15:18",
+              "children": []
+            },
+            {
+              "name": "SkinPreview",
+              "fullPath": "Program.SettingsDialog.SkinPreview",
+              "location": "models/Program/SettingsDialog/SkinPreview/index.ts:13:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "UserProfile",
+          "fullPath": "Program.UserProfile",
+          "location": "models/Program/UserProfile/index.ts:29:18",
+          "children": []
+        },
+        {
+          "name": "ViewControl",
+          "fullPath": "Program.ViewControl",
+          "location": "models/Program/ViewControl/index.ts:15:18",
+          "children": [
+            {
+              "name": "ZoomIn",
+              "fullPath": "Program.ViewControl.ZoomIn",
+              "location": "models/Program/ViewControl/ZoomIn/index.ts:14:18",
+              "children": []
+            },
+            {
+              "name": "ZoomOut",
+              "fullPath": "Program.ViewControl.ZoomOut",
+              "location": "models/Program/ViewControl/ZoomOut/index.ts:14:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "WindowState",
+          "fullPath": "Program.WindowState",
+          "location": "models/Program/WindowState/index.ts:24:18",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Session",
+      "fullPath": "Session",
+      "location": "models/Session/index.ts:38:18",
+      "children": [
+        {
+          "name": "EventHandler",
+          "fullPath": "Session.EventHandler",
+          "location": "models/Session/EventHandler/index.ts:50:21",
+          "children": []
+        },
+        {
+          "name": "KeyStroke",
+          "fullPath": "Session.KeyStroke",
+          "location": "models/Session/KeyStroke/index.ts:18:18",
+          "children": [
+            {
+              "name": "Correct",
+              "fullPath": "Session.KeyStroke.Correct",
+              "location": "models/Session/KeyStroke/Correct/index.ts:15:17",
+              "children": [
+                {
+                  "name": "StatUpdate",
+                  "fullPath": "Session.KeyStroke.Correct.StatUpdate",
+                  "location": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Mistake",
+              "fullPath": "Session.KeyStroke.Mistake",
+              "location": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+              "children": [
+                {
+                  "name": "StatUpdate",
+                  "fullPath": "Session.KeyStroke.Mistake.StatUpdate",
+                  "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:13:20",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "LetterPick",
+          "fullPath": "Session.LetterPick",
+          "location": "models/Session/LetterPick/index.ts:16:18",
+          "children": []
+        },
+        {
+          "name": "ModeF1",
+          "fullPath": "Session.ModeF1",
+          "location": "models/Session/ModeF1/index.ts:12:18",
+          "children": []
+        },
+        {
+          "name": "ModeF12",
+          "fullPath": "Session.ModeF12",
+          "location": "models/Session/ModeF12/index.ts:13:18",
+          "children": []
+        },
+        {
+          "name": "ModeF2",
+          "fullPath": "Session.ModeF2",
+          "location": "models/Session/ModeF2/index.ts:13:18",
+          "children": []
+        },
+        {
+          "name": "ModeF3",
+          "fullPath": "Session.ModeF3",
+          "location": "models/Session/ModeF3/index.ts:14:18",
+          "children": []
+        },
+        {
+          "name": "ModeF4",
+          "fullPath": "Session.ModeF4",
+          "location": "models/Session/ModeF4/index.ts:13:18",
+          "children": []
+        },
+        {
+          "name": "ModeF5",
+          "fullPath": "Session.ModeF5",
+          "location": "models/Session/ModeF5/index.ts:13:18",
+          "children": []
+        },
+        {
+          "name": "ModeF7",
+          "fullPath": "Session.ModeF7",
+          "location": "models/Session/ModeF7/index.ts:11:18",
+          "children": []
+        },
+        {
+          "name": "ModeF8",
+          "fullPath": "Session.ModeF8",
+          "location": "models/Session/ModeF8/index.ts:13:18",
+          "children": []
+        },
+        {
+          "name": "Run",
+          "fullPath": "Session.Run",
+          "location": "models/Session/Run/index.ts:18:18",
+          "children": [
+            {
+              "name": "Book",
+              "fullPath": "Session.Run.Book",
+              "location": "models/Session/Run/Book/index.ts:9:18",
+              "children": [
+                {
+                  "name": "Native",
+                  "fullPath": "Session.Run.Book.Native",
+                  "location": "models/Session/Run/Book/Native/index.ts:13:18",
+                  "children": []
+                },
+                {
+                  "name": "Paragraph",
+                  "fullPath": "Session.Run.Book.Paragraph",
+                  "location": "models/Session/Run/Book/Paragraph/index.ts:13:18",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Finish",
+              "fullPath": "Session.Run.Finish",
+              "location": "models/Session/Run/Finish/index.ts:21:18",
+              "children": []
+            },
+            {
+              "name": "Lesson",
+              "fullPath": "Session.Run.Lesson",
+              "location": "models/Session/Run/Lesson/index.ts:9:18",
+              "children": [
+                {
+                  "name": "Native",
+                  "fullPath": "Session.Run.Lesson.Native",
+                  "location": "models/Session/Run/Lesson/Native/index.ts:13:18",
+                  "children": []
+                },
+                {
+                  "name": "Paragraph",
+                  "fullPath": "Session.Run.Lesson.Paragraph",
+                  "location": "models/Session/Run/Lesson/Paragraph/index.ts:13:18",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Vocabulary",
+              "fullPath": "Session.Run.Vocabulary",
+              "location": "models/Session/Run/Vocabulary/index.ts:8:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "RunControl",
+          "fullPath": "Session.RunControl",
+          "location": "models/Session/RunControl/index.ts:14:18",
+          "children": [
+            {
+              "name": "BaseNext",
+              "fullPath": "Session.RunControl.BaseNext",
+              "location": "models/Session/RunControl/BaseNext/index.ts:14:18",
+              "children": []
+            },
+            {
+              "name": "LessonNext",
+              "fullPath": "Session.RunControl.LessonNext",
+              "location": "models/Session/RunControl/LessonNext/index.ts:11:18",
+              "children": []
+            },
+            {
+              "name": "LessonPrev",
+              "fullPath": "Session.RunControl.LessonPrev",
+              "location": "models/Session/RunControl/LessonPrev/index.ts:11:18",
+              "children": []
+            },
+            {
+              "name": "Pause",
+              "fullPath": "Session.RunControl.Pause",
+              "location": "models/Session/RunControl/Pause/index.ts:11:18",
+              "children": []
+            },
+            {
+              "name": "Quit",
+              "fullPath": "Session.RunControl.Quit",
+              "location": "models/Session/RunControl/Quit/index.ts:12:18",
+              "children": []
+            },
+            {
+              "name": "Resume",
+              "fullPath": "Session.RunControl.Resume",
+              "location": "models/Session/RunControl/Resume/index.ts:11:18",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "WordPick",
+          "fullPath": "Session.WordPick",
+          "location": "models/Session/WordPick/index.ts:17:18",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Timer",
+      "fullPath": "Timer",
+      "location": "models/Timer/index.ts:17:18",
+      "children": [
+        {
+          "name": "Tick",
+          "fullPath": "Timer.Tick",
+          "location": "models/Timer/Tick/index.ts:18:18",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

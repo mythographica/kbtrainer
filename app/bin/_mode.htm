@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>kbTrainer Modes</title>
+
+<meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
+<script language = "JavaScript" src = "kbDialogChild.js"></script>
+
+<script language = "JavaScript">
+	window.moveTo(150, 200);
+	window.resizeTo(720, 350);
+</script>
+<script language = "JavaScript" src = "../jq/jquery-1.4.2.min.js"></script>
+<script language = "JavaScript" src = "kblib.js"></script>
+<script language = "JavaScript" src = "alf.js"></script>
+<script language = "JavaScript" src = "mixer.js"></script>
+<script language = "JavaScript" src = "ev.js"></script>
+<script language = "JavaScript" src = "fns.js"></script>
+
+<style type = "text/css">
+<!--
+
+body{
+	font-size: 12px;
+	font-family: Tahoma, Verdana, Arial;
+	color: white;
+}
+#caption{
+	position: absolute;
+	top: 5px;
+	left: 30px;
+	width: 400px;
+	height: 24px;
+}
+#mode_selector{
+	position: absolute;
+	top: 50px;
+	left: 20px;
+	width: 400px;
+	height: 24px;
+}
+#mode_selector span{
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 0px solid gray;
+	padding: 3px 7px 2px 9px;
+}
+#mode_selector span[hl="true"]{
+	border-top: 2px solid gray;
+}
+
+#mode_lesson{
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	width: 660px;
+	height: 200px;
+	border: 1px solid gray;
+	visibility: hidden;
+	padding: 10px 20px 10px 20px;
+	overflow: hidden;
+}
+#mode_books{
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	width: 655px;
+	height: 200px;
+	border: 1px solid gray;
+	visibility: hidden;
+	padding: 10px 20px 10px 20px;
+	overflow: hidden;
+}
+#mode_books label, #mode_lesson label{
+	padding-left: 20px;
+}
+#mode_selector label{
+	padding-left: 5px;
+}
+#less_map_select, #less_select{
+	border: 1px solid gray;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 160px;
+	padding: 5px 10px 5px 10px;
+	
+}
+#less_map_select input[type="radio"], #less_select input[type="radio"]{
+	margin: 2px;
+	padding: 3px;
+}
+#less_map_select label, #less_select label label{
+}
+
+//-->
+</style>
+</head>
+<body>
+	<h3 id = "caption">&nbsp;</h3>
+	<div id = "mode_selector">
+		<span id = "span.mode.radio1"><input type="radio" name = "snk.mode.radio" id = "snk.mode.radio1"
+			onclick = "setsMode()"><label for="snk.mode.radio1">&nbsp;</label></span>
+		<span id = "span.mode.radio2"><input type="radio" name = "snk.mode.radio" id = "snk.mode.radio2"
+			onclick = "setsMode()"><label for="snk.mode.radio2">&nbsp;</label></span><br>
+	</div>
+	<div id = "mode_lesson" style = "padding-left: 10px">
+		<table border = "0" cellpadding = "2" cellspacing = "3" width = "670px" height = "220px">
+			<tr valign = "top">
+				<td width = "150px">
+					<div id = "less_map_select"></div>
+				</td><td style = "padding-left: 10px;">
+					<div id = "less_select" style = ""></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id = "mode_books" style = "padding-left: 10px"></div>
+
+</body>
+
+<script language="JavaScript">
+<!--
+
+var buildSLmap = function(smap){
+	mix.In("less_map_select", "");
+	mix.In("less_select", "");
+	var selected_item = "";
+	for(var i in lessons.arr){
+		var l_sel = mix.addObj("snk_map_" + i + "_select_id", "less_map_select", "INPUT", {
+			  type	: "radio"
+			, name	: "snk_map_select_id"
+			, value	: i
+		});
+		l_sel.m.onclick = function(){
+			selectedLessonMap = this.value;
+			if(user.LessonNum[0] !== selectedLessonMap){
+				user.LessonNum = [selectedLessonMap, "base0", 0];
+			}
+			buildSLmap();
+		};
+
+		var l_sel_lbl = mix.addObj("snk." + i + ".lbl",	"less_map_select", "LABEL");
+		l_sel_lbl.m.setAttribute("for", "snk_map_" + i + "_select_id");
+
+		l_sel_lbl.In(((kb.map[i].language !== undefined) ? (kb.map[i].language) : i));
+		l_sel_lbl.q.after("<br />");
+
+		if(selectedLessonMap == i){
+			if(i == user.LessonNum[0]) {
+				l_sel.m.checked = true;
+				l_sel_lbl.FW("bold");
+				selectedLessonMap = i;
+			}
+		}
+	}
+	if(selectedLessonMap !== ""){
+		var lm = lessons.arr[selectedLessonMap];
+		for (var i in lm){
+			for(var k in lm[i].les){
+				var name = ""+selectedLessonMap+"_"+i+"_"+k;
+
+				var l_sel = mix.addObj("snk_less_" + i + "_select_id", "less_select", "INPUT", {
+					  type	: "radio"
+					, name	: "less_select_nm"
+					, value	: name
+				});
+
+				l_sel.m.onclick = function(){
+					user.LessonNum = this.value.split("_");
+					buildSLmap();
+				};
+
+				var l_sel_lbl = mix.addObj("snk." + name + ".lbl",	"less_select", "LABEL");
+				l_sel_lbl.m.setAttribute("for", "snk_less_" + name + "_select_id");
+
+				if((i == user.LessonNum[1]) && (k == user.LessonNum[2])){
+					l_sel.m.checked = true;
+					l_sel_lbl.FW("bold");
+					l_sel_lbl.C("red");
+					selected_item = l_sel;
+				}
+
+				var str = "<nobr>" + selectedLessonMap.toUpperCase() + " : " + lm[i].name + " -- " + lm[i].les[k].name + "</nobr>";
+
+				l_sel_lbl.In(str);
+				l_sel_lbl.q.after("<br />");
+			}
+		}
+	}
+	try{
+		selected_item.m.focus();
+	}catch(e){}finally{}
+}
+
+var setsMode = function(){
+	mix.Fhide("mode_lesson");
+	mix.Fhide("mode_books");
+	if((mix("snk.mode.radio1").checked == true) && (mix("snk.mode.radio2").checked == false)){
+		user.LessonsMode = "lesson";
+		buildSLmap();
+	}
+	if((mix("snk.mode.radio1").checked == false) && (mix("snk.mode.radio2").checked == true)){
+		user.LessonsMode = "book";
+	}
+	if(user.LessonsMode == "lesson"){ mix("span.mode.radio1").setAttribute("hl", "true"); mix.Fshow("mode_lesson"); }
+	if(user.LessonsMode == "book"){ mix("span.mode.radio2").setAttribute("hl", "true"); mix.Fshow("mode_books"); }
+}
+
+var starter = function(){
+
+	mix.In("caption", "&nbsp;<b>"+strings.s12+"</b>");
+	mix.Fhide("mode_lesson");
+	mix.Fhide("mode_books");
+	// $("label[for='snk.mode.radio1']").html("&nbsp;" + strings.s18 + " [Ctrl + 1]&nbsp;&nbsp;");
+	// $("label[for='snk.mode.radio2']").html("&nbsp;" + strings.s19 + " [Ctrl + 2]&nbsp;&nbsp;");
+	$("label[for='snk.mode.radio1']").html("&nbsp;" + strings.s18 + "&nbsp;&nbsp; [1]&nbsp;&nbsp;");
+	$("label[for='snk.mode.radio2']").html("&nbsp;" + strings.s19 + "&nbsp;&nbsp; [2]&nbsp;&nbsp;");
+	mix("snk.mode.radio1").checked = false;
+	mix("snk.mode.radio2").checked = false;
+	mix("span.mode.radio1").setAttribute("hl", "false");
+	mix("span.mode.radio2").setAttribute("hl", "false");
+
+	var books = api.books(true);
+	if(books.length > 0){
+
+		mix.In("mode_books", "");
+		for (var i in books){
+			var b_sel = mix.addObj("snk_book_" + i + "_id", "mode_books", "INPUT", {
+				  type	: "radio"
+				, name	: "snk_books_select_id"
+				, value	: books[i]["path"]
+			});
+			b_sel.m.onclick = function(){ user.CurrentBook = this.value; };
+
+
+			var b_sel_lbl = mix.addObj("snk." + i + ".lbl",	"mode_books", "LABEL");
+			b_sel_lbl.m.setAttribute("for", "snk_book_" + i + "_id");
+
+			b_sel_lbl.In("" + books[i]["autor"] + "&nbsp; -- &nbsp;" + books[i]["book"]);
+			b_sel_lbl.q.after("<br />");
+
+			if(user.CurrentBook == books[i].path){
+				b_sel.m.checked = true;
+			}
+		}
+	}else{
+		mix.In("mode_books", strings.s14);
+	}
+
+	if(user.LessonsMode == "lesson"){
+		mix("snk.mode.radio1").checked = true;
+		mix("span.mode.radio1").setAttribute("hl", "true");
+		mix.Fshow("mode_lesson");
+		buildSLmap();
+	}
+	if(user.LessonsMode == "book"){
+		mix("snk.mode.radio2").checked = true;
+		mix("span.mode.radio2").setAttribute("hl", "true");
+		mix.Fshow("mode_books");
+	}
+}
+
+kbDown = function(event){
+	var z = event.keyCode;
+	var ctrlK = event.ctrlKey;
+	var altK = event.altKey;
+	var shiftK = event.shiftKey;
+	if (z == 115){ window.close(); }
+	if (z == 13){ window.close(); }
+	if (z == 27){ window.close(); }
+	if (z == 119){ evop = "lib"; window.close(); }					// F8
+	if ((z == 10) || (z == 255) || ((z > 112) && (z < 115)) || ((z > 115) && (z < 119)) || ((z > 119) && (z < 123))){ fns.cancl(evt); }
+	//if(ctrlK){
+	if(z == 49){ mix("snk.mode.radio1").click(); } // [1]
+	if(z == 50){ mix("snk.mode.radio2").click(); } // [2]
+	//}
+}
+
+var evop = window.dialogArguments.ev;
+var app = window.dialogArguments.app;
+var snkt = window.dialogArguments.snk;
+var kb = window.dialogArguments.kb;
+var user = window.dialogArguments.user;
+var kernel = window.dialogArguments.kernel;
+var skins = window.dialogArguments.skins;
+var lessons = window.dialogArguments.lessons;
+var strings = window.dialogArguments.strings;
+
+var lessonSelMode = "";
+var selectedLessonMap = user.LessonNum[0];
+
+window.onbeforeunload = function(){
+	window.dialogArguments.user = user;
+	window.dialogArguments.evop = evop;
+}
+
+window.moveTo(user.wsL, user.wsT);
+ev.WinEvent("onkeydown", "kbDown");
+
+ev.t("starter()", 500);
+//-->
+</script>
+<script language = "JavaScript" src = "escEr.js"></script>
+<script language = "JavaScript" src = "selector.js"></script>
+</html>

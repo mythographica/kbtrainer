@@ -1,0 +1,494 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-09-22T14:17:18.960Z",
+  "definitions": {
+    "Program": {
+      "name": "Program",
+      "location": "models/Program/index.ts:33:18",
+      "kind": "define",
+      "parent": null,
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session": {
+      "name": "Session",
+      "location": "models/Session/index.ts:38:18",
+      "kind": "define",
+      "parent": null,
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Timer": {
+      "name": "Timer",
+      "location": "models/Timer/index.ts:17:18",
+      "kind": "define",
+      "parent": null,
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.FileDialog": {
+      "name": "FileDialog",
+      "location": "models/Program/FileDialog/index.ts:17:15",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.KeyFlash": {
+      "name": "KeyFlash",
+      "location": "models/Program/KeyFlash/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.KeyLight": {
+      "name": "KeyLight",
+      "location": "models/Program/KeyLight/index.ts:15:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.LibDialog": {
+      "name": "LibDialog",
+      "location": "models/Program/LibDialog/index.ts:19:15",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.Log": {
+      "name": "Log",
+      "location": "models/Program/Log/index.ts:16:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ModeDialog": {
+      "name": "ModeDialog",
+      "location": "models/Program/ModeDialog/index.ts:20:15",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.SettingsDialog": {
+      "name": "SettingsDialog",
+      "location": "models/Program/SettingsDialog/index.ts:22:15",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.UserProfile": {
+      "name": "UserProfile",
+      "location": "models/Program/UserProfile/index.ts:29:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ViewControl": {
+      "name": "ViewControl",
+      "location": "models/Program/ViewControl/index.ts:15:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.WindowState": {
+      "name": "WindowState",
+      "location": "models/Program/WindowState/index.ts:24:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.EventHandler": {
+      "name": "EventHandler",
+      "location": "models/Session/EventHandler/index.ts:50:21",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.KeyStroke": {
+      "name": "KeyStroke",
+      "location": "models/Session/KeyStroke/index.ts:18:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.LetterPick": {
+      "name": "LetterPick",
+      "location": "models/Session/LetterPick/index.ts:16:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF1": {
+      "name": "ModeF1",
+      "location": "models/Session/ModeF1/index.ts:12:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF12": {
+      "name": "ModeF12",
+      "location": "models/Session/ModeF12/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF2": {
+      "name": "ModeF2",
+      "location": "models/Session/ModeF2/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF3": {
+      "name": "ModeF3",
+      "location": "models/Session/ModeF3/index.ts:14:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF4": {
+      "name": "ModeF4",
+      "location": "models/Session/ModeF4/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF5": {
+      "name": "ModeF5",
+      "location": "models/Session/ModeF5/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF7": {
+      "name": "ModeF7",
+      "location": "models/Session/ModeF7/index.ts:11:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.ModeF8": {
+      "name": "ModeF8",
+      "location": "models/Session/ModeF8/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run": {
+      "name": "Run",
+      "location": "models/Session/Run/index.ts:18:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl": {
+      "name": "RunControl",
+      "location": "models/Session/RunControl/index.ts:14:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.WordPick": {
+      "name": "WordPick",
+      "location": "models/Session/WordPick/index.ts:17:18",
+      "kind": "define",
+      "parent": "Session",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Timer.Tick": {
+      "name": "Tick",
+      "location": "models/Timer/Tick/index.ts:18:18",
+      "kind": "define",
+      "parent": "Timer",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.FileDialog.DirList": {
+      "name": "DirList",
+      "location": "models/Program/FileDialog/DirList/index.ts:11:18",
+      "kind": "define",
+      "parent": "Program.FileDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.FileDialog.FilePick": {
+      "name": "FilePick",
+      "location": "models/Program/FileDialog/FilePick/index.ts:9:18",
+      "kind": "define",
+      "parent": "Program.FileDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.LibDialog.BookDeleteRequest": {
+      "name": "BookDeleteRequest",
+      "location": "models/Program/LibDialog/BookDeleteRequest/index.ts:15:18",
+      "kind": "define",
+      "parent": "Program.LibDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.LibDialog.BookImport": {
+      "name": "BookImport",
+      "location": "models/Program/LibDialog/BookImport/index.ts:13:18",
+      "kind": "define",
+      "parent": "Program.LibDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.LibDialog.BookMark": {
+      "name": "BookMark",
+      "location": "models/Program/LibDialog/BookMark/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program.LibDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.LibDialog.BookSelect": {
+      "name": "BookSelect",
+      "location": "models/Program/LibDialog/BookSelect/index.ts:13:18",
+      "kind": "define",
+      "parent": "Program.LibDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ModeDialog.BookPick": {
+      "name": "BookPick",
+      "location": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program.ModeDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ModeDialog.LessonPick": {
+      "name": "LessonPick",
+      "location": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program.ModeDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ModeDialog.ModeSet": {
+      "name": "ModeSet",
+      "location": "models/Program/ModeDialog/ModeSet/index.ts:13:18",
+      "kind": "define",
+      "parent": "Program.ModeDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.SettingsDialog.MapsPairSet": {
+      "name": "MapsPairSet",
+      "location": "models/Program/SettingsDialog/MapsPairSet/index.ts:13:18",
+      "kind": "define",
+      "parent": "Program.SettingsDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.SettingsDialog.PrefSet": {
+      "name": "PrefSet",
+      "location": "models/Program/SettingsDialog/PrefSet/index.ts:15:18",
+      "kind": "define",
+      "parent": "Program.SettingsDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.SettingsDialog.SkinPreview": {
+      "name": "SkinPreview",
+      "location": "models/Program/SettingsDialog/SkinPreview/index.ts:13:18",
+      "kind": "define",
+      "parent": "Program.SettingsDialog",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ViewControl.ZoomIn": {
+      "name": "ZoomIn",
+      "location": "models/Program/ViewControl/ZoomIn/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program.ViewControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.ViewControl.ZoomOut": {
+      "name": "ZoomOut",
+      "location": "models/Program/ViewControl/ZoomOut/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program.ViewControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.KeyStroke.Correct": {
+      "name": "Correct",
+      "location": "models/Session/KeyStroke/Correct/index.ts:15:17",
+      "kind": "define",
+      "parent": "Session.KeyStroke",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.KeyStroke.Mistake": {
+      "name": "Mistake",
+      "location": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+      "kind": "define",
+      "parent": "Session.KeyStroke",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Book": {
+      "name": "Book",
+      "location": "models/Session/Run/Book/index.ts:9:18",
+      "kind": "define",
+      "parent": "Session.Run",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Finish": {
+      "name": "Finish",
+      "location": "models/Session/Run/Finish/index.ts:21:18",
+      "kind": "define",
+      "parent": "Session.Run",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Lesson": {
+      "name": "Lesson",
+      "location": "models/Session/Run/Lesson/index.ts:9:18",
+      "kind": "define",
+      "parent": "Session.Run",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Vocabulary": {
+      "name": "Vocabulary",
+      "location": "models/Session/Run/Vocabulary/index.ts:8:18",
+      "kind": "define",
+      "parent": "Session.Run",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl.BaseNext": {
+      "name": "BaseNext",
+      "location": "models/Session/RunControl/BaseNext/index.ts:14:18",
+      "kind": "define",
+      "parent": "Session.RunControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl.LessonNext": {
+      "name": "LessonNext",
+      "location": "models/Session/RunControl/LessonNext/index.ts:11:18",
+      "kind": "define",
+      "parent": "Session.RunControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl.LessonPrev": {
+      "name": "LessonPrev",
+      "location": "models/Session/RunControl/LessonPrev/index.ts:11:18",
+      "kind": "define",
+      "parent": "Session.RunControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl.Pause": {
+      "name": "Pause",
+      "location": "models/Session/RunControl/Pause/index.ts:11:18",
+      "kind": "define",
+      "parent": "Session.RunControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl.Quit": {
+      "name": "Quit",
+      "location": "models/Session/RunControl/Quit/index.ts:12:18",
+      "kind": "define",
+      "parent": "Session.RunControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.RunControl.Resume": {
+      "name": "Resume",
+      "location": "models/Session/RunControl/Resume/index.ts:11:18",
+      "kind": "define",
+      "parent": "Session.RunControl",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Program.LibDialog.BookDeleteRequest.BookDeleted": {
+      "name": "BookDeleted",
+      "location": "models/Program/LibDialog/BookDeleteRequest/BookDeleted/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program.LibDialog.BookDeleteRequest",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.KeyStroke.Correct.StatUpdate": {
+      "name": "StatUpdate",
+      "location": "models/Session/KeyStroke/Correct/StatUpdate/index.ts:16:20",
+      "kind": "define",
+      "parent": "Session.KeyStroke.Correct",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.KeyStroke.Mistake.StatUpdate": {
+      "name": "StatUpdate",
+      "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:13:20",
+      "kind": "define",
+      "parent": "Session.KeyStroke.Mistake",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Book.Native": {
+      "name": "Native",
+      "location": "models/Session/Run/Book/Native/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session.Run.Book",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Book.Paragraph": {
+      "name": "Paragraph",
+      "location": "models/Session/Run/Book/Paragraph/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session.Run.Book",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Lesson.Native": {
+      "name": "Native",
+      "location": "models/Session/Run/Lesson/Native/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session.Run.Lesson",
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "Session.Run.Lesson.Paragraph": {
+      "name": "Paragraph",
+      "location": "models/Session/Run/Lesson/Paragraph/index.ts:13:18",
+      "kind": "define",
+      "parent": "Session.Run.Lesson",
+      "strictChain": true,
+      "blockErrors": false
+    }
+  }
+}

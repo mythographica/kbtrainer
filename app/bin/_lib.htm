@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>kbTrainer Library</title>
+
+<meta http-equiv = "Content-Type" content = "text/html; charset=utf-8">
+<script language = "JavaScript" src = "kbDialogChild.js"></script>
+
+<style type = "text/css">
+<!--
+body{
+	font-size: 12px;
+	font-family: Tahoma, Verdana, Arial;
+	color: white;
+}
+.tabs{
+	position: absolute;
+	top: 10px;
+	height: 22px;
+	border: 1px solid gray;
+	padding: 4px 1px 1px 1px;
+	text-align: center;
+	background: black;
+	overflow: auto;
+	z-index: 1;
+}
+.pannels{
+	position: absolute;
+	top: 60px;
+	height: 310px;
+	border: 1px solid maroon;
+	padding: 5px;
+	background: black;
+	overflow: auto;
+	z-index: 2;
+}
+input, select {
+	position: absolute;
+	background: #000050;
+	border: 1px solid gray;
+	height: 18px;
+	font-size: 10px;
+	color: white;
+	padding-left: 5px;
+	z-index: 3;
+	overhlow: hidden;
+}
+ .btn {
+	position: absolute;
+	background: #000050;
+	border: 1px solid gray;
+	height: 18px;
+	color: white;
+	font-size: 9px;
+	padding-left: 5px;
+	z-index: 3;
+	overhlow: hidden;
+}
+span {
+	position: absolute;
+	height: 20px;
+	width: 60px;
+	padding-left: 5px;
+	color: white;
+	font-size: 11px;
+	border-bottom: 1px dotted gray;
+	overhlow: hidden;
+	z-index: 3;
+}
+label {
+	position: absolute;
+	height: 20px;
+	color: white;
+	font-size: 11px;
+	overhlow: hidden;
+	z-index: 3;
+}
+option{
+	background: buttonface;
+	color: black;
+	font-size: 10px;
+	border: 0px solid gray;
+	padding-top: 4px;
+	height: 20px;
+	z-index: 4;
+	overhlow: hidden;
+}
+//-->
+</style>
+
+<script language = "JavaScript">
+	window.moveTo(150,200);
+	window.resizeTo(577,430);
+
+var user = window.dialogArguments.user;
+var strings = window.dialogArguments.strings;
+window.onbeforeunload = function(){
+	window.dialogArguments.user = user;
+}
+</script>
+
+<script language = "JavaScript" src = "../jq/jquery-1.4.2.min.js"></script>
+<script language = "JavaScript" src = "kblib.js"></script>
+<script language = "JavaScript" src = "alf.js"></script>
+<script language = "JavaScript" src = "mixer.js"></script>
+<script language = "JavaScript" src = "ev.js"></script>
+<script language = "JavaScript" src = "fns.js"></script>
+
+<script language = "JavaScript">
+<!--
+var pathToFile; //varieble for storing path to opening file
+
+var snk = new Array();
+snk.setBg = "red";
+snk.unsetBg = "black";
+snk.setBorder = "1px solid red";
+snk.unsetBorder = "1px solid white";
+
+SelTab = function(par){
+	mix.Fhide("libFiles");
+	mix.Fhide("setAds");
+	mix.B("libFilesTab","1px solid gray");
+	mix.B("setAdsTab","1px solid gray");
+	mix.H("libFilesTab","22px");
+	mix.H("setAdsTab","22px");
+	mix.C("libFilesTab","gray");
+	mix.C("setAdsTab","gray");
+	mix.T("libFilesTab","10px");
+	mix.T("setAdsTab","10px");
+	mix.Fshow(par);
+	mix.B(""+par+"Tab","1px solid maroon");
+	mix.H(""+par+"Tab","25px");
+	mix.C(""+par+"Tab","white");
+	mix.T(""+par+"Tab","8px");
+	mix.In("InfoRMer",  strings[par]);
+}
+
+of_a = function(ob){
+	if(ob.value == "type author here ..."){ ob.value = ""; }
+}
+of_ab = function(ob){
+	if(ob.value == ""){ ob.value = "type author here ..."; }
+}
+of_b = function(ob){
+	if(ob.value == "type book name here ..."){ ob.value = ""; }
+}
+of_bb = function(ob){
+	if(ob.value == ""){ ob.value = "type book name here ..."; }
+}
+pathToOver = function (e){
+try{
+	if((pathToFile != "") && pathToFile.length > 25){
+		mix.show("ptHilight");
+		mix.In("ptHilight", pathToFile);
+	}
+}catch(e){}
+}
+pathToOut = function (e){
+	if(mix.hish("ptHilight")){
+		mix.hide("ptHilight");
+		mix.In("ptHilight", "&nbsp;");
+	}
+}
+
+btn_focus = function(ob){
+	mix.B(ob.id, "1px dotted white")
+}
+btn_blur = function(ob){
+	mix.B(ob.id, "1px solid gray")
+}
+texter = function(str){
+	mix.In("txtdiv", texter.str);
+}
+texter.str = "";
+
+/* Variables */
+
+makeIWR = function(str, view){
+	var miwr = mix("iwr").checked ? 1 : 0;
+	var allpas = mix("allpas").checked ? 1 : 0;
+
+	if(!miwr){
+		var pas = { "" : [ /\n\r|\r\n|\n|\r/g , " ", " " ] };
+	}else{
+		if(allpas){
+			var pas = { "" : [ /\n\r|\r\n|\n|\r/g , "&crarr;<br>", "¶" ] };
+		}else{
+			var pas = {
+				  "?" : [ /\?\n\r|\?\r\n|\?\n|\?\r/g , "?&crarr;<br>", "?¶" ]
+				, "!" : [ /\!\n\r|\!\r\n|\!\n|\!\r/g , "!&crarr;<br>", "!¶" ]
+				, "." : [ /\.\n\r|\.\r\n|\.\n|\.\r/g , ".&crarr;<br>", ".¶" ]
+				, ":" : [ /\:\n\r|\:\r\n|\:\n|\:\r/g , ":&crarr;<br>", ":¶" ]
+				, "z" : [ /\n\r\n\r|\r\n\r\n|\n\n|\r\r/g , "<br>", "¶" ]
+				, "d" : [ /\n\r\t*(?=[0-9])|\n\r\t*(?=[0-9])|\n\t*(?=[0-9])|\r\t*(?=[0-9])/g , "&crarr;<br>", "¶" ]
+				, "az" : [ /\n\r\t*(?=[a-z]\.)|\n\r\t*(?=[a-z]\.)|\n\t*(?=[a-z]\.)|\r\t*(?=[a-z]\.)/g , "&crarr;<br>", "¶" ]
+				, ""  : [ /\n\r|\r\n|\n|\r/g , " ", " " ]
+				};
+		}
+	}
+	for(var i in pas){
+		str = str.replace(pas[i][0], (view ? pas[i][1] : pas[i][2]));
+	}
+
+	return str;
+}
+
+loadFile = function(ob){
+	var errOnOpn = true;
+	var strErr = "";
+	try{
+		file = tryOpnFile.selectedFile;
+		var charset = mix("charset_id").value;
+		if(file != ""){
+			if(fs.exists(file.path)){
+				var str = file.path.substring(0, 45 - file.name.length) + "&nbsp;&nbsp;...&nbsp;&nbsp;\\" + file.name;
+				mix.In("pathTo", str);
+				pathToFile = file.path;
+				if(ob){
+				if(ob.id == "btnOpenFile"){
+					ev.t("pathToOver()", 200);
+					ev.t("pathToOut()", 900);
+				}}
+				// reading file
+				texter.str = "reading file... please wait...";
+				ev.t("texter()", 100);
+				var str = fs.readFileToString(file.path, charset);
+				if(str){
+					str = makeIWR(str.substr( 0, ( (str.length > 10000) ? 10000 : str.length ) ), true);
+					texter.str = str;
+					ev.t("texter()", 500);
+					// reading file
+					errOnOpn = false;
+				}else{
+					strErr += "<font color = \"red\" size = \"7\">Can't read from File...</font>"
+				}
+			}
+		}
+	}catch(e){ strErr += e;
+	}finally{}
+	if(errOnOpn){
+		texter.str = strings.l0 + strings.l4 + "<br><br> " + strErr;
+		ev.t("texter()", 1000);
+	}
+}
+
+tryOpnFile = function(ob){
+	var errOnOpn = true;
+	var strErr = "";
+	try{
+		var file = fs.openTextFileDlg();
+		if(file){
+			tryOpnFile.selectedFile = fs.turnObj(file);
+			if(file){
+				loadFile(ob);
+				errOnOpn = false;
+			}
+		}
+	}catch(e){ strErr += e;
+	}finally{}
+	if(errOnOpn){
+		texter.str = strings.l0 + strings.l4_1 + " <br><br> " + strErr;
+		mix.In("pathTo", "&nbsp;");
+		ev.t("texter()", 1000);
+	}
+}
+tryOpnFile.selectedFile = "";
+
+
+saver = function(){
+	if(tryOpnFile.selectedFile === ""){
+		texter.str = strings.l0 + strings.l4;
+		ev.t("texter()", 10);
+	}else{
+		var errOnOpn = true;
+		var strErr = "";
+		var booksMax = api.books(); //max boox number
+		try{
+			file = tryOpnFile.selectedFile;
+			var charset = mix("charset_id").value;
+			if(file != ""){
+				if(fs.exists(file.path)){
+					texter.str = strings.l5;
+					ev.t("texter()", 100);
+					var str = fs.readFileToString(file.path, charset);
+					if(str){
+
+
+						//очистка строки
+
+						re = /--/g; str = str.replace(re,"-");
+						re = /–/g; str = str.replace(re,"-");
+						re = /«/g; str = str.replace(re,"\"");
+						re = /»/g; str = str.replace(re,"\"");
+						re = /—/g; str = str.replace(re,"-");
+
+						re = /…/g;
+						do{
+							str = str.replace(re, "...");
+						}while(str.indexOf("…")!=-1);
+
+
+						str = makeIWR(str, false); // false -- by paragraph "¶"
+
+						re = /  /g;
+						do{
+							str = str.replace(re, " ");
+						}while(str.indexOf("  ")!=-1);
+
+						re = /¶ /g;
+						do{
+							str = str.replace(re, "¶");
+						}while(str.indexOf("  ") !=- 1);
+						
+
+						var chsps = true;
+						do{
+							if(str.length > 0){
+								if(str.substr(0, 1) == " "){
+									str = str.substring(1);
+								}else{
+									chsps = false;
+								}
+							}else{
+								chsps = false;
+							}
+						}while(chsps == true);
+
+						//очистка строки
+
+
+						var kDir = fs.lib();
+						// !!! NEVER use books.length here !!! Never !!!
+						var locName = "book_" + booksMax + ".txt";
+						var loc = kDir + locName;
+
+						var autor_id_str = mix("autor").value;
+						var bookname_id_str = mix("book").value;
+
+						api.saveBook(loc, str, autor_id_str, bookname_id_str);
+
+						texter.str = "Saving DONE:<br>"+locName+"<br>"+autor_id_str+"<br>"+bookname_id_str+"<br>"+str.substr(0, ( (str.length > 10000) ? 10000 : str.length ) );
+						ev.t("texter()", 500);
+						errOnOpn = false;
+						alert(strings.l3);
+
+						loader();
+
+					}else{
+						strErr += "<font color = \"red\" size = \"7\">Can't read from File...</font>"
+					}
+				}
+			}
+		}catch(e){ strErr += e;
+		}finally{}
+		if(errOnOpn){
+			texter.str = strings.l0 + strings.l4_1 + " <br><br> " + strErr;
+			ev.t("texter()", 1000);
+		}
+	}
+}
+
+//-->
+</script>
+
+</head>
+
+<body marginheight = "-1" marginwidth = "2" bgcolor = "navy">
+
+<div id = "InfoRMer"
+style = "position: absolute; top: 34px; left: 8px; height: 15px; width: 530px; border: 3px double maroon;
+font-size: 11px; color: white; padding: 4px 3px 2px 12px ; text-align: left; background: black;
+overflow: auto; z-index: 3"> </div>
+
+
+<div id = "libFilesTab" class = "tabs" style = "left: 15px;  width: 150px;"
+onclick = "SelTab('libFiles')">Library</div>
+
+<div id = "libFiles" style = "left: 12px; width: 530px;" class = "pannels">...</div>
+
+<div id = "setAdsTab" class = "tabs" style = "left: 172px; width: 180px;"
+onclick = "SelTab('setAds')">Add New</div>
+
+<div id = "setAds" style = "left: 12px; width: 530px;" class = "pannels">
+
+	<form id = "bookform" name = "bookform">
+
+		<span style = "top: 10px; left: 10px">
+			<script>
+				<!-- 
+					document.write(strings.l10); 
+				//-->
+			</script>&nbsp;:
+		</span>
+		<div class = "btn" style = "position: absolute; top: 10px; left: 80px; height: 14px; width: 344px; 
+		padding-top: 3px; overflow: hidden; padding-bottom: 1px">
+			<div id = "pathTo" style = "overflow: hidden" onmouseover = "pathToOver()" onmouseout = "pathToOut()"> 
+			</div>
+			<input id = "btnOpenFile" type = "button" 
+			style = "padding-bottom: 2px; top: 1px; height: 16px; left: 320px; width: 28px; z-index: 5; cursor: crosshair"
+			tabindex = "1" onclick = "tryOpnFile(this)" value = ". . ."
+			onfocus = "btn_focus(this)" onblur = "btn_blur(this)">
+		</div>
+		<div  id = "ptHilight"
+		style = "position: absolute; top: 35px; left: 20px; height: 40px; width: 500px; padding-top: 3px; font: caption;
+		visibility: hidden; z-index: 100; border: 1px solid gray; background: #FFFFE0; color: black; padding: 5px">
+		</div>
+
+		<input id = "btnSaver" type = "button"
+		style = "top: 9px; height: 22px; left: 435px; width: 94px; zindex: 5; padding-bottom: 4px; cursor: pointer"
+		value = "Save To Library"
+		onclick = "saver(this)";
+		tabindex = "6" onfocus = "btn_focus(this)" onblur = "btn_blur(this)"/>
+
+		<span style = "top: 39px; left: 10px">
+			<script>
+				<!-- 
+					document.write(strings.l11); 
+				//-->
+			</script>&nbsp;:
+		</span>
+		<input name = "autor" id = "autor" type = "text"
+		style = "top: 38px; left: 80px; width: 150px"
+		size = "60"
+		tabindex = "2" value = "type author here ..." onfocus = "of_a(this)" onblur = "of_ab(this)"/>
+		<span style = "top: 39px; left: 240px">
+			<script>
+				<!-- 
+					document.write(strings.l12); 
+				//-->
+			</script>&nbsp;:
+		</span>
+		<input name = "book" id = "book" type = "text"
+		style = "top: 38px; left: 310px; width: 212px;"
+		size = "60"
+		tabindex = "3" value = "type book name here ..." onfocus = "of_b(this)" onblur = "of_bb(this)"/>
+
+
+		<input name = "iwr" id = "iwr" type = "checkbox"
+		style = "top: 67px; left: 10px; width: 20px;"
+		tabindex = "4"
+		onclick = "this.blur()" 
+		onchange = "loadFile()"/>
+		<label id = "lforiwr" for = "iwr" 
+		style = "top: 72px; left: 10px; width: 270px; padding-left: 30px; border: 0px"></label>
+
+		<input name = "allpas" id = "allpas" type = "checkbox"
+		style = "top: 67px; left: 290px; width: 20px;"
+		tabindex = "4"
+		onclick = "this.blur()" 
+		onchange = "loadFile()"/>
+		<label id = "lforallpas" for = "allpas" 
+		style = "top: 72px; left: 290px; width: 100px; padding-left: 30px; border: 0px"> ( ¶ + !?.: ) </label>
+
+		<select id = "charset_id" tabindex = "5"
+		style = "top: 67px; left: 420px; width: 110px; height: 20px"
+		onchange = "loadFile()">
+			<option value = "Windows-1251">&nbsp;windows-1251
+			<option value = "koi8-r">&nbsp;KOI-8r
+			<option value = "UTF-8">&nbsp;UTF-8
+			<option value = "unicode">&nbsp;UTF-16LE
+			<option value = "unicodeFFFE">&nbsp;UTF-16BE
+			<option value = "ascii">&nbsp;ASCII (latin1)
+		</select>
+
+		<div id = "txtdiv" class = "tabs"
+		style = "top: 100px; left: 8px; width: 500px; height: 180px; font-size: 12px;
+		padding:10px; z-index: 10; text-align: justify; color: white"> 
+			Here will be displayed Sample of selected Text or other Informational Messeges
+		</div>
+	</form>
+</div>
+
+
+</body>
+
+
+
+<script language = "JavaScript">
+<!--
+
+scrolLibToView = function(){
+	if(delt.par== ""){
+		if(books.length>0){
+			for(var i in books){
+				if(mix("book_"+i+"_id").setted == "set"){
+					if(parseInt(i)<=1){
+						mix("libFiles").scrollTop = 0;
+					}else{
+						var bht = parseInt(mix("book_"+i+"_id").offsetHeight);
+						var tht0 = parseInt(mix("books_table_id").offsetHeight);
+						var tht2 = (tht0 - bht*books.length)/books.length;
+						var tht = (tht2*parseInt(i)) + (bht*parseInt(i));
+						mix("libFiles").scrollTop = tht-48;
+					}
+					break;
+				}
+			}
+		}}}
+
+mark = function (par){
+	if(delt.par == ""){
+		//books = api.books(usr);
+		if(books.length > 0){
+			for(i in books){
+				mix.s("book_"+i+"_id").background = snk.unsetBg;
+				mix.s("book_"+i+"_id").border = snk.unsetBorder;
+				mix("book_"+i+"_id").setted = "not";
+				mix("book_"+i+"_id").selted = "not";
+			}
+			mix.s("book_"+par+"_id").background = snk.setBg;
+			mix("book_"+par+"_id").setted = "set";
+			pf(books[parseInt(par)].path);
+			// Waaaaghhh!!!
+			user.CurrentBook = books[parseInt(par)].path;
+			// Waaaaghhh!!!
+			mix("book_"+par+"_id").selted = "set";
+		}}}
+
+dover = function (par){
+	if(delt.par == ""){
+		mix.FS("delbut_"+par,"9pt");
+		mix.In("delbut_"+par," X");
+		mix.C("delbut_"+par,"black");
+		mix.Bg("delbut_"+par,"red");
+		mix.s("delbut_"+par).fontWeight = "bold";
+		mix.B("delbut_"+par,"2px solid maroon");
+	}}
+
+dout = function (par){
+	if(delt.par == ""){
+		mix.FS("delbut_"+par,"8pt");
+		mix.In("delbut_"+par," x");
+		mix.C("delbut_"+par,"white");
+		mix.Bg("delbut_"+par,"black");
+		mix.s("delbut_"+par).fontWeight = "normal";
+		mix.B("delbut_"+par,"1px solid white");
+	}}
+
+delt00 = function (){
+	if(delt.par != ""){
+	if(delt.path != ""){
+			delt00.tf = api.deltebook(delt.path);
+	}}
+}
+delt00.tf = "";
+
+delt0ctn = 0;
+delt0 = function (){
+	delt0ctn++;
+	var file = fs.open(delt.path);
+	if(fs.exists(delt.path) || (delt00.tf == "")){
+		mix.InP("book_" + delt.par + "_id", "  ...  " + delt0ctn);
+		ev.t("delt0()", 100);
+	}else{
+		document.title = "" + delt00.tf + " " + delt0ctn;
+		if(delt00.tf == false){
+			alert("Can't delete this book. Something wrong.");
+		}else{
+			delt.par = "";
+			delt.path = "";
+			mix.In("libFiles", " ");
+			ev.t("loader()", 500);
+		}
+	}
+}
+
+delt = function (par){
+	if(delt.par == ""){
+		if(books.length > 0){
+			if(mix("book_"+par+"_id").selted == "not"){
+				delt.path = books[par]["path"];
+				var okcan = window.confirm(strings.l6 +"''"+ books[par]["autor"] +" - "+ books[par]["book"] + "'' ???");
+				if(okcan){
+					delt0ctn = 0;
+					mix.In("book_"+par+"_id", strings.l7);
+					delt.par = par;
+					ev.t("delt0()", 100);
+					ev.t("delt00()", 300);
+				}
+			}else{
+				alert(strings.l8);
+			}
+}}}
+delt.par = "";
+delt.path = "";
+
+kbDown = function(event){
+	var z = event.keyCode;
+	var ctrlK = event.ctrlKey;
+	var altK = event.altKey;
+	var shiftK = event.shiftKey;
+
+	if (z==119){ window.close(); }
+	
+	if ((z == 10) || (z == 255) || ((z > 112) && (z < 119)) || ((z > 119) && (z < 123))){ event.returnValue = false; } //!!! in place of return false !!!
+
+	if (ctrlK){
+		
+		if(z == 76){ event.returnValue = false; SelTab("libFiles"); } //L
+		if(z == 65){ event.returnValue = false; SelTab("setAds"); }
+		if((z == 79) && mix.hish("setAds")){ tryOpnFile(); }
+		
+	}
+
+
+	if(mix.hish("libFiles") && (delt.par == "")){
+		if((z==46) || (ctrlK && (z==68))){
+			if(books.length>0){
+				for(var i in books){
+					if(mix("book_"+i+"_id").setted == "set"){
+						delt(""+parseInt(i)); break;
+					}
+				}
+			}
+		}
+		if((z==39) || (z==40)){
+			//var books = api.books(usr);
+			if(books.length>0){
+				var num=(-1);
+				var num1=(-1);
+				for(var i in books){
+					if(mix.s("book_"+i+"_id").background == snk.setBg){ num = parseInt(i); }
+					if(mix("book_"+i+"_id").setted == "set"){ num1 = parseInt(i); }
+				}
+
+				for(var i in books){
+					mix("book_"+i+"_id").setted = "not";
+					mix.s("book_"+i+"_id").border = snk.unsetBorder;
+				}
+
+				if(num1==(-1)){
+					mix("book_"+num+"_id").setted = "set";
+					mix.s("book_"+num+"_id").border = snk.setBorder;
+				}else{
+					if((num1+1)<(books.length)){
+						mix("book_"+(num1+1)+"_id").setted = "set";
+						mix.s("book_"+(num1+1)+"_id").border = snk.setBorder;
+					}
+					if((num1)==(books.length-1)){
+						mix("book_"+num1+"_id").setted = "set";
+						mix.s("book_"+num1+"_id").border = snk.setBorder;
+					}
+				}
+				scrolLibToView();
+			}
+		}
+
+		if((z==37) || (z==38)){
+			//var books = api.books(usr);
+			if(books.length>0){
+				var num=(-1);
+				var num1=(-1);
+				for(var i in books){
+					if(mix.s("book_"+i+"_id").background == snk.setBg){ num=parseInt(i); }
+					if(mix("book_"+i+"_id").setted == "set"){ num1=parseInt(i); }
+				}
+				for(var i in books){
+					mix("book_"+i+"_id").setted = "not";
+					mix.s("book_"+i+"_id").border = snk.unsetBorder;
+				}
+
+				if(num1==(-1)){
+					mix("book_"+num+"_id").setted = "set";
+					mix.s("book_"+num+"_id").border = snk.setBorder;
+				}else{
+					if((num1-1)>=0){
+						mix("book_"+(num1-1)+"_id").setted = "set";
+						mix.s("book_"+(num1-1)+"_id").border = snk.setBorder;
+					}
+					if((num1)==0){
+						mix("book_"+num1+"_id").setted = "set";
+						mix.s("book_"+num1+"_id").border = snk.setBorder;
+					}
+				}
+				scrolLibToView();
+			}
+		}
+
+		if((z==13) || (z==32)){
+			if(books.length>0){
+				for(var i in books){
+					if(mix("book_"+i+"_id").setted == "set"){
+						if(mix.s("book_"+i+"_id").backgroundColor.toLowerCase() == snk.setBg.toLowerCase()){
+							window.close();
+						}else{
+							mark(parseInt(i)); break;
+						}
+					}
+				}
+			}}
+
+	}}
+
+ev.WinEvent("onkeydown", "kbDown");
+
+loader = function (){
+if(delt.par == ""){
+try{
+	books = api.books(true);
+	var setted = 0;
+	s = "";
+	var setted = 0;
+	var isset = false;
+	if(books.length > 0){
+		s = "<table id = \"books_table_id\" border=\"0\" cellspacing=\"1\" cellpadding=\"1\" width=\"100%\">";
+		for (var i in books){
+			s += "<tr>";
+			s += "<td><div style=\"background:";
+			if(CurrentBook ==  books[i]["path"]){
+				s += snk.setBg;
+				setted = parseInt(i);
+				isset = true;
+			}else{
+				s += snk.unsetBg;
+			}
+			s += "; border: " + snk.unsetBorder + "; padding: 2px; padding-left: 12px; padding-right: 12px; color: white; overflow: hidden; width: 100%\""
+			s += " onclick=\"mark('"+i+"')\" id = \"book_"+i+"_id\">";
+			s +=  books[i]["autor"] + "&nbsp; -- &nbsp;" + books[i]["book"] + "</div></td>";
+			s += "<td style=\"paddind: 4px\"><div style=\"text-align: center; height: 11px; width: 14px;"
+			s += " border: 1px solid white; padding-bottom: 3px; color: white; font-size: 8pt;\""
+			s += " id=\"delbut_"+i+"\" onclick = \"delt('"+i+"')\" onmouseover = \"dover('"+i+"')\" onmouseout = \"dout('"+i+"')\"> X</div></td></tr>";
+		}
+		s += "</table>";
+
+		mix.In("libFiles", s);
+		for(var i in books){
+			mix("book_"+i+"_id").setted = "not";
+			mix("book_"+i+"_id").selted = "not";
+		}
+		mix("book_"+setted+"_id").setted = "set";
+		if(isset){
+			mix("book_"+setted+"_id").selted = "set";
+		}
+		mix.B("book_"+setted+"_id", snk.setBorder);
+		scrolLibToView();
+	}else{
+		mix.In("libFiles", strings.s10);
+		SelTab("setAds");
+	}
+
+}catch(e){ alert(e); return false; }
+}}
+ev.t("loader()", 300); //for body rendering complete.
+
+
+var books = new Array();
+
+var CurrentBook = "";
+try{
+		CurrentBook = user.CurrentBook;
+}catch(e){ CurrentBook = ""; }
+
+mix.In("libFilesTab", strings.l1);
+mix.In("setAdsTab", strings.l2);
+mix.In("lforiwr", strings.l9);
+mix.In("lforallpas", strings.l9_1);
+
+texter.str = strings.l0_0;
+ev.t("texter()", 10);
+
+SelTab("libFiles");
+
+//-->
+</script>
+<script language = "JavaScript" src = "escEr.js"></script>
+<script language = "JavaScript" src = "selector.js"></script>
+
+</html>
+
+

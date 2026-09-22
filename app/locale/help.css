@@ -1,0 +1,39 @@
+/* Help pages theme (locale/en/help.htm, locale/ru/help/*.htm).
+   Matches the Native skin palette: #000033 background, light text, Tahoma. */
+body {
+	background: #000033;
+	color: #e8e8f0;
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.45;
+	padding: 0 20px;
+}
+
+h1, h2, h3 {
+	color: #ffd880;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 22px;
+	border-bottom: 1px solid #33447a;
+	padding-bottom: 6px;
+}
+
+h2 { font-size: 17px; margin-top: 26px; }
+h3 { font-size: 15px; }
+
+a { color: #7fa7ff; }
+a:visited { color: #b9a7e8; }
+a:hover { color: #ffd880; }
+
+pre {
+	font-family: inherit;      /* no monospace/Times fallback */
+	white-space: pre-wrap;     /* long lines wrap instead of overflowing */
+	background: #000026;
+	border: 1px solid #22336a;
+	border-radius: 4px;
+	padding: 10px 14px;
+}
+
+b { color: #ffffff; }

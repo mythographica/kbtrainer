@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Electron edition: the HTA:APPLICATION tag lives in electron/main.js
+     as BrowserWindow options (caption, single instance, no maximize). -->
+<title>kbTrainer</title>
+<meta http-equiv = "Content-Type" content = "text/html; charset=utf-8">
+<link rel = "stylesheet" type = "text/css" id = "css.main" href = "res/lib.css">
+
+<script language = "JavaScript" type = "text/javascript">
+<!--
+	// Electron: the window already starts centered at its final
+	// (remembered or screen-scaled) size; the HTA splash resizeTo(270,75)
+	// would only shrink it again.
+//-->
+</script>
+</head>
+<body topmargin = "0" leftmargin = "0">
+<span id = "loadString">&nbsp;</span>
+</body>
+<script language = "JavaScript" type = "text/javascript" src = "jq/vue.global.prod.js"></script>
+<script language = "JavaScript" type = "text/javascript" src = "bin/kbDialog.js"></script>
+<script language = "JavaScript" type = "text/javascript" src = "bin/kblib.js"></script>
+<script language = "JavaScript" type = "text/javascript" src = "bin/fit.js"></script>
+<script language = "JavaScript" type = "text/javascript" src = "bin/loader.js"></script>
+</html>

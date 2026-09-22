@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>kbTrainer Modes</title>
+<script src = "kbDialogChild.js"></script>
+
+<script src = "alf.js"></script>
+
+<style type = "text/css">
+<!--
+
+body{
+	font-size: 12px;
+	font-family: Tahoma, Verdana, Arial;
+	color: white;
+}
+#caption{
+	position: absolute;
+	top: 5px;
+	left: 30px;
+	width: 400px;
+	height: 24px;
+}
+#mode_selector{
+	position: absolute;
+	top: 50px;
+	left: 20px;
+	width: 400px;
+	height: 24px;
+}
+#mode_selector span{
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 0px solid gray;
+	padding: 3px 7px 2px 9px;
+}
+#mode_selector span[hl="true"]{
+	border-top: 2px solid gray;
+}
+
+#mode_lesson{
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	width: 660px;
+	height: 200px;
+	border: 1px solid gray;
+	visibility: hidden;
+	padding: 10px 20px 10px 20px;
+	overflow: hidden;
+}
+#mode_books{
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	width: 655px;
+	height: 200px;
+	border: 1px solid gray;
+	visibility: hidden;
+	padding: 10px 20px 10px 20px;
+	overflow: hidden;
+}
+#mode_books label, #mode_lesson label{
+	padding-left: 20px;
+}
+#mode_selector label{
+	padding-left: 5px;
+}
+#less_map_select, #less_select{
+	border: 1px solid gray;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 160px;
+	padding: 5px 10px 5px 10px;
+	
+}
+#less_map_select input[type="radio"], #less_select input[type="radio"]{
+	margin: 2px;
+	padding: 3px;
+}
+#less_map_select label, #less_select label label{
+}
+
+//-->
+</style>
+</head>
+<body>
+<div id="mvu"></div>
+
+<script src="../jq/vue.global.prod.js"></script>
+<script src="modeIsland.js"></script>
+</body>
+</html>

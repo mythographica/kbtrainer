@@ -1,0 +1,10 @@
+body {
+	background: black;
+	color: white;
+	font-family: Tahoma, Verdana, Arial;
+}
+#loadString {
+	font-size: 11px;
+	padding: 0px;
+	padding-left: 15px;
+}

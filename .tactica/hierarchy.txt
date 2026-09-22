@@ -1,0 +1,62 @@
+Type Hierarchy (Trie):
+├── Program
+│   ├── Program_FileDialog
+│   │   ├── Program_FileDialog_DirList
+│   │   └── Program_FileDialog_FilePick
+│   ├── Program_KeyFlash
+│   ├── Program_KeyLight
+│   ├── Program_LibDialog
+│   │   ├── Program_LibDialog_BookDeleteRequest
+│   │   │   └── Program_LibDialog_BookDeleteRequest_BookDeleted
+│   │   ├── Program_LibDialog_BookImport
+│   │   ├── Program_LibDialog_BookMark
+│   │   └── Program_LibDialog_BookSelect
+│   ├── Program_Log
+│   ├── Program_ModeDialog
+│   │   ├── Program_ModeDialog_BookPick
+│   │   ├── Program_ModeDialog_LessonPick
+│   │   └── Program_ModeDialog_ModeSet
+│   ├── Program_SettingsDialog
+│   │   ├── Program_SettingsDialog_MapsPairSet
+│   │   ├── Program_SettingsDialog_PrefSet
+│   │   └── Program_SettingsDialog_SkinPreview
+│   ├── Program_UserProfile
+│   ├── Program_ViewControl
+│   │   ├── Program_ViewControl_ZoomIn
+│   │   └── Program_ViewControl_ZoomOut
+│   └── Program_WindowState
+├── Session
+│   ├── Session_EventHandler
+│   ├── Session_KeyStroke
+│   │   ├── Session_KeyStroke_Correct
+│   │   │   └── Session_KeyStroke_Correct_StatUpdate
+│   │   └── Session_KeyStroke_Mistake
+│   │       └── Session_KeyStroke_Mistake_StatUpdate
+│   ├── Session_LetterPick
+│   ├── Session_ModeF1
+│   ├── Session_ModeF12
+│   ├── Session_ModeF2
+│   ├── Session_ModeF3
+│   ├── Session_ModeF4
+│   ├── Session_ModeF5
+│   ├── Session_ModeF7
+│   ├── Session_ModeF8
+│   ├── Session_Run
+│   │   ├── Session_Run_Book
+│   │   │   ├── Session_Run_Book_Native
+│   │   │   └── Session_Run_Book_Paragraph
+│   │   ├── Session_Run_Finish
+│   │   ├── Session_Run_Lesson
+│   │   │   ├── Session_Run_Lesson_Native
+│   │   │   └── Session_Run_Lesson_Paragraph
+│   │   └── Session_Run_Vocabulary
+│   ├── Session_RunControl
+│   │   ├── Session_RunControl_BaseNext
+│   │   ├── Session_RunControl_LessonNext
+│   │   ├── Session_RunControl_LessonPrev
+│   │   ├── Session_RunControl_Pause
+│   │   ├── Session_RunControl_Quit
+│   │   └── Session_RunControl_Resume
+│   └── Session_WordPick
+└── Timer
+    └── Timer_Tick
