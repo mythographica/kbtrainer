@@ -9,7 +9,13 @@ import * as path from "path";
 import { decodeBuf, encodeStr } from "./lib/charset";
 import { clampPos, clampToArea, initialContentSize, zoomSize, type Size } from "./lib/geometry";
 import { parseWindowState, serializeWindowState, type WindowState } from "./lib/windowState";
-import { runSmoke } from "./smoke";
+import { SMOKE_BUILT } from "./smoke-build";
+
+// The smoke harness is NOT part of a normal build (§3d): the flag is false
+// in the committed tree, the import below is lazy, and both KBT_SMOKE gates
+// also require SMOKE_BUILT. `npm run build:smoke` flips the flag for one
+// build and restores it.
+const smokeWanted = (): boolean => !!(process.env.KBT_SMOKE && SMOKE_BUILT);
 
 // The app loads only its own local files, so Chromium's dev-mode security
 // warnings (webSecurity off, no CSP, ...) are accepted by design — mute them.
@@ -37,7 +43,7 @@ process.on("unhandledRejection", (reason) => {
 });
 
 // Smoke runs must not touch the real profile: fresh userData per run
-if (process.env.KBT_SMOKE) {
+if (smokeWanted()) {
 	app.setPath("userData", fs.mkdtempSync(path.join(os.tmpdir(), "kbt-smoke-")));
 }
 
@@ -111,6 +117,22 @@ ipcMain.on("kbfs-readdir", (e, p) => {
 			try {
 				const st = fs.statSync(full);
 				if (st.isFile()) { out.push({ name: name, path: full, size: st.size }); }
+			} catch (err) { /* skip */ }
+		}
+		e.returnValue = out;
+	} catch (err) { e.returnValue = false; }
+});
+
+// the era file picker's listing: directories AND files, flagged (kbfs-readdir
+// stays files-only — the library scanner's contract)
+ipcMain.on("kbfs-listdir", (e, p) => {
+	try {
+		const out: { name: string; path: string; isDir: boolean; size: number }[] = [];
+		for (const name of fs.readdirSync(p)) {
+			const full = path.join(p, name);
+			try {
+				const st = fs.statSync(full);
+				out.push({ name: name, path: full, isDir: st.isDirectory(), size: st.size });
 			} catch (err) { /* skip */ }
 		}
 		e.returnValue = out;
@@ -218,6 +240,25 @@ if (!gotLock) {
 				webSecurity: false         // file:// iframes (modal dialogs) must reach parent
 			}
 		});
+
+		// window.open children (help pages, the era file picker) must get the
+		// SAME webPreferences as the main window: without the preload they
+		// have no kbfs bridge — alf.js then throws at load and its era
+		// catch fires alert(), which blocks the (shared) renderer thread
+		// forever under xvfb and wedges the whole app on a modal
+		win.webContents.setWindowOpenHandler(({ url }: { url: string }) => ({
+			action: "allow",
+			overrideBrowserWindowOptions: {
+				autoHideMenuBar: true,
+				webPreferences: {
+					preload: path.join(__dirname, "preload.js"),
+					contextIsolation: false,
+					sandbox: false,
+					nodeIntegration: false,
+					webSecurity: false
+				}
+			}
+		}));
 		mainWin = win;
 
 		// settings/mode/library overlays live INSIDE this window, so while one
@@ -285,6 +326,14 @@ if (!gotLock) {
 				: (CONSOLE_LEVELS[e.level] !== undefined ? CONSOLE_LEVELS[e.level] : "?");
 			console.log("RENDERER[" + lvl + "] " + e.message + " (" + e.sourceId + ":" + e.lineNumber + ")");
 		});
+		// secondary windows (help) hide the menu bar like the main window:
+		// Alt still reveals it, and its shortcuts (Ctrl+Shift+I — DevTools)
+		// keep working while it is hidden
+		app.on("browser-window-created", (e, w) => {
+			if (w === win) { return; }
+			w.setAutoHideMenuBar(true);
+			w.setMenuBarVisibility(false);
+		});
 		// Esc closes any secondary window (help); the main window keeps its
 		// own in-page Esc handling (snk.js)
 		app.on("web-contents-created", (e, contents) => {
@@ -296,8 +345,10 @@ if (!gotLock) {
 				}
 			});
 		});
-		if (process.env.KBT_SMOKE) {
-			runSmoke(win, process.env.KBT_SMOKE, STATE_FILE);
+		if (smokeWanted()) {
+			// lazy: the harness is not even loaded by a normal build
+			const { runSmoke } = require("./smoke");
+			runSmoke(win, process.env.KBT_SMOKE as string, STATE_FILE);
 		}
 	});
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-22T14:17:18.977Z",
+  "generatedAt": "2026-09-27T20:53:32.389Z",
   "modules": {
     "src/lib/prefs.ts": {
       "filePath": "src/lib/prefs.ts",
@@ -443,57 +443,21 @@
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
-    "src/smoke.ts": {
-      "filePath": "src/smoke.ts",
+    "src/smoke-build.ts": {
+      "filePath": "src/smoke-build.ts",
       "definedTypes": [],
       "exportedBindings": [
         {
-          "name": "runSmoke",
-          "kind": "function",
-          "sourceModule": "src/smoke.ts",
+          "name": "SMOKE_BUILT",
+          "kind": "const",
+          "sourceModule": "src/smoke-build.ts",
           "isReExport": false
         }
       ],
-      "importedBindings": [
-        {
-          "name": "app",
-          "kind": "unknown",
-          "sourceModule": "node_modules/electron/electron.d.ts",
-          "importKind": "named",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "BrowserWindow",
-          "kind": "unknown",
-          "sourceModule": "node_modules/electron/electron.d.ts",
-          "importKind": "named",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "screen",
-          "kind": "unknown",
-          "sourceModule": "node_modules/electron/electron.d.ts",
-          "importKind": "named",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "WSSession",
-          "kind": "unknown",
-          "sourceModule": "node_modules/@mnemonica/strategy/lib/index.d.ts",
-          "importKind": "named",
-          "isReExport": false,
-          "external": true
-        }
-      ],
+      "importedBindings": [],
       "dependencies": [],
       "unresolvedSpecifiers": [],
-      "builtinSpecifiers": [
-        "fs",
-        "path"
-      ]
+      "builtinSpecifiers": []
     },
     "src/main.ts": {
       "filePath": "src/main.ts",
@@ -611,9 +575,9 @@
           "isReExport": false
         },
         {
-          "name": "runSmoke",
-          "kind": "function",
-          "sourceModule": "src/smoke.ts",
+          "name": "SMOKE_BUILT",
+          "kind": "const",
+          "sourceModule": "src/smoke-build.ts",
           "importKind": "named",
           "isReExport": false
         }
@@ -622,7 +586,7 @@
         "src/lib/charset.ts",
         "src/lib/geometry.ts",
         "src/lib/windowState.ts",
-        "src/smoke.ts"
+        "src/smoke-build.ts"
       ],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": [
@@ -896,6 +860,13 @@
           "isReExport": false
         },
         {
+          "name": "Session_Run",
+          "kind": "unknown",
+          "sourceModule": ".tactica/types.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
           "name": "Timer",
           "kind": "unknown",
           "sourceModule": ".tactica/types.ts",
@@ -939,6 +910,13 @@
           "isReExport": false
         },
         {
+          "name": "USER_ALIASES",
+          "kind": "const",
+          "sourceModule": "src/domain/store.ts",
+          "importKind": "named",
+          "isReExport": false
+        },
+        {
           "name": "createKbCollection",
           "kind": "function",
           "sourceModule": "src/domain/collection.ts",
@@ -954,6 +932,58 @@
       "builtinSpecifiers": [
         "path",
         "fs"
+      ]
+    },
+    "src/smoke.ts": {
+      "filePath": "src/smoke.ts",
+      "definedTypes": [],
+      "exportedBindings": [
+        {
+          "name": "runSmoke",
+          "kind": "function",
+          "sourceModule": "src/smoke.ts",
+          "isReExport": false
+        }
+      ],
+      "importedBindings": [
+        {
+          "name": "app",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "BrowserWindow",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "screen",
+          "kind": "unknown",
+          "sourceModule": "node_modules/electron/electron.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        },
+        {
+          "name": "WSSession",
+          "kind": "unknown",
+          "sourceModule": "node_modules/@mnemonica/strategy/lib/index.d.ts",
+          "importKind": "named",
+          "isReExport": false,
+          "external": true
+        }
+      ],
+      "dependencies": [],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": [
+        "fs",
+        "path"
       ]
     },
     "src/renderer/engine.ts": {
@@ -974,44 +1004,8 @@
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
-    "src/renderer/libIsland.ts": {
-      "filePath": "src/renderer/libIsland.ts",
-      "definedTypes": [],
-      "exportedBindings": [],
-      "importedBindings": [],
-      "dependencies": [],
-      "unresolvedSpecifiers": [],
-      "builtinSpecifiers": []
-    },
-    "src/renderer/modeIsland.ts": {
-      "filePath": "src/renderer/modeIsland.ts",
-      "definedTypes": [],
-      "exportedBindings": [],
-      "importedBindings": [],
-      "dependencies": [],
-      "unresolvedSpecifiers": [],
-      "builtinSpecifiers": []
-    },
-    "src/renderer/setsIsland.ts": {
-      "filePath": "src/renderer/setsIsland.ts",
-      "definedTypes": [],
-      "exportedBindings": [],
-      "importedBindings": [],
-      "dependencies": [],
-      "unresolvedSpecifiers": [],
-      "builtinSpecifiers": []
-    },
     "src/renderer/skins.ts": {
       "filePath": "src/renderer/skins.ts",
-      "definedTypes": [],
-      "exportedBindings": [],
-      "importedBindings": [],
-      "dependencies": [],
-      "unresolvedSpecifiers": [],
-      "builtinSpecifiers": []
-    },
-    "src/renderer/topIsland.ts": {
-      "filePath": "src/renderer/topIsland.ts",
       "definedTypes": [],
       "exportedBindings": [],
       "importedBindings": [],
@@ -1037,6 +1031,17 @@
       "dependencies": [
         "models/chain.ts"
       ],
+      "unresolvedSpecifiers": [],
+      "builtinSpecifiers": []
+    },
+    "models/Program/BookMark/index.ts": {
+      "filePath": "models/Program/BookMark/index.ts",
+      "definedTypes": [
+        "Program.BookMark"
+      ],
+      "exportedBindings": [],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
@@ -1272,35 +1277,6 @@
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
-    "models/Program/LibDialog/BookMark/index.ts": {
-      "filePath": "models/Program/LibDialog/BookMark/index.ts",
-      "definedTypes": [
-        "Program.LibDialog.BookMark"
-      ],
-      "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "ProgramChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
-      "unresolvedSpecifiers": [],
-      "builtinSpecifiers": []
-    },
     "models/Program/LibDialog/BookSelect/index.ts": {
       "filePath": "models/Program/LibDialog/BookSelect/index.ts",
       "definedTypes": [
@@ -1394,26 +1370,8 @@
         "Program.ModeDialog.BookPick"
       ],
       "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "ProgramChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
@@ -1423,26 +1381,8 @@
         "Program.ModeDialog.LessonPick"
       ],
       "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "ProgramChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
@@ -1966,26 +1906,8 @@
         "Session.ModeF1"
       ],
       "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "SessionChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
@@ -2448,26 +2370,8 @@
         "Session.RunControl.BaseNext"
       ],
       "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "SessionChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
@@ -2477,26 +2381,8 @@
         "Session.RunControl.LessonNext"
       ],
       "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "SessionChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },
@@ -2506,26 +2392,8 @@
         "Session.RunControl.LessonPrev"
       ],
       "exportedBindings": [],
-      "importedBindings": [
-        {
-          "name": "{ utils }",
-          "kind": "unknown",
-          "sourceModule": "node_modules/mnemonica/build/index.d.ts",
-          "importKind": "require",
-          "isReExport": false,
-          "external": true
-        },
-        {
-          "name": "SessionChain",
-          "kind": "type",
-          "sourceModule": "models/chain.ts",
-          "importKind": "named",
-          "isReExport": false
-        }
-      ],
-      "dependencies": [
-        "models/chain.ts"
-      ],
+      "importedBindings": [],
+      "dependencies": [],
       "unresolvedSpecifiers": [],
       "builtinSpecifiers": []
     },

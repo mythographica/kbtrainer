@@ -1,12 +1,28 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-22T14:17:18.961Z",
+  "generatedAt": "2026-09-27T20:53:32.371Z",
   "eds": {
     "unknown": [
       {
-        "location": "src/preload.ts:83:2",
+        "location": "src/preload.ts:114:2",
         "kind": "hookAttach",
         "code": "attachHooks(collection)"
+      },
+      {
+        "location": "src/preload.ts:169:3",
+        "kind": "hookAttach",
+        "code": "new (require(\"@mnemonica/otel\").MnemonicaOtelProvider)().attachHooks(collection)"
+      }
+    ],
+    "app.mooving_keys": [
+      {
+        "location": "src/renderer/engine.ts:1116:22",
+        "kind": "wrap",
+        "code": "kbDive.wrap(app.mooving_keys, kbstore.session, \"keystroke\")",
+        "targetType": "app.mooving_keys",
+        "fn": "wrap",
+        "label": "keystroke",
+        "scopeId": "src/renderer/engine.ts"
       }
     ]
   }

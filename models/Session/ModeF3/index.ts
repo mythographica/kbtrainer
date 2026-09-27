@@ -4,19 +4,22 @@ const { utils } = require('mnemonica');
 
 import type { SessionChain } from '../../chain';
 
-// Session.ModeF3 — keyboard type switch (visual: lives in the program's
-// prefs).
+// Session.ModeF3 — typing mode switch. The era F3 (snk.changeTypingMode)
+// toggles profile.TypingMode between 'native' (letter by letter) and
+// 'paragraph' (by paragraph) — the same split as Run.Lesson/Book.Native
+// and .Paragraph. This records the mode the switch produced.
 
 interface ModeF3Self {
-	keyboardType : string;
+	typingMode : string;
 }
 
 module.exports = function ModeF3(this: ModeF3Self) {
 	const session = utils.parent(this, 'Session') as SessionChain;
 	const program = session.program!;
-	const types = [ 'simple', 'full', 'compact' ];
-	const idx = (types.indexOf(program.profile.keyboardType) + 1) % types.length;
-	program.profile.keyboardType = types[ idx ];
 	program.prefsDirty = true;
-	this.keyboardType = types[ idx ];
+	this.typingMode = program.profile.TypingMode;
+	// a run in progress switches its picking with it (same cursor)
+	if (session.run) {
+		session.run.pick = this.typingMode === 'paragraph' ? 'word' : 'letter';
+	}
 };

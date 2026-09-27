@@ -8,6 +8,11 @@
 // teardown fires no events, so close() runs that handler manually first.
 	if(window.parent && window.parent.__kbDialog){
 		window.dialogArguments = window.parent.__kbDialog.args || {};
+		// diagnostics: era pages fail silently inside the overlay iframe;
+		// keep the last script error inspectable (the smoke reports it)
+		window.onerror = function(msg, src, line, col){
+			try{ window.__kbDlgErr = String(msg) + " @" + String(src).split("/").pop() + ":" + line + ":" + col; }catch(e){}
+		};
 		window.close = function(){
 			try{
 				if(window.onbeforeunload){ window.onbeforeunload(); }

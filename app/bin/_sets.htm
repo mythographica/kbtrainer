@@ -5,15 +5,30 @@
 <meta http-equiv = "Content-Type" content="text/html; charset=utf-8">
 <script language = "JavaScript" src = "kbDialogChild.js"></script>
 
-<script language = "JavaScript" src = "../jq/jquery-1.4.2.min.js"></script>
 <script language = "JavaScript" src = "kblib.js"></script>
 <script language = "JavaScript" src = "alf.js"></script>
 <script language = "JavaScript" src = "mixer.js"></script>
 <script language = "JavaScript" src = "ev.js"></script>
 <script language = "JavaScript" src = "fns.js"></script>
 <script language = "JavaScript" >
-	window.moveTo(150, 20);
-	window.resizeTo(750,680);
+	// Electron overlay: the iframe cannot be moved/resized — kbDialog.js owns
+	// the geometry. Guarded so a denial cannot abort the page scripts.
+	try{ window.moveTo(150, 20); window.resizeTo(750,680); }catch(e){}
+</script>
+
+<script language = "JavaScript">
+	// selector.js replacement (Electron port): selector.js never shipped
+	// with the port; its dialog-side job was injecting the current skin's
+	// stylesheet. selector.fn() below is guarded for the same reason.
+	(function(){
+		try{
+			var lk = document.createElement("link");
+			lk.rel = "stylesheet";
+			lk.type = "text/css";
+			lk.href = "../skins/skin." + ((window.dialogArguments.usr && window.dialogArguments.usr.skin) || "native") + ".css";
+			document.getElementsByTagName("head")[0].appendChild(lk);
+		}catch(e){}
+	})();
 </script>
 
 <style type = "text/css">
@@ -220,25 +235,49 @@ input[name='snk_keybSize_radio_id']{
 <!--
 var questor;
 
+// Program.SettingsDialog (traced): each change the page makes is recorded
+// right AFTER the era write, under the canonical profile name (userAliases:
+// era pref names -> profile names) — the same value into the same cell the
+// era write just made, so the domain only records. Best-effort: the page
+// works without the domain.
+var domain = window.dialogArguments.domain || null;
+var aliases = (window.dialogArguments.kbstore && window.dialogArguments.kbstore.userAliases) || {};
+var record = function(make){
+	try{ if(domain){ make(domain); } }catch(e){}
+};
+var prefSet = function(name, value){
+	record(function(dialog){ new dialog.PrefSet(aliases[name] || name, value); });
+};
+var mapsPairSet = function(){
+	record(function(dialog){ new dialog.MapsPairSet(usr.selectedMaps[0], usr.selectedMaps[1]); });
+};
+
 scroller = function(){ try{ document.body.scrollTop = parseInt(document.body.scrollTop) + 50; }catch(e){}finally{} }
 
 snk = {
 	  setsClicker			: function(){
 		usr.errMode = mix("snk.errMode.chk").checked ? true : false;
+		prefSet("errMode", usr.errMode);
 		if(!mix("snk.errMode.chk").checked){ mix("snk.oneErrOnly.chk").checked = false; }
 		mix("snk.oneErrOnly.chk").disabled = usr.errMode ? false : true;
 		usr.oneErrOnly = mix("snk.oneErrOnly.chk").checked ? true : false;
+		prefSet("oneErrOnly", usr.oneErrOnly);
 
 		usr.ErrAlwaysCount = mix("snk.ErrAlwaysCount.chk").checked ? true : false;
+		prefSet("ErrAlwaysCount", usr.ErrAlwaysCount);
 		usr.skipNonTypedCharacters = mix("snk.skipNonTypedCharacters.chk").checked ? true : false;
+		prefSet("skipNonTypedCharacters", usr.skipNonTypedCharacters);
 		usr.hideStatsOnPause = mix("snk.hideStatsOnPause.chk").checked ? true : false;
+		prefSet("hideStatsOnPause", usr.hideStatsOnPause);
 
 		//usr.shiftControl = mix("snk.shiftControl.chk").checked ? true : false;
 
 		usr.spaceIsShiftSensentive = mix("snk.spaceIsShiftSensentive.chk").checked ? true : false;
+		prefSet("spaceIsShiftSensentive", usr.spaceIsShiftSensentive);
 		if(mix("snk.spaceIsShiftSensentive.chk").checked){
 			mix("snk.spaceInvert.chk").disabled = false;
 			usr.spaceInvert = mix("snk.spaceInvert.chk").checked ? true : false;
+			prefSet("spaceInvert", usr.spaceInvert);
 		}else{
 			mix("snk.spaceInvert.chk").disabled = true;
 		}
@@ -260,6 +299,7 @@ snk = {
 		if(selm !== ""){ // 1 from 1
 
 			usr.selectedMaps[selmi] = par;
+			mapsPairSet();
 			kb.loadselectedmaps();
 			usr.currentMap = par.split(".")[0];
 			kb.changeMap.map = usr.currentMap;
@@ -317,6 +357,7 @@ snk = {
 	, selectNewMaps 		: function(){
 		var mdaqwest = (mix("radio_id_map0").checked) ? 0 : 1;
 		usr.selectedMaps = questor[mdaqwest];
+		mapsPairSet();
 		kb.loadselectedmaps();
 		usr.currentMap = usr.selectedMaps[0].split(".")[0];
 		kb.current_map = usr.currentMap;
@@ -348,6 +389,7 @@ snk = {
 	}
 	, setskeybView			: function(){
 		usr.keybView = mix("snk.keybView.chk").checked ? true : false;
+		prefSet("keybView", usr.keybView);
 		if(usr.keybView){
 
 			mix("snk_keybSize_radio_id1").disabled = false;
@@ -400,6 +442,7 @@ snk = {
 		}
 		
 		usr.hider = mix("snk.hider.chk").checked ? true : false;
+		prefSet("hider", usr.hider);
 		if(usr.hider){
 			$("label[for='snk.hider.chk']").html(strings.s36 + " " + strings.s37);
 			mix.Fshow("snk.hiderInterval.txt");
@@ -414,6 +457,7 @@ snk = {
 		var par = parseInt(mix("snk.hiderInterval.txt").value);
 		if((par < 999) && (par > 50)){
 			usr.hiderInterval = par;
+			prefSet("hiderInterval", usr.hiderInterval);
 		}else{
 			alert("Incorrect value. \n correct value is more than 50 but less than 999. ");
 			mix("snk.hiderInterval.txt").value = usr.hiderInterval;
@@ -424,6 +468,7 @@ snk = {
 		var ener = mix("snk_layout_select_id").value;
 		if(usr.layouts != ener){
 			usr.layouts = ener;
+			prefSet("layouts", usr.layouts);
 			layouts.selted = layouts.arr[ener];
 			layouts.layoutLoad();
 			layouts.evaluator();
@@ -444,6 +489,7 @@ snk = {
 			var ener = mix("snk_keybSize_radio_id"+par).value;
 			if(usr.keybSize != ener){
 				usr.keybSize = mix("snk_keybSize_radio_id"+par).value;
+				prefSet("keybSize", usr.keybSize);
 				//prefs.setCharPref("keybSize", usr.keybSize);
 				layouts.evaluator();
 				layouts.resizer();
@@ -477,6 +523,9 @@ snk = {
 			
 			mix.In("kbKKLDivCont", strptalm);
 			usr.skin = ener;
+			prefSet("skin", usr.skin);
+			// Program.SettingsDialog.SkinPreview (traced)
+			record(function(dialog){ new dialog.SkinPreview(ener); });
 			//prefs.setCharPref("skin", usr.skin);
 			skins.selted = skins.arr[ener];
 			skins.skinLoad();
@@ -484,7 +533,9 @@ snk = {
 			layouts.resizer();
 			layouts.resizer(true);
 			layouts.translator(1);
-			selector.fn();
+			// selector.js never shipped with the port (skin re-injection is
+			// handled once at load above); the era call would throw here
+			try{ if(typeof selector != "undefined"){ selector.fn(); } }catch(e){}
 			//document.title = "here";
 		}
 		try{
@@ -772,6 +823,9 @@ starter = function(){
 	
 	ev.t("document.body.focus()", 30);
 
+	// the smoke test listens for this
+	window.__setsReady = true;
+
 	document.title = "e == mc ^ 2";
 }
 
@@ -805,5 +859,4 @@ ev.t("starter()", 500);
 //-->
 </script>
 <script language = "JavaScript" src = "escEr.js"></script>
-<script language = "JavaScript" src = "selector.js"></script>
 </html>

@@ -82,6 +82,11 @@ try{
 		, ll					: function(p1,p2,p3,p4){ // loader log
 			var la = loader_log;
 			la[la.length] = [p1,p2,p3,p4];
+			// the same line as a Program.Log record (traced), in the
+			// loader_log_view format; kbstore is booted by the preload
+			try{
+				new kbstore.program.Log(p2 + " " + p1 + " : for: \"" + p4 + "\" " + p3, "loader");
+			}catch(e){}
 		}
 		// picks the first component not fully loaded yet and advances it
 		// one step; reschedules itself while anything remains (or may be

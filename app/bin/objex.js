@@ -1,12 +1,12 @@
 try{
 	//***!!!*** Visual Components of kbTrainer == objx (Objects)
 
-	// stage 4.2/4.3: the top rows (clock, info boxes, stats, buttons) and
-	// the typing area (content/already/to_type/paragrh, the messager pause
-	// overlay) are rendered by the main-window Vue island (bin/topIsland.js,
-	// mounted via the
-	// "topbar" loader entry) before this script runs — wrap the existing
-	// nodes instead of creating them. Everything is island-rendered now.
+	// the top rows (clock, info boxes, stats, buttons) and the typing area
+	// (content/already/to_type/paragrh, the messager pause overlay) are
+	// STATIC markup in kb.html (the kb.hta shape), present in the DOM before
+	// this script runs — wrap the existing nodes instead of creating them.
+	// The wall clock (id.time) is driven by bin/kbclock.js via the "topbar"
+	// loader stage.
 	var wrap = function(id){ return new mix.ex(id); };
 
 	var objx = { // objects

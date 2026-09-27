@@ -58,8 +58,8 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			console.log("SMOKE-STATS " + await js("JSON.stringify({perc: fns.count_perc(1,3), hms: fns.time_HMS(3661).str, spd: kblib.speed(245,60), kperc: kblib.countPerc(1,6), km: kblib.parseMapFileName('map.EN.Standard.js').mapName, next: kblib.nextMap(['en','ru'],'ru','ru'), pair: kblib.selectedMapsPair(['en.standard','ru.standard'],'ua').currentMap})"));
 			// stage-4.1 domain store: era user fields delegate onto program.profile
 			console.log("SMOKE-STORE " + await js("(function(){ var p = kbstore.program.profile; var before = user.hiderInterval; user.hiderInterval = 333; var viaProfile = p.hiderInterval; p.wsT = 222; var viaUser = user.wsT; user.hiderInterval = before; var withOk = (new Function('u', 'with(u){ return skin; }'))(user) === user.skin; var fnKept = typeof user.save === 'function'; return JSON.stringify({ store: typeof kbstore, roots: !!kbstore.session && !!kbstore.timer, ticksType: typeof kbstore.timer.ticks, kids: kbstore.topology.Session.kids.length, viaProfile: viaProfile, viaUser: viaUser, withOk: withOk, fnKept: fnKept });})()"));
-			// stage-4.2/4.3 main-window island: Vue rendered the top rows + typing area, objx shims wrap them, the island owns the clock
-			console.log("SMOKE-TOPBAR " + await js("(function(){ if(window.__tvuMounted !== true){ return 'not-mounted'; } var ids = ['id.time','id.map_name','id.next_key','id.lang','id.prev','id.timer','id.txt_perc','id.err_perc','id.velocity','id.zoomout_btn','id.zoomin_btn','id.help_btn','id.lang_btn','id.type_btn','id.mode_btn','id.sets_btn','id.libr_btn','id.content','id.already','id.to_type','id.paragrh','id.messager','id.keyboard']; var missing = ids.filter(function(i){ return !document.getElementById(i); }); var shimOk = objx.time.m === document.getElementById('id.time') && objx.help_btn.m === document.getElementById('id.help_btn') && objx.speed.m === document.getElementById('id.velocity') && objx.to_type.m === document.getElementById('id.to_type') && objx.messager.m === document.getElementById('id.messager') && objx.content.m === document.getElementById('id.content') && objx.keyboard.m === document.getElementById('id.keyboard'); var kbKeys = document.getElementById('id.keyboard').getElementsByTagName('div').length; var clock = document.getElementById('id.time').innerHTML; var wired = typeof objx.help_btn.obj.onclick === 'function' && objx.zoomout_btn.obj.innerHTML === '-'; var nest = document.getElementById('id.already').parentNode === document.getElementById('id.content') && document.getElementById('id.content').parentNode === document.getElementById('id.full') && document.getElementById('id.keyboard').parentNode === document.getElementById('id.full'); return JSON.stringify({ missing: missing, shimOk: shimOk, nest: nest, kbKeys: kbKeys, clock: clock.length > 5 && clock.indexOf(':') > 0, wired: wired });})()"));
+			// the top rows + typing area are STATIC markup in kb.html (the kb.hta shape), objx shims wrap them, kbclock.js owns the clock
+			console.log("SMOKE-TOPBAR " + await js("(function(){ if(!document.getElementById('id.full')){ return 'not-mounted'; } var ids = ['id.time','id.map_name','id.next_key','id.lang','id.prev','id.timer','id.txt_perc','id.err_perc','id.velocity','id.zoomout_btn','id.zoomin_btn','id.help_btn','id.lang_btn','id.type_btn','id.mode_btn','id.sets_btn','id.libr_btn','id.content','id.already','id.to_type','id.paragrh','id.messager','id.keyboard']; var missing = ids.filter(function(i){ return !document.getElementById(i); }); var shimOk = objx.time.m === document.getElementById('id.time') && objx.help_btn.m === document.getElementById('id.help_btn') && objx.speed.m === document.getElementById('id.velocity') && objx.to_type.m === document.getElementById('id.to_type') && objx.messager.m === document.getElementById('id.messager') && objx.content.m === document.getElementById('id.content') && objx.keyboard.m === document.getElementById('id.keyboard'); var kbKeys = document.getElementById('id.keyboard').getElementsByTagName('div').length; var clock = document.getElementById('id.time').innerHTML; var wired = typeof objx.help_btn.obj.onclick === 'function' && objx.zoomout_btn.obj.innerHTML === '-'; var nest = document.getElementById('id.already').parentNode === document.getElementById('id.content') && document.getElementById('id.content').parentNode === document.getElementById('id.full') && document.getElementById('id.keyboard').parentNode === document.getElementById('id.full'); return JSON.stringify({ missing: missing, shimOk: shimOk, nest: nest, kbKeys: kbKeys, clock: clock.length > 5 && clock.indexOf(':') > 0, wired: wired });})()"));
 			await shot("01-boot");
 			const isCentered = () => {
 				const b = mainWin.getBounds();
@@ -75,9 +75,9 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			await sleep(2000);
 			console.log("SMOKE-DLG sets: " + await js("!!document.querySelector('iframe') && !!document.querySelector('iframe').contentWindow.dialogArguments"));
 			console.log("SMOKE-DLG sets-noscroll: " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var d=f.contentDocument; var sh=Math.max(d.body.scrollHeight, d.documentElement.scrollHeight); return sh + ' vs ' + f.clientHeight + ' -> ' + (sh <= f.clientHeight);})()"));
-			// the settings dialog is a Vue island (bin/sets.html): mounted,
-			// live-bound to the shared user object, maps list rendered
-			console.log("SMOKE-SETS-VUE " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__svuMounted!==true){return 'not-mounted';} var before=user.hideStatsOnPause; var chk=d.getElementById('snk.hideStatsOnPause.chk'); chk.click(); var mid=user.hideStatsOnPause; chk.click(); var after=user.hideStatsOnPause; var maps=d.querySelectorAll('#msmaps input[type=checkbox]').length; return JSON.stringify({mounted: true, titl: d.getElementById('titl').innerHTML.length > 0, maps: maps, mapsOk: maps === kb.mapsarr.length, bound: (before === after) && (mid === !before)});})()"));
+			// the settings dialog is the original era page (bin/_sets.htm):
+			// starter ran, live-bound to the shared user object, maps rendered
+			console.log("SMOKE-SETS-ERA " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__setsReady!==true){return JSON.stringify({ready:false, err:w.__kbDlgErr||null});} var before=user.hideStatsOnPause; var chk=d.getElementById('snk.hideStatsOnPause.chk'); chk.click(); var mid=user.hideStatsOnPause; chk.click(); var after=user.hideStatsOnPause; var maps=d.querySelectorAll('#msmaps input[type=checkbox]').length; return JSON.stringify({ready: true, titl: d.getElementById('titl').innerHTML.length > 0, maps: maps, mapsOk: maps === kb.mapsarr.length, bound: (before === after) && (mid === !before)});})()"));
 			// the dialog sizes to its design dims scaled by DELIBERATE zoom
 			// only — never by the passive boot fit (regression: F4/F5/F8
 			// used to open near full screen width)
@@ -99,6 +99,10 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			}));
 			mainWin.webContents.sendInputEvent({ type: "keyDown", keyCode: "-", modifiers: ["control"] } as any);
 			await sleep(900);
+			// one more deliberate step: the NEXT dialog must open at this zoom
+			mainWin.webContents.sendInputEvent({ type: "keyDown", keyCode: "=", modifiers: ["control"] } as any);
+			await sleep(900);
+			const dlgZoomSet = await js("(function(){var f=document.querySelector('iframe'); return f ? f.contentDocument.body.style.zoom : 'no-frame';})()");
 			await js("window.__kbDialog.close(); 'ok'");
 			await sleep(500);
 
@@ -108,6 +112,13 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			await js("snk.open_sets(); 'ok'");
 			await sleep(2000);
 			const dlgSize = mainWin.getContentSize();
+			// the reopened dialog keeps the remembered zoom (not the main
+			// window's scale) and shows no scrollbars when its content fits
+			console.log("SMOKE-DLG-REMEMBER " + JSON.stringify({
+				set: dlgZoomSet,
+				reopened: await js("(function(){var f=document.querySelector('iframe'); return f ? f.contentDocument.body.style.zoom : 'no-frame';})()"),
+				noScroll: await js("(function(){var f=document.querySelector('iframe'); var d=f.contentDocument; var cw=Math.max(d.body.scrollWidth, d.documentElement.scrollWidth), ch=Math.max(d.body.scrollHeight, d.documentElement.scrollHeight); var fits = cw <= f.clientWidth && ch <= f.clientHeight; return JSON.stringify({fits: fits, overflow: d.documentElement.style.overflow, content: [cw, ch], frame: [f.clientWidth, f.clientHeight]});})()")
+			}));
 			mainWin.close();
 			await sleep(1500);
 			console.log("SMOKE-DLG-X " + JSON.stringify({
@@ -125,9 +136,19 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			await js("snk.open_lib(true); 'ok'");
 			await sleep(2000);
 			console.log("SMOKE-DLG lib: " + await js("!!document.querySelector('iframe') && !!document.querySelector('iframe').contentWindow.dialogArguments"));
-			// the library dialog is a Vue island (bin/lib.html); a fresh
+			// the library dialog is the original era page (bin/_lib.htm); a fresh
 			// profile has no books, so it auto-opens the Add tab
-			console.log("SMOKE-LIB-VUE " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__lvuMounted!==true){return 'not-mounted';} var add=d.getElementById('setAds'); var lst=d.getElementById('libFiles'); return JSON.stringify({mounted: true, addVisible: !!add && add.offsetHeight > 0, listEmpty: !!lst && lst.innerHTML.length > 0, tabs: !!d.getElementById('libFilesTab') && !!d.getElementById('setAdsTab')});})()"));
+			console.log("SMOKE-LIB-ERA " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__libReady!==true){return JSON.stringify({ready:false, err:w.__kbDlgErr||null});} var add=d.getElementById('setAds'); var lst=d.getElementById('libFiles'); return JSON.stringify({ready: true, addVisible: !!add && add.offsetHeight > 0, listEmpty: !!lst && lst.innerHTML.length > 0, tabs: !!d.getElementById('libFilesTab') && !!d.getElementById('setAdsTab')});})()"));
+			// the era book-open flow end to end: pick a file (the era picker
+			// contract — a turnObj'd file object), import it through the Add
+			// tab, select the new book. kbTrainer's own AGENTS.md is the test
+			// book. The native OS dialog is Electron's own surface and is
+			// driven around, exactly like a real pick would set selectedFile.
+			const agentsBook = path.join(app.getAppPath(), "AGENTS.md");
+			console.log("SMOKE-BOOK-OPEN " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__libReady!==true){return 'not-ready';} w.alert=function(){}; w.confirm=function(){return true;}; var AGENTS=" + JSON.stringify(agentsBook) + "; w.tryOpnFile.selectedFile = w.fs.turnObj(w.fs.open(AGENTS)); var picked = !!(w.tryOpnFile.selectedFile && w.tryOpnFile.selectedFile.path === AGENTS); d.getElementById('autor').value='Smoke'; d.getElementById('book').value='Agents'; d.getElementById('charset_id').value='UTF-8'; var before=w.api.books(true).length; w.saver(); var after=w.api.books(true).length; var listed=d.getElementById('libFiles').innerHTML.indexOf('Agents')>=0; var b=w.books; var idx=b.length-1; w.mark(String(idx)); var current=w.user.CurrentBook; var selected=current===b[idx].path; var inLibrary=kbstore.program.library.indexOf(current)>=0; w.user.LessonsMode='book'; return JSON.stringify({picked:picked, imported:after===before+1, listed:listed, selected:selected, inLibrary:inLibrary, current:current});})()"));
+			// the era in-app file picker (bin/_fopn.htm) is ported but parked
+			// (era layout renders poorly under Electron font metrics): the
+			// "..." button is back on the native dialog, exercised manually
 			await shot("03-lib");
 			await js("window.__kbDialog.close(); 'ok'");
 
@@ -137,16 +158,86 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 				if (await js("app._started === true")) { break; }
 			}
 
+			// the restart ran in book mode (SMOKE-BOOK-OPEN selected the
+			// imported AGENTS.md book): fns.book_load() parses the era book
+			// format (autor\nbook\npos\ndata) into vars.strArr — its data
+			// must carry the book's text ('kbTrainer' is the first heading of
+			// AGENTS.md and survives the import cleanup)
+			{
+				let bookTyping = false;
+				for (let i = 0; i < 30; i++) {
+					await sleep(500);
+					bookTyping = await js("user.LessonsMode === 'book' && !!vars.strArr && typeof vars.strArr.data === 'string' && vars.strArr.data.indexOf('kbTrainer') >= 0");
+					if (bookTyping) { break; }
+				}
+				console.log("SMOKE-BOOK-TYPES " + JSON.stringify({ bookTyping: bookTyping, mode: await js("user.LessonsMode"), book: await js("user.CurrentBook.split(/[\\\\/]/).pop()"), autor: await js("vars.strArr ? vars.strArr.autor : null") }));
+				await shot("03b-book-typing");
+				// the restart lands paused (the dialog close pauses the app):
+				// Space resumes — the typing line must show the book's text.
+				// (__kbkey is not installed yet this early in the run, so the
+				// key dispatch is inline)
+				await js("(function(){var e=new KeyboardEvent('keydown',{bubbles:true,cancelable:true});Object.defineProperty(e,'keyCode',{get:function(){return 32;}});Object.defineProperty(e,'which',{get:function(){return 32;}});document.body.dispatchEvent(e);})(); 'ok'");
+				await sleep(1500);
+				const resumedTyping = await js("!(app.keyboard_on === false) && vars.strArr && vars.strArr.pos >= 0 && document.getElementById('id.to_type').innerHTML.length > 0");
+				console.log("SMOKE-BOOK-RESUMED " + JSON.stringify({ resumed: resumedTyping, head: await js("document.getElementById('id.to_type').innerHTML.substr(0, 40)") }));
+				await shot("03c-book-typing-resumed");
+				// back to lesson mode for the rest of the run
+				await js("user.LessonsMode = 'lesson'; 'ok'");
+			}
+
+			// the vocabulary mode (resurrected 2026-09-27): Ctrl+3's textarea,
+			// typed once — memory only. Drive the real path: paste, restart,
+			// the pasted text must reach the typing pipeline
+			{
+				await js("(function(){ window.__vocabText = 'Vocabulary smoke line one.\\nVocabulary smoke line two.\\n\\n'; user.LessonsMode = 'vocabulary'; app.restart(); return 'ok'; })()");
+				let vocabTyping = false;
+				for (let i = 0; i < 20; i++) {
+					await sleep(500);
+					vocabTyping = await js("user.LessonsMode === 'vocabulary' && !!vars.strArr && typeof vars.strArr.data === 'string' && vars.strArr.data.indexOf('Vocabulary smoke line one.') >= 0");
+					if (vocabTyping) { break; }
+				}
+				console.log("SMOKE-VOCAB " + JSON.stringify({ vocabTyping: vocabTyping, title: await js("document.title"), size: await js("vars.strArr ? vars.strArr.size : null"), hasParagraphMark: await js("vars.strArr ? vars.strArr.data.indexOf('¶') >= 0 : false"), tailIsRealChar: await js("vars.strArr ? (vars.strArr.data.slice(-1) !== '¶' && vars.strArr.data.slice(-1) !== ' ') : false") }));
+				await shot("03d-vocabulary");
+				// back to lesson mode AND to the active-typing state the rest
+				// of the run expects (a bare mode flip leaves the app paused:
+				// the mode dialog's open guard then defers forever)
+				await js("(function(){ user.LessonsMode = 'lesson'; window.__vocabText = ''; app.restart(); return 'ok'; })()");
+				await sleep(1500);
+				await js("(function(){ if(app.keyboard_on === false){ app.attr.start(); } return String(app.keyboard_on); })()");
+				await sleep(600);
+			}
+
 			// mode dialog
 			await js("snk.changeMode(); 'ok'");
 			await sleep(2000);
 			console.log("SMOKE-DLG mode: " + await js("!!document.querySelector('iframe') && !!document.querySelector('iframe').contentWindow.dialogArguments"));
-			// the mode dialog is a Vue island (bin/mode.html): mounted, lesson
-			// list rendered, mode radios flip user.LessonsMode live
-			console.log("SMOKE-MODE-VUE " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__mvuMounted!==true){return 'not-mounted';} var lessonsN=d.querySelectorAll('#less_select input[type=radio]').length; var mapsN=d.querySelectorAll('#less_map_select input[type=radio]').length; var was=user.LessonsMode; d.getElementById('snk.mode.radio2').click(); var book=user.LessonsMode; d.getElementById('snk.mode.radio1').click(); var back=user.LessonsMode; return JSON.stringify({mounted: true, maps: mapsN, lessons: lessonsN, was: was, book: book, back: back});})()"));
+			const dialogWhileOpen = await js("window.kbstore ? kbstore.program.dialog : 'no-store'");
+			// the mode dialog is the original era page (bin/_mode.htm): starter
+			// ran, lesson list rendered, mode radios flip user.LessonsMode live
+			console.log("SMOKE-MODE-ERA " + await js("(function(){var f=document.querySelector('iframe'); if(!f){return 'no-frame';} var w=f.contentWindow, d=f.contentDocument; if(w.__modeReady!==true){return JSON.stringify({ready:false, err:w.__kbDlgErr||null, hasMix:typeof w.mix, hasApi:typeof w.api, hasEv:typeof w.ev, hasFns:typeof w.fns});} var lessonsN=d.querySelectorAll('#less_select input[type=radio]').length; var mapsN=d.querySelectorAll('#less_map_select input[type=radio]').length; var was=user.LessonsMode; d.getElementById('snk.mode.radio2').click(); var book=user.LessonsMode; d.getElementById('snk.mode.radio3').click(); var voc=user.LessonsMode; var vocPanel=(d.getElementById('mode_voc').style.display!=='none')&&(d.getElementById('mode_voc').style.visibility!=='hidden'); var vocText=d.getElementById('snk.voc.text'); var vocPrefill=(vocText && typeof vocText.value==='string'); vocText.value='round trip paste'; vocText.dispatchEvent(new w.Event('input', {bubbles: true})); d.getElementById('snk.mode.radio1').click(); var back=user.LessonsMode; return JSON.stringify({ready: true, maps: mapsN, lessons: lessonsN, was: was, book: book, voc: voc, vocPanel: vocPanel, vocPrefill: vocPrefill, back: back});})()"));
 			await shot("04-mode");
 			await js("window.__kbDialog.close(); 'ok'");
 			await sleep(500);
+			// the F4 vocabulary paste round-trips through dialogArguments.vocText
+			// into __vocabText even though lesson was re-selected before the close
+			console.log("SMOKE-VOC-ROUNDTRIP " + await js("JSON.stringify({text: window.__vocabText})"));
+
+			// the domain records the dialogs, the loader log and the window
+			// geometry: Program.ModeDialog open -> closed, one Program.Log per
+			// loader_log line, a Program.WindowState after the resizes above
+			console.log("SMOKE-DLG-CHAIN " + JSON.stringify({
+				openMode: dialogWhileOpen,
+				closed: await js("kbstore.program.dialog"),
+				logsMatch: await js("kbstore.program.logs.length > 0 && kbstore.program.logs.length === loader_log.length"),
+				windowState: await js("!!kbstore.program.windowState && kbstore.program.windowState.width > 0"),
+				// SMOKE-SETS-ERA's checkbox clicks went through PrefSet (it
+				// marks prefsDirty); the library dialog synced program.library
+				prefsRecorded: await js("kbstore.program.prefsDirty === true"),
+				librarySynced: await js("Array.isArray(kbstore.program.library)")
+			}));
+			// F7 zeroes the session stats through the era handler, and
+			// Session.ModeF7 records it (and zeroes the domain-only `correct`)
+			console.log("SMOKE-F7 " + await js("(function(){ vars.cntSess = 7; vars.cntErr = 2; kbstore.session.stats.correct = 5; objx.speed.obj.onclick(); var st = kbstore.session.stats; return JSON.stringify({ zeroed: st.typed === 0 && st.errors === 0 && st.correct === 0 && st.timerCnt === 0, viaVars: vars.cntSess === 0 });})()"));
 
 			await shot("05-after-dialogs");
 
@@ -181,6 +272,12 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			await sleep(600);
 			console.log("SMOKE-TYPE " + await js("JSON.stringify({cntSess: vars.cntSess, cntErr: vars.cntErr, toType: vars.to_type.substr(0,8), title: document.title})"));
 			console.log("SMOKE-CHAIN " + await js("(function(){ var st = kbstore.session.stats; return JSON.stringify({ typed: st.typed, viaVars: vars.cntSess, same: st.typed === vars.cntSess, correct: st.correct, errors: st.errors, cntFull: user.cntFull });})()"));
+			// USE_STRATEGY=1: the channel line sits in the band fit.js keeps
+			// free under the keyboard — shown, live values, canvas above it
+			console.log("SMOKE-STRATEGY-BAR " + await js("(function(){ var bar = document.getElementById('kb.strategy'); var s = window.__kbStrategy; if (!bar || !s) { return JSON.stringify({ shown: false }); } var canvas = document.getElementById('id.full').getBoundingClientRect(); var band = bar.getBoundingClientRect(); return JSON.stringify({ shown: true, live: bar.textContent.indexOf(String(s.port)) >= 0 && bar.textContent.indexOf(s.token) >= 0, clear: canvas.bottom <= band.top + 0.5, bandH: Math.round(band.height) }); })()"));
+			// stage 4.7: the domain owns the cursor — the era's vars.strArr.pos
+			// is a view onto session.run.pos, advanced by LetterPick|WordPick
+			console.log("SMOKE-CURSOR " + await js("(function(){ var run = kbstore.session.run; return JSON.stringify({ run: !!run, pos: vars.strArr.pos, runPos: run ? run.pos : null, shared: !!run && run.pos === vars.strArr.pos, expected: kbstore.session.expectedChar === vars.next_char1, pick: run ? run.pick : null });})()"));
 
 			// stage-5 strategy channel: the app self-hosts the construction
 			// channel from its preload (window.__kbStrategy = {port, token}).
@@ -211,7 +308,14 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 				await js("__kbkey(27); 'ok'"); // Esc: pause the run
 				await sleep(300);
 				await js("__kbkey(32); 'ok'"); // Space: resume
-				await sleep(1400); // server flushes every 150ms; the clock ticks each second
+				await sleep(300);
+				// §1: the domain router is the real key path — F1 pressed via
+				// Session.EventHandler.dispatchKey must record a ModeF1 edge,
+				// Ctrl+arrow via the router a LessonNext edge
+				await js("kbstore.session.handler.dispatchKey(112); 'ok'");
+				await sleep(300);
+				await js("kbstore.session.handler.dispatchKey(39, {ctrl: true}, 'en_base0_1'); 'ok'");
+				await sleep(1100);
 				const seen = new Set<string>();
 				const byType: Record<string, number> = {};
 				let withTraceId = 0;
@@ -233,7 +337,11 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 					welcome: sess.welcome,
 					subscribed: sub && sub.subscribed, events: sub && sub.events,
 					edges: edges.length, distinct: seen.size, withTraceId: withTraceId,
-					byType: byType, parentLinked: parentLinked, rcLinked: rcLinked
+					byType: byType, parentLinked: parentLinked, rcLinked: rcLinked,
+					// §1: F1 through the domain router recorded a ModeF1 edge;
+					// Ctrl+arrow through it a LessonNext edge
+					f1ViaRouter: !!byType.ModeF1,
+					lessonNextViaRouter: !!byType.LessonNext
 				}));
 				sess.close();
 			}
@@ -251,7 +359,7 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			await sleep(500);
 
 			// help window (F1 / help button): a real separate window running
-			// the Vue help island (locale/help.html); Esc closes it
+			// the original help pages (locale/<lang>/help.htm); Esc closes it
 			await js("__kbkey(112); 'ok'"); // F1
 			let helpWin: BrowserWindow | undefined;
 			for (let i = 0; i < 20; i++) {
@@ -263,16 +371,20 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 				await sleep(1500);
 				const hurl = helpWin.webContents.getURL();
 				console.log("SMOKE-HELP title=" + (await helpWin.webContents.executeJavaScript("document.title")) + " url=" + hurl);
-				console.log("SMOKE-HELP-VUE mounted=" + (await helpWin.webContents.executeJavaScript("window.__hvuMounted === true"))
-					+ " url-ok=" + hurl.endsWith("/locale/help.html"));
+				// no menu bar showing (Alt reveals it; its DevTools shortcut stays)
+				console.log("SMOKE-HELP-MENU " + JSON.stringify({ visible: helpWin.isMenuBarVisible(), autoHide: helpWin.isMenuBarAutoHide() }));
+				// the ORIGINAL help pages (HTA: locale/<lang>/help.htm)
+				console.log("SMOKE-HELP-ORIG url-ok=" + /\/locale\/(en|ru)\/help\.htm$/.test(hurl)
+					+ " text=" + (await helpWin.webContents.executeJavaScript("document.body.innerText.indexOf('typing trainer') >= 0 || document.querySelectorAll('frame').length === 2")));
 				const himg = await helpWin.webContents.capturePage();
 				fs.writeFileSync(path.join(dir, "09-help.png"), himg.toPNG());
 				console.log("SMOKE-SHOT 09-help " + himg.toPNG().length + " bytes");
-				// the RU toggle re-renders in place (no reload, no frameset)
-				await helpWin.webContents.executeJavaScript("document.getElementById('hvu-ru').click(); 'ok'");
-				await sleep(500);
+				// the RU help is the 2008 frameset: index frame + content frame
+				await helpWin.loadURL(hurl.replace(/\/locale\/(en|ru)\/help\.htm$/, "/locale/ru/help.htm"));
+				await sleep(800);
 				console.log("SMOKE-HELP-RU title=" + (await helpWin.webContents.executeJavaScript("document.title"))
-					+ " cyrillic=" + (await helpWin.webContents.executeJavaScript("document.body.innerHTML.indexOf('Справочная') >= 0")));
+					+ " frames=" + (await helpWin.webContents.executeJavaScript("document.querySelectorAll('frame').length"))
+					+ " cyrillic=" + (await helpWin.webContents.executeJavaScript("(function(){ try { return window.frames[0].document.body.innerText.indexOf('Справочная') >= 0 && window.frames[1].document.body.innerText.length > 50; } catch (e) { return String(e); } })()")));
 				const rimg = await helpWin.webContents.capturePage();
 				fs.writeFileSync(path.join(dir, "10-help-ru.png"), rimg.toPNG());
 				console.log("SMOKE-SHOT 10-help-ru " + rimg.toPNG().length + " bytes");
@@ -337,6 +449,33 @@ export function runSmoke(mainWin: BrowserWindow, dir: string, stateFile: string)
 			await js("app.attr.start(); 'ok'");
 			await sleep(300);
 			console.log("SMOKE-PAUSE-RESTORE top-cleared=" + await js("objx.messager.obj.style.top === ''"));
+
+			// F3 switches the typing mode (the keyboard moves) and pauses: the
+			// pause box must be sized to the NEW gap — ending right above the
+			// keyboard in both modes (regression: sized to the old position)
+			const f3Box = "JSON.stringify({tm: user.TypingMode, boxBottom: objx.messager.obj.offsetTop + objx.messager.obj.offsetHeight, keyboardTop: objx.keyboard.obj.offsetTop, fits: (function(){ var gap = objx.keyboard.obj.offsetTop - (objx.messager.obj.offsetTop + objx.messager.obj.offsetHeight); return gap >= 0 && gap <= 8; })()})";
+			await js("snk.changeTypingMode(); 'ok'");
+			await sleep(400);
+			console.log("SMOKE-F3 " + await js(f3Box));
+			await js("snk.changeTypingMode(); 'ok'");
+			await sleep(400);
+			console.log("SMOKE-F3 " + await js(f3Box));
+			await js("app.attr.start(); 'ok'");
+			await sleep(300);
+
+			// book import chain behind the picker (tryOpnFile -> saver): the
+			// dialog yields a PATH; fs.open -> turnObj builds the file object
+			// (regression: turnObj got the bare path -> toLowerCase TypeError),
+			// a windows-1251 file decodes, saveBook lands in the (smoke) library
+			console.log("SMOKE-BOOK " + await js("(function(){ var p = fs.lib() + '..' + '/smoke-book.txt'; kbfs.write(p, 'Привет, мир. Hello world.', 'windows-1251'); var f = fs.turnObj(fs.open(p)); var str = fs.readFileToString(f.path, 'windows-1251'); var n = api.books(); var loc = fs.lib() + 'book_' + n + '.txt'; api.saveBook(loc, str, 'Smoke Author', 'Smoke Book'); var listed = api.books(true); var found = false; for (var i in listed){ if(listed[i] && listed[i].book === 'Smoke Book'){ found = true; } } return JSON.stringify({ name: f.name, nlc: f.nlc, decoded: str === 'Привет, мир. Hello world.', listed: found }); })()"));
+			// the opener is also the closer: F5 reaching the main page while the
+			// settings dialog is open closes it (regression: silently ignored)
+			await js("snk.open_sets(); 'ok'");
+			await sleep(1500);
+			const toggleOpen = await js("!!document.querySelector('iframe')");
+			await js("snk.open_sets(); 'ok'");
+			await sleep(800);
+			console.log("SMOKE-DLG-TOGGLE " + JSON.stringify({ opened: toggleOpen, closedBySameKey: await js("!document.querySelector('iframe')") }));
 			console.log("SMOKE-BTN-LAYOUT " + await js("JSON.stringify({zoomOutW: objx.zoomout_btn.obj.offsetWidth, zoomInW: objx.zoomin_btn.obj.offsetWidth, helpW: objx.help_btn.obj.offsetWidth, ordered: (objx.zoomout_btn.obj.offsetLeft + objx.zoomout_btn.obj.offsetWidth) <= objx.zoomin_btn.obj.offsetLeft && (objx.zoomin_btn.obj.offsetLeft + objx.zoomin_btn.obj.offsetWidth) <= objx.help_btn.obj.offsetLeft})"));
 
 			// hovering a top button: the skin's :hover rule grows it around

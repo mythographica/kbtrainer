@@ -97,17 +97,19 @@ describe("kbstore façade", () => {
 		expect(vars.strArr.pos).toBe(7);
 	});
 
-	it("runs the per-second Tick clock; inert until a run exists", () => {
+	it("runs the per-second Tick clock; the lesson counter stays the engine's", () => {
 		vi.useFakeTimers();
 		try {
 			const store = bootStore({ clock: true, clockMs: 1000 });
 			vi.advanceTimersByTime(3000);
 			expect(store.timer.ticks).toBe(3);
-			expect(store.session.stats.timerCnt).toBe(0); // no run: wall clock only
+			expect(store.session.stats.timerCnt).toBe(0);
 			const run = new store.session.Run("L1", "ab");
 			new (new run.Lesson()).Native("L1");
 			vi.advanceTimersByTime(2000);
-			expect(store.session.stats.timerCnt).toBe(2);
+			// stage 4.7: Tick never bumps timerCnt — app.counter() owns it
+			// (only the engine knows when typing is really going on)
+			expect(store.session.stats.timerCnt).toBe(0);
 			store.stopClock();
 			vi.advanceTimersByTime(2000);
 			expect(store.timer.ticks).toBe(5); // stopped: no more ticks

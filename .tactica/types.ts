@@ -20,23 +20,80 @@ export type Program = {
 	logs: Array<any>;
 	session: null;
 	profile: any;
-	FileDialog: new () => Program_FileDialog;
-	KeyFlash: new (key: string) => Program_KeyFlash;
-	KeyLight: new (char: string) => Program_KeyLight;
-	LibDialog: new () => Program_LibDialog;
-	Log: new (text: string, source: string) => Program_Log;
-	ModeDialog: new () => Program_ModeDialog;
-	SettingsDialog: new () => Program_SettingsDialog;
-	UserProfile: new () => Program_UserProfile;
-	ViewControl: new () => Program_ViewControl;
-	WindowState: new (rect: { width: number; height: number; x?: number; y?: number }) => Program_WindowState;
+	BookMark: {
+		new (path: string, position: number): Program_BookMark;
+		(path: string, position: number): Program_BookMark;
+	};
+	FileDialog: {
+		new (): Program_FileDialog;
+		(): Program_FileDialog;
+	};
+	KeyFlash: {
+		new (key: string): Program_KeyFlash;
+		(key: string): Program_KeyFlash;
+	};
+	KeyLight: {
+		new (char: string): Program_KeyLight;
+		(char: string): Program_KeyLight;
+	};
+	LibDialog: {
+		new (): Program_LibDialog;
+		(): Program_LibDialog;
+	};
+	Log: {
+		new (text: string, source: string): Program_Log;
+		(text: string, source: string): Program_Log;
+	};
+	ModeDialog: {
+		new (): Program_ModeDialog;
+		(): Program_ModeDialog;
+	};
+	SettingsDialog: {
+		new (): Program_SettingsDialog;
+		(): Program_SettingsDialog;
+	};
+	UserProfile: {
+		new (): Program_UserProfile;
+		(): Program_UserProfile;
+	};
+	ViewControl: {
+		new (): Program_ViewControl;
+		(): Program_ViewControl;
+	};
+	WindowState: {
+		new (rect: { width: number; height: number; x?: number; y?: number }): Program_WindowState;
+		(rect: { width: number; height: number; x?: number; y?: number }): Program_WindowState;
+	};
 };
+
+export type Program_BookMark = ProtoFlat<Program, {
+	path: any;
+	position: any;
+	BookMark: undefined;
+	FileDialog: undefined;
+	KeyFlash: undefined;
+	KeyLight: undefined;
+	LibDialog: undefined;
+	Log: undefined;
+	ModeDialog: undefined;
+	SettingsDialog: undefined;
+	UserProfile: undefined;
+	ViewControl: undefined;
+	WindowState: undefined;
+}>;
 
 export type Program_FileDialog = ProtoFlat<Program, {
 	close: any;
-	DirList: new (dirPath: string, entries: any) => Program_FileDialog_DirList;
-	FilePick: new (filePath: string) => Program_FileDialog_FilePick;
+	DirList: {
+		new (dirPath: string, entries: any): Program_FileDialog_DirList;
+		(dirPath: string, entries: any): Program_FileDialog_DirList;
+	};
+	FilePick: {
+		new (filePath: string): Program_FileDialog_FilePick;
+		(filePath: string): Program_FileDialog_FilePick;
+	};
 	FileDialog: undefined;
+	BookMark: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
 	LibDialog: undefined;
@@ -64,6 +121,7 @@ export type Program_FileDialog_FilePick = ProtoFlat<Program_FileDialog, {
 export type Program_KeyFlash = ProtoFlat<Program, {
 	key: any;
 	KeyFlash: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyLight: undefined;
 	LibDialog: undefined;
@@ -78,6 +136,7 @@ export type Program_KeyFlash = ProtoFlat<Program, {
 export type Program_KeyLight = ProtoFlat<Program, {
 	char: any;
 	KeyLight: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	LibDialog: undefined;
@@ -92,11 +151,20 @@ export type Program_KeyLight = ProtoFlat<Program, {
 export type Program_LibDialog = ProtoFlat<Program, {
 	openedAt: number;
 	close: any;
-	BookDeleteRequest: new (name: string) => Program_LibDialog_BookDeleteRequest;
-	BookImport: new (name: string) => Program_LibDialog_BookImport;
-	BookMark: new (name: string) => Program_LibDialog_BookMark;
-	BookSelect: new (name: string) => Program_LibDialog_BookSelect;
+	BookDeleteRequest: {
+		new (name: string): Program_LibDialog_BookDeleteRequest;
+		(name: string): Program_LibDialog_BookDeleteRequest;
+	};
+	BookImport: {
+		new (name: string): Program_LibDialog_BookImport;
+		(name: string): Program_LibDialog_BookImport;
+	};
+	BookSelect: {
+		new (name: string): Program_LibDialog_BookSelect;
+		(name: string): Program_LibDialog_BookSelect;
+	};
 	LibDialog: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -111,10 +179,12 @@ export type Program_LibDialog = ProtoFlat<Program, {
 export type Program_LibDialog_BookDeleteRequest = ProtoFlat<Program_LibDialog, {
 	name: any;
 	pending: any;
-	BookDeleted: new () => Program_LibDialog_BookDeleteRequest_BookDeleted;
+	BookDeleted: {
+		new (): Program_LibDialog_BookDeleteRequest_BookDeleted;
+		(): Program_LibDialog_BookDeleteRequest_BookDeleted;
+	};
 	BookDeleteRequest: undefined;
 	BookImport: undefined;
-	BookMark: undefined;
 	BookSelect: undefined;
 }>;
 
@@ -127,16 +197,6 @@ export type Program_LibDialog_BookImport = ProtoFlat<Program_LibDialog, {
 	name: any;
 	BookImport: undefined;
 	BookDeleteRequest: undefined;
-	BookMark: undefined;
-	BookSelect: undefined;
-}>;
-
-export type Program_LibDialog_BookMark = ProtoFlat<Program_LibDialog, {
-	marked: boolean;
-	name: any;
-	BookMark: undefined;
-	BookDeleteRequest: undefined;
-	BookImport: undefined;
 	BookSelect: undefined;
 }>;
 
@@ -145,7 +205,6 @@ export type Program_LibDialog_BookSelect = ProtoFlat<Program_LibDialog, {
 	BookSelect: undefined;
 	BookDeleteRequest: undefined;
 	BookImport: undefined;
-	BookMark: undefined;
 }>;
 
 export type Program_Log = ProtoFlat<Program, {
@@ -153,6 +212,7 @@ export type Program_Log = ProtoFlat<Program, {
 	source: string;
 	at: number;
 	Log: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -167,10 +227,20 @@ export type Program_Log = ProtoFlat<Program, {
 export type Program_ModeDialog = ProtoFlat<Program, {
 	openedAt: number;
 	close: any;
-	BookPick: new (name: string, text: string) => Program_ModeDialog_BookPick;
-	LessonPick: new (lessonId: string, title: string, text: string) => Program_ModeDialog_LessonPick;
-	ModeSet: new (mode: string) => Program_ModeDialog_ModeSet;
+	BookPick: {
+		new (path: string): Program_ModeDialog_BookPick;
+		(path: string): Program_ModeDialog_BookPick;
+	};
+	LessonPick: {
+		new (lessonId: string): Program_ModeDialog_LessonPick;
+		(lessonId: string): Program_ModeDialog_LessonPick;
+	};
+	ModeSet: {
+		new (mode: string): Program_ModeDialog_ModeSet;
+		(mode: string): Program_ModeDialog_ModeSet;
+	};
 	ModeDialog: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -183,14 +253,14 @@ export type Program_ModeDialog = ProtoFlat<Program, {
 }>;
 
 export type Program_ModeDialog_BookPick = ProtoFlat<Program_ModeDialog, {
-	run: any;
+	path: any;
 	BookPick: undefined;
 	LessonPick: undefined;
 	ModeSet: undefined;
 }>;
 
 export type Program_ModeDialog_LessonPick = ProtoFlat<Program_ModeDialog, {
-	run: any;
+	lessonId: any;
 	LessonPick: undefined;
 	BookPick: undefined;
 	ModeSet: undefined;
@@ -207,10 +277,20 @@ export type Program_SettingsDialog = ProtoFlat<Program, {
 	openedAt: number;
 	closed: boolean;
 	close: any;
-	MapsPairSet: new (layoutA: string, layoutB: string) => Program_SettingsDialog_MapsPairSet;
-	PrefSet: new (name: string, value: any) => Program_SettingsDialog_PrefSet;
-	SkinPreview: new (skinName: string) => Program_SettingsDialog_SkinPreview;
+	MapsPairSet: {
+		new (layoutA: string, layoutB: string): Program_SettingsDialog_MapsPairSet;
+		(layoutA: string, layoutB: string): Program_SettingsDialog_MapsPairSet;
+	};
+	PrefSet: {
+		new (name: string, value: any): Program_SettingsDialog_PrefSet;
+		(name: string, value: any): Program_SettingsDialog_PrefSet;
+	};
+	SkinPreview: {
+		new (skinName: string): Program_SettingsDialog_SkinPreview;
+		(skinName: string): Program_SettingsDialog_SkinPreview;
+	};
 	SettingsDialog: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -251,12 +331,11 @@ export type Program_UserProfile = ProtoFlat<Program, {
 	countErrorsAlways: boolean;
 	skipNonTypable: boolean;
 	selectedMaps: Array<any>;
-	keyboardType: string;
 	skin: string;
 	hideStatsOnPause: boolean;
-	bookmarks: Array<any>;
 	cntFull: number;
 	UserProfile: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -270,9 +349,16 @@ export type Program_UserProfile = ProtoFlat<Program, {
 
 export type Program_ViewControl = ProtoFlat<Program, {
 	from: any;
-	ZoomIn: new () => Program_ViewControl_ZoomIn;
-	ZoomOut: new () => Program_ViewControl_ZoomOut;
+	ZoomIn: {
+		new (): Program_ViewControl_ZoomIn;
+		(): Program_ViewControl_ZoomIn;
+	};
+	ZoomOut: {
+		new (): Program_ViewControl_ZoomOut;
+		(): Program_ViewControl_ZoomOut;
+	};
 	ViewControl: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -303,6 +389,7 @@ export type Program_WindowState = ProtoFlat<Program, {
 	y: null;
 	at: number;
 	WindowState: undefined;
+	BookMark: undefined;
 	FileDialog: undefined;
 	KeyFlash: undefined;
 	KeyLight: undefined;
@@ -320,25 +407,66 @@ export type Session = {
 	paused: boolean;
 	quitRequested: boolean;
 	layoutIndex: number;
-	lessonIndex: number;
 	run: null;
 	expectedChar: string;
 	stats: object;
 	handler: any;
-	EventHandler: new () => Session_EventHandler;
-	KeyStroke: new (key: string) => Session_KeyStroke;
-	LetterPick: new () => Session_LetterPick;
-	ModeF1: new () => Session_ModeF1;
-	ModeF12: new () => Session_ModeF12;
-	ModeF2: new () => Session_ModeF2;
-	ModeF3: new () => Session_ModeF3;
-	ModeF4: new () => Session_ModeF4;
-	ModeF5: new () => Session_ModeF5;
-	ModeF7: new () => Session_ModeF7;
-	ModeF8: new () => Session_ModeF8;
-	Run: new (title: string, text: string) => Session_Run;
-	RunControl: new () => Session_RunControl;
-	WordPick: new () => Session_WordPick;
+	EventHandler: {
+		new (): Session_EventHandler;
+		(): Session_EventHandler;
+	};
+	KeyStroke: {
+		new (key: string): Session_KeyStroke;
+		(key: string): Session_KeyStroke;
+	};
+	LetterPick: {
+		new (): Session_LetterPick;
+		(): Session_LetterPick;
+	};
+	ModeF1: {
+		new (): Session_ModeF1;
+		(): Session_ModeF1;
+	};
+	ModeF12: {
+		new (): Session_ModeF12;
+		(): Session_ModeF12;
+	};
+	ModeF2: {
+		new (): Session_ModeF2;
+		(): Session_ModeF2;
+	};
+	ModeF3: {
+		new (): Session_ModeF3;
+		(): Session_ModeF3;
+	};
+	ModeF4: {
+		new (): Session_ModeF4;
+		(): Session_ModeF4;
+	};
+	ModeF5: {
+		new (): Session_ModeF5;
+		(): Session_ModeF5;
+	};
+	ModeF7: {
+		new (): Session_ModeF7;
+		(): Session_ModeF7;
+	};
+	ModeF8: {
+		new (): Session_ModeF8;
+		(): Session_ModeF8;
+	};
+	Run: {
+		new (title: string, text: string, startPos?: number): Session_Run;
+		(title: string, text: string, startPos?: number): Session_Run;
+	};
+	RunControl: {
+		new (): Session_RunControl;
+		(): Session_RunControl;
+	};
+	WordPick: {
+		new (): Session_WordPick;
+		(): Session_WordPick;
+	};
 };
 
 export type Session_EventHandler = ProtoFlat<Session, {
@@ -363,8 +491,14 @@ export type Session_KeyStroke = ProtoFlat<Session, {
 	key: any;
 	expected: any;
 	at: number;
-	Correct: new () => Session_KeyStroke_Correct;
-	Mistake: new () => Session_KeyStroke_Mistake;
+	Correct: {
+		new (): Session_KeyStroke_Correct;
+		(): Session_KeyStroke_Correct;
+	};
+	Mistake: {
+		new (): Session_KeyStroke_Mistake;
+		(): Session_KeyStroke_Mistake;
+	};
 	KeyStroke: undefined;
 	EventHandler: undefined;
 	LetterPick: undefined;
@@ -384,7 +518,10 @@ export type Session_KeyStroke = ProtoFlat<Session, {
 export type Session_KeyStroke_Correct = ProtoFlat<Session_KeyStroke, {
 	key: any;
 	statUpdate: any;
-	StatUpdate: new () => Session_KeyStroke_Correct_StatUpdate;
+	StatUpdate: {
+		new (): Session_KeyStroke_Correct_StatUpdate;
+		(): Session_KeyStroke_Correct_StatUpdate;
+	};
 	Correct: undefined;
 	Mistake: undefined;
 }>;
@@ -398,7 +535,10 @@ export type Session_KeyStroke_Mistake = ProtoFlat<Session_KeyStroke, {
 	key: any;
 	expected: any;
 	statUpdate: any;
-	StatUpdate: new () => Session_KeyStroke_Mistake_StatUpdate;
+	StatUpdate: {
+		new (): Session_KeyStroke_Mistake_StatUpdate;
+		(): Session_KeyStroke_Mistake_StatUpdate;
+	};
 	Mistake: undefined;
 	Correct: undefined;
 }>;
@@ -426,6 +566,7 @@ export type Session_LetterPick = ProtoFlat<Session, {
 }>;
 
 export type Session_ModeF1 = ProtoFlat<Session, {
+	openedAt: number;
 	ModeF1: undefined;
 	EventHandler: undefined;
 	KeyStroke: undefined;
@@ -479,7 +620,7 @@ export type Session_ModeF2 = ProtoFlat<Session, {
 }>;
 
 export type Session_ModeF3 = ProtoFlat<Session, {
-	keyboardType: any;
+	typingMode: any;
 	ModeF3: undefined;
 	EventHandler: undefined;
 	KeyStroke: undefined;
@@ -571,14 +712,26 @@ export type Session_Run = ProtoFlat<Session, {
 	title: any;
 	text: any;
 	words: any;
-	pos: number;
+	pos: any;
 	wordIndex: number;
 	pick: string;
 	startedAt: number;
-	Book: new () => Session_Run_Book;
-	Finish: new () => Session_Run_Finish;
-	Lesson: new () => Session_Run_Lesson;
-	Vocabulary: new () => Session_Run_Vocabulary;
+	Book: {
+		new (): Session_Run_Book;
+		(): Session_Run_Book;
+	};
+	Finish: {
+		new (): Session_Run_Finish;
+		(): Session_Run_Finish;
+	};
+	Lesson: {
+		new (): Session_Run_Lesson;
+		(): Session_Run_Lesson;
+	};
+	Vocabulary: {
+		new (chars?: number): Session_Run_Vocabulary;
+		(chars?: number): Session_Run_Vocabulary;
+	};
 	Run: undefined;
 	EventHandler: undefined;
 	KeyStroke: undefined;
@@ -597,8 +750,14 @@ export type Session_Run = ProtoFlat<Session, {
 
 export type Session_Run_Book = ProtoFlat<Session_Run, {
 	kind: string;
-	Native: new (name: string) => Session_Run_Book_Native;
-	Paragraph: new (name: string) => Session_Run_Book_Paragraph;
+	Native: {
+		new (name: string): Session_Run_Book_Native;
+		(name: string): Session_Run_Book_Native;
+	};
+	Paragraph: {
+		new (name: string): Session_Run_Book_Paragraph;
+		(name: string): Session_Run_Book_Paragraph;
+	};
 	Book: undefined;
 	Finish: undefined;
 	Lesson: undefined;
@@ -634,8 +793,14 @@ export type Session_Run_Finish = ProtoFlat<Session_Run, {
 
 export type Session_Run_Lesson = ProtoFlat<Session_Run, {
 	kind: string;
-	Native: new (lessonId: string) => Session_Run_Lesson_Native;
-	Paragraph: new (lessonId: string) => Session_Run_Lesson_Paragraph;
+	Native: {
+		new (lessonId: string): Session_Run_Lesson_Native;
+		(lessonId: string): Session_Run_Lesson_Native;
+	};
+	Paragraph: {
+		new (lessonId: string): Session_Run_Lesson_Paragraph;
+		(lessonId: string): Session_Run_Lesson_Paragraph;
+	};
 	Lesson: undefined;
 	Book: undefined;
 	Finish: undefined;
@@ -655,6 +820,7 @@ export type Session_Run_Lesson_Paragraph = ProtoFlat<Session_Run_Lesson, {
 }>;
 
 export type Session_Run_Vocabulary = ProtoFlat<Session_Run, {
+	chars: number;
 	Vocabulary: undefined;
 	Book: undefined;
 	Finish: undefined;
@@ -663,12 +829,30 @@ export type Session_Run_Vocabulary = ProtoFlat<Session_Run, {
 
 export type Session_RunControl = ProtoFlat<Session, {
 	wasPaused: any;
-	BaseNext: new (direction: string) => Session_RunControl_BaseNext;
-	LessonNext: new () => Session_RunControl_LessonNext;
-	LessonPrev: new () => Session_RunControl_LessonPrev;
-	Pause: new () => Session_RunControl_Pause;
-	Quit: new () => Session_RunControl_Quit;
-	Resume: new () => Session_RunControl_Resume;
+	BaseNext: {
+		new (direction: string, lessonId?: string): Session_RunControl_BaseNext;
+		(direction: string, lessonId?: string): Session_RunControl_BaseNext;
+	};
+	LessonNext: {
+		new (lessonId?: string): Session_RunControl_LessonNext;
+		(lessonId?: string): Session_RunControl_LessonNext;
+	};
+	LessonPrev: {
+		new (lessonId?: string): Session_RunControl_LessonPrev;
+		(lessonId?: string): Session_RunControl_LessonPrev;
+	};
+	Pause: {
+		new (): Session_RunControl_Pause;
+		(): Session_RunControl_Pause;
+	};
+	Quit: {
+		new (): Session_RunControl_Quit;
+		(): Session_RunControl_Quit;
+	};
+	Resume: {
+		new (): Session_RunControl_Resume;
+		(): Session_RunControl_Resume;
+	};
 	RunControl: undefined;
 	EventHandler: undefined;
 	KeyStroke: undefined;
@@ -687,6 +871,7 @@ export type Session_RunControl = ProtoFlat<Session, {
 
 export type Session_RunControl_BaseNext = ProtoFlat<Session_RunControl, {
 	direction: any;
+	lessonId: null;
 	BaseNext: undefined;
 	LessonNext: undefined;
 	LessonPrev: undefined;
@@ -696,6 +881,7 @@ export type Session_RunControl_BaseNext = ProtoFlat<Session_RunControl, {
 }>;
 
 export type Session_RunControl_LessonNext = ProtoFlat<Session_RunControl, {
+	lessonId: null;
 	LessonNext: undefined;
 	BaseNext: undefined;
 	LessonPrev: undefined;
@@ -705,6 +891,7 @@ export type Session_RunControl_LessonNext = ProtoFlat<Session_RunControl, {
 }>;
 
 export type Session_RunControl_LessonPrev = ProtoFlat<Session_RunControl, {
+	lessonId: null;
 	LessonPrev: undefined;
 	BaseNext: undefined;
 	LessonNext: undefined;
@@ -762,7 +949,10 @@ export type Session_WordPick = ProtoFlat<Session, {
 export type Timer = {
 	session: null;
 	ticks: number;
-	Tick: new () => Timer_Tick;
+	Tick: {
+		new (): Timer_Tick;
+		(): Timer_Tick;
+	};
 };
 
 export type Timer_Tick = ProtoFlat<Timer, {

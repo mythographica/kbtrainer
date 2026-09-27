@@ -51,7 +51,7 @@
 					// adding and loading other scripts
 
 					ldr.add("functions", "bin/fns.js");
-					ldr.add("topbar", "bin/topIsland.js", "tvu.mount()");			// TopBar Vue island (before objects: objex wraps its nodes)
+					ldr.add("topbar", "bin/kbclock.js");							// static kb.html chrome; this stage starts the wall clock (before objects: objex wraps the markup nodes)
 					ldr.add("objects", "bin/objex.js");									// visual kernel objects
 
 					ldr.add("kb", "bin/kb.js", "kb.mapsLoader()");						// keyboard events handlers and keycode->char maps
@@ -106,6 +106,8 @@
 				// so, this is realy book, nor lesson
 					api.saveBook(vars.strArr.path, vars.strArr.data, vars.strArr.autor, vars.strArr.book, vars.strArr.pos);
 					user.CurrentBook = vars.strArr.path;
+					// Program.BookMark (traced): the saved position
+					try{ new kbstore.program.BookMark(vars.strArr.path, vars.strArr.pos); }catch(e){}
 				}
 			}
 			, saveHistory				: function(){ }

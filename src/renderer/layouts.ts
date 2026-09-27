@@ -410,12 +410,24 @@ const layouts: LayoutsPublic = {
 	}
 
 	, translator		: function(par?: number){
-		if(par != 0){ layouts.hider(); }
 		var sh = "s";
 		if(layouts.translator_shift == 1){
 			sh = "sh";
 		}
-		vars.keyboardDiv[user.currentMap][sh].show();
+		var cur = vars.keyboardDiv[user.currentMap];
+		if(par){
+			// explicit reset (startup / map changes): hide every layer
+			layouts.hider();
+		}else{
+			// per-keystroke redraws: hide ONLY the sibling layer. mix.hide on
+			// an already-hidden layer sets the same value — no mutation, no
+			// repaint — while hider() here would blank the whole keyboard
+			// twice per keystroke (the per-symbol blink); era IE never
+			// painted between those synchronous calls, the port's redraw
+			// (engine + the StatUpdate microtask) can land across frames
+			cur[(sh === "s") ? "sh" : "s"].hide();
+		}
+		cur[sh].show();
 	}
 
 	, evaluator			: function(){

@@ -1,21 +1,15 @@
 'use strict';
 
-const { utils } = require('mnemonica');
-
-import type { ProgramChain } from '../../../chain';
-
-// Program.ModeDialog.LessonPick — a lesson chosen: RunStart. Constructs
-// the Session's Run → Lesson → Native chain through the data link.
+// Program.ModeDialog.LessonPick — a lesson selected in the mode dialog.
+// In the era a click only SELECTS (user.LessonNum); the run starts when
+// the dialog closes (app.restart -> the engine builds Session.Run), so
+// this records the selection and constructs nothing. Clicking through
+// several lessons records each one.
 
 interface LessonPickSelf {
-	run : unknown;
+	lessonId : string;
 }
 
-module.exports = function LessonPick(this: LessonPickSelf, lessonId: string, title: string, text: string) {
-	const program = utils.parent(this, 'Program') as ProgramChain;
-	const session = program.session!;
-	session.mode = 'lesson';
-	const run = new session.Run(title, text);
-	const lesson = new run.Lesson();
-	this.run = new lesson.Native(lessonId);
+module.exports = function LessonPick(this: LessonPickSelf, lessonId: string) {
+	this.lessonId = lessonId;
 };

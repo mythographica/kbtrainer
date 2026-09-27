@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-22T14:17:19.001Z",
+  "generatedAt": "2026-09-27T20:53:32.416Z",
   "roots": [
     {
       "name": "Program",
@@ -8,9 +8,15 @@
       "location": "models/Program/index.ts:33:18",
       "children": [
         {
+          "name": "BookMark",
+          "fullPath": "Program.BookMark",
+          "location": "models/Program/BookMark/index.ts:14:18",
+          "children": []
+        },
+        {
           "name": "FileDialog",
           "fullPath": "Program.FileDialog",
-          "location": "models/Program/FileDialog/index.ts:17:15",
+          "location": "models/Program/FileDialog/index.ts:20:15",
           "children": [
             {
               "name": "DirList",
@@ -63,12 +69,6 @@
               "children": []
             },
             {
-              "name": "BookMark",
-              "fullPath": "Program.LibDialog.BookMark",
-              "location": "models/Program/LibDialog/BookMark/index.ts:14:18",
-              "children": []
-            },
-            {
               "name": "BookSelect",
               "fullPath": "Program.LibDialog.BookSelect",
               "location": "models/Program/LibDialog/BookSelect/index.ts:13:18",
@@ -90,13 +90,13 @@
             {
               "name": "BookPick",
               "fullPath": "Program.ModeDialog.BookPick",
-              "location": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+              "location": "models/Program/ModeDialog/BookPick/index.ts:11:18",
               "children": []
             },
             {
               "name": "LessonPick",
               "fullPath": "Program.ModeDialog.LessonPick",
-              "location": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+              "location": "models/Program/ModeDialog/LessonPick/index.ts:13:18",
               "children": []
             },
             {
@@ -135,7 +135,7 @@
         {
           "name": "UserProfile",
           "fullPath": "Program.UserProfile",
-          "location": "models/Program/UserProfile/index.ts:29:18",
+          "location": "models/Program/UserProfile/index.ts:28:18",
           "children": []
         },
         {
@@ -168,12 +168,12 @@
     {
       "name": "Session",
       "fullPath": "Session",
-      "location": "models/Session/index.ts:38:18",
+      "location": "models/Session/index.ts:37:18",
       "children": [
         {
           "name": "EventHandler",
           "fullPath": "Session.EventHandler",
-          "location": "models/Session/EventHandler/index.ts:50:21",
+          "location": "models/Session/EventHandler/index.ts:56:21",
           "children": []
         },
         {
@@ -184,7 +184,7 @@
             {
               "name": "Correct",
               "fullPath": "Session.KeyStroke.Correct",
-              "location": "models/Session/KeyStroke/Correct/index.ts:15:17",
+              "location": "models/Session/KeyStroke/Correct/index.ts:26:17",
               "children": [
                 {
                   "name": "StatUpdate",
@@ -197,7 +197,7 @@
             {
               "name": "Mistake",
               "fullPath": "Session.KeyStroke.Mistake",
-              "location": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+              "location": "models/Session/KeyStroke/Mistake/index.ts:26:17",
               "children": [
                 {
                   "name": "StatUpdate",
@@ -218,25 +218,25 @@
         {
           "name": "ModeF1",
           "fullPath": "Session.ModeF1",
-          "location": "models/Session/ModeF1/index.ts:12:18",
+          "location": "models/Session/ModeF1/index.ts:11:18",
           "children": []
         },
         {
           "name": "ModeF12",
           "fullPath": "Session.ModeF12",
-          "location": "models/Session/ModeF12/index.ts:13:18",
+          "location": "models/Session/ModeF12/index.ts:16:18",
           "children": []
         },
         {
           "name": "ModeF2",
           "fullPath": "Session.ModeF2",
-          "location": "models/Session/ModeF2/index.ts:13:18",
+          "location": "models/Session/ModeF2/index.ts:20:37",
           "children": []
         },
         {
           "name": "ModeF3",
           "fullPath": "Session.ModeF3",
-          "location": "models/Session/ModeF3/index.ts:14:18",
+          "location": "models/Session/ModeF3/index.ts:16:18",
           "children": []
         },
         {
@@ -266,7 +266,7 @@
         {
           "name": "Run",
           "fullPath": "Session.Run",
-          "location": "models/Session/Run/index.ts:18:18",
+          "location": "models/Session/Run/index.ts:25:18",
           "children": [
             {
               "name": "Book",
@@ -315,7 +315,7 @@
             {
               "name": "Vocabulary",
               "fullPath": "Session.Run.Vocabulary",
-              "location": "models/Session/Run/Vocabulary/index.ts:8:18",
+              "location": "models/Session/Run/Vocabulary/index.ts:14:18",
               "children": []
             }
           ]
@@ -328,19 +328,19 @@
             {
               "name": "BaseNext",
               "fullPath": "Session.RunControl.BaseNext",
-              "location": "models/Session/RunControl/BaseNext/index.ts:14:18",
+              "location": "models/Session/RunControl/BaseNext/index.ts:15:18",
               "children": []
             },
             {
               "name": "LessonNext",
               "fullPath": "Session.RunControl.LessonNext",
-              "location": "models/Session/RunControl/LessonNext/index.ts:11:18",
+              "location": "models/Session/RunControl/LessonNext/index.ts:13:18",
               "children": []
             },
             {
               "name": "LessonPrev",
               "fullPath": "Session.RunControl.LessonPrev",
-              "location": "models/Session/RunControl/LessonPrev/index.ts:11:18",
+              "location": "models/Session/RunControl/LessonPrev/index.ts:13:18",
               "children": []
             },
             {
@@ -379,7 +379,7 @@
         {
           "name": "Tick",
           "fullPath": "Timer.Tick",
-          "location": "models/Timer/Tick/index.ts:18:18",
+          "location": "models/Timer/Tick/index.ts:20:18",
           "children": []
         }
       ]

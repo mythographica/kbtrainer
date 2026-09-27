@@ -26,8 +26,11 @@
 				if(!user.keybView){ dh = skins.dbh[tm]["non"]; }
 				if(!dw || !dh){ return; }
 
+				// a band kept free at the bottom (the strategy channel line under
+				// the keyboard, preload.ts; 0 when there is none)
+				var reserve = window.kbFitReserveBottom || 0;
 				var iw = window.innerWidth;
-				var ih = window.innerHeight;
+				var ih = window.innerHeight - reserve;
 				if(iw <= 0 || ih <= 0){ return; }
 
 				if(!bootSized){
@@ -35,7 +38,7 @@
 					if(iw < dw * 0.9 || ih < dh * 0.9){
 					// one-time: grow the tiny boot window (270x75) to the
 					// design size; the resize event re-triggers apply()
-						window.resizeTo(dw, dh);
+						window.resizeTo(dw, dh + reserve);
 						return;
 					}
 				}

@@ -11,6 +11,7 @@
 
 import type {
 	Program,
+	Program_BookMark,
 	Program_FileDialog,
 	Program_FileDialog_DirList,
 	Program_FileDialog_FilePick,
@@ -20,7 +21,6 @@ import type {
 	Program_LibDialog_BookDeleteRequest,
 	Program_LibDialog_BookDeleteRequest_BookDeleted,
 	Program_LibDialog_BookImport,
-	Program_LibDialog_BookMark,
 	Program_LibDialog_BookSelect,
 	Program_Log,
 	Program_ModeDialog,
@@ -82,6 +82,7 @@ import type {
 declare module 'mnemonica' {
 	interface TypeRegistry {
 		'Program': new (opts?: { version?: string; screen?: any }) => Program;
+		'Program.BookMark': new (path: string, position: number) => Program_BookMark;
 		'Program.FileDialog': new () => Program_FileDialog;
 		'Program.FileDialog.DirList': new (dirPath: string, entries: any) => Program_FileDialog_DirList;
 		'Program.FileDialog.FilePick': new (filePath: string) => Program_FileDialog_FilePick;
@@ -91,12 +92,11 @@ declare module 'mnemonica' {
 		'Program.LibDialog.BookDeleteRequest': new (name: string) => Program_LibDialog_BookDeleteRequest;
 		'Program.LibDialog.BookDeleteRequest.BookDeleted': new () => Program_LibDialog_BookDeleteRequest_BookDeleted;
 		'Program.LibDialog.BookImport': new (name: string) => Program_LibDialog_BookImport;
-		'Program.LibDialog.BookMark': new (name: string) => Program_LibDialog_BookMark;
 		'Program.LibDialog.BookSelect': new (name: string) => Program_LibDialog_BookSelect;
 		'Program.Log': new (text: string, source: string) => Program_Log;
 		'Program.ModeDialog': new () => Program_ModeDialog;
-		'Program.ModeDialog.BookPick': new (name: string, text: string) => Program_ModeDialog_BookPick;
-		'Program.ModeDialog.LessonPick': new (lessonId: string, title: string, text: string) => Program_ModeDialog_LessonPick;
+		'Program.ModeDialog.BookPick': new (path: string) => Program_ModeDialog_BookPick;
+		'Program.ModeDialog.LessonPick': new (lessonId: string) => Program_ModeDialog_LessonPick;
 		'Program.ModeDialog.ModeSet': new (mode: string) => Program_ModeDialog_ModeSet;
 		'Program.SettingsDialog': new () => Program_SettingsDialog;
 		'Program.SettingsDialog.MapsPairSet': new (layoutA: string, layoutB: string) => Program_SettingsDialog_MapsPairSet;
@@ -123,7 +123,7 @@ declare module 'mnemonica' {
 		'Session.ModeF5': new () => Session_ModeF5;
 		'Session.ModeF7': new () => Session_ModeF7;
 		'Session.ModeF8': new () => Session_ModeF8;
-		'Session.Run': new (title: string, text: string) => Session_Run;
+		'Session.Run': new (title: string, text: string, startPos?: number) => Session_Run;
 		'Session.Run.Book': new () => Session_Run_Book;
 		'Session.Run.Book.Native': new (name: string) => Session_Run_Book_Native;
 		'Session.Run.Book.Paragraph': new (name: string) => Session_Run_Book_Paragraph;
@@ -131,11 +131,11 @@ declare module 'mnemonica' {
 		'Session.Run.Lesson': new () => Session_Run_Lesson;
 		'Session.Run.Lesson.Native': new (lessonId: string) => Session_Run_Lesson_Native;
 		'Session.Run.Lesson.Paragraph': new (lessonId: string) => Session_Run_Lesson_Paragraph;
-		'Session.Run.Vocabulary': new () => Session_Run_Vocabulary;
+		'Session.Run.Vocabulary': new (chars?: number) => Session_Run_Vocabulary;
 		'Session.RunControl': new () => Session_RunControl;
-		'Session.RunControl.BaseNext': new (direction: string) => Session_RunControl_BaseNext;
-		'Session.RunControl.LessonNext': new () => Session_RunControl_LessonNext;
-		'Session.RunControl.LessonPrev': new () => Session_RunControl_LessonPrev;
+		'Session.RunControl.BaseNext': new (direction: string, lessonId?: string) => Session_RunControl_BaseNext;
+		'Session.RunControl.LessonNext': new (lessonId?: string) => Session_RunControl_LessonNext;
+		'Session.RunControl.LessonPrev': new (lessonId?: string) => Session_RunControl_LessonPrev;
 		'Session.RunControl.Pause': new () => Session_RunControl_Pause;
 		'Session.RunControl.Quit': new () => Session_RunControl_Quit;
 		'Session.RunControl.Resume': new () => Session_RunControl_Resume;

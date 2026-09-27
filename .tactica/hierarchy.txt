@@ -1,5 +1,6 @@
 Type Hierarchy (Trie):
 ├── Program
+│   ├── Program_BookMark
 │   ├── Program_FileDialog
 │   │   ├── Program_FileDialog_DirList
 │   │   └── Program_FileDialog_FilePick
@@ -9,7 +10,6 @@ Type Hierarchy (Trie):
 │   │   ├── Program_LibDialog_BookDeleteRequest
 │   │   │   └── Program_LibDialog_BookDeleteRequest_BookDeleted
 │   │   ├── Program_LibDialog_BookImport
-│   │   ├── Program_LibDialog_BookMark
 │   │   └── Program_LibDialog_BookSelect
 │   ├── Program_Log
 │   ├── Program_ModeDialog

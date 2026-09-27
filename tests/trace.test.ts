@@ -25,20 +25,35 @@ const topologica = require("@mnemonica/topologica");
 const { attachHooks } = require("@mnemonica/otel");
 const dive = require("@mnemonica/dive");
 
+// dive 0.10 has no ring to read back: completed history is collected and the
+// full stream rides the hook channel. The collector below is the same
+// 'create' event stream the strategy channel's traceSubscribe pushes to
+// mnemographica — the test pins the wiring against the live channel shape.
+// Registered per-world: dive.clear() wipes all subscribers, so the hook
+// must be (re-)attached after every clear (dive's own documented contract).
+const edges: any[] = [];
+
 const here = path.dirname(fileURLToPath(import.meta.url));
 const MODELS_DIR = path.resolve(here, "../models");
 
 const makeWorld = () => {
-	dive.clear(); // the ring is process-global; each world starts empty
+	dive.clear(); // the trace store is process-global; each world starts empty
+	edges.length = 0;
+	dive.registerHook("create", ({ edge }: any) => { edges.push(edge); });
 	const collection = createKbCollection();
 	const { topology } = topologica(MODELS_DIR, collection.define.bind(collection));
 	attachHooks(collection);
 	return bootStoreWith({ clock: false }, collection, topology);
 };
 
-const traceNames = () => dive.getTrace().map((e: any) => e.name);
-const byName = (name: string) => dive.getTrace().filter((e: any) => e.name === name);
-const edgeById = (id: number) => dive.getTrace().find((e: any) => e.id === id);
+// a key's StatUpdate runs as a microtask after Correct|Mistake; a real key
+// event is its own task, so the browser drains it before the next key —
+// tests await the same drain
+const settle = () => new Promise<void>((resolve) => { queueMicrotask(resolve); });
+
+const traceNames = () => edges.map((e: any) => e.name);
+const byName = (name: string) => edges.filter((e: any) => e.name === name);
+const edgeById = (id: number) => edges.find((e: any) => e.id === id);
 
 describe("strategy trace wiring (attachHooks over the kb collection)", () => {
 
@@ -53,33 +68,36 @@ describe("strategy trace wiring (attachHooks over the kb collection)", () => {
 		}
 	});
 
-	it("a correct keystroke records Session -> KeyStroke -> Correct", () => {
+	it("a correct keystroke records Session -> KeyStroke -> Correct -> StatUpdate", async () => {
 		const { session } = makeWorld();
 		session.expectedChar = "j";
 		const keystroke = new session.KeyStroke("j");
 		new keystroke.Correct();
+		expect(byName("StatUpdate")).toHaveLength(0); // queued, not yet built
+		await settle();
 
 		const ks = byName("KeyStroke")[0];
 		const correct = byName("Correct")[0];
 		const statUpdate = byName("StatUpdate")[0];
 		expect(edgeById(ks.parentId).name).toBe("Session");
 		expect(correct.parentId).toBe(ks.id);
-		// born inside Correct's constructor: before Correct's own edge exists
-		expect(statUpdate.parentId).toBeNull();
+		// built on committed data, after Correct's own edge exists
+		expect(statUpdate.parentId).toBe(correct.id);
 	});
 
-	it("a mistake records the Mistake branch; KeyFlash hangs off Program", () => {
+	it("a mistake records the Mistake branch; KeyFlash hangs off Program", async () => {
 		const { session } = makeWorld();
 		session.expectedChar = "j";
 		const keystroke = new session.KeyStroke("x");
 		new keystroke.Mistake();
+		await settle();
 
 		const ks = byName("KeyStroke")[0];
 		const mistake = byName("Mistake")[0];
 		const statUpdate = byName("StatUpdate")[0];
 		const keyFlash = byName("KeyFlash")[0];
 		expect(mistake.parentId).toBe(ks.id);
-		expect(statUpdate.parentId).toBeNull(); // mid-construction child
+		expect(statUpdate.parentId).toBe(mistake.id); // built after Mistake
 		// the visual event is a PROGRAM-level construction, by design
 		expect(edgeById(keyFlash.parentId).name).toBe("Program");
 	});
@@ -87,7 +105,7 @@ describe("strategy trace wiring (attachHooks over the kb collection)", () => {
 	it("Timer.Tick ticks under the Timer root, independent of the session", () => {
 		const { timer } = makeWorld();
 		new timer.Tick();
-		const tick = dive.getTrace().slice(-1)[0];
+		const tick = edges[edges.length - 1];
 		expect(tick.name).toBe("Tick");
 		expect(edgeById(tick.parentId).name).toBe("Timer");
 	});
@@ -130,7 +148,7 @@ describe("strategy trace wiring (attachHooks over the kb collection)", () => {
 		const { session } = makeWorld();
 		session.expectedChar = "j";
 		new (new session.KeyStroke("j")).Correct();
-		const edge = dive.getTrace().slice(-1)[0];
+		const edge = edges[edges.length - 1];
 		expect(typeof edge.id).toBe("number");
 		expect(edge.kind).toBe("create");
 		expect(edge.status).toBe("ok");

@@ -55,6 +55,16 @@ const makeWorld = (topology: Topology) => {
 	return { program, session, timer };
 };
 
+// a typed key's StatUpdate runs as a microtask after Correct|Mistake; a real
+// key event is its own task, so the browser drains it before the next key.
+// type() dispatches one key and awaits the same drain.
+const settle = () => new Promise<void>((resolve) => { queueMicrotask(resolve); });
+const type = async (session: LiveSession, key: string) => {
+	const result = session.handler.dispatchKey(key);
+	await settle();
+	return result;
+};
+
 const startLesson = (session: LiveSession, text = "ab") => {
 	const run = new session.Run("L1", text);
 	new (new run.Lesson()).Native("L1");
@@ -84,7 +94,7 @@ describe("models topology (real topologica loader)", () => {
 	it("Program serves the visual/window level", () => {
 		const shape = shapeOf(topology.Program.kids);
 		expect(Object.keys(shape).sort()).toEqual([
-			"FileDialog", "KeyFlash", "KeyLight", "LibDialog", "Log",
+			"BookMark", "FileDialog", "KeyFlash", "KeyLight", "LibDialog", "Log",
 			"ModeDialog", "SettingsDialog", "UserProfile", "ViewControl", "WindowState"
 		].sort());
 	});
@@ -119,30 +129,59 @@ describe("event surface (the no-cheating seed)", () => {
 
 	it("routes F-keys: session paths producing program windows", () => {
 		const { program, session } = makeWorld(topology);
-		session.handler.dispatchKey(112);
-		expect(program.dialog).toBe("help");
+		// help and the loader log open non-modal windows: no program.dialog
+		const help = session.handler.dispatchKey(112);
+		expect(program.dialog).toBe(null);
+		expect(typeof help.openedAt).toBe("number");
 		session.handler.dispatchKey(116);
 		expect(program.dialog).toBe("settings");
-		session.handler.dispatchKey(113);
+		// F2 records the switch the era already made (kb.changeMap moves
+		// currentMap first) and points the layout index at it
+		program.profile.currentMap = "ru";
+		const f2 = session.handler.dispatchKey(113);
+		expect(f2.layout).toBe("ru");
 		expect(session.layoutIndex).toBe(1);
 		expect(program.profile.selectedMaps[session.layoutIndex]).toBe("ru.standard");
-		session.handler.dispatchKey(123);
-		expect(program.dialog).toBe("loaderlog");
+		const f12 = session.handler.dispatchKey(123);
+		expect(f12.entries).toBe(program.logs.length);
+		expect(program.dialog).toBe("settings");
 	});
 
 	it("routes Alt+Shift / Ctrl+Shift to the same path as F2", () => {
-		const { session } = makeWorld(topology);
+		const { program, session } = makeWorld(topology);
+		program.profile.currentMap = "ru";
 		session.handler.dispatchKey("", { alt: true, shift: true });
 		expect(session.layoutIndex).toBe(1);
+		program.profile.currentMap = program.profile.selectedMaps[0].split(".")[0];
 		session.handler.dispatchKey("", { ctrl: true, shift: true });
 		expect(session.layoutIndex).toBe(0);
 	});
 
-	it("types a correct keystroke through KeyStroke -> Correct -> StatUpdate -> LetterPick", () => {
+	it("F3 records the typing mode the era switch produced", () => {
+		const { program, session } = makeWorld(topology);
+		program.profile.TypingMode = "paragraph";
+		const f3 = session.handler.dispatchKey(114);
+		expect(f3.typingMode).toBe("paragraph");
+		expect(program.prefsDirty).toBe(true);
+	});
+
+	it("the file selector hands program.dialog back to the dialog underneath", () => {
+		const { program, session } = makeWorld(topology);
+		new session.ModeF8(); // the library is open
+		expect(program.dialog).toBe("lib");
+		const fileDialog = new program.FileDialog();
+		expect(program.dialog).toBe("file");
+		const pick = new fileDialog.FilePick("/books/b.txt");
+		expect(pick.filePath).toBe("/books/b.txt");
+		fileDialog.close();
+		expect(program.dialog).toBe("lib");
+	});
+
+	it("types a correct keystroke through KeyStroke -> Correct -> StatUpdate -> LetterPick", async () => {
 		const { program, session } = makeWorld(topology);
 		startLesson(session);
 		expect(program.litKey).toBe("a"); // the first key lights at run start
-		const correct = session.handler.dispatchKey("a");
+		const correct = await type(session, "a");
 		expect(session.stats.typed).toBe(1);
 		expect(session.stats.correct).toBe(1);
 		expect(session.stats.errors).toBe(0);
@@ -153,10 +192,10 @@ describe("event surface (the no-cheating seed)", () => {
 		expect(utils.parent(correct, "Session")).toBe(session);
 	});
 
-	it("types a mistake: no advance, the wrong key flashes on the keyboard", () => {
+	it("types a mistake: no advance, the wrong key flashes on the keyboard", async () => {
 		const { program, session } = makeWorld(topology);
 		startLesson(session);
-		const mistake = session.handler.dispatchKey("x");
+		const mistake = await type(session, "x");
 		// era rules (stage 4.5): errorControl on -> only the error counter
 		// moves; typed stays (a mistake is not typed text)
 		expect(session.stats.typed).toBe(0);
@@ -167,24 +206,24 @@ describe("event surface (the no-cheating seed)", () => {
 		expect(program.flashKey).toBe("x"); // session produced a Program KeyFlash
 	});
 
-	it("counts a mistake as typed only under countErrorsAlways (era !errMode path)", () => {
+	it("counts a mistake as typed only under countErrorsAlways (era !errMode path)", async () => {
 		const { program, session } = makeWorld(topology);
 		program.profile.errorControl = false;
 		startLesson(session);
-		session.handler.dispatchKey("x");
+		await type(session, "x");
 		expect(session.stats.typed).toBe(0);
 		expect(session.stats.errors).toBe(0);
 		program.profile.countErrorsAlways = true;
-		session.handler.dispatchKey("x");
+		await type(session, "x");
 		expect(session.stats.typed).toBe(1);
 		expect(session.stats.errors).toBe(1);
 	});
 
-	it("finishes the run on the last letter, enriched with aggregated stats", () => {
+	it("finishes the run on the last letter, enriched with aggregated stats", async () => {
 		const { session } = makeWorld(topology);
 		startLesson(session);
-		session.handler.dispatchKey("a");
-		session.handler.dispatchKey("b");
+		await type(session, "a");
+		await type(session, "b");
 		expect(session.run).toBe(null);
 		expect(session.stats.typed).toBe(2);
 		expect(session.stats.correct).toBe(2);
@@ -213,13 +252,26 @@ describe("event surface (the no-cheating seed)", () => {
 		expect(program.prefsDirty).toBe(true);
 	});
 
-	it("walks the lesson base with Ctrl+arrows", () => {
+	it("routes Ctrl+arrows to lesson (←/→) and base (↑/↓) navigation", () => {
 		const { session } = makeWorld(topology);
-		session.handler.dispatchKey(39, { ctrl: true });
-		session.handler.dispatchKey(39, { ctrl: true });
-		expect(session.lessonIndex).toBe(2);
-		session.handler.dispatchKey(37, { ctrl: true });
-		expect(session.lessonIndex).toBe(1);
+		const next = session.handler.dispatchKey(39, { ctrl: true });
+		expect(utils.parent(next, "RunControl")).toBeDefined();
+		expect(next.lessonId).toBe(null); // the router cannot know where the era moved
+		const prev = session.handler.dispatchKey(37, { ctrl: true });
+		expect(prev.lessonId).toBe(null);
+		expect(session.handler.dispatchKey(38, { ctrl: true }).direction).toBe("prev");
+		expect(session.handler.dispatchKey(40, { ctrl: true }).direction).toBe("next");
+	});
+
+	it("navigation records where the era moved the lesson", () => {
+		const { session } = makeWorld(topology);
+		const runctl = new session.RunControl();
+		expect(new runctl.LessonNext("en_base0_4").lessonId).toBe("en_base0_4");
+		expect(new runctl.LessonPrev("en_base0_3").lessonId).toBe("en_base0_3");
+		const base = new runctl.BaseNext("next", "en_base1_0");
+		expect(base.direction).toBe("next");
+		expect(base.lessonId).toBe("en_base1_0");
+		expect(() => new runctl.BaseNext("left")).toThrow(RangeError);
 	});
 
 	it("keeps keystrokes out of the run while a dialog window is open", () => {
@@ -230,18 +282,44 @@ describe("event surface (the no-cheating seed)", () => {
 		expect(session.stats.typed).toBe(0);
 	});
 
-	it("feeds the lesson counter from Timer.Tick only while running", () => {
+	it("Timer.Tick snapshots the speed and never bumps the lesson counter", async () => {
 		const { session, timer } = makeWorld(topology);
-		new timer.Tick();
-		expect(session.stats.timerCnt).toBe(0); // no run: wall clock only
+		expect(new timer.Tick().speed).toBe(0); // counter not running yet
 		startLesson(session);
-		session.handler.dispatchKey("a");
+		await type(session, "a");
+		session.stats.timerCnt = 1; // the engine's app.counter() bumps it
 		const tick = new timer.Tick();
-		expect(session.stats.timerCnt).toBe(1);
+		expect(session.stats.timerCnt).toBe(1); // Tick only reads it
 		expect(tick.speed).toBe(60); // era formula: typed / timerCnt * 60
-		session.handler.dispatchKey(27); // pause
-		new timer.Tick();
-		expect(session.stats.timerCnt).toBe(1); // paused: no bump
+	});
+
+	it("a Run resumes at its start position and keeps the session stats", async () => {
+		const { program, session } = makeWorld(topology);
+		startLesson(session);
+		await type(session, "a");
+		expect(session.stats.typed).toBe(1);
+		// a book resuming at its bookmark: the era keeps the stats across
+		// restarts — only the first start and F7 zero them
+		const run = new session.Run("Book", "hello world", 6);
+		new (new run.Book()).Native("/lib/book_1.txt");
+		expect(run.pos).toBe(6);
+		expect(session.expectedChar).toBe("w");
+		expect(program.litKey).toBe("w");
+		expect(session.stats.typed).toBe(1);
+		await type(session, "w");
+		expect(run.pos).toBe(7);
+		expect(session.expectedChar).toBe("o");
+	});
+
+	it("F3 switches a running run between letter and word picking", async () => {
+		const { program, session } = makeWorld(topology);
+		startLesson(session, "ab cd");
+		expect(session.run!.pick).toBe("letter");
+		program.profile.TypingMode = "paragraph"; // the era toggle ran first
+		session.handler.dispatchKey(114);
+		expect(session.run!.pick).toBe("word");
+		const correct = await type(session, "a");
+		expect(correct.statUpdate.next.word).toBe("ab");
 	});
 
 	it("F7 resets the session stats", () => {
@@ -274,32 +352,41 @@ describe("endpoints", () => {
 		const dialog = new program.LibDialog();
 		new dialog.BookImport("War and Peace");
 		expect(program.library).toEqual(["War and Peace"]);
-		const mark = new dialog.BookMark("War and Peace");
-		expect(mark.marked).toBe(true);
-		expect(program.profile.bookmarks).toEqual(["War and Peace"]);
 		const request = new dialog.BookDeleteRequest("War and Peace");
 		expect(request.pending).toBe(true);
 		new request.BookDeleted();
 		expect(program.library).toEqual([]);
 	});
 
-	it("starts a book run from the mode dialog (a book is a lesson)", () => {
+	it("records a bookmark: the typing position saved into a book", () => {
+		const { program } = makeWorld(topology);
+		const mark = new program.BookMark("/lib/book_3.txt", 1234);
+		expect(mark.path).toBe("/lib/book_3.txt");
+		expect(mark.position).toBe(1234);
+		expect(utils.parent(mark, "Program")).toBe(program);
+	});
+
+	it("records the mode dialog's selections without starting a run", () => {
 		const { program, session } = makeWorld(topology);
 		const dialog = new program.ModeDialog();
 		new dialog.ModeSet("book");
 		expect(session.mode).toBe("book");
 		expect(() => new dialog.ModeSet("vocabulary")).toThrow(RangeError);
-		const pick = new dialog.BookPick("Story", "once upon");
-		expect(session.mode).toBe("book");
-		expect(session.run.title).toBe("Story");
-		expect(pick.run.book).toBe("Story");
-		expect(utils.parent(pick.run, "Run")).toBe(session.run);
+		// era: a click only selects; the run starts at app.restart
+		const book = new dialog.BookPick("/lib/book_2.txt");
+		expect(book.path).toBe("/lib/book_2.txt");
+		const lesson = new dialog.LessonPick("en_base0_3");
+		expect(lesson.lessonId).toBe("en_base0_3");
+		expect(session.run).toBe(null);
 	});
 
-	it("Vocabulary is defined but throws (not implemented)", () => {
+	it("Run.Vocabulary records the pasted run (resurrected mode)", () => {
 		const { session } = makeWorld(topology);
-		const run = new session.Run("V", "x");
-		expect(() => new run.Vocabulary()).toThrow(/not implemented/);
+		const run = new session.Run("Vocabulary", "pasted text", 0);
+		const voc = new run.Vocabulary(11);
+		expect(voc.chars).toBe(11);
+		const vocDefault = new run.Vocabulary();
+		expect(vocDefault.chars).toBe(0);
 	});
 
 	it("records program logs", () => {

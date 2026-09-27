@@ -1,21 +1,13 @@
 'use strict';
 
-const { utils } = require('mnemonica');
-
-import type { ProgramChain } from '../../../chain';
-
-// Program.ModeDialog.BookPick — a book chosen: RunStart (a book IS a
-// lesson). Constructs Run → Book → Native through the data link.
+// Program.ModeDialog.BookPick — a book selected in the mode dialog. As with
+// LessonPick, the era click only selects (user.CurrentBook); the run starts
+// at app.restart when the dialog closes, resuming at the book's bookmark.
 
 interface BookPickSelf {
-	run : unknown;
+	path : string;
 }
 
-module.exports = function BookPick(this: BookPickSelf, name: string, text: string) {
-	const program = utils.parent(this, 'Program') as ProgramChain;
-	const session = program.session!;
-	session.mode = 'book';
-	const run = new session.Run(name, text);
-	const book = new run.Book();
-	this.run = new book.Native(name);
+module.exports = function BookPick(this: BookPickSelf, path: string) {
+	this.path = path;
 };

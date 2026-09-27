@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-22T14:17:18.960Z",
+  "generatedAt": "2026-09-27T20:53:32.369Z",
   "definitions": {
     "Program": {
       "name": "Program",
@@ -12,7 +12,7 @@
     },
     "Session": {
       "name": "Session",
-      "location": "models/Session/index.ts:38:18",
+      "location": "models/Session/index.ts:37:18",
       "kind": "define",
       "parent": null,
       "strictChain": true,
@@ -26,9 +26,17 @@
       "strictChain": true,
       "blockErrors": false
     },
+    "Program.BookMark": {
+      "name": "BookMark",
+      "location": "models/Program/BookMark/index.ts:14:18",
+      "kind": "define",
+      "parent": "Program",
+      "strictChain": true,
+      "blockErrors": false
+    },
     "Program.FileDialog": {
       "name": "FileDialog",
-      "location": "models/Program/FileDialog/index.ts:17:15",
+      "location": "models/Program/FileDialog/index.ts:20:15",
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
@@ -84,7 +92,7 @@
     },
     "Program.UserProfile": {
       "name": "UserProfile",
-      "location": "models/Program/UserProfile/index.ts:29:18",
+      "location": "models/Program/UserProfile/index.ts:28:18",
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
@@ -108,7 +116,7 @@
     },
     "Session.EventHandler": {
       "name": "EventHandler",
-      "location": "models/Session/EventHandler/index.ts:50:21",
+      "location": "models/Session/EventHandler/index.ts:56:21",
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
@@ -132,7 +140,7 @@
     },
     "Session.ModeF1": {
       "name": "ModeF1",
-      "location": "models/Session/ModeF1/index.ts:12:18",
+      "location": "models/Session/ModeF1/index.ts:11:18",
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
@@ -140,7 +148,7 @@
     },
     "Session.ModeF12": {
       "name": "ModeF12",
-      "location": "models/Session/ModeF12/index.ts:13:18",
+      "location": "models/Session/ModeF12/index.ts:16:18",
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
@@ -148,7 +156,7 @@
     },
     "Session.ModeF2": {
       "name": "ModeF2",
-      "location": "models/Session/ModeF2/index.ts:13:18",
+      "location": "models/Session/ModeF2/index.ts:20:37",
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
@@ -156,7 +164,7 @@
     },
     "Session.ModeF3": {
       "name": "ModeF3",
-      "location": "models/Session/ModeF3/index.ts:14:18",
+      "location": "models/Session/ModeF3/index.ts:16:18",
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
@@ -196,7 +204,7 @@
     },
     "Session.Run": {
       "name": "Run",
-      "location": "models/Session/Run/index.ts:18:18",
+      "location": "models/Session/Run/index.ts:25:18",
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
@@ -220,7 +228,7 @@
     },
     "Timer.Tick": {
       "name": "Tick",
-      "location": "models/Timer/Tick/index.ts:18:18",
+      "location": "models/Timer/Tick/index.ts:20:18",
       "kind": "define",
       "parent": "Timer",
       "strictChain": true,
@@ -258,14 +266,6 @@
       "strictChain": true,
       "blockErrors": false
     },
-    "Program.LibDialog.BookMark": {
-      "name": "BookMark",
-      "location": "models/Program/LibDialog/BookMark/index.ts:14:18",
-      "kind": "define",
-      "parent": "Program.LibDialog",
-      "strictChain": true,
-      "blockErrors": false
-    },
     "Program.LibDialog.BookSelect": {
       "name": "BookSelect",
       "location": "models/Program/LibDialog/BookSelect/index.ts:13:18",
@@ -276,7 +276,7 @@
     },
     "Program.ModeDialog.BookPick": {
       "name": "BookPick",
-      "location": "models/Program/ModeDialog/BookPick/index.ts:14:18",
+      "location": "models/Program/ModeDialog/BookPick/index.ts:11:18",
       "kind": "define",
       "parent": "Program.ModeDialog",
       "strictChain": true,
@@ -284,7 +284,7 @@
     },
     "Program.ModeDialog.LessonPick": {
       "name": "LessonPick",
-      "location": "models/Program/ModeDialog/LessonPick/index.ts:14:18",
+      "location": "models/Program/ModeDialog/LessonPick/index.ts:13:18",
       "kind": "define",
       "parent": "Program.ModeDialog",
       "strictChain": true,
@@ -340,7 +340,7 @@
     },
     "Session.KeyStroke.Correct": {
       "name": "Correct",
-      "location": "models/Session/KeyStroke/Correct/index.ts:15:17",
+      "location": "models/Session/KeyStroke/Correct/index.ts:26:17",
       "kind": "define",
       "parent": "Session.KeyStroke",
       "strictChain": true,
@@ -348,7 +348,7 @@
     },
     "Session.KeyStroke.Mistake": {
       "name": "Mistake",
-      "location": "models/Session/KeyStroke/Mistake/index.ts:18:17",
+      "location": "models/Session/KeyStroke/Mistake/index.ts:26:17",
       "kind": "define",
       "parent": "Session.KeyStroke",
       "strictChain": true,
@@ -380,7 +380,7 @@
     },
     "Session.Run.Vocabulary": {
       "name": "Vocabulary",
-      "location": "models/Session/Run/Vocabulary/index.ts:8:18",
+      "location": "models/Session/Run/Vocabulary/index.ts:14:18",
       "kind": "define",
       "parent": "Session.Run",
       "strictChain": true,
@@ -388,7 +388,7 @@
     },
     "Session.RunControl.BaseNext": {
       "name": "BaseNext",
-      "location": "models/Session/RunControl/BaseNext/index.ts:14:18",
+      "location": "models/Session/RunControl/BaseNext/index.ts:15:18",
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
@@ -396,7 +396,7 @@
     },
     "Session.RunControl.LessonNext": {
       "name": "LessonNext",
-      "location": "models/Session/RunControl/LessonNext/index.ts:11:18",
+      "location": "models/Session/RunControl/LessonNext/index.ts:13:18",
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
@@ -404,7 +404,7 @@
     },
     "Session.RunControl.LessonPrev": {
       "name": "LessonPrev",
-      "location": "models/Session/RunControl/LessonPrev/index.ts:11:18",
+      "location": "models/Session/RunControl/LessonPrev/index.ts:13:18",
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,

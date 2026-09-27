@@ -4,7 +4,11 @@ const { utils } = require('mnemonica');
 
 import type { SessionChain } from '../../chain';
 
-// Session.ModeF2 — layout switch. Also reached by Alt+Shift / Ctrl+Shift.
+// Session.ModeF2 — keyboard map switch (F2, the language button,
+// Alt+Shift / Ctrl+Shift). The era switch (kb.changeMap) cycles
+// profile.currentMap through the languages of the selected maps; this
+// records the switch that happened and points the session's layout index
+// at it — it keeps no counter of its own, so it cannot drift from the era.
 
 interface ModeF2Self {
 	layout : string;
@@ -12,7 +16,8 @@ interface ModeF2Self {
 
 module.exports = function ModeF2(this: ModeF2Self) {
 	const session = utils.parent(this, 'Session') as SessionChain;
-	const { selectedMaps } = session.program!.profile;
-	session.layoutIndex = (session.layoutIndex + 1) % selectedMaps.length;
-	this.layout = selectedMaps[ session.layoutIndex ];
+	const { selectedMaps, currentMap } = session.program!.profile;
+	const idx = selectedMaps.findIndex((map) => map.split('.')[ 0 ] === currentMap);
+	session.layoutIndex = idx === -1 ? 0 : idx;
+	this.layout = currentMap;
 };

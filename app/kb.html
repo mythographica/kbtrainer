@@ -17,8 +17,39 @@
 </head>
 <body topmargin = "0" leftmargin = "0">
 <span id = "loadString">&nbsp;</span>
+
+<!-- Top bar / typing-area chrome, static markup in kb.html (the kb.hta
+     shape). The ids mirror the era objex.js contract — objex wraps these
+     nodes, skins key off id.full. The only dynamic node is id.time, driven
+     by bin/kbclock.js (started by the "topbar" loader
+     stage, which now only runs the clock). -->
+<div id = "id.full">
+	<li id = "id.time">&nbsp;</li>
+	<div id = "id.map_name"></div>
+	<div id = "id.next_key"></div>
+	<div id = "id.lang"></div>
+	<div id = "id.prev"></div>
+	<li id = "id.timer"></li>
+	<li id = "id.txt_perc"></li>
+	<li id = "id.err_perc"></li>
+	<li id = "id.velocity"></li>
+	<li id = "id.zoomout_btn"></li>
+	<li id = "id.zoomin_btn"></li>
+	<li id = "id.help_btn"></li>
+	<li id = "id.lang_btn"></li>
+	<li id = "id.type_btn"></li>
+	<li id = "id.mode_btn"></li>
+	<li id = "id.sets_btn"></li>
+	<li id = "id.libr_btn"></li>
+	<div id = "id.content">
+		<div id = "id.already"></div>
+		<div id = "id.to_type"></div>
+	</div>
+	<div id = "id.paragrh"></div>
+	<div id = "id.messager"></div>
+	<div id = "id.keyboard"></div>
+</div>
 </body>
-<script language = "JavaScript" type = "text/javascript" src = "jq/vue.global.prod.js"></script>
 <script language = "JavaScript" type = "text/javascript" src = "bin/kbDialog.js"></script>
 <script language = "JavaScript" type = "text/javascript" src = "bin/kblib.js"></script>
 <script language = "JavaScript" type = "text/javascript" src = "bin/fit.js"></script>

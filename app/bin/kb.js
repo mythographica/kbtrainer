@@ -24,8 +24,14 @@ try{
 		}
 		, changeMap					: function(){
 			// cycling: src/lib/keymap.ts (vitest-covered)
+			var mapBefore = user.currentMap;
 			user.currentMap = window.kblib.nextMap(user.maps, user.currentMap, kb.current_map);
 			kb.current_map = user.currentMap;
+			// Session.ModeF2 (traced) — only for a real switch: the boot-time
+			// activation call leaves the map as it is and records nothing
+			if(user.currentMap !== mapBefore){
+				try{ new kbstore.session.ModeF2(); }catch(e){}
+			}
 			for(var i in kb.keychkb_arr){ // changing keyboard map signed events
 				try{ kb.keychkb_arr[i](); }catch(e){ }finally{}
 			}

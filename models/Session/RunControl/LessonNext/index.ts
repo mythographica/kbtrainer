@@ -1,14 +1,15 @@
 'use strict';
 
-const { utils } = require('mnemonica');
+// Session.RunControl.LessonNext — Ctrl+→ in lesson mode: the next lesson of
+// the base. The era moves user.LessonNum and restarts (the new Run follows
+// in the trace); this records where it moved — the lesson id
+// (map_base_lesson). It keeps no counter of its own. The domain router
+// (EventHandler) cannot know the id and passes none.
 
-import type { SessionChain } from '../../../chain';
+interface LessonNextSelf {
+	lessonId : string | null;
+}
 
-// Session.RunControl.LessonNext — next lesson in the base.
-
-interface LessonNextSelf {}
-
-module.exports = function LessonNext(this: LessonNextSelf) {
-	const session = utils.parent(this, 'Session') as SessionChain;
-	session.lessonIndex += 1;
+module.exports = function LessonNext(this: LessonNextSelf, lessonId?: string) {
+	this.lessonId = lessonId || null;
 };

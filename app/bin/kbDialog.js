@@ -14,6 +14,20 @@
 	var kbState = null;
 	var kbState_ro = null;
 
+	// the dialog's own zoom, remembered across dialogs and restarts: the
+	// user's last Ctrl+/- step inside a dialog (1 until they make one)
+	var ZOOM_KEY = "kbDialogZoom";
+	var readZoom = function(){
+		try{
+			var z = parseFloat(window.localStorage.getItem(ZOOM_KEY));
+			if(z >= 0.5 && z <= 3){ return z; }
+		}catch(e){}
+		return 1;
+	};
+	var saveZoom = function(z){
+		try{ window.localStorage.setItem(ZOOM_KEY, String(z)); }catch(e){}
+	};
+
 	// main process turns the window's own (x) into "close the dialog"
 	try{
 		if(window.kbOnCloseDialog){
@@ -54,6 +68,7 @@
 			}catch(e){}
 			z = Math.max(0.5, Math.min(z, 3));
 			st.zoom = Math.round(z * 100) / 100;
+			saveZoom(st.zoom);
 			try{
 				var doc = st.fr.contentDocument;
 				if(doc && doc.body){ doc.body.style.zoom = st.zoom; }
@@ -66,7 +81,14 @@
 	// features keeps the original showModalDialog string; dialogWidth and
 	// dialogHeight become the new (temporary) window content size.
 	window.kbDialogOpen = function(url, args, features, onClose){
-		if(kbState){ return; } // one modal dialog at a time, like showModalDialog
+		// one modal dialog at a time, like showModalDialog — and the opener
+		// is also the closer: F4/F5/F8 reaching the MAIN page (focus outside
+		// the dialog's iframe) re-request the open dialog, which toggles it
+		// shut; the islands close on their own key when focus is inside
+		if(kbState){
+			if(kbState.url === url){ window.__kbDialog.close(); }
+			return;
+		}
 		if(typeof features == "function"){ onClose = features; features = ""; }
 
 		var w = 620, h = 420;
@@ -77,14 +99,11 @@
 			if(mh){ h = parseInt(mh[1], 10); }
 		}catch(e){}
 
-		// dialogs used to be fixed-size HTA windows; here they scale with the
-		// user's DELIBERATE zoom only (Ctrl+/- steps on the main UI), never
-		// with the passive boot fit — on a big screen that fit is ~2x and it
-		// used to blow every dialog up to near-full-screen width.
-		var zoom = 1;
-		try{
-			if(window.kbFit && window.kbFit.zoomScale > 0){ zoom = window.kbFit.zoomScale; }
-		}catch(e){}
+		// dialogs used to be fixed-size HTA windows; here they open at the
+		// REMEMBERED dialog zoom (the user's last Ctrl+/- inside a dialog) —
+		// never derived from the main window's scale, which made the dialog
+		// size unpredictable (tiny in one window state, scrollbars in another)
+		var zoom = readZoom();
 		// ...but never larger than the screen: shrink the zoom so the dialog
 		// fits the work area with a margin. The main process clamps resizeTo
 		// anyway, and a clamped window is exactly what shows scrollbars.
@@ -139,6 +158,11 @@
 					h = exact ? ch : Math.max(h, ch);
 					window.resizeTo(w, h);
 				}
+				// no scrollbars when the content fits the window it really got
+				// (the main process clamps resizes to the work area)
+				var fits = cw <= fr.clientWidth && ch <= fr.clientHeight;
+				if(doc.documentElement){ doc.documentElement.style.overflow = fits ? "hidden" : ""; }
+				if(doc.body){ doc.body.style.overflow = fits ? "hidden" : ""; }
 			}catch(e){}
 		};
 		fr.onload = function(){
@@ -150,7 +174,16 @@
 			try{
 				var RO = fr.contentWindow.ResizeObserver;
 				if(RO){
-					kbState_ro = new RO(function(){ fitDialog(); });
+					// fit in the NEXT frame: fitting resizes and toggles overflow,
+					// which inside the callback re-triggers the observer in the
+					// same frame ("ResizeObserver loop completed with undelivered
+					// notifications")
+					var fitQueued = false;
+					kbState_ro = new RO(function(){
+						if(fitQueued){ return; }
+						fitQueued = true;
+						window.requestAnimationFrame(function(){ fitQueued = false; fitDialog(); });
+					});
 					var doc0 = fr.contentDocument;
 					if(doc0.body){ kbState_ro.observe(doc0.body); }
 					if(doc0.documentElement){ kbState_ro.observe(doc0.documentElement); }
@@ -170,7 +203,7 @@
 		// the dialog becomes the window: no overlay, no scrollbars
 		window.resizeTo(w, h);
 
-		kbState = { wrap: wrap, onClose: onClose, prevSize: prevSize, zoom: zoom, design: { w: designW, h: designH }, fr: fr, refit: fitDialog };
+		kbState = { url: url, wrap: wrap, onClose: onClose, prevSize: prevSize, zoom: zoom, design: { w: designW, h: designH }, fr: fr, refit: fitDialog };
 		try{ window.kbDialogNotify(true); }catch(e){}
 		try{ fr.focus(); }catch(e){}
 	};

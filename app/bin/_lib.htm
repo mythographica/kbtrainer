@@ -89,8 +89,9 @@ option{
 </style>
 
 <script language = "JavaScript">
-	window.moveTo(150,200);
-	window.resizeTo(577,430);
+	// Electron overlay: the iframe cannot be moved/resized — kbDialog.js owns
+	// the geometry. Guarded so a denial cannot abort the page scripts.
+	try{ window.moveTo(150,200); window.resizeTo(577,430); }catch(e){}
 
 var user = window.dialogArguments.user;
 var strings = window.dialogArguments.strings;
@@ -99,7 +100,21 @@ window.onbeforeunload = function(){
 }
 </script>
 
-<script language = "JavaScript" src = "../jq/jquery-1.4.2.min.js"></script>
+<script language = "JavaScript">
+	// selector.js replacement (Electron port): selector.js never shipped
+	// with the port; its dialog-side job was injecting the current skin's
+	// stylesheet.
+	(function(){
+		try{
+			var lk = document.createElement("link");
+			lk.rel = "stylesheet";
+			lk.type = "text/css";
+			lk.href = "../skins/skin." + ((window.dialogArguments.user && window.dialogArguments.user.skin) || "native") + ".css";
+			document.getElementsByTagName("head")[0].appendChild(lk);
+		}catch(e){}
+	})();
+</script>
+
 <script language = "JavaScript" src = "kblib.js"></script>
 <script language = "JavaScript" src = "alf.js"></script>
 <script language = "JavaScript" src = "mixer.js"></script>
@@ -108,6 +123,16 @@ window.onbeforeunload = function(){
 
 <script language = "JavaScript">
 <!--
+// Program.LibDialog (traced): the dialog's domain node; null when the domain
+// did not boot. Program (kbstore.program) owns FileDialog around the native
+// selector. All records best-effort: the page works without the domain.
+var domain = window.dialogArguments.domain || null;
+var program = (window.dialogArguments.kbstore && window.dialogArguments.kbstore.program) || null;
+var record = function(make){
+	try{ if(domain){ make(domain); } }catch(e){}
+};
+var deleteRequest = null;
+
 var pathToFile; //varieble for storing path to opening file
 
 var snk = new Array();
@@ -243,20 +268,30 @@ loadFile = function(ob){
 	}
 }
 
+// Program.FileDialog (traced) around the native selector; FilePick when a
+// file came back; close() hands program.dialog back to the library. The
+// era in-app picker (bin/_fopn.htm) is ported but parked: its 2008-era
+// layout renders poorly under Electron font metrics — revisit later.
 tryOpnFile = function(ob){
 	var errOnOpn = true;
 	var strErr = "";
+	// Program.FileDialog (traced) around the whole session
+	var fileDialog = null;
+	try{ if(program){ fileDialog = new program.FileDialog(); window.__fileDialog = fileDialog; } }catch(e){}
 	try{
 		var file = fs.openTextFileDlg();
 		if(file){
-			tryOpnFile.selectedFile = fs.turnObj(file);
-			if(file){
-				loadFile(ob);
-				errOnOpn = false;
-			}
+			// the dialog returns a PATH (Electron showOpenDialog); turnObj
+			// takes the {name, path, size} file object — fs.open builds it
+			// from a path (the era page passed the path itself: broken)
+			tryOpnFile.selectedFile = fs.turnObj(fs.open(file));
+			try{ if(fileDialog){ new fileDialog.FilePick(tryOpnFile.selectedFile.path); } }catch(e){}
+			loadFile(ob);
+			errOnOpn = false;
 		}
 	}catch(e){ strErr += e;
 	}finally{}
+	try{ if(fileDialog){ fileDialog.close(); window.__fileDialog = null; } }catch(e){}
 	if(errOnOpn){
 		texter.str = strings.l0 + strings.l4_1 + " <br><br> " + strErr;
 		mix.In("pathTo", "&nbsp;");
@@ -264,6 +299,36 @@ tryOpnFile = function(ob){
 	}
 }
 tryOpnFile.selectedFile = "";
+
+// parked with the era picker port (bin/_fopn.htm) — kept for the later
+// restore: the picker's OK!/Esc continuation and the DirList record hook
+window.__fopnPicked = function(){
+	var fileDialog = window.__fileDialog || null;
+	try{
+		var p = (window.__fopnWin && window.__fopnWin.__fopnArgs) ? window.__fopnWin.__fopnArgs.path : null;
+		if(p){
+			tryOpnFile.selectedFile = fs.turnObj(fs.open(p));
+			var lastSep = String(p).lastIndexOf(fs.sep);
+			tryOpnFile.lastDir = (lastSep > 0) ? String(p).substring(0, lastSep) : fs.sep;
+			try{ if(fileDialog){ new fileDialog.FilePick(tryOpnFile.selectedFile.path); } }catch(e){}
+			loadFile(window.__fopnButton);
+		}
+	}catch(e){}
+	try{ if(fileDialog){ fileDialog.close(); window.__fileDialog = null; } }catch(e){}
+	window.__fopnWin = null;
+	window.__fopnButton = null;
+};
+window.__fopnClosed = function(){
+	try{ if(window.__fileDialog){ window.__fileDialog.close(); window.__fileDialog = null; } }catch(e){}
+	window.__fopnWin = null;
+	window.__fopnButton = null;
+};
+window.__fopnDirList = function(dir, entries){
+	try{
+		var fileDialog = window.__fileDialog;
+		if(fileDialog){ new fileDialog.DirList(dir, entries); }
+	}catch(e){}
+};
 
 
 saver = function(){
@@ -337,6 +402,8 @@ saver = function(){
 						var bookname_id_str = mix("book").value;
 
 						api.saveBook(loc, str, autor_id_str, bookname_id_str);
+						// Program.LibDialog.BookImport (traced)
+						record(function(dialog){ new dialog.BookImport(loc); });
 
 						texter.str = "Saving DONE:<br>"+locName+"<br>"+autor_id_str+"<br>"+bookname_id_str+"<br>"+str.substr(0, ( (str.length > 10000) ? 10000 : str.length ) );
 						ev.t("texter()", 500);
@@ -454,9 +521,11 @@ onclick = "SelTab('setAds')">Add New</div>
 		<select id = "charset_id" tabindex = "5"
 		style = "top: 67px; left: 420px; width: 110px; height: 20px"
 		onchange = "loadFile()">
+			<!-- UTF-8 first and default: the books of 2026 are UTF-8;
+			     the era order (Windows-1251 first) was for 2010 RU users -->
+			<option value = "UTF-8" selected>&nbsp;UTF-8
 			<option value = "Windows-1251">&nbsp;windows-1251
 			<option value = "koi8-r">&nbsp;KOI-8r
-			<option value = "UTF-8">&nbsp;UTF-8
 			<option value = "unicode">&nbsp;UTF-16LE
 			<option value = "unicodeFFFE">&nbsp;UTF-16BE
 			<option value = "ascii">&nbsp;ASCII (latin1)
@@ -512,6 +581,8 @@ mark = function (par){
 			pf(books[parseInt(par)].path);
 			// Waaaaghhh!!!
 			user.CurrentBook = books[parseInt(par)].path;
+			// Program.LibDialog.BookSelect (traced)
+			record(function(dialog){ new dialog.BookSelect(user.CurrentBook); });
 			// Waaaaghhh!!!
 			mix("book_"+par+"_id").selted = "set";
 		}}}
@@ -540,6 +611,10 @@ delt00 = function (){
 	if(delt.par != ""){
 	if(delt.path != ""){
 			delt00.tf = api.deltebook(delt.path);
+		if(delt00.tf != false){
+			// Program.LibDialog.BookDeleteRequest -> BookDeleted (traced)
+			try{ if(deleteRequest){ new deleteRequest.BookDeleted(); } }catch(e){}
+		}
 	}}
 }
 delt00.tf = "";
@@ -571,6 +646,8 @@ delt = function (par){
 				delt.path = books[par]["path"];
 				var okcan = window.confirm(strings.l6 +"''"+ books[par]["autor"] +" - "+ books[par]["book"] + "'' ???");
 				if(okcan){
+					// Program.LibDialog.BookDeleteRequest (traced)
+					record(function(dialog){ deleteRequest = new dialog.BookDeleteRequest(delt.path); });
 					delt0ctn = 0;
 					mix.In("book_"+par+"_id", strings.l7);
 					delt.par = par;
@@ -697,6 +774,18 @@ loader = function (){
 if(delt.par == ""){
 try{
 	books = api.books(true);
+	// the domain's library mirrors the disk list, so BookSelect's
+	// 'book not in library' guard passes for books that were on disk
+	// before this dialog opened (BookImport keeps it additive)
+	try{
+		if(program){
+			for(var li in books){
+				if(books[li] && books[li].path && program.library.indexOf(books[li].path) < 0){
+					program.library.push(books[li].path);
+				}
+			}
+		}
+	}catch(e){}
 	var setted = 0;
 	s = "";
 	var setted = 0;
@@ -760,10 +849,12 @@ ev.t("texter()", 10);
 
 SelTab("libFiles");
 
+// the smoke test listens for this
+window.__libReady = true;
+
 //-->
 </script>
 <script language = "JavaScript" src = "escEr.js"></script>
-<script language = "JavaScript" src = "selector.js"></script>
 
 </html>
 

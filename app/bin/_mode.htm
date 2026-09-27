@@ -7,15 +7,29 @@
 <script language = "JavaScript" src = "kbDialogChild.js"></script>
 
 <script language = "JavaScript">
-	window.moveTo(150, 200);
-	window.resizeTo(720, 350);
+	// Electron overlay: the iframe cannot be moved/resized — kbDialog.js owns
+	// the geometry. Guarded so a denial cannot abort the page scripts.
+	try{ window.moveTo(150, 200); window.resizeTo(720, 350); }catch(e){}
 </script>
-<script language = "JavaScript" src = "../jq/jquery-1.4.2.min.js"></script>
 <script language = "JavaScript" src = "kblib.js"></script>
 <script language = "JavaScript" src = "alf.js"></script>
 <script language = "JavaScript" src = "mixer.js"></script>
 <script language = "JavaScript" src = "ev.js"></script>
 <script language = "JavaScript" src = "fns.js"></script>
+
+<script language = "JavaScript">
+	// selector.js replacement (Electron port): selector.js never shipped
+	// with the port; all it did was inject the current skin's stylesheet.
+	(function(){
+		try{
+			var lk = document.createElement("link");
+			lk.rel = "stylesheet";
+			lk.type = "text/css";
+			lk.href = "../skins/skin." + ((window.dialogArguments.user && window.dialogArguments.user.skin) || "native") + ".css";
+			document.getElementsByTagName("head")[0].appendChild(lk);
+		}catch(e){}
+	})();
+</script>
 
 <style type = "text/css">
 <!--
@@ -72,6 +86,17 @@ body{
 	padding: 10px 20px 10px 20px;
 	overflow: hidden;
 }
+#mode_voc{
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	width: 660px;
+	height: 200px;
+	border: 1px solid gray;
+	visibility: hidden;
+	padding: 10px 20px 10px 20px;
+	overflow: hidden;
+}
 #mode_books label, #mode_lesson label{
 	padding-left: 20px;
 }
@@ -102,7 +127,9 @@ body{
 		<span id = "span.mode.radio1"><input type="radio" name = "snk.mode.radio" id = "snk.mode.radio1"
 			onclick = "setsMode()"><label for="snk.mode.radio1">&nbsp;</label></span>
 		<span id = "span.mode.radio2"><input type="radio" name = "snk.mode.radio" id = "snk.mode.radio2"
-			onclick = "setsMode()"><label for="snk.mode.radio2">&nbsp;</label></span><br>
+			onclick = "setsMode()"><label for="snk.mode.radio2">&nbsp;</label></span>
+		<span id = "span.mode.radio3"><input type="radio" name = "snk.mode.radio" id = "snk.mode.radio3"
+			onclick = "setsMode()"><label for="snk.mode.radio3">&nbsp;</label></span><br>
 	</div>
 	<div id = "mode_lesson" style = "padding-left: 10px">
 		<table border = "0" cellpadding = "2" cellspacing = "3" width = "670px" height = "220px">
@@ -116,11 +143,25 @@ body{
 		</table>
 	</div>
 	<div id = "mode_books" style = "padding-left: 10px"></div>
+	<div id = "mode_voc" style = "padding-left: 10px">
+		<!-- vocabulary (the pre-lib/books mode): paste a text, type it once;
+		     nothing is saved. The value round-trips through
+		     dialogArguments.vocText (snk.changeMode) so re-opening keeps it. -->
+		<textarea id = "snk.voc.text" spellcheck = "false"
+			style = "width: 640px; height: 195px; font-family: monospace; font-size: 12px; border: 1px solid gray;"></textarea>
+	</div>
 
 </body>
 
-<script language="JavaScript">
+<script language = "JavaScript">
 <!--
+// Program.ModeDialog (traced) — the dialog's domain node; null when the
+// domain did not boot. The records below are best-effort: the dialog works
+// without the domain, exactly like the era page did.
+var domain = window.dialogArguments.domain || null;
+var recordPick = function(make){
+	try{ if(domain){ make(domain); } }catch(e){}
+};
 
 var buildSLmap = function(smap){
 	mix.In("less_map_select", "");
@@ -136,6 +177,8 @@ var buildSLmap = function(smap){
 			selectedLessonMap = this.value;
 			if(user.LessonNum[0] !== selectedLessonMap){
 				user.LessonNum = [selectedLessonMap, "base0", 0];
+				// Program.ModeDialog.LessonPick (traced)
+				recordPick(function(dialog){ new dialog.LessonPick(user.LessonNum.join("_")); });
 			}
 			buildSLmap();
 		};
@@ -168,6 +211,8 @@ var buildSLmap = function(smap){
 
 				l_sel.m.onclick = function(){
 					user.LessonNum = this.value.split("_");
+					// Program.ModeDialog.LessonPick (traced)
+					recordPick(function(dialog){ new dialog.LessonPick(user.LessonNum.join("_")); });
 					buildSLmap();
 				};
 
@@ -196,15 +241,26 @@ var buildSLmap = function(smap){
 var setsMode = function(){
 	mix.Fhide("mode_lesson");
 	mix.Fhide("mode_books");
+	mix.Fhide("mode_voc");
 	if((mix("snk.mode.radio1").checked == true) && (mix("snk.mode.radio2").checked == false)){
 		user.LessonsMode = "lesson";
+		// Program.ModeDialog.ModeSet (traced): the chosen mode
+		recordPick(function(dialog){ new dialog.ModeSet("lesson"); });
 		buildSLmap();
 	}
 	if((mix("snk.mode.radio1").checked == false) && (mix("snk.mode.radio2").checked == true)){
 		user.LessonsMode = "book";
+		// Program.ModeDialog.ModeSet (traced): the chosen mode
+		recordPick(function(dialog){ new dialog.ModeSet("book"); });
+	}
+	if((mix("snk.mode.radio3").checked == true) && (mix("snk.mode.radio1").checked == false) && (mix("snk.mode.radio2").checked == false)){
+		user.LessonsMode = "vocabulary";
+		// Program.ModeDialog.ModeSet (traced): the chosen mode
+		recordPick(function(dialog){ new dialog.ModeSet("vocabulary"); });
 	}
 	if(user.LessonsMode == "lesson"){ mix("span.mode.radio1").setAttribute("hl", "true"); mix.Fshow("mode_lesson"); }
 	if(user.LessonsMode == "book"){ mix("span.mode.radio2").setAttribute("hl", "true"); mix.Fshow("mode_books"); }
+	if(user.LessonsMode == "vocabulary"){ mix("span.mode.radio3").setAttribute("hl", "true"); mix.Fshow("mode_voc"); }
 }
 
 var starter = function(){
@@ -212,14 +268,30 @@ var starter = function(){
 	mix.In("caption", "&nbsp;<b>"+strings.s12+"</b>");
 	mix.Fhide("mode_lesson");
 	mix.Fhide("mode_books");
+	mix.Fhide("mode_voc");
 	// $("label[for='snk.mode.radio1']").html("&nbsp;" + strings.s18 + " [Ctrl + 1]&nbsp;&nbsp;");
 	// $("label[for='snk.mode.radio2']").html("&nbsp;" + strings.s19 + " [Ctrl + 2]&nbsp;&nbsp;");
 	$("label[for='snk.mode.radio1']").html("&nbsp;" + strings.s18 + "&nbsp;&nbsp; [1]&nbsp;&nbsp;");
 	$("label[for='snk.mode.radio2']").html("&nbsp;" + strings.s19 + "&nbsp;&nbsp; [2]&nbsp;&nbsp;");
+	// no era string for the third mode (2.1 never had it): the era's own word
+	$("label[for='snk.mode.radio3']").html("&nbsp;vocabulary&nbsp;&nbsp; [3]&nbsp;&nbsp;");
 	mix("snk.mode.radio1").checked = false;
 	mix("snk.mode.radio2").checked = false;
+	mix("snk.mode.radio3").checked = false;
 	mix("span.mode.radio1").setAttribute("hl", "false");
 	mix("span.mode.radio2").setAttribute("hl", "false");
+	mix("span.mode.radio3").setAttribute("hl", "false");
+	// the pasted vocabulary text round-trips through dialogArguments.vocText
+	// (snk.changeMode) so re-opening the dialog keeps it — written LIVE on
+	// every input (the args object is shared), because an outer
+	// __kbDialog.close() never runs this page's onbeforeunload (only the
+	// page's own Esc/Enter via kbDialogChild does)
+	if(typeof window.dialogArguments.vocText === "string"){
+		mix("snk.voc.text").value = window.dialogArguments.vocText;
+	}
+	mix("snk.voc.text").oninput = function(){
+		window.dialogArguments.vocText = this.value;
+	};
 
 	var books = api.books(true);
 	if(books.length > 0){
@@ -231,7 +303,11 @@ var starter = function(){
 				, name	: "snk_books_select_id"
 				, value	: books[i]["path"]
 			});
-			b_sel.m.onclick = function(){ user.CurrentBook = this.value; };
+			b_sel.m.onclick = function(){
+				user.CurrentBook = this.value;
+				// Program.ModeDialog.BookPick (traced)
+				recordPick(function(dialog){ new dialog.BookPick(user.CurrentBook); });
+			};
 
 
 			var b_sel_lbl = mix.addObj("snk." + i + ".lbl",	"mode_books", "LABEL");
@@ -259,6 +335,14 @@ var starter = function(){
 		mix("span.mode.radio2").setAttribute("hl", "true");
 		mix.Fshow("mode_books");
 	}
+	if(user.LessonsMode == "vocabulary"){
+		mix("snk.mode.radio3").checked = true;
+		mix("span.mode.radio3").setAttribute("hl", "true");
+		mix.Fshow("mode_voc");
+	}
+
+	// the smoke test listens for this
+	window.__modeReady = true;
 }
 
 kbDown = function(event){
@@ -274,6 +358,7 @@ kbDown = function(event){
 	//if(ctrlK){
 	if(z == 49){ mix("snk.mode.radio1").click(); } // [1]
 	if(z == 50){ mix("snk.mode.radio2").click(); } // [2]
+	if(z == 51){ mix("snk.mode.radio3").click(); } // [3]
 	//}
 }
 
@@ -293,14 +378,15 @@ var selectedLessonMap = user.LessonNum[0];
 window.onbeforeunload = function(){
 	window.dialogArguments.user = user;
 	window.dialogArguments.evop = evop;
+	// the pasted vocabulary text travels back with the dialog
+	window.dialogArguments.vocText = mix("snk.voc.text").value;
 }
 
-window.moveTo(user.wsL, user.wsT);
+try{ window.moveTo(user.wsL, user.wsT); }catch(e){}
 ev.WinEvent("onkeydown", "kbDown");
 
 ev.t("starter()", 500);
 //-->
 </script>
 <script language = "JavaScript" src = "escEr.js"></script>
-<script language = "JavaScript" src = "selector.js"></script>
 </html>

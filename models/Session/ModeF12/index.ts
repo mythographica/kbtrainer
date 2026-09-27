@@ -4,7 +4,10 @@ const { utils } = require('mnemonica');
 
 import type { SessionChain } from '../../chain';
 
-// Session.ModeF12 — loader log viewer (the program's Log records).
+// Session.ModeF12 — loader log viewer. The era shows loader_log in its own
+// window (loader_log_view); every line of it is a Program.Log record, so
+// the entry count is the log the user is looking at. It claims no
+// program.dialog: the viewer is not modal.
 
 interface ModeF12Self {
 	entries : number;
@@ -13,6 +16,5 @@ interface ModeF12Self {
 module.exports = function ModeF12(this: ModeF12Self) {
 	const session = utils.parent(this, 'Session') as SessionChain;
 	const program = session.program!;
-	program.dialog = 'loaderlog';
 	this.entries = program.logs.length;
 };

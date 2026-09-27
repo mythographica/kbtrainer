@@ -1,0 +1,58 @@
+# Jaeger v2 all-in-one (memory) with the AI MCP telemetry endpoint enabled,
+# for kbTrainer's talk / demo mode (npm run start:jaegger).
+# Stock cmd/jaeger/config.yaml, trimmed: no agent_url chat gateway, no
+# archive store, no adaptive sampling. The `ai.enable_mcp: true` line is what
+# turns on /api/ai/mcp/ on the query port (:16686) — the official agent surface
+# (search_traces, get_trace_topology, get_critical_path, ...).
+#
+# The `ui.config_file` mount adds link patterns (jaeger-ui.json): span tags
+# `code.filepath` become `vscode://file/...` jumps and `dive.root_edge_id`
+# becomes a `vscode://mythographica.mnemographica/trace?root=N` jump into the
+# Live Trace sidebar. The browser asks once for permission to open the
+# vscode:// protocol.
+#
+# Started by scripts/jaegger.sh (reuses a running jaeger-mnem).
+
+service:
+  extensions: [jaeger_storage, jaeger_query]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [jaeger_storage_exporter]
+  telemetry:
+    resource:
+      service.name: jaeger
+
+extensions:
+  jaeger_query:
+    storage:
+      traces: some_store
+    ai:
+      # Serves the telemetry MCP tools at /api/ai/mcp/ on the query port.
+      enable_mcp: true
+    ui:
+      config_file: /etc/jaeger/ui.json
+
+  jaeger_storage:
+    backends:
+      some_store:
+        memory:
+          max_traces: 100000
+
+receivers:
+  otlp:
+    protocols:
+      # Explicit 0.0.0.0: the otlp default is loopback, which the published
+      # docker port cannot reach from the host.
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+
+exporters:
+  jaeger_storage_exporter:
+    trace_storage: some_store

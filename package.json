@@ -1,34 +1,43 @@
 {
-  "name": "kbtrainer-electron",
-  "version": "2.1.0",
-  "description": "kbTrainer 2.1 (HTA touch typing trainer) ported to Electron",
-  "main": "dist/main.js",
-  "scripts": {
-    "build": "npm run typecheck && tsc -p tsconfig.emit.json && tsc -p tsconfig.renderer.json && tsc -p tsconfig.models.json && vite build --config vite.config.kblib.mts",
-    "typecheck": "npm run tactica && tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.domain.json",
-    "test": "vitest run",
-    "lint": "eslint app/bin",
-    "smoke": "npm run build && rm -rf /tmp/kbt-smoke && mkdir -p /tmp/kbt-smoke && KBT_SMOKE=/tmp/kbt-smoke xvfb-run -a -s \"-screen 0 1920x1280x24\" electron .",
-    "start": "electron .",
-    "tactica": "tactica --topologica models"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "@mnemonica/dive": "^0.9.0",
-    "@mnemonica/otel": "^0.1.2",
-    "@mnemonica/strategy": "^0.5.2",
-    "@mnemonica/tactica": "file:../../mnemonica/tactica",
-    "@mnemonica/topologica": "^0.1.0",
-    "iconv-lite": "^0.6.3",
-    "mnemonica": "^1.3.1",
-    "vue": "^3.5.43"
-  },
-  "devDependencies": {
-    "@types/iconv-lite": "^0.0.1",
-    "@types/node": "^26.6.2",
-    "electron": "^44.4.3",
-    "eslint": "^10.11.0",
-    "typescript": "^6.0.3",
-    "vitest": "^5.0.1"
-  }
+	"name": "kbtrainer-electron",
+	"version": "2.1.0",
+	"description": "kbTrainer 2.1 (HTA touch typing trainer) ported to Electron",
+	"main": "dist/main.js",
+	"scripts": {
+		"build": "npm run typecheck && tsc -p tsconfig.emit.json && tsc -p tsconfig.renderer.json && tsc -p tsconfig.models.json && vite build --config vite.config.kblib.mts",
+		"typecheck": "npm run tactica && tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.domain.json",
+		"test": "vitest run",
+		"lint": "eslint app/bin",
+		"smoke": "npm run build:smoke && rm -rf /tmp/kbt-smoke && mkdir -p /tmp/kbt-smoke && USE_STRATEGY=1 KBT_SMOKE=/tmp/kbt-smoke xvfb-run -a -s \"-screen 0 1920x1280x24\" electron .",
+		"build:smoke": "node scripts/with-smoke-build.js",
+		"start": "electron .",
+		"start:strat": "USE_STRATEGY=1 electron .",
+		"start:jaegger": "bash ./scripts/jaegger.sh && OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 electron .",
+		"start:strat:jaegger": "bash ./scripts/jaegger.sh && USE_STRATEGY=1 OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 electron .",
+		"tactica": "tactica --topologica models"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@mnemonica/dive": "^0.10.1",
+		"@mnemonica/otel": "^0.1.5",
+		"@mnemonica/strategy": "^0.5.3",
+		"@mnemonica/tactica": "^0.4.4",
+		"@mnemonica/topologica": "^0.1.0",
+		"@opentelemetry/api": "^1.9.1",
+		"@opentelemetry/core": "^2.11.0",
+		"@opentelemetry/otlp-transformer": "^0.221.0",
+		"@opentelemetry/resources": "^2.11.0",
+		"@opentelemetry/sdk-trace-node": "^2.11.0",
+		"@opentelemetry/semantic-conventions": "^1.43.0",
+		"iconv-lite": "^0.6.3",
+		"mnemonica": "^1.3.5"
+	},
+	"devDependencies": {
+		"@types/iconv-lite": "^0.0.1",
+		"@types/node": "^26.6.2",
+		"electron": "^44.4.3",
+		"eslint": "^10.11.0",
+		"typescript": "^6.0.3",
+		"vitest": "^5.0.1"
+	}
 }

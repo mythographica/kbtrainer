@@ -254,6 +254,14 @@
 					return ff ? ff : false;
 				}catch(e){ alert(e); return false; }
 			}
+			// the era file picker's listing: directories AND files, flagged
+			// (kbfs-listdir); used by bin/_fopn.htm
+			, listDir		: function(path){
+				try{
+					var ff = kbfs.listDir(path);
+					return ff ? ff : false;
+				}catch(e){ alert(e); return false; }
+			}
 			, turnObj		: function(obj){ // obj is file obj
 				try{
 					var oobj = {};

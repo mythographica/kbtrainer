@@ -1,17 +1,13 @@
 'use strict';
 
-const { utils } = require('mnemonica');
+// Session.ModeF1 — help. The help page opens as its own, non-modal window
+// (snk.open_help) and has no data flow; we only record that it was opened.
+// It claims no program.dialog: nothing modal is open while help shows.
 
-import type { SessionChain } from '../../chain';
-
-// Session.ModeF1 — help. The help page itself has no data flow; we only
-// record the window switch.
-
-interface ModeF1Self {}
+interface ModeF1Self {
+	openedAt : number;
+}
 
 module.exports = function ModeF1(this: ModeF1Self) {
-	const session = utils.parent(this, 'Session') as SessionChain;
-	if (session.program) {
-		session.program.dialog = 'help';
-	}
+	this.openedAt = Date.now();
 };

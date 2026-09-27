@@ -83,6 +83,9 @@
 					vars.cntSess = 0;
 					vars.cntErr = 0;
 					vars.timerCnt = 0;
+					// Session.ModeF7 (traced): zeroes the same stats cells the
+					// lines above just zeroed (plus the domain-only `correct`)
+					try{ new kbstore.session.ModeF7(); }catch(e){}
 				}
 
 				// clock retired: the TopBar island owns id.time (stage 4.2)
@@ -104,7 +107,7 @@
 				app.attr.ruenView();
 			}
 			, time			: function(){
-				// retired: the TopBar Vue island owns id.time (stage 4.2)
+				// bin/kbclock.js owns id.time (started by the "topbar" loader stage)
 			}
 			, keydown			: function(keys){
 				var z = keys.code;
@@ -121,30 +124,48 @@
 					}
 				}
 
-				if(z == 112){ event.returnValue = false; snk.open_help(); }						// F1 (no Shift needed outside HTA)
-				if(z == 113){ event.returnValue = false; kb.changeMap(); }						// F2
-				if(z == 114){ event.returnValue = false; snk.changeTypingMode(); }				// F3
-				if(z == 115){ event.returnValue = false; snk.changeMode(); }					// F4
-				if(z == 116){ event.returnValue = false; snk.open_sets(); }						// F5
-				if(z == 118){ event.returnValue = false; objx.speed.obj.onclick(); }			// F7
+				// F-keys route through the domain router (Session.EventHandler.
+				// dispatchKey) which constructs the ModeF* record; the era
+				// action stays here. Exceptions: F3 and F7 construct their
+				// record AFTER the state change they record (the toggle /
+				// the stats zeroing), which the router cannot know — the era
+				// keeps those two constructions directly.
+				if(z == 112){ event.returnValue = false; try{ kbstore.session.handler.dispatchKey(112); }catch(e){} snk.open_help(); }						// F1 (Session.ModeF1 traced)
+				if(z == 113){ event.returnValue = false; try{ kbstore.session.handler.dispatchKey(113); }catch(e){} kb.changeMap(); }						// F2 (Session.ModeF2 traced)
+				if(z == 114){ event.returnValue = false; snk.changeTypingMode(); }				// F3 (ModeF3 record inside the toggle, era-kept)
+				if(z == 115){ event.returnValue = false; snk.changeMode(); }					// F4 (ModeF4 via the router inside changeMode)
+				if(z == 116){ event.returnValue = false; snk.open_sets(); }						// F5 (ModeF5 via the router inside open_sets)
+				if(z == 118){ event.returnValue = false; objx.speed.obj.onclick(); }			// F7 (ModeF7 record inside the onclick, era-kept)
 
-				if(z == 119){ event.returnValue = false; snk.open_lib(); }						// F8
+				if(z == 119){ event.returnValue = false; snk.open_lib(); }						// F8 (ModeF8 via the router inside open_lib)
 
 				// to view how kbTrainer was loaded.
-				if(z == 123){ event.returnValue = false; loader_log_view()(); }					// F12
+				if(z == 123){ event.returnValue = false; try{ kbstore.session.handler.dispatchKey(123); }catch(e){} loader_log_view()(); }	// F12 (Session.ModeF12 via the router)
+
+				// Ctrl+1/2/3 — the era's mode switch: lesson / book / vocabulary;
+				// 3 opens the mode dialog with the vocabulary paste panel (F4)
+				if((z == 49) && keys.ctrl){ event.returnValue = false; user.LessonsMode = "lesson"; app.restart(); }
+				if((z == 50) && keys.ctrl){ event.returnValue = false; user.LessonsMode = "book"; app.restart(); }
+				if((z == 51) && keys.ctrl){ event.returnValue = false; user.LessonsMode = "vocabulary"; snk.changeMode(); }
 
 			}
 			// buttons functions
 			, changeTypingMode			: function(){
-			// Stupid IE
-				app.pauser();
-				// Stupid IE
 				if(user.TypingMode == "native"){
 					user.TypingMode = "paragraph";
 				}else if(user.TypingMode == "paragraph"){
 					user.TypingMode = "native";
 				}
+				// Session.ModeF3 (traced): records the mode the toggle produced
+				try{ new kbstore.session.ModeF3(); }catch(e){}
 				skins.applyCurentMode();
+				// Stupid IE
+				// pause AFTER the new mode's layout is applied: pauser sizes the
+				// pause box to the gap above the keyboard, measured live — before
+				// the switch it measured the OLD keyboard position (box too tall
+				// after paragraph -> native, too short after native -> paragraph)
+				app.pauser();
+				// Stupid IE
 				app.p_go();
 				layouts.cleaner();
 				// Stupid IE
@@ -177,13 +198,33 @@
 							, strings	: strings
 							, evop		: ""
 							, lessons	: lessons
+							, vocText	: (window.__vocabText || "") // the vocabulary paste round-trip
 						}
-						kbDialogOpen("bin/mode.html", formd,
+						// Session.ModeF4 -> Program.ModeDialog (traced); only when
+						// the overlay really opens — kbDialogOpen ignores a second one
+						var modeDialog = null;
+						try{
+							if(!window.__kbDialog.args){
+								// via the domain router
+								modeDialog = kbstore.session.handler.dispatchKey(115).dialogInstance;
+							}
+						}catch(e){}
+						formd.domain = modeDialog; // the island constructs the dialog's actions on it
+						kbDialogOpen("bin/_mode.htm", formd,
 							"dialogTop: "+window.screenTop+"px; dialogLeft: "+window.screenLeft+"px; dialogWidth: 750px; dialogHeight: 350px; center: 1; help:0; status:0; scroll:0; resizable: 0",
 							function(){
+								try{ if(modeDialog){ modeDialog.close(); } }catch(e){}
 								if(formd.evop == "lib"){
 									snk.open_lib(true);
 								}else{
+									// the pasted vocabulary text travels back and is
+									// kept whenever it is non-empty — even if the
+									// final selection is another mode (like the old
+									// standalone window did). Memory only, never
+									// persisted to user.txt
+									if(typeof formd.vocText === "string" && formd.vocText.length > 0){
+										window.__vocabText = formd.vocText;
+									}
 									app.restart();
 								}
 							});
@@ -200,9 +241,19 @@
 					  user		: user
 						, strings	: strings
 					}
-					kbDialogOpen("bin/lib.html", formd,
+					// Session.ModeF8 -> Program.LibDialog (traced) via the router
+					var libDialog = null;
+					try{
+						if(!window.__kbDialog.args){
+							libDialog = kbstore.session.handler.dispatchKey(119).dialogInstance;
+						}
+					}catch(e){}
+					formd.domain = libDialog;
+					formd.kbstore = window.kbstore; // program: the library list + the file selector
+					kbDialogOpen("bin/_lib.htm", formd,
 						"dialogTop: "+(window.screenTop-100)+"px; dialogLeft: "+(window.screenLeft+200)+"px; dialogWidth: 620px; dialogHeight: 420px; center: 1; help:0; status:0; scroll:0; resizable: 0",
 						function(){
+							try{ if(libDialog){ libDialog.close(); } }catch(e){}
 							app.restart();
 						});
 				}
@@ -229,8 +280,20 @@
 						, skins		: skins
 						, strings	: strings
 					}
-					kbDialogOpen("bin/sets.html", formd,
-						"dialogTop: 50px; dialogLeft: 100px; dialogWidth: 750px; dialogHeight: 700px; center: 1; help:0; status:0; scroll:0; resizable: 0");
+					// Session.ModeF5 -> Program.SettingsDialog (traced) via the router
+					var setsDialog = null;
+					try{
+						if(!window.__kbDialog.args){
+							setsDialog = kbstore.session.handler.dispatchKey(116).dialogInstance;
+						}
+					}catch(e){}
+					formd.domain = setsDialog;
+					formd.kbstore = window.kbstore; // userAliases: era pref names -> profile names
+					kbDialogOpen("bin/_sets.htm", formd,
+						"dialogTop: 50px; dialogLeft: 100px; dialogWidth: 750px; dialogHeight: 700px; center: 1; help:0; status:0; scroll:0; resizable: 0",
+						function(){
+							try{ if(setsDialog){ setsDialog.close(); } }catch(e){}
+						});
 				}
 			}
 			// button captions differ per locale, so box widths are measured from
@@ -260,9 +323,13 @@
 					app.pauser(300);
 					ev.t("snk.open_help()", 350);
 				}else{
-				// Electron: window.open needs a proper file:// URL (fs.filePath).
-				// help.html is the Vue island; it picks EN/RU from the OS locale itself
-					window.open(fs.filePath(fs.locator("/locale/help.html")), "_blank");
+				// the ORIGINAL help pages, as in the HTA: locale/<lang>/help.htm
+				// (ru is the 2008 frameset). navigator.userLanguage was IE-only;
+				// Electron: window.open needs a proper file:// URL (fs.filePath)
+					var hl = String(navigator.language || "en").toLowerCase().substr(0, 2);
+					if(hl !== "ru"){ hl = "en"; }
+					window.open(fs.filePath(fs.locator("/locale/" + hl + "/help.htm")), "_blank");
+					try{ new kbstore.session.ModeF1(); }catch(e){} // Session.ModeF1 (traced)
 				}
 			}
 		};

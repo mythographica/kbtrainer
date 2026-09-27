@@ -20,10 +20,15 @@
 //    declared — the compiled output is strict mode, where assigning an
 //    undeclared name throws.
 //
-// session.run stays null in the live app for now: the domain Run/Lesson
-// mirror (and with it LetterPick/WordPick progression and the Timer.Tick
-// lesson-counter feed) is the next step; era vars.strArr remains the
-// cursor owner, app.counter() the lesson timer.
+// Stage 4.7 — the domain owns the cursor: every lesson/book start (and
+// every repeat after the end of the text) builds Session.Run -> Lesson|
+// Book -> Native|Paragraph (app.runStart), and vars.strArr.pos becomes a
+// view onto run.pos. A correct key no longer moves the cursor here:
+// StatUpdate picks the next letter (LetterPick|WordPick advance
+// run.pos). The engine keeps its other cursor moves (backspace, the space
+// and non-typable skips, end of text) — they write the same cell through
+// the view. The lesson timer stays app.counter()'s: only the engine knows
+// when typing is really going on (app.started).
 /* eslint-disable @typescript-eslint/no-explicit-any */
 var keng;
 (function (keng) {
@@ -74,6 +79,28 @@ var keng;
                 }
                 else if (user.LessonsMode == "vocabulary") {
                     document.title = "Vocabulary Mode";
+                    // the old pre-lib/books mode: a pasted textarea (Ctrl+3),
+                    // typed once. Memory only — never persisted to user.txt.
+                    // Newlines become the paragraph mark, like imported books.
+                    var vocText = String(window.__vocabText || "");
+                    if (vocText.length > 0) {
+                        // copied text almost always ends (and often starts) with
+                        // newline runs — those would become a trailing/leading ¶,
+                        // and ¶ is TYPABLE (it is the Enter key in the maps), so a
+                        // trailing one would sit at the end untypable-by-instinct
+                        // and the run would never finish. They are copy artifacts,
+                        // not content: strip them before the ¶ conversion
+                        vocText = vocText.replace(/(\n\r|\r\n|\n|\r)+$/g, "").replace(/^(\n\r|\r\n|\n|\r)+/g, "");
+                    }
+                    if (vocText.length > 0) {
+                        var vocData = vocText.replace(/\n\r|\r\n|\n|\r/g, "¶");
+                        vars.strArr = { size: vocData.length, data: vocData, name: "Vocabulary", autor: "", book: "Vocabulary", pos: 0, path: "", err: "" };
+                        start_tf = true;
+                    }
+                    else {
+                        start_tf = false;
+                        str = "Paste the text first (Ctrl+3)";
+                    }
                 }
                 else if (user.LessonsMode == "book") {
                     document.title = "Books Mode";
@@ -91,6 +118,7 @@ var keng;
                 if (start_tf == true) {
                     app.prepare_strings();
                     vars.pressed = [];
+                    app.runStart();
                     if ((par === undefined)) {
                         vars.cntSess = 0;
                         vars.cntErr = 0;
@@ -133,6 +161,72 @@ var keng;
                         app.start.app_start();
                     }
                 }
+            }
+        }
+        // Session.Run for the loaded lesson/book (traced), then vars.strArr.pos
+        // becomes a view onto run.pos: one cursor, owned by the domain. A book
+        // resumes at its bookmark (vars.strArr.pos as loaded); a repeat passes
+        // 0. Returns false when the domain is unavailable — the era cursor stays
+        // a plain field then and the engine moves it itself.
+        ,
+        runStart: function (startPos) {
+            try {
+                var sa = vars.strArr;
+                var session = kbstore.session;
+                var isBook = (user.LessonsMode == "book");
+                var isVoc = (user.LessonsMode == "vocabulary");
+                var title = isVoc ? "Vocabulary" : (isBook ? (sa.autor + " -- " + sa.book) : String(sa.name));
+                var id = isVoc ? "vocabulary" : (isBook ? String(sa.path) : String(user.LessonNum.join("_")));
+                var from = (startPos === undefined) ? Number(sa.pos) || 0 : startPos;
+                var run = new session.Run(title, sa.data, from);
+                var paragraph = (user.TypingMode == "paragraph");
+                if (isBook) {
+                    var book = new run.Book();
+                    if (paragraph) {
+                        new book.Paragraph(id);
+                    }
+                    else {
+                        new book.Native(id);
+                    }
+                }
+                else if (isVoc) {
+                    // Session.Run.Vocabulary (traced): the pasted-text run
+                    new run.Vocabulary(sa.data.length);
+                }
+                else {
+                    var lesson = new run.Lesson();
+                    if (paragraph) {
+                        new lesson.Paragraph(id);
+                    }
+                    else {
+                        new lesson.Native(id);
+                    }
+                }
+                Object.defineProperty(sa, "pos", {
+                    get: function () { return run.pos; },
+                    set: function (value) { run.pos = value; },
+                    enumerable: true,
+                    configurable: true
+                });
+                return true;
+            }
+            catch (e) {
+                return false;
+            }
+        }
+        // the end of the text: the pass that just ended is finished (if the last
+        // key's LetterPick did not already finish it), the repeat is a new Run
+        ,
+        runRepeat: function () {
+            try {
+                var current = kbstore.session.run;
+                if (current) {
+                    new current.Finish();
+                }
+            }
+            catch (e) { }
+            if (!app.runStart(0)) {
+                vars.strArr.pos = 0;
             }
         },
         p_go: function () {
@@ -191,6 +285,14 @@ var keng;
                                 }
                                 user.LessonNum[2] = 0;
                             }
+                            // Session.RunControl -> LessonPrev|LessonNext|BaseNext
+                            // via the domain router (traced): navId is the era's
+                            // "map_base_lesson" id AFTER its LessonNum move; the
+                            // restart below starts the new Run
+                            try {
+                                kbstore.session.handler.dispatchKey(z, { ctrl: true }, user.LessonNum.join("_"));
+                            }
+                            catch (e) { }
                             go_next = false;
                             app.restart(true);
                         }
@@ -278,10 +380,11 @@ var keng;
                     }
                 }
                 else if (user.LessonsMode == "vocabulary") {
-                    // ???
+                    // no lesson navigation in vocabulary mode: falls through to
+                    // the generic typing path (go_next stays true)
                 }
                 else {
-                    // ???
+                    // unreachable: LessonsMode is lesson | book | vocabulary
                 }
                 if (go_next === true) {
                     app.keydown(keys);
@@ -294,16 +397,23 @@ var keng;
                 if ((z == 32) && (app.started == false)) {
                     app.attr.start(); // starting app and hiding messager + get_strings() is there
                     app.attr.set_at();
-                    // Space starts the RunControl flow: run becomes active
+                    // Space starts the RunControl flow: run becomes active (this
+                    // branch is ALSO the pause-resume path — after pauser,
+                    // app.started is false again). Era-kept construction: the
+                    // router's Space branch is paused-only and would lose the
+                    // start/resume record here
                     var runControl = new kbstore.session.RunControl();
                     new runControl.Resume();
                 }
                 if (app.keyboard_on) {
                     if (z == 27) {
                         app.pauser(300);
-                        // Esc starts the RunControl flow: run goes paused
-                        var runControlEsc = new kbstore.session.RunControl();
-                        new runControlEsc.Pause();
+                        // Esc starts the RunControl flow: run goes paused — via
+                        // the domain router (session.run set, not paused yet)
+                        try {
+                            kbstore.session.handler.dispatchKey(27);
+                        }
+                        catch (e) { }
                     }
                     else if (z == 8) { // backspace
                         try {
@@ -382,7 +492,10 @@ var keng;
                         catch (e) { }
                     }
                     else {
-                        if (vars.to_type.length > 0) {
+                        // only ¶ marks remain = nothing left to type (trailing
+                        // paragraph marks are not content — without this they
+                        // sat untypable-by-instinct and the run never ended)
+                        if (vars.to_type.replace(/¶/g, "").length > 0) {
                             var mapK = kb.map[user.currentMap].keys;
                             var mapB = kb.map[user.currentMap].back;
                             var mapSB = kb.map[user.currentMap].shback;
@@ -399,6 +512,7 @@ var keng;
                                 }
                             }
                             objx.prev.In(app.attr.str_pr(pressed));
+                            var keyTyped = false; // laGo, carried past the block for the redraw below
                             if (pressed != "") {
                                 var foundInMap = false; // CompareChar
                                 var keyCompare = false;
@@ -458,16 +572,29 @@ var keng;
                                     var keystroke = new kbstore.session.KeyStroke(pressed);
                                     if (keyCompare && shiftCompare) {
                                         vars.pressed[vars.strArr.pos][vars.pressed[vars.strArr.pos].length] = [pressed, true];
-                                        vars.strArr.pos++;
+                                        // stage 4.7: the chain moves the cursor — StatUpdate
+                                        // picks the next letter (LetterPick|WordPick advance
+                                        // session.run.pos, which vars.strArr.pos reads);
+                                        // without a run the engine moves it itself
+                                        var runActive = !!kbstore.session.run;
                                         new keystroke.Correct();
+                                        if (!runActive) {
+                                            vars.strArr.pos++;
+                                        }
                                     }
                                     else {
                                         vars.pressed[vars.strArr.pos][vars.pressed[vars.strArr.pos].length] = [pressed, false];
                                         new keystroke.Mistake();
                                     }
                                 } //if(laGo)
+                                keyTyped = laGo;
                             } // if(pressed != "")
-                            app.p_go();
+                            // a typed key's redraw is the RESULT of its stat update:
+                            // StatUpdate runs as a microtask after Correct|Mistake,
+                            // and its postCreation hook redraws (see app.statUpdated)
+                            if (!keyTyped) {
+                                app.p_go();
+                            }
                         }
                         else { // if(vars.to_type.length > 0)
                             // text is empty
@@ -729,17 +856,22 @@ var keng;
             end_of_text: function () {
                 try {
                     if (user.LessonsMode == "book") {
-                        vars.strArr.pos = 0;
+                        app.runRepeat(); // cursor back to 0 on a fresh Run
                         app.prep_go();
                         app.pauser(300, skins.doLether(strings.s7));
                     }
                     else if (user.LessonsMode == "lesson") {
-                        vars.strArr.pos = 0;
+                        app.runRepeat();
                         app.prep_go();
                         app.pauser(300, skins.doLether(strings.s30));
                     }
                     else if (user.LessonsMode == "vocabulary") {
-                        // ???
+                        // the era fossil left this empty: the run ended silently —
+                        // 100% typed, no "ended". Same shape as lesson/book; s7 is
+                        // the generic "Text Over! ... press bar to type it again"
+                        app.runRepeat();
+                        app.prep_go();
+                        app.pauser(300, skins.doLether(strings.s7));
                     }
                     if (layouts.cleaner !== undefined) {
                         ev.t("layouts.cleaner()", 500);
@@ -1025,6 +1157,27 @@ var keng;
             alert(e);
         }
     };
+    // the redraw after a typed key is the RESULT of its stat update: both
+    // StatUpdate types (Correct.StatUpdate and Mistake.StatUpdate — the only
+    // types of that name) redraw on postCreation, by when LetterPick|WordPick
+    // has moved the cursor; keydown redraws itself only for untyped keys
+    app.statUpdated = function (hookData) {
+        if (hookData.TypeName === "StatUpdate") {
+            app.p_go();
+        }
+    };
+    kbstore.store.collection.registerHook("postCreation", app.statUpdated);
+    // every key press is one dive call edge pinned to the session: its
+    // constructions (RunControl, KeyStroke -> Correct -> StatUpdate ->
+    // LetterPick -> KeyLight, …) parent on that edge — one Jaeger trace per
+    // key press. Best-effort: without the domain the handler stays as is.
+    try {
+        const kbDive = window.kbDive;
+        if (kbDive && typeof kbstore !== "undefined" && kbstore.session) {
+            app.mooving_keys = kbDive.wrap(app.mooving_keys, kbstore.session, "keystroke");
+        }
+    }
+    catch (e) { /* the raw handler keeps working */ }
     window.app = app;
     boot();
 })(keng || (keng = {}));

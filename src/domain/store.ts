@@ -31,7 +31,7 @@
 
 import type { Topology } from "./loadTopology";
 import type { KbCollection } from "./collection";
-import type { Program, Session, Session_EventHandler, Timer } from "../../.tactica/types";
+import type { Program, Session, Session_EventHandler, Session_Run, Timer } from "../../.tactica/types";
 import type { StatsCells } from "../../models/chain";
 
 export interface ScreenSize {
@@ -47,16 +47,19 @@ export interface BootOptions {
 }
 
 // The generated instance types carry what tactica could infer from the
-// handler bodies; three cells are honest runtime upgrades of that floor:
+// handler bodies; four cells are honest runtime upgrades of that floor:
 //   program.session — born null, wired to the session at bootstrap
 //   session.stats   — inferred `object` from the literal; the era stats
 //                     cells are the actual contract (models/chain.ts)
 //   session.handler — born `new this.EventHandler()`; the models cannot
 //                     name that type (models never read .tactica), we can
+//   session.run     — born null, set by every Session.Run (the engine
+//                     starts one per lesson/book, stage 4.7)
 export type BootedProgram = Omit<Program, "session"> & { session : LiveSession | null };
-export type LiveSession = Omit<Session, "stats" | "handler"> & {
+export type LiveSession = Omit<Session, "stats" | "handler" | "run"> & {
 	stats : StatsCells;
 	handler : Session_EventHandler;
+	run : Session_Run | null;
 };
 
 export interface KbStore {

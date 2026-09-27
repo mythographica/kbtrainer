@@ -21,7 +21,6 @@ interface SessionSelf {
 	paused        : boolean;
 	quitRequested : boolean;
 	layoutIndex   : number;   // active layout inside program.profile.selectedMaps
-	lessonIndex   : number;
 	run           : unknown;  // current Run instance (data link, not prototype)
 	expectedChar  : string;
 	stats         : {
@@ -41,7 +40,6 @@ module.exports = function Session(this: SessionSelf, program: ProgramLink) {
 	this.paused = false;
 	this.quitRequested = false;
 	this.layoutIndex = 0;
-	this.lessonIndex = 0;
 	this.run = null;
 	this.expectedChar = '';
 	this.stats = {

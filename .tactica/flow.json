@@ -1,579 +1,606 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-22T14:17:18.962Z",
+  "generatedAt": "2026-09-27T20:53:32.372Z",
   "flow": {
-    "Promise": [
-      {
-        "location": "src/smoke.ts:14:32",
-        "kind": "instantiation",
-        "code": "new Promise((r) => setTimeout(r, ms))",
-        "context": "new expression"
-      }
-    ],
     "Set": [
       {
-        "location": "src/smoke.ts:215:18",
-        "kind": "instantiation",
-        "code": "new Set<string>()",
-        "context": "new expression"
-      },
-      {
-        "location": "src/smoke.ts:220:10",
-        "kind": "methodCall",
-        "code": "seen.has(key)",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:220:10",
-        "kind": "propertyRead",
-        "code": "seen.has",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:221:6",
-        "kind": "methodCall",
-        "code": "seen.add(key)",
-        "propertyName": "add",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:221:6",
-        "kind": "propertyRead",
-        "code": "seen.add",
-        "propertyName": "add",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:226:23",
-        "kind": "instantiation",
-        "code": "new Set(edges.filter((e) => e.instanceType === \"KeyStroke\").map((e) => e.id))",
-        "context": "new expression"
-      },
-      {
-        "location": "src/smoke.ts:227:110",
-        "kind": "methodCall",
-        "code": "strokeIds.has(e.parentId)",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:227:110",
-        "kind": "propertyRead",
-        "code": "strokeIds.has",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:228:19",
-        "kind": "instantiation",
-        "code": "new Set(edges.filter((e) => e.instanceType === \"RunControl\").map((e) => e.id))",
-        "context": "new expression"
-      },
-      {
-        "location": "src/smoke.ts:229:70",
-        "kind": "methodCall",
-        "code": "rcIds.has(e.parentId)",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:229:70",
-        "kind": "propertyRead",
-        "code": "rcIds.has",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:230:58",
-        "kind": "methodCall",
-        "code": "rcIds.has(e.parentId)",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:230:58",
-        "kind": "propertyRead",
-        "code": "rcIds.has",
-        "propertyName": "has",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/smoke.ts:235:37",
-        "kind": "propertyRead",
-        "code": "seen.size",
-        "propertyName": "size",
-        "targetType": "Set"
-      },
-      {
-        "location": "src/main.ts:178:20",
+        "location": "src/main.ts:200:20",
         "kind": "instantiation",
         "code": "new Set<number>()",
         "context": "new expression"
       },
       {
-        "location": "src/main.ts:180:14",
+        "location": "src/main.ts:202:14",
         "kind": "methodCall",
         "code": "dialogOpen.add(e.sender.id)",
         "propertyName": "add",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:180:14",
+        "location": "src/main.ts:202:14",
         "kind": "propertyRead",
         "code": "dialogOpen.add",
         "propertyName": "add",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:180:52",
+        "location": "src/main.ts:202:52",
         "kind": "methodCall",
         "code": "dialogOpen.delete(e.sender.id)",
         "propertyName": "delete",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:180:52",
+        "location": "src/main.ts:202:52",
         "kind": "propertyRead",
         "code": "dialogOpen.delete",
         "propertyName": "delete",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:227:8",
+        "location": "src/main.ts:268:8",
         "kind": "methodCall",
         "code": "dialogOpen.has(id)",
         "propertyName": "has",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:227:8",
+        "location": "src/main.ts:268:8",
         "kind": "propertyRead",
         "code": "dialogOpen.has",
         "propertyName": "has",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:228:5",
+        "location": "src/main.ts:269:5",
         "kind": "methodCall",
         "code": "dialogOpen.delete(id)",
         "propertyName": "delete",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:228:5",
+        "location": "src/main.ts:269:5",
         "kind": "propertyRead",
         "code": "dialogOpen.delete",
         "propertyName": "delete",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:234:47",
+        "location": "src/main.ts:275:47",
         "kind": "methodCall",
         "code": "dialogOpen.delete(win.webContents.id)",
         "propertyName": "delete",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:234:47",
+        "location": "src/main.ts:275:47",
         "kind": "propertyRead",
         "code": "dialogOpen.delete",
         "propertyName": "delete",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:263:8",
+        "location": "src/main.ts:304:8",
         "kind": "methodCall",
         "code": "dialogOpen.has(win.webContents.id)",
         "propertyName": "has",
         "targetType": "Set"
       },
       {
-        "location": "src/main.ts:263:8",
+        "location": "src/main.ts:304:8",
         "kind": "propertyRead",
         "code": "dialogOpen.has",
         "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:319:18",
+        "kind": "instantiation",
+        "code": "new Set<string>()",
+        "context": "new expression"
+      },
+      {
+        "location": "src/smoke.ts:324:10",
+        "kind": "methodCall",
+        "code": "seen.has(key)",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:324:10",
+        "kind": "propertyRead",
+        "code": "seen.has",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:325:6",
+        "kind": "methodCall",
+        "code": "seen.add(key)",
+        "propertyName": "add",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:325:6",
+        "kind": "propertyRead",
+        "code": "seen.add",
+        "propertyName": "add",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:330:23",
+        "kind": "instantiation",
+        "code": "new Set(edges.filter((e) => e.instanceType === \"KeyStroke\").map((e) => e.id))",
+        "context": "new expression"
+      },
+      {
+        "location": "src/smoke.ts:331:110",
+        "kind": "methodCall",
+        "code": "strokeIds.has(e.parentId)",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:331:110",
+        "kind": "propertyRead",
+        "code": "strokeIds.has",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:332:19",
+        "kind": "instantiation",
+        "code": "new Set(edges.filter((e) => e.instanceType === \"RunControl\").map((e) => e.id))",
+        "context": "new expression"
+      },
+      {
+        "location": "src/smoke.ts:333:70",
+        "kind": "methodCall",
+        "code": "rcIds.has(e.parentId)",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:333:70",
+        "kind": "propertyRead",
+        "code": "rcIds.has",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:334:58",
+        "kind": "methodCall",
+        "code": "rcIds.has(e.parentId)",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:334:58",
+        "kind": "propertyRead",
+        "code": "rcIds.has",
+        "propertyName": "has",
+        "targetType": "Set"
+      },
+      {
+        "location": "src/smoke.ts:339:37",
+        "kind": "propertyRead",
+        "code": "seen.size",
+        "propertyName": "size",
         "targetType": "Set"
       }
     ],
     "BrowserWindow": [
       {
-        "location": "src/main.ts:206:15",
+        "location": "src/main.ts:228:15",
         "kind": "instantiation",
         "code": "new BrowserWindow({\n\t\t\twidth: initSize[0], height: initSize[1], center: true, // remembered or scree",
         "context": "new expression"
       },
       {
-        "location": "src/main.ts:225:3",
+        "location": "src/main.ts:249:3",
+        "kind": "methodCall",
+        "code": "win.webContents.setWindowOpenHandler(({ url }: { url: string }) => ({\n\t\t\taction: \"allow\",\n\t\t\toverrid",
+        "propertyName": "setWindowOpenHandler",
+        "targetType": "BrowserWindow"
+      },
+      {
+        "location": "src/main.ts:249:3",
+        "kind": "propertyRead",
+        "code": "win.webContents.setWindowOpenHandler",
+        "propertyName": "setWindowOpenHandler",
+        "targetType": "BrowserWindow"
+      },
+      {
+        "location": "src/main.ts:249:3",
+        "kind": "propertyRead",
+        "code": "win.webContents",
+        "propertyName": "webContents",
+        "targetType": "BrowserWindow"
+      },
+      {
+        "location": "src/main.ts:266:3",
         "kind": "methodCall",
         "code": "win.on(\"close\", (e) => {\n\t\t\tconst id = win.webContents.id;\n\t\t\tif (dialogOpen.has(id)) {\n\t\t\t\tdialogOp",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:225:3",
+        "location": "src/main.ts:266:3",
         "kind": "propertyRead",
         "code": "win.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:226:15",
+        "location": "src/main.ts:267:15",
         "kind": "propertyRead",
         "code": "win.webContents.id",
         "propertyName": "id",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:226:15",
+        "location": "src/main.ts:267:15",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:230:5",
+        "location": "src/main.ts:271:5",
         "kind": "methodCall",
         "code": "win.webContents.send(\"kb-close-dialog\")",
         "propertyName": "send",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:230:5",
+        "location": "src/main.ts:271:5",
         "kind": "propertyRead",
         "code": "win.webContents.send",
         "propertyName": "send",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:230:5",
+        "location": "src/main.ts:271:5",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:234:3",
+        "location": "src/main.ts:275:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"did-finish-load\", () => dialogOpen.delete(win.webContents.id))",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:234:3",
+        "location": "src/main.ts:275:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:234:3",
+        "location": "src/main.ts:275:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:234:47",
+        "location": "src/main.ts:275:47",
         "kind": "passAsArg",
         "code": "dialogOpen.delete(win.webContents.id)",
         "targetType": "BrowserWindow",
         "context": "arg 0 to delete"
       },
       {
-        "location": "src/main.ts:234:65",
+        "location": "src/main.ts:275:65",
         "kind": "propertyRead",
         "code": "win.webContents.id",
         "propertyName": "id",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:234:65",
+        "location": "src/main.ts:275:65",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:239:3",
+        "location": "src/main.ts:280:3",
         "kind": "methodCall",
         "code": "win.on(\"resize\", () => {\n\t\t\tif (stateTimer) { clearTimeout(stateTimer); }\n\t\t\tstateTimer = setTimeout",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:239:3",
+        "location": "src/main.ts:280:3",
         "kind": "propertyRead",
         "code": "win.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:243:19",
+        "location": "src/main.ts:284:19",
         "kind": "methodCall",
         "code": "win.getContentSize()",
         "propertyName": "getContentSize",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:243:19",
+        "location": "src/main.ts:284:19",
         "kind": "propertyRead",
         "code": "win.getContentSize",
         "propertyName": "getContentSize",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:256:3",
+        "location": "src/main.ts:297:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"before-input-event\", (e, input) => {\n\t\t\tif (input.type !== \"keyDown\" || !(input.",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:256:3",
+        "location": "src/main.ts:297:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:256:3",
+        "location": "src/main.ts:297:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:263:8",
+        "location": "src/main.ts:304:8",
         "kind": "passAsArg",
         "code": "dialogOpen.has(win.webContents.id)",
         "targetType": "BrowserWindow",
         "context": "arg 0 to has"
       },
       {
-        "location": "src/main.ts:263:23",
+        "location": "src/main.ts:304:23",
         "kind": "propertyRead",
         "code": "win.webContents.id",
         "propertyName": "id",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:263:23",
+        "location": "src/main.ts:304:23",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:264:5",
+        "location": "src/main.ts:305:5",
         "kind": "methodCall",
         "code": "win.webContents.send(\"kb-zoom-dialog\", grow)",
         "propertyName": "send",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:264:5",
+        "location": "src/main.ts:305:5",
         "kind": "propertyRead",
         "code": "win.webContents.send",
         "propertyName": "send",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:264:5",
+        "location": "src/main.ts:305:5",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:267:4",
+        "location": "src/main.ts:308:4",
         "kind": "methodCall",
         "code": "win.webContents.send(\"kb-zoom-key\", grow)",
         "propertyName": "send",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:267:4",
+        "location": "src/main.ts:308:4",
         "kind": "propertyRead",
         "code": "win.webContents.send",
         "propertyName": "send",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:267:4",
+        "location": "src/main.ts:308:4",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:268:17",
+        "location": "src/main.ts:309:17",
         "kind": "methodCall",
         "code": "win.getContentSize()",
         "propertyName": "getContentSize",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:268:17",
+        "location": "src/main.ts:309:17",
         "kind": "propertyRead",
         "code": "win.getContentSize",
         "propertyName": "getContentSize",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:270:4",
+        "location": "src/main.ts:311:4",
         "kind": "passAsArg",
         "code": "resizeAroundCenter(win, z.w, z.h)",
         "targetType": "BrowserWindow",
         "context": "arg 0 to resizeAroundCenter"
       },
       {
-        "location": "src/main.ts:273:3",
+        "location": "src/main.ts:314:3",
         "kind": "methodCall",
         "code": "win.loadFile(path.join(APP_DIR, \"kb.html\"))",
         "propertyName": "loadFile",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:273:3",
+        "location": "src/main.ts:314:3",
         "kind": "propertyRead",
         "code": "win.loadFile",
         "propertyName": "loadFile",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:275:3",
+        "location": "src/main.ts:316:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"did-finish-load\", () => dbg(\"MAIN: did-finish-load\"))",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:275:3",
+        "location": "src/main.ts:316:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:275:3",
+        "location": "src/main.ts:316:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:276:3",
+        "location": "src/main.ts:317:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"did-fail-load\", (e, code, desc) => console.log(\"MAIN: did-fail-load \" + code + \"",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:276:3",
+        "location": "src/main.ts:317:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:276:3",
+        "location": "src/main.ts:317:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:277:3",
+        "location": "src/main.ts:318:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"render-process-gone\", (e, details) => console.log(\"MAIN: render-process-gone \" +",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:277:3",
+        "location": "src/main.ts:318:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:277:3",
+        "location": "src/main.ts:318:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:278:3",
+        "location": "src/main.ts:319:3",
         "kind": "methodCall",
         "code": "win.on(\"unresponsive\", () => console.log(\"MAIN: unresponsive\"))",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:278:3",
+        "location": "src/main.ts:319:3",
         "kind": "propertyRead",
         "code": "win.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:279:3",
+        "location": "src/main.ts:320:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"dom-ready\", () => dbg(\"MAIN: dom-ready\"))",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:279:3",
+        "location": "src/main.ts:320:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:279:3",
+        "location": "src/main.ts:320:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:283:3",
+        "location": "src/main.ts:324:3",
         "kind": "methodCall",
         "code": "win.webContents.on(\"console-message\", (e: any) => {\n\t\t\tconst lvl = (typeof e.level === \"number\") ? e",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:283:3",
+        "location": "src/main.ts:324:3",
         "kind": "propertyRead",
         "code": "win.webContents.on",
         "propertyName": "on",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:283:3",
+        "location": "src/main.ts:324:3",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:291:56",
+        "location": "src/main.ts:340:56",
         "kind": "propertyRead",
         "code": "win.webContents",
         "propertyName": "webContents",
         "targetType": "BrowserWindow"
       },
       {
-        "location": "src/main.ts:300:4",
+        "location": "src/main.ts:351:4",
         "kind": "passAsArg",
-        "code": "runSmoke(win, process.env.KBT_SMOKE, STATE_FILE)",
+        "code": "runSmoke(win, process.env.KBT_SMOKE as string, STATE_FILE)",
         "targetType": "BrowserWindow",
         "context": "arg 0 to runSmoke"
+      },
+      {
+        "location": "src/smoke.ts:10:35",
+        "kind": "methodCall",
+        "code": "win.getBounds()",
+        "propertyName": "getBounds",
+        "targetType": "BrowserWindow"
+      },
+      {
+        "location": "src/smoke.ts:10:35",
+        "kind": "propertyRead",
+        "code": "win.getBounds",
+        "propertyName": "getBounds",
+        "targetType": "BrowserWindow"
       }
     ],
     "Map": [
@@ -605,69 +632,83 @@
     ],
     "Program": [
       {
-        "location": "src/domain/store.ts:98:34",
+        "location": "src/domain/store.ts:101:34",
         "kind": "instantiation",
         "code": "new ProgramCtor({\n\t\tversion : options.version || \"\",\n\t\tscreen : options.screen || null\n\t})",
         "context": "new expression"
       },
       {
-        "location": "src/domain/store.ts:104:2",
+        "location": "src/domain/store.ts:107:2",
         "kind": "propertyWrite",
         "code": "program.session = session",
         "propertyName": "session",
         "targetType": "Program"
       },
       {
-        "location": "src/domain/store.ts:104:2",
+        "location": "src/domain/store.ts:107:2",
         "kind": "propertyRead",
         "code": "program.session",
         "propertyName": "session",
         "targetType": "Program"
       },
       {
-        "location": "src/domain/store.ts:111:19",
+        "location": "src/domain/store.ts:114:19",
         "kind": "propertyRead",
         "code": "program.profile",
         "propertyName": "profile",
         "targetType": "Program"
       },
       {
-        "location": "src/preload.ts:51:20",
+        "location": "src/preload.ts:52:20",
         "kind": "propertyRead",
         "code": "program.ViewControl",
         "propertyName": "ViewControl",
         "targetType": "Program"
       },
       {
-        "location": "models/Program/FileDialog/index.ts:16:2",
+        "location": "src/preload.ts:80:8",
+        "kind": "propertyRead",
+        "code": "program.WindowState",
+        "propertyName": "WindowState",
+        "targetType": "Program"
+      },
+      {
+        "location": "models/Program/FileDialog/index.ts:18:21",
+        "kind": "propertyRead",
+        "code": "program.dialog",
+        "propertyName": "dialog",
+        "targetType": "Program"
+      },
+      {
+        "location": "models/Program/FileDialog/index.ts:19:2",
         "kind": "propertyWrite",
         "code": "program.dialog = 'file'",
         "propertyName": "dialog",
         "targetType": "Program"
       },
       {
-        "location": "models/Program/FileDialog/index.ts:16:2",
+        "location": "models/Program/FileDialog/index.ts:19:2",
         "kind": "propertyRead",
         "code": "program.dialog",
         "propertyName": "dialog",
         "targetType": "Program"
       },
       {
-        "location": "models/Program/FileDialog/index.ts:18:7",
+        "location": "models/Program/FileDialog/index.ts:21:7",
         "kind": "propertyRead",
         "code": "program.dialog",
         "propertyName": "dialog",
         "targetType": "Program"
       },
       {
-        "location": "models/Program/FileDialog/index.ts:19:4",
+        "location": "models/Program/FileDialog/index.ts:22:4",
         "kind": "propertyWrite",
-        "code": "program.dialog = null",
+        "code": "program.dialog = underneath",
         "propertyName": "dialog",
         "targetType": "Program"
       },
       {
-        "location": "models/Program/FileDialog/index.ts:19:4",
+        "location": "models/Program/FileDialog/index.ts:22:4",
         "kind": "propertyRead",
         "code": "program.dialog",
         "propertyName": "dialog",
@@ -856,34 +897,6 @@
         "targetType": "Program"
       },
       {
-        "location": "models/Program/LibDialog/BookMark/index.ts:16:8",
-        "kind": "destructureRead",
-        "code": "{ bookmarks } = program.profile",
-        "targetType": "Program",
-        "context": "bookmarks"
-      },
-      {
-        "location": "models/Program/LibDialog/BookMark/index.ts:16:24",
-        "kind": "propertyRead",
-        "code": "program.profile",
-        "propertyName": "profile",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Program/LibDialog/BookMark/index.ts:25:2",
-        "kind": "propertyWrite",
-        "code": "program.prefsDirty = true",
-        "propertyName": "prefsDirty",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Program/LibDialog/BookMark/index.ts:25:2",
-        "kind": "propertyRead",
-        "code": "program.prefsDirty",
-        "propertyName": "prefsDirty",
-        "targetType": "Program"
-      },
-      {
         "location": "models/Program/LibDialog/BookSelect/index.ts:15:7",
         "kind": "methodCall",
         "code": "program.library.includes(name)",
@@ -958,20 +971,6 @@
         "kind": "propertyRead",
         "code": "program.dialog",
         "propertyName": "dialog",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:16:18",
-        "kind": "propertyRead",
-        "code": "program.session",
-        "propertyName": "session",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:16:18",
-        "kind": "propertyRead",
-        "code": "program.session",
-        "propertyName": "session",
         "targetType": "Program"
       },
       {
@@ -1296,288 +1295,211 @@
         "targetType": "Program"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:109:18",
+        "location": "models/Session/EventHandler/index.ts:117:18",
         "kind": "propertyRead",
         "code": "program.dialog",
         "propertyName": "dialog",
         "targetType": "Program"
       },
       {
-        "location": "models/Session/ModeF12/index.ts:16:2",
-        "kind": "propertyWrite",
-        "code": "program.dialog = 'loaderlog'",
-        "propertyName": "dialog",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Session/ModeF12/index.ts:16:2",
-        "kind": "propertyRead",
-        "code": "program.dialog",
-        "propertyName": "dialog",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Session/ModeF12/index.ts:17:17",
+        "location": "models/Session/ModeF12/index.ts:19:17",
         "kind": "propertyRead",
         "code": "program.logs.length",
         "propertyName": "length",
         "targetType": "Program"
       },
       {
-        "location": "models/Session/ModeF12/index.ts:17:17",
+        "location": "models/Session/ModeF12/index.ts:19:17",
         "kind": "propertyRead",
         "code": "program.logs",
         "propertyName": "logs",
         "targetType": "Program"
       },
       {
-        "location": "models/Session/ModeF3/index.ts:18:15",
-        "kind": "passAsArg",
-        "code": "types.indexOf(program.profile.keyboardType)",
-        "targetType": "Program",
-        "context": "arg 0 to indexOf"
-      },
-      {
-        "location": "models/Session/ModeF3/index.ts:18:29",
-        "kind": "propertyRead",
-        "code": "program.profile.keyboardType",
-        "propertyName": "keyboardType",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Session/ModeF3/index.ts:18:29",
-        "kind": "propertyRead",
-        "code": "program.profile",
-        "propertyName": "profile",
-        "targetType": "Program"
-      },
-      {
         "location": "models/Session/ModeF3/index.ts:19:2",
-        "kind": "propertyWrite",
-        "code": "program.profile.keyboardType = types[ idx ]",
-        "propertyName": "keyboardType",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Session/ModeF3/index.ts:19:2",
-        "kind": "propertyRead",
-        "code": "program.profile.keyboardType",
-        "propertyName": "keyboardType",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Session/ModeF3/index.ts:19:2",
-        "kind": "propertyRead",
-        "code": "program.profile",
-        "propertyName": "profile",
-        "targetType": "Program"
-      },
-      {
-        "location": "models/Session/ModeF3/index.ts:20:2",
         "kind": "propertyWrite",
         "code": "program.prefsDirty = true",
         "propertyName": "prefsDirty",
         "targetType": "Program"
       },
       {
-        "location": "models/Session/ModeF3/index.ts:20:2",
+        "location": "models/Session/ModeF3/index.ts:19:2",
         "kind": "propertyRead",
         "code": "program.prefsDirty",
         "propertyName": "prefsDirty",
+        "targetType": "Program"
+      },
+      {
+        "location": "models/Session/ModeF3/index.ts:20:20",
+        "kind": "propertyRead",
+        "code": "program.profile.TypingMode",
+        "propertyName": "TypingMode",
+        "targetType": "Program"
+      },
+      {
+        "location": "models/Session/ModeF3/index.ts:20:20",
+        "kind": "propertyRead",
+        "code": "program.profile",
+        "propertyName": "profile",
         "targetType": "Program"
       }
     ],
     "Session": [
       {
-        "location": "src/domain/store.ts:102:18",
+        "location": "src/domain/store.ts:105:18",
         "kind": "instantiation",
         "code": "new SessionCtor(program)",
         "context": "new expression"
       },
       {
-        "location": "src/domain/store.ts:128:9",
+        "location": "src/domain/store.ts:131:9",
         "kind": "destructureRead",
         "code": "{ stats } = session",
         "targetType": "Session",
         "context": "stats"
       },
       {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:17:2",
-        "kind": "propertyWrite",
-        "code": "session.mode = 'book'",
-        "propertyName": "mode",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:17:2",
-        "kind": "propertyRead",
-        "code": "session.mode",
-        "propertyName": "mode",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:18:18",
+        "location": "src/renderer/engine.ts:188:18",
         "kind": "propertyRead",
         "code": "session.Run",
         "propertyName": "Run",
         "targetType": "Session"
       },
       {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:17:2",
-        "kind": "propertyWrite",
-        "code": "session.mode = 'lesson'",
-        "propertyName": "mode",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:17:2",
-        "kind": "propertyRead",
-        "code": "session.mode",
-        "propertyName": "mode",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:18:18",
-        "kind": "propertyRead",
-        "code": "session.Run",
-        "propertyName": "Run",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:52:19",
+        "location": "models/Session/EventHandler/index.ts:58:19",
         "kind": "propertyRead",
         "code": "session.program",
         "propertyName": "program",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:58:14",
+        "location": "models/Session/EventHandler/index.ts:64:14",
         "kind": "propertyRead",
         "code": "session.ModeF1",
         "propertyName": "ModeF1",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:59:14",
+        "location": "models/Session/EventHandler/index.ts:65:14",
         "kind": "propertyRead",
         "code": "session.ModeF2",
         "propertyName": "ModeF2",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:60:14",
+        "location": "models/Session/EventHandler/index.ts:66:14",
         "kind": "propertyRead",
         "code": "session.ModeF3",
         "propertyName": "ModeF3",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:61:14",
+        "location": "models/Session/EventHandler/index.ts:67:14",
         "kind": "propertyRead",
         "code": "session.ModeF4",
         "propertyName": "ModeF4",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:62:14",
+        "location": "models/Session/EventHandler/index.ts:68:14",
         "kind": "propertyRead",
         "code": "session.ModeF5",
         "propertyName": "ModeF5",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:63:14",
+        "location": "models/Session/EventHandler/index.ts:69:14",
         "kind": "propertyRead",
         "code": "session.ModeF7",
         "propertyName": "ModeF7",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:64:14",
+        "location": "models/Session/EventHandler/index.ts:70:14",
         "kind": "propertyRead",
         "code": "session.ModeF8",
         "propertyName": "ModeF8",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:65:14",
+        "location": "models/Session/EventHandler/index.ts:71:14",
         "kind": "propertyRead",
         "code": "session.ModeF12",
         "propertyName": "ModeF12",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:73:15",
+        "location": "models/Session/EventHandler/index.ts:79:15",
         "kind": "propertyRead",
         "code": "session.ModeF2",
         "propertyName": "ModeF2",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:89:23",
+        "location": "models/Session/EventHandler/index.ts:95:23",
         "kind": "propertyRead",
         "code": "session.RunControl",
         "propertyName": "RunControl",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:96:23",
+        "location": "models/Session/EventHandler/index.ts:104:23",
         "kind": "propertyRead",
         "code": "session.RunControl",
         "propertyName": "RunControl",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:97:12",
+        "location": "models/Session/EventHandler/index.ts:105:12",
         "kind": "propertyRead",
         "code": "session.run",
         "propertyName": "run",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:97:28",
+        "location": "models/Session/EventHandler/index.ts:105:28",
         "kind": "propertyRead",
         "code": "session.paused",
         "propertyName": "paused",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:101:38",
+        "location": "models/Session/EventHandler/index.ts:109:38",
         "kind": "propertyRead",
         "code": "session.paused",
         "propertyName": "paused",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:102:23",
+        "location": "models/Session/EventHandler/index.ts:110:23",
         "kind": "propertyRead",
         "code": "session.RunControl",
         "propertyName": "RunControl",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:108:7",
+        "location": "models/Session/EventHandler/index.ts:116:7",
         "kind": "propertyRead",
         "code": "session.run",
         "propertyName": "run",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:108:23",
+        "location": "models/Session/EventHandler/index.ts:116:23",
         "kind": "propertyRead",
         "code": "session.paused",
         "propertyName": "paused",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:111:26",
+        "location": "models/Session/EventHandler/index.ts:119:26",
         "kind": "propertyRead",
         "code": "session.KeyStroke",
         "propertyName": "KeyStroke",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:112:19",
+        "location": "models/Session/EventHandler/index.ts:120:19",
         "kind": "propertyRead",
         "code": "session.expectedChar",
         "propertyName": "expectedChar",
@@ -1794,80 +1716,66 @@
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF1/index.ts:14:6",
+        "location": "models/Session/ModeF12/index.ts:18:18",
         "kind": "propertyRead",
         "code": "session.program",
         "propertyName": "program",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF1/index.ts:15:3",
+        "location": "models/Session/ModeF2/index.ts:19:39",
+        "kind": "propertyRead",
+        "code": "session.program",
+        "propertyName": "program",
+        "targetType": "Session"
+      },
+      {
+        "location": "models/Session/ModeF2/index.ts:21:2",
         "kind": "propertyWrite",
-        "code": "session.program.dialog = 'help'",
-        "propertyName": "dialog",
+        "code": "session.layoutIndex = idx === -1 ? 0 : idx",
+        "propertyName": "layoutIndex",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF1/index.ts:15:3",
+        "location": "models/Session/ModeF2/index.ts:21:2",
         "kind": "propertyRead",
-        "code": "session.program.dialog",
-        "propertyName": "dialog",
+        "code": "session.layoutIndex",
+        "propertyName": "layoutIndex",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF1/index.ts:15:3",
-        "kind": "propertyRead",
-        "code": "session.program",
-        "propertyName": "program",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/ModeF12/index.ts:15:18",
+        "location": "models/Session/ModeF3/index.ts:18:18",
         "kind": "propertyRead",
         "code": "session.program",
         "propertyName": "program",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF2/index.ts:15:27",
+        "location": "models/Session/ModeF3/index.ts:22:6",
         "kind": "propertyRead",
-        "code": "session.program",
-        "propertyName": "program",
+        "code": "session.run",
+        "propertyName": "run",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF2/index.ts:16:2",
+        "location": "models/Session/ModeF3/index.ts:23:3",
         "kind": "propertyWrite",
-        "code": "session.layoutIndex = (session.layoutIndex + 1) % selectedMaps.length",
-        "propertyName": "layoutIndex",
+        "code": "session.run.pick = this.typingMode === 'paragraph' ? 'word' : 'letter'",
+        "propertyName": "pick",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF2/index.ts:16:2",
+        "location": "models/Session/ModeF3/index.ts:23:3",
         "kind": "propertyRead",
-        "code": "session.layoutIndex",
-        "propertyName": "layoutIndex",
+        "code": "session.run.pick",
+        "propertyName": "pick",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/ModeF2/index.ts:16:25",
+        "location": "models/Session/ModeF3/index.ts:23:3",
         "kind": "propertyRead",
-        "code": "session.layoutIndex",
-        "propertyName": "layoutIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/ModeF2/index.ts:17:30",
-        "kind": "propertyRead",
-        "code": "session.layoutIndex",
-        "propertyName": "layoutIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/ModeF3/index.ts:16:18",
-        "kind": "propertyRead",
-        "code": "session.program",
-        "propertyName": "program",
+        "code": "session.run",
+        "propertyName": "run",
         "targetType": "Session"
       },
       {
@@ -1976,182 +1884,98 @@
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:27:2",
+        "location": "models/Session/Run/index.ts:34:2",
         "kind": "propertyWrite",
         "code": "session.run = this",
         "propertyName": "run",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:27:2",
+        "location": "models/Session/Run/index.ts:34:2",
         "kind": "propertyRead",
         "code": "session.run",
         "propertyName": "run",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:28:2",
+        "location": "models/Session/Run/index.ts:35:2",
         "kind": "propertyWrite",
         "code": "session.paused = false",
         "propertyName": "paused",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:28:2",
+        "location": "models/Session/Run/index.ts:35:2",
         "kind": "propertyRead",
         "code": "session.paused",
         "propertyName": "paused",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:29:2",
-        "kind": "propertyWrite",
-        "code": "session.stats.typed = 0",
-        "propertyName": "typed",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:29:2",
-        "kind": "propertyRead",
-        "code": "session.stats.typed",
-        "propertyName": "typed",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:29:2",
-        "kind": "propertyRead",
-        "code": "session.stats",
-        "propertyName": "stats",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:30:2",
-        "kind": "propertyWrite",
-        "code": "session.stats.correct = 0",
-        "propertyName": "correct",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:30:2",
-        "kind": "propertyRead",
-        "code": "session.stats.correct",
-        "propertyName": "correct",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:30:2",
-        "kind": "propertyRead",
-        "code": "session.stats",
-        "propertyName": "stats",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:31:2",
-        "kind": "propertyWrite",
-        "code": "session.stats.errors = 0",
-        "propertyName": "errors",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:31:2",
-        "kind": "propertyRead",
-        "code": "session.stats.errors",
-        "propertyName": "errors",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:31:2",
-        "kind": "propertyRead",
-        "code": "session.stats",
-        "propertyName": "stats",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:32:2",
-        "kind": "propertyWrite",
-        "code": "session.stats.timerCnt = 0",
-        "propertyName": "timerCnt",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:32:2",
-        "kind": "propertyRead",
-        "code": "session.stats.timerCnt",
-        "propertyName": "timerCnt",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:32:2",
-        "kind": "propertyRead",
-        "code": "session.stats",
-        "propertyName": "stats",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/Run/index.ts:33:2",
+        "location": "models/Session/Run/index.ts:36:2",
         "kind": "propertyWrite",
         "code": "session.stats.startedAt = this.startedAt",
         "propertyName": "startedAt",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:33:2",
+        "location": "models/Session/Run/index.ts:36:2",
         "kind": "propertyRead",
         "code": "session.stats.startedAt",
         "propertyName": "startedAt",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:33:2",
+        "location": "models/Session/Run/index.ts:36:2",
         "kind": "propertyRead",
         "code": "session.stats",
         "propertyName": "stats",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:34:2",
+        "location": "models/Session/Run/index.ts:37:2",
         "kind": "propertyWrite",
-        "code": "session.expectedChar = this.text.charAt(0)",
+        "code": "session.expectedChar = this.text.charAt(this.pos)",
         "propertyName": "expectedChar",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:34:2",
+        "location": "models/Session/Run/index.ts:37:2",
         "kind": "propertyRead",
         "code": "session.expectedChar",
         "propertyName": "expectedChar",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:35:6",
+        "location": "models/Session/Run/index.ts:38:6",
         "kind": "propertyRead",
         "code": "session.program",
         "propertyName": "program",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:35:25",
+        "location": "models/Session/Run/index.ts:38:25",
         "kind": "propertyRead",
         "code": "session.expectedChar",
         "propertyName": "expectedChar",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:36:7",
+        "location": "models/Session/Run/index.ts:39:7",
         "kind": "propertyRead",
         "code": "session.program.KeyLight",
         "propertyName": "KeyLight",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:36:7",
+        "location": "models/Session/Run/index.ts:39:7",
         "kind": "propertyRead",
         "code": "session.program",
         "propertyName": "program",
         "targetType": "Session"
       },
       {
-        "location": "models/Session/Run/index.ts:36:32",
+        "location": "models/Session/Run/index.ts:39:32",
         "kind": "propertyRead",
         "code": "session.expectedChar",
         "propertyName": "expectedChar",
@@ -2204,62 +2028,6 @@
         "kind": "propertyRead",
         "code": "session.paused",
         "propertyName": "paused",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/BaseNext/index.ts:18:3",
-        "kind": "propertyWrite",
-        "code": "session.lessonIndex = Math.max(0, session.lessonIndex - 1)",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/BaseNext/index.ts:18:3",
-        "kind": "propertyRead",
-        "code": "session.lessonIndex",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/BaseNext/index.ts:18:37",
-        "kind": "propertyRead",
-        "code": "session.lessonIndex",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/BaseNext/index.ts:20:3",
-        "kind": "propertyRead",
-        "code": "session.lessonIndex",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/LessonNext/index.ts:13:2",
-        "kind": "propertyRead",
-        "code": "session.lessonIndex",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/LessonPrev/index.ts:13:2",
-        "kind": "propertyWrite",
-        "code": "session.lessonIndex = Math.max(0, session.lessonIndex - 1)",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/LessonPrev/index.ts:13:2",
-        "kind": "propertyRead",
-        "code": "session.lessonIndex",
-        "propertyName": "lessonIndex",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Session/RunControl/LessonPrev/index.ts:13:36",
-        "kind": "propertyRead",
-        "code": "session.lessonIndex",
-        "propertyName": "lessonIndex",
         "targetType": "Session"
       },
       {
@@ -2347,70 +2115,42 @@
         "targetType": "Session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:24:17",
-        "kind": "propertyRead",
-        "code": "session.run",
-        "propertyName": "run",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Timer/Tick/index.ts:24:33",
-        "kind": "propertyRead",
-        "code": "session.paused",
-        "propertyName": "paused",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Timer/Tick/index.ts:25:3",
+        "location": "models/Timer/Tick/index.ts:26:26",
         "kind": "propertyRead",
         "code": "session.stats.timerCnt",
         "propertyName": "timerCnt",
         "targetType": "Session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:25:3",
+        "location": "models/Timer/Tick/index.ts:26:26",
         "kind": "propertyRead",
         "code": "session.stats",
         "propertyName": "stats",
         "targetType": "Session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:27:26",
-        "kind": "propertyRead",
-        "code": "session.stats.timerCnt",
-        "propertyName": "timerCnt",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Timer/Tick/index.ts:27:26",
-        "kind": "propertyRead",
-        "code": "session.stats",
-        "propertyName": "stats",
-        "targetType": "Session"
-      },
-      {
-        "location": "models/Timer/Tick/index.ts:28:14",
+        "location": "models/Timer/Tick/index.ts:27:14",
         "kind": "propertyRead",
         "code": "session.stats.typed",
         "propertyName": "typed",
         "targetType": "Session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:28:14",
+        "location": "models/Timer/Tick/index.ts:27:14",
         "kind": "propertyRead",
         "code": "session.stats",
         "propertyName": "stats",
         "targetType": "Session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:28:36",
+        "location": "models/Timer/Tick/index.ts:27:36",
         "kind": "propertyRead",
         "code": "session.stats.timerCnt",
         "propertyName": "timerCnt",
         "targetType": "Session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:28:36",
+        "location": "models/Timer/Tick/index.ts:27:36",
         "kind": "propertyRead",
         "code": "session.stats",
         "propertyName": "stats",
@@ -2419,34 +2159,34 @@
     ],
     "Timer": [
       {
-        "location": "src/domain/store.ts:103:24",
+        "location": "src/domain/store.ts:106:24",
         "kind": "instantiation",
         "code": "new TimerCtor(session)",
         "context": "new expression"
       },
       {
-        "location": "src/domain/store.ts:147:37",
+        "location": "src/domain/store.ts:150:37",
         "kind": "propertyRead",
         "code": "timer.Tick",
         "propertyName": "Tick",
         "targetType": "Timer"
       },
       {
-        "location": "models/Timer/Tick/index.ts:20:8",
+        "location": "models/Timer/Tick/index.ts:22:8",
         "kind": "destructureRead",
         "code": "{ session } = timer",
         "targetType": "Timer",
         "context": "session"
       },
       {
-        "location": "models/Timer/Tick/index.ts:21:2",
+        "location": "models/Timer/Tick/index.ts:23:2",
         "kind": "propertyRead",
         "code": "timer.ticks",
         "propertyName": "ticks",
         "targetType": "Timer"
       },
       {
-        "location": "models/Timer/Tick/index.ts:22:11",
+        "location": "models/Timer/Tick/index.ts:24:11",
         "kind": "propertyRead",
         "code": "timer.ticks",
         "propertyName": "ticks",
@@ -2455,7 +2195,7 @@
     ],
     "Timer.Tick": [
       {
-        "location": "src/domain/store.ts:147:33",
+        "location": "src/domain/store.ts:150:33",
         "kind": "instantiation",
         "code": "new timer.Tick()",
         "context": "new expression"
@@ -2463,46 +2203,46 @@
     ],
     "Program.ViewControl": [
       {
-        "location": "src/preload.ts:51:16",
+        "location": "src/preload.ts:52:16",
         "kind": "instantiation",
         "code": "new program.ViewControl()",
         "context": "new expression"
       },
       {
-        "location": "src/preload.ts:52:21",
+        "location": "src/preload.ts:53:21",
         "kind": "propertyRead",
         "code": "view.ZoomIn",
         "propertyName": "ZoomIn",
         "targetType": "Program.ViewControl"
       },
       {
-        "location": "src/preload.ts:52:41",
+        "location": "src/preload.ts:53:41",
         "kind": "propertyRead",
         "code": "view.ZoomOut",
         "propertyName": "ZoomOut",
         "targetType": "Program.ViewControl"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:78:17",
+        "location": "models/Session/EventHandler/index.ts:84:17",
         "kind": "instantiation",
         "code": "new program!.ViewControl()",
         "context": "new expression"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:79:15",
+        "location": "models/Session/EventHandler/index.ts:85:15",
         "kind": "propertyRead",
         "code": "view.ZoomIn",
         "propertyName": "ZoomIn",
         "targetType": "Program.ViewControl"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:82:17",
+        "location": "models/Session/EventHandler/index.ts:88:17",
         "kind": "instantiation",
         "code": "new program!.ViewControl()",
         "context": "new expression"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:83:15",
+        "location": "models/Session/EventHandler/index.ts:89:15",
         "kind": "propertyRead",
         "code": "view.ZoomOut",
         "propertyName": "ZoomOut",
@@ -2511,13 +2251,13 @@
     ],
     "Program.ViewControl.ZoomIn": [
       {
-        "location": "src/preload.ts:52:17",
+        "location": "src/preload.ts:53:17",
         "kind": "instantiation",
         "code": "new view.ZoomIn()",
         "context": "new expression"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:79:11",
+        "location": "models/Session/EventHandler/index.ts:85:11",
         "kind": "instantiation",
         "code": "new view.ZoomIn()",
         "context": "new expression"
@@ -2525,21 +2265,119 @@
     ],
     "Program.ViewControl.ZoomOut": [
       {
-        "location": "src/preload.ts:52:37",
+        "location": "src/preload.ts:53:37",
         "kind": "instantiation",
         "code": "new view.ZoomOut()",
         "context": "new expression"
       },
       {
-        "location": "models/Session/EventHandler/index.ts:83:11",
+        "location": "models/Session/EventHandler/index.ts:89:11",
         "kind": "instantiation",
         "code": "new view.ZoomOut()",
         "context": "new expression"
       }
     ],
+    "Program.WindowState": [
+      {
+        "location": "src/preload.ts:80:4",
+        "kind": "instantiation",
+        "code": "new program.WindowState({\n\t\t\t\twidth: window.outerWidth,\n\t\t\t\theight: window.outerHeight,\n\t\t\t\tx: windo",
+        "context": "new expression"
+      }
+    ],
+    "DiagConsoleLogger": [
+      {
+        "location": "src/preload.ts:137:18",
+        "kind": "instantiation",
+        "code": "new DiagConsoleLogger()",
+        "context": "new expression"
+      }
+    ],
+    "URL": [
+      {
+        "location": "src/preload.ts:143:18",
+        "kind": "instantiation",
+        "code": "new URL(otlpEndpoint + \"/v1/traces\")",
+        "context": "new expression"
+      },
+      {
+        "location": "src/preload.ts:148:16",
+        "kind": "propertyRead",
+        "code": "target.hostname",
+        "propertyName": "hostname",
+        "targetType": "URL"
+      },
+      {
+        "location": "src/preload.ts:149:12",
+        "kind": "propertyRead",
+        "code": "target.port",
+        "propertyName": "port",
+        "targetType": "URL"
+      },
+      {
+        "location": "src/preload.ts:150:12",
+        "kind": "propertyRead",
+        "code": "target.pathname",
+        "propertyName": "pathname",
+        "targetType": "URL"
+      }
+    ],
+    "BasicTracerProvider": [
+      {
+        "location": "src/preload.ts:162:20",
+        "kind": "instantiation",
+        "code": "new BasicTracerProvider({\n\t\t\tresource: resourceFromAttributes({ [ ATTR_SERVICE_NAME ]: \"kbtrainer\" }",
+        "context": "new expression"
+      }
+    ],
+    "BatchSpanProcessor": [
+      {
+        "location": "src/preload.ts:164:22",
+        "kind": "instantiation",
+        "code": "new BatchSpanProcessor(exporter)",
+        "context": "new expression"
+      },
+      {
+        "location": "src/preload.ts:166:3",
+        "kind": "passAsArg",
+        "code": "trace.setGlobalTracerProvider(provider)",
+        "targetType": "BatchSpanProcessor",
+        "context": "arg 0 to setGlobalTracerProvider"
+      },
+      {
+        "location": "src/preload.ts:171:51",
+        "kind": "methodCall",
+        "code": "provider.forceFlush()",
+        "propertyName": "forceFlush",
+        "targetType": "BatchSpanProcessor"
+      },
+      {
+        "location": "src/preload.ts:171:51",
+        "kind": "propertyRead",
+        "code": "provider.forceFlush",
+        "propertyName": "forceFlush",
+        "targetType": "BatchSpanProcessor"
+      }
+    ],
+    "attach": [
+      {
+        "location": "src/preload.ts:167:3",
+        "kind": "instantiation",
+        "code": "new DiveOtelProvider().attach()",
+        "context": "chained construction"
+      }
+    ],
+    "DiveOtelProvider": [
+      {
+        "location": "src/preload.ts:167:3",
+        "kind": "instantiation",
+        "code": "new DiveOtelProvider()",
+        "context": "new expression"
+      }
+    ],
     "Function": [
       {
-        "location": "src/preload.ts:126:18",
+        "location": "src/preload.ts:228:19",
         "kind": "instantiation",
         "code": "new Function(\"global\", \"process\", \"Buffer\", \"return (\" + wsServerScript + \");\")",
         "context": "new expression"
@@ -2547,7 +2385,7 @@
     ],
     "Error": [
       {
-        "location": "src/preload.ts:140:11",
+        "location": "src/preload.ts:260:12",
         "kind": "instantiation",
         "code": "new Error((bootstrap && bootstrap.error) || \"ws-server script reported failure\")",
         "context": "new expression"
@@ -2557,247 +2395,69 @@
         "kind": "instantiation",
         "code": "new Error('book not in library: ' + name)",
         "context": "new expression"
-      },
-      {
-        "location": "models/Session/Run/Vocabulary/index.ts:9:8",
-        "kind": "instantiation",
-        "code": "new Error('Run.Vocabulary is defined but not implemented yet')",
-        "context": "new expression"
       }
     ],
-    "Session.RunControl": [
+    "Promise": [
       {
-        "location": "src/renderer/engine.ts:307:22",
+        "location": "src/smoke.ts:14:32",
         "kind": "instantiation",
-        "code": "new kbstore.session.RunControl()",
-        "context": "new expression"
-      },
-      {
-        "location": "src/renderer/engine.ts:308:9",
-        "kind": "propertyRead",
-        "code": "runControl.Resume",
-        "propertyName": "Resume",
-        "targetType": "Session.RunControl"
-      },
-      {
-        "location": "src/renderer/engine.ts:314:26",
-        "kind": "instantiation",
-        "code": "new kbstore.session.RunControl()",
-        "context": "new expression"
-      },
-      {
-        "location": "src/renderer/engine.ts:315:10",
-        "kind": "propertyRead",
-        "code": "runControlEsc.Pause",
-        "propertyName": "Pause",
-        "targetType": "Session.RunControl"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:89:19",
-        "kind": "instantiation",
-        "code": "new session.RunControl()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:90:15",
-        "kind": "propertyRead",
-        "code": "runctl.BaseNext",
-        "propertyName": "BaseNext",
-        "targetType": "Session.RunControl"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:96:19",
-        "kind": "instantiation",
-        "code": "new session.RunControl()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:97:50",
-        "kind": "propertyRead",
-        "code": "runctl.Pause",
-        "propertyName": "Pause",
-        "targetType": "Session.RunControl"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:97:71",
-        "kind": "propertyRead",
-        "code": "runctl.Quit",
-        "propertyName": "Quit",
-        "targetType": "Session.RunControl"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:102:19",
-        "kind": "instantiation",
-        "code": "new session.RunControl()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:103:15",
-        "kind": "propertyRead",
-        "code": "runctl.Resume",
-        "propertyName": "Resume",
-        "targetType": "Session.RunControl"
-      }
-    ],
-    "Session.RunControl.Resume": [
-      {
-        "location": "src/renderer/engine.ts:308:5",
-        "kind": "instantiation",
-        "code": "new runControl.Resume()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:103:11",
-        "kind": "instantiation",
-        "code": "new runctl.Resume()",
-        "context": "new expression"
-      }
-    ],
-    "Session.RunControl.Pause": [
-      {
-        "location": "src/renderer/engine.ts:315:6",
-        "kind": "instantiation",
-        "code": "new runControlEsc.Pause()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:97:46",
-        "kind": "instantiation",
-        "code": "new runctl.Pause()",
-        "context": "new expression"
-      }
-    ],
-    "Session.KeyStroke": [
-      {
-        "location": "src/renderer/engine.ts:458:25",
-        "kind": "instantiation",
-        "code": "new kbstore.session.KeyStroke(pressed)",
-        "context": "new expression"
-      },
-      {
-        "location": "src/renderer/engine.ts:462:14",
-        "kind": "propertyRead",
-        "code": "keystroke.Correct",
-        "propertyName": "Correct",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "src/renderer/engine.ts:465:14",
-        "kind": "propertyRead",
-        "code": "keystroke.Mistake",
-        "propertyName": "Mistake",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:111:22",
-        "kind": "instantiation",
-        "code": "new session.KeyStroke(key)",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:113:9",
-        "kind": "propertyRead",
-        "code": "keystroke.Correct",
-        "propertyName": "Correct",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:114:9",
-        "kind": "propertyRead",
-        "code": "keystroke.Mistake",
-        "propertyName": "Mistake",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "models/Session/KeyStroke/Correct/index.ts:17:13",
-        "kind": "propertyRead",
-        "code": "keystroke.key",
-        "propertyName": "key",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "models/Session/KeyStroke/Mistake/index.ts:20:13",
-        "kind": "propertyRead",
-        "code": "keystroke.key",
-        "propertyName": "key",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "models/Session/KeyStroke/Mistake/index.ts:23:18",
-        "kind": "propertyRead",
-        "code": "keystroke.expected",
-        "propertyName": "expected",
-        "targetType": "Session.KeyStroke"
-      },
-      {
-        "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:26:32",
-        "kind": "propertyRead",
-        "code": "keystroke.key",
-        "propertyName": "key",
-        "targetType": "Session.KeyStroke"
-      }
-    ],
-    "Session.KeyStroke.Correct": [
-      {
-        "location": "src/renderer/engine.ts:462:10",
-        "kind": "instantiation",
-        "code": "new keystroke.Correct()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:113:5",
-        "kind": "instantiation",
-        "code": "new keystroke.Correct()",
-        "context": "new expression"
-      }
-    ],
-    "Session.KeyStroke.Mistake": [
-      {
-        "location": "src/renderer/engine.ts:465:10",
-        "kind": "instantiation",
-        "code": "new keystroke.Mistake()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/EventHandler/index.ts:114:5",
-        "kind": "instantiation",
-        "code": "new keystroke.Mistake()",
-        "context": "new expression"
-      }
-    ],
-    "Program.UserProfile": [
-      {
-        "location": "models/Program/index.ts:47:17",
-        "kind": "instantiation",
-        "code": "new this.UserProfile()",
+        "code": "new Promise((r) => setTimeout(r, ms))",
         "context": "new expression"
       }
     ],
     "Session.Run": [
       {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:18:14",
+        "location": "src/renderer/engine.ts:188:14",
         "kind": "instantiation",
-        "code": "new session.Run(name, text)",
+        "code": "new session.Run(title, sa.data, from)",
         "context": "new expression"
       },
       {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:19:19",
+        "location": "src/renderer/engine.ts:191:20",
         "kind": "propertyRead",
         "code": "run.Book",
         "propertyName": "Book",
         "targetType": "Session.Run"
       },
       {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:18:14",
-        "kind": "instantiation",
-        "code": "new session.Run(title, text)",
-        "context": "new expression"
+        "location": "src/renderer/engine.ts:195:9",
+        "kind": "propertyRead",
+        "code": "run.Vocabulary",
+        "propertyName": "Vocabulary",
+        "targetType": "Session.Run"
       },
       {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:19:21",
+        "location": "src/renderer/engine.ts:197:22",
         "kind": "propertyRead",
         "code": "run.Lesson",
         "propertyName": "Lesson",
+        "targetType": "Session.Run"
+      },
+      {
+        "location": "src/renderer/engine.ts:201:23",
+        "kind": "return",
+        "code": "return run.pos;",
+        "targetType": "Session.Run"
+      },
+      {
+        "location": "src/renderer/engine.ts:201:30",
+        "kind": "propertyRead",
+        "code": "run.pos",
+        "propertyName": "pos",
+        "targetType": "Session.Run"
+      },
+      {
+        "location": "src/renderer/engine.ts:202:36",
+        "kind": "propertyWrite",
+        "code": "run.pos = value",
+        "propertyName": "pos",
+        "targetType": "Session.Run"
+      },
+      {
+        "location": "src/renderer/engine.ts:202:36",
+        "kind": "propertyRead",
+        "code": "run.pos",
+        "propertyName": "pos",
         "targetType": "Session.Run"
       },
       {
@@ -3076,46 +2736,301 @@
     ],
     "Session.Run.Book": [
       {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:19:15",
+        "location": "src/renderer/engine.ts:191:16",
         "kind": "instantiation",
         "code": "new run.Book()",
         "context": "new expression"
       },
       {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:20:17",
+        "location": "src/renderer/engine.ts:192:24",
+        "kind": "propertyRead",
+        "code": "book.Paragraph",
+        "propertyName": "Paragraph",
+        "targetType": "Session.Run.Book"
+      },
+      {
+        "location": "src/renderer/engine.ts:192:55",
         "kind": "propertyRead",
         "code": "book.Native",
         "propertyName": "Native",
         "targetType": "Session.Run.Book"
       }
     ],
+    "Session.Run.Book.Paragraph": [
+      {
+        "location": "src/renderer/engine.ts:192:20",
+        "kind": "instantiation",
+        "code": "new book.Paragraph(id)",
+        "context": "new expression"
+      }
+    ],
     "Session.Run.Book.Native": [
       {
-        "location": "models/Program/ModeDialog/BookPick/index.ts:20:13",
+        "location": "src/renderer/engine.ts:192:51",
         "kind": "instantiation",
-        "code": "new book.Native(name)",
+        "code": "new book.Native(id)",
         "context": "new expression"
-      },
+      }
+    ],
+    "Session.Run.Vocabulary": [
       {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:20:13",
+        "location": "src/renderer/engine.ts:195:5",
         "kind": "instantiation",
-        "code": "new lesson.Native(lessonId)",
+        "code": "new run.Vocabulary(sa.data.length)",
         "context": "new expression"
       }
     ],
     "Session.Run.Lesson": [
       {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:19:17",
+        "location": "src/renderer/engine.ts:197:18",
         "kind": "instantiation",
         "code": "new run.Lesson()",
         "context": "new expression"
       },
       {
-        "location": "models/Program/ModeDialog/LessonPick/index.ts:20:17",
+        "location": "src/renderer/engine.ts:198:24",
+        "kind": "propertyRead",
+        "code": "lesson.Paragraph",
+        "propertyName": "Paragraph",
+        "targetType": "Session.Run.Lesson"
+      },
+      {
+        "location": "src/renderer/engine.ts:198:57",
         "kind": "propertyRead",
         "code": "lesson.Native",
         "propertyName": "Native",
         "targetType": "Session.Run.Lesson"
+      }
+    ],
+    "Session.Run.Lesson.Paragraph": [
+      {
+        "location": "src/renderer/engine.ts:198:20",
+        "kind": "instantiation",
+        "code": "new lesson.Paragraph(id)",
+        "context": "new expression"
+      }
+    ],
+    "Session.Run.Lesson.Native": [
+      {
+        "location": "src/renderer/engine.ts:198:53",
+        "kind": "instantiation",
+        "code": "new lesson.Native(id)",
+        "context": "new expression"
+      }
+    ],
+    "Session.Run.Finish": [
+      {
+        "location": "src/renderer/engine.ts:214:17",
+        "kind": "instantiation",
+        "code": "new current.Finish()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/LetterPick/index.ts:27:3",
+        "kind": "instantiation",
+        "code": "new run.Finish()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/WordPick/index.ts:30:3",
+        "kind": "instantiation",
+        "code": "new run.Finish()",
+        "context": "new expression"
+      }
+    ],
+    "Session.RunControl": [
+      {
+        "location": "src/renderer/engine.ts:392:22",
+        "kind": "instantiation",
+        "code": "new kbstore.session.RunControl()",
+        "context": "new expression"
+      },
+      {
+        "location": "src/renderer/engine.ts:393:9",
+        "kind": "propertyRead",
+        "code": "runControl.Resume",
+        "propertyName": "Resume",
+        "targetType": "Session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:95:19",
+        "kind": "instantiation",
+        "code": "new session.RunControl()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:96:43",
+        "kind": "propertyRead",
+        "code": "runctl.LessonPrev",
+        "propertyName": "LessonPrev",
+        "targetType": "Session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:97:43",
+        "kind": "propertyRead",
+        "code": "runctl.LessonNext",
+        "propertyName": "LessonNext",
+        "targetType": "Session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:98:15",
+        "kind": "propertyRead",
+        "code": "runctl.BaseNext",
+        "propertyName": "BaseNext",
+        "targetType": "Session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:104:19",
+        "kind": "instantiation",
+        "code": "new session.RunControl()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:105:50",
+        "kind": "propertyRead",
+        "code": "runctl.Pause",
+        "propertyName": "Pause",
+        "targetType": "Session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:105:71",
+        "kind": "propertyRead",
+        "code": "runctl.Quit",
+        "propertyName": "Quit",
+        "targetType": "Session.RunControl"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:110:19",
+        "kind": "instantiation",
+        "code": "new session.RunControl()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:111:15",
+        "kind": "propertyRead",
+        "code": "runctl.Resume",
+        "propertyName": "Resume",
+        "targetType": "Session.RunControl"
+      }
+    ],
+    "Session.RunControl.Resume": [
+      {
+        "location": "src/renderer/engine.ts:393:5",
+        "kind": "instantiation",
+        "code": "new runControl.Resume()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:111:11",
+        "kind": "instantiation",
+        "code": "new runctl.Resume()",
+        "context": "new expression"
+      }
+    ],
+    "Session.KeyStroke": [
+      {
+        "location": "src/renderer/engine.ts:548:25",
+        "kind": "instantiation",
+        "code": "new kbstore.session.KeyStroke(pressed)",
+        "context": "new expression"
+      },
+      {
+        "location": "src/renderer/engine.ts:556:14",
+        "kind": "propertyRead",
+        "code": "keystroke.Correct",
+        "propertyName": "Correct",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "src/renderer/engine.ts:560:14",
+        "kind": "propertyRead",
+        "code": "keystroke.Mistake",
+        "propertyName": "Mistake",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:119:22",
+        "kind": "instantiation",
+        "code": "new session.KeyStroke(key)",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:121:9",
+        "kind": "propertyRead",
+        "code": "keystroke.Correct",
+        "propertyName": "Correct",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:122:9",
+        "kind": "propertyRead",
+        "code": "keystroke.Mistake",
+        "propertyName": "Mistake",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "models/Session/KeyStroke/Correct/index.ts:24:13",
+        "kind": "propertyRead",
+        "code": "keystroke.key",
+        "propertyName": "key",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "models/Session/KeyStroke/Mistake/index.ts:21:13",
+        "kind": "propertyRead",
+        "code": "keystroke.key",
+        "propertyName": "key",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "models/Session/KeyStroke/Mistake/index.ts:24:18",
+        "kind": "propertyRead",
+        "code": "keystroke.expected",
+        "propertyName": "expected",
+        "targetType": "Session.KeyStroke"
+      },
+      {
+        "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:26:32",
+        "kind": "propertyRead",
+        "code": "keystroke.key",
+        "propertyName": "key",
+        "targetType": "Session.KeyStroke"
+      }
+    ],
+    "Session.KeyStroke.Correct": [
+      {
+        "location": "src/renderer/engine.ts:556:10",
+        "kind": "instantiation",
+        "code": "new keystroke.Correct()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:121:5",
+        "kind": "instantiation",
+        "code": "new keystroke.Correct()",
+        "context": "new expression"
+      }
+    ],
+    "Session.KeyStroke.Mistake": [
+      {
+        "location": "src/renderer/engine.ts:560:10",
+        "kind": "instantiation",
+        "code": "new keystroke.Mistake()",
+        "context": "new expression"
+      },
+      {
+        "location": "models/Session/EventHandler/index.ts:122:5",
+        "kind": "instantiation",
+        "code": "new keystroke.Mistake()",
+        "context": "new expression"
+      }
+    ],
+    "Program.UserProfile": [
+      {
+        "location": "models/Program/index.ts:47:17",
+        "kind": "instantiation",
+        "code": "new this.UserProfile()",
+        "context": "new expression"
       }
     ],
     "RangeError": [
@@ -3130,11 +3045,17 @@
         "kind": "instantiation",
         "code": "new RangeError('hiderInterval must be within 51..998, got: ' + value)",
         "context": "new expression"
+      },
+      {
+        "location": "models/Session/RunControl/BaseNext/index.ts:17:9",
+        "kind": "instantiation",
+        "code": "new RangeError('unknown base direction: ' + direction)",
+        "context": "new expression"
       }
     ],
     "Session.EventHandler": [
       {
-        "location": "models/Session/index.ts:54:17",
+        "location": "models/Session/index.ts:52:17",
         "kind": "instantiation",
         "code": "new this.EventHandler()",
         "context": "new expression"
@@ -3142,23 +3063,47 @@
     ],
     "Session.ModeF2": [
       {
-        "location": "models/Session/EventHandler/index.ts:73:11",
+        "location": "models/Session/EventHandler/index.ts:79:11",
         "kind": "instantiation",
         "code": "new session.ModeF2()",
         "context": "new expression"
       }
     ],
+    "Session.RunControl.LessonPrev": [
+      {
+        "location": "models/Session/EventHandler/index.ts:96:39",
+        "kind": "instantiation",
+        "code": "new runctl.LessonPrev(navId)",
+        "context": "new expression"
+      }
+    ],
+    "Session.RunControl.LessonNext": [
+      {
+        "location": "models/Session/EventHandler/index.ts:97:39",
+        "kind": "instantiation",
+        "code": "new runctl.LessonNext(navId)",
+        "context": "new expression"
+      }
+    ],
     "Session.RunControl.BaseNext": [
       {
-        "location": "models/Session/EventHandler/index.ts:90:11",
+        "location": "models/Session/EventHandler/index.ts:98:11",
         "kind": "instantiation",
-        "code": "new runctl.BaseNext(baseDir)",
+        "code": "new runctl.BaseNext(nav === 'BasePrev' ? 'prev' : 'next', navId)",
+        "context": "new expression"
+      }
+    ],
+    "Session.RunControl.Pause": [
+      {
+        "location": "models/Session/EventHandler/index.ts:105:46",
+        "kind": "instantiation",
+        "code": "new runctl.Pause()",
         "context": "new expression"
       }
     ],
     "Session.RunControl.Quit": [
       {
-        "location": "models/Session/EventHandler/index.ts:97:67",
+        "location": "models/Session/EventHandler/index.ts:105:67",
         "kind": "instantiation",
         "code": "new runctl.Quit()",
         "context": "new expression"
@@ -3166,13 +3111,7 @@
     ],
     "Session.KeyStroke.Correct.StatUpdate": [
       {
-        "location": "models/Session/KeyStroke/Correct/index.ts:18:20",
-        "kind": "instantiation",
-        "code": "new this.StatUpdate()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/KeyStroke/Mistake/index.ts:24:20",
+        "location": "models/Session/KeyStroke/Correct/index.ts:27:21",
         "kind": "instantiation",
         "code": "new this.StatUpdate()",
         "context": "new expression"
@@ -3194,25 +3133,19 @@
         "context": "new expression"
       }
     ],
+    "Session.KeyStroke.Mistake.StatUpdate": [
+      {
+        "location": "models/Session/KeyStroke/Mistake/index.ts:27:21",
+        "kind": "instantiation",
+        "code": "new this.StatUpdate()",
+        "context": "new expression"
+      }
+    ],
     "Program.KeyFlash": [
       {
         "location": "models/Session/KeyStroke/Mistake/StatUpdate/index.ts:26:3",
         "kind": "instantiation",
         "code": "new session.program.KeyFlash(keystroke.key)",
-        "context": "new expression"
-      }
-    ],
-    "Session.Run.Finish": [
-      {
-        "location": "models/Session/LetterPick/index.ts:27:3",
-        "kind": "instantiation",
-        "code": "new run.Finish()",
-        "context": "new expression"
-      },
-      {
-        "location": "models/Session/WordPick/index.ts:30:3",
-        "kind": "instantiation",
-        "code": "new run.Finish()",
         "context": "new expression"
       }
     ],
@@ -3224,7 +3157,7 @@
         "context": "new expression"
       },
       {
-        "location": "models/Session/Run/index.ts:36:3",
+        "location": "models/Session/Run/index.ts:39:3",
         "kind": "instantiation",
         "code": "new session.program.KeyLight(session.expectedChar)",
         "context": "new expression"

@@ -25,7 +25,8 @@ export interface StatsCells {
 export interface ProfileCells {
 	cntFull            : number;   // symbols typed at all since installation
 	selectedMaps       : string[];
-	keyboardType       : string;
+	currentMap         : string;   // era user.currentMap: the active language ('en', 'ru', …)
+	TypingMode         : string;   // era user.TypingMode: 'native' | 'paragraph' (F3)
 	hiderInterval      : number;
 	errorControl       : boolean;
 	oneErrorOnly       : boolean;
@@ -33,7 +34,6 @@ export interface ProfileCells {
 	skipNonTypable     : boolean;
 	skin               : string;
 	hideStatsOnPause   : boolean;
-	bookmarks          : unknown[];
 	// era user.js fields land here through the adoptUser accessors — the
 	// profile is the prefs store, open to keyed writes (PrefSet).
 	[ key : string ] : unknown;
@@ -91,9 +91,9 @@ export interface RunControlChain {
 	Pause      : new () => unknown;
 	Resume     : new () => unknown;
 	Quit       : new () => unknown;
-	BaseNext   : new (direction : string) => unknown;
-	LessonNext : new () => unknown;
-	LessonPrev : new () => unknown;
+	BaseNext   : new (direction : string, lessonId? : string) => unknown;
+	LessonNext : new (lessonId? : string) => unknown;
+	LessonPrev : new (lessonId? : string) => unknown;
 }
 
 export interface KeyStrokeChain {
@@ -115,7 +115,6 @@ export interface SessionChain {
 	paused       : boolean;
 	quitRequested : boolean;
 	layoutIndex  : number;
-	lessonIndex  : number;
 	expectedChar : string;
 	stats        : StatsCells;
 	run          : RunChain | null;
@@ -123,7 +122,7 @@ export interface SessionChain {
 	KeyStroke : new (key : string) => KeyStrokeChain;
 	WordPick  : new () => unknown;
 	LetterPick : new () => unknown;
-	Run       : new (title : string, text : string) => RunChain;
+	Run       : new (title : string, text : string, startPos? : number) => RunChain;
 	RunControl : new () => RunControlChain;
 	ModeF1  : new () => unknown;
 	ModeF2  : new () => unknown;

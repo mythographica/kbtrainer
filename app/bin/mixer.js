@@ -4,6 +4,21 @@
 
 	mix.init = false;
 
+	// jQuery 1.4.2 replacement: the dialogs' only live jQuery usage is
+	// $("label[for='X']").html(str) — define $ with exactly that surface
+	// (querySelectorAll + innerHTML on every match). Guarded: never
+	// clobber a real jQuery if one ever appears.
+	if(typeof(window.$) == "undefined"){
+		window.$ = function(sel){
+			var list = document.querySelectorAll(sel);
+			return {
+				html : function(s){
+					for(var i = 0; i < list.length; i++){ list[i].innerHTML = s; }
+				}
+			};
+		};
+	}
+
 	var ag = arguments;
 
 	var pfa = function(el, tf){ //Prepare Function Arguments
@@ -61,7 +76,7 @@
 		//[obj]tell());
 		, tell	: function(){ alert(this.who()); }
 		// native fades (stage 4.6): jQuery 1.4.2 left the building; q keeps
-		// the exact method surface the app used — fadeIn/fadeTo/hide/html
+		// the exact method surface the app used — fadeIn/fadeTo/hide/html/after
 		, q		: false
 		, qid	: false
 		, jq	: function(){
@@ -91,6 +106,10 @@
 					, fadeTo	: function(dur, op){ fade(dur || 400, op); }
 					, hide		: function(){ el.style.display = "none"; }
 					, html		: function(s){ if(s === undefined){ return el.innerHTML; } el.innerHTML = s; }
+					// jQuery .after(html): insert the markup as the next
+					// sibling — the era dialog pages append their <br />s
+					// this way
+					, after		: function(s){ el.insertAdjacentHTML("afterend", s); }
 				};
 				this.qid = "#" + this.id;
 			}catch(e){ }
