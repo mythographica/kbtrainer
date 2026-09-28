@@ -130,7 +130,11 @@
 									str = str.replace(/.txt/g,"");
 									str = str.split("_");
 									var spliter = parseInt(x.nlc.replace(/.txt/g,"").split("_")[1]);
-									if((qxml == ".txt") && (typeof(spliter) == "number") && (spliter != NaN)){
+									// lib/vocabulary.txt is the vocabulary mode's
+									// persisted paste (2026-09-28), not a book —
+									// it has no book_N header and the NaN check
+									// below alone would still list it
+									if((x.name !== "vocabulary.txt") && (qxml == ".txt") && (typeof(spliter) == "number") && (spliter != NaN)){
 										books[i] = new Array();
 										books[i]["name"] = x.name;
 										books[i]["path"] = x.path;

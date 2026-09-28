@@ -92,7 +92,8 @@ const app: any = {
 			}else if(user.LessonsMode == "vocabulary"){
 				document.title = "Vocabulary Mode";
 				// the old pre-lib/books mode: a pasted textarea (Ctrl+3),
-				// typed once. Memory only — never persisted to user.txt.
+				// typed once; the paste is persisted as lib/vocabulary.txt
+				// (snk.changeMode) and kept in memory for the session.
 				// Newlines become the paragraph mark, like imported books.
 				var vocText = String((window as any).__vocabText || "");
 				if(vocText.length > 0){

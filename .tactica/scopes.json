@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-27T20:53:32.392Z",
+  "generatedAt": "2026-09-28T00:50:36.524Z",
   "scopes": {
     "src/lib/prefs.ts": {
       "scopeId": "src/lib/prefs.ts",
@@ -1003,13 +1003,13 @@
       "filePath": "src/preload.ts",
       "location": "src/preload.ts:258:10"
     },
-    "src/preload.ts:271:13": {
-      "scopeId": "src/preload.ts:271:13",
-      "name": "src/preload.ts:271",
+    "src/preload.ts:274:13": {
+      "scopeId": "src/preload.ts:274:13",
+      "name": "src/preload.ts:274",
       "kind": "arrow",
       "parentScopeId": "src/preload.ts",
       "filePath": "src/preload.ts",
-      "location": "src/preload.ts:271:13"
+      "location": "src/preload.ts:274:13"
     },
     "src/smoke.ts": {
       "scopeId": "src/smoke.ts",
@@ -1201,277 +1201,277 @@
       "filePath": "src/renderer/engine.ts",
       "location": "src/renderer/engine.ts:76:9"
     },
-    "src/renderer/engine.ts:137:29": {
-      "scopeId": "src/renderer/engine.ts:137:29",
-      "name": "src/renderer/engine.ts:137",
+    "src/renderer/engine.ts:138:29": {
+      "scopeId": "src/renderer/engine.ts:138:29",
+      "name": "src/renderer/engine.ts:138",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts:76:9",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:137:29"
+      "location": "src/renderer/engine.ts:138:29"
     },
-    "src/renderer/engine.ts:138:34": {
-      "scopeId": "src/renderer/engine.ts:138:34",
-      "name": "src/renderer/engine.ts:138",
+    "src/renderer/engine.ts:139:34": {
+      "scopeId": "src/renderer/engine.ts:139:34",
+      "name": "src/renderer/engine.ts:139",
       "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:137:29",
+      "parentScopeId": "src/renderer/engine.ts:138:29",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:138:34"
+      "location": "src/renderer/engine.ts:139:34"
     },
-    "src/renderer/engine.ts:148:18": {
-      "scopeId": "src/renderer/engine.ts:148:18",
+    "src/renderer/engine.ts:149:18": {
+      "scopeId": "src/renderer/engine.ts:149:18",
       "name": "app_start",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:148:18"
+      "location": "src/renderer/engine.ts:149:18"
     },
-    "src/renderer/engine.ts:155:11": {
-      "scopeId": "src/renderer/engine.ts:155:11",
+    "src/renderer/engine.ts:156:11": {
+      "scopeId": "src/renderer/engine.ts:156:11",
       "name": "fn",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:155:11"
+      "location": "src/renderer/engine.ts:156:11"
     },
-    "src/renderer/engine.ts:179:16": {
-      "scopeId": "src/renderer/engine.ts:179:16",
+    "src/renderer/engine.ts:180:16": {
+      "scopeId": "src/renderer/engine.ts:180:16",
       "name": "runStart",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:179:16"
-    },
-    "src/renderer/engine.ts:201:11": {
-      "scopeId": "src/renderer/engine.ts:201:11",
-      "name": "get",
-      "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:179:16",
-      "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:201:11"
+      "location": "src/renderer/engine.ts:180:16"
     },
     "src/renderer/engine.ts:202:11": {
       "scopeId": "src/renderer/engine.ts:202:11",
-      "name": "set",
+      "name": "get",
       "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:179:16",
+      "parentScopeId": "src/renderer/engine.ts:180:16",
       "filePath": "src/renderer/engine.ts",
       "location": "src/renderer/engine.ts:202:11"
     },
-    "src/renderer/engine.ts:211:17": {
-      "scopeId": "src/renderer/engine.ts:211:17",
+    "src/renderer/engine.ts:203:11": {
+      "scopeId": "src/renderer/engine.ts:203:11",
+      "name": "set",
+      "kind": "function",
+      "parentScopeId": "src/renderer/engine.ts:180:16",
+      "filePath": "src/renderer/engine.ts",
+      "location": "src/renderer/engine.ts:203:11"
+    },
+    "src/renderer/engine.ts:212:17": {
+      "scopeId": "src/renderer/engine.ts:212:17",
       "name": "runRepeat",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:211:17"
+      "location": "src/renderer/engine.ts:212:17"
     },
-    "src/renderer/engine.ts:219:13": {
-      "scopeId": "src/renderer/engine.ts:219:13",
+    "src/renderer/engine.ts:220:13": {
+      "scopeId": "src/renderer/engine.ts:220:13",
       "name": "p_go",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:219:13"
+      "location": "src/renderer/engine.ts:220:13"
     },
-    "src/renderer/engine.ts:223:16": {
-      "scopeId": "src/renderer/engine.ts:223:16",
+    "src/renderer/engine.ts:224:16": {
+      "scopeId": "src/renderer/engine.ts:224:16",
       "name": "prep_go",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:223:16"
+      "location": "src/renderer/engine.ts:224:16"
     },
-    "src/renderer/engine.ts:228:20": {
-      "scopeId": "src/renderer/engine.ts:228:20",
+    "src/renderer/engine.ts:229:20": {
+      "scopeId": "src/renderer/engine.ts:229:20",
       "name": "mooving_keys",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:228:20"
+      "location": "src/renderer/engine.ts:229:20"
     },
-    "src/renderer/engine.ts:381:16": {
-      "scopeId": "src/renderer/engine.ts:381:16",
+    "src/renderer/engine.ts:382:16": {
+      "scopeId": "src/renderer/engine.ts:382:16",
       "name": "keydown",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:381:16"
+      "location": "src/renderer/engine.ts:382:16"
     },
-    "src/renderer/engine.ts:596:13": {
-      "scopeId": "src/renderer/engine.ts:596:13",
+    "src/renderer/engine.ts:597:13": {
+      "scopeId": "src/renderer/engine.ts:597:13",
       "name": "start",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:596:13"
+      "location": "src/renderer/engine.ts:597:13"
     },
-    "src/renderer/engine.ts:607:14": {
-      "scopeId": "src/renderer/engine.ts:607:14",
+    "src/renderer/engine.ts:608:14": {
+      "scopeId": "src/renderer/engine.ts:608:14",
       "name": "str_pr",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:607:14"
+      "location": "src/renderer/engine.ts:608:14"
     },
-    "src/renderer/engine.ts:617:15": {
-      "scopeId": "src/renderer/engine.ts:617:15",
+    "src/renderer/engine.ts:618:15": {
+      "scopeId": "src/renderer/engine.ts:618:15",
       "name": "retr",
       "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:607:14",
+      "parentScopeId": "src/renderer/engine.ts:608:14",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:617:15"
+      "location": "src/renderer/engine.ts:618:15"
     },
-    "src/renderer/engine.ts:663:16": {
-      "scopeId": "src/renderer/engine.ts:663:16",
+    "src/renderer/engine.ts:664:16": {
+      "scopeId": "src/renderer/engine.ts:664:16",
       "name": "ruenView",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:663:16"
+      "location": "src/renderer/engine.ts:664:16"
     },
-    "src/renderer/engine.ts:695:16": {
-      "scopeId": "src/renderer/engine.ts:695:16",
+    "src/renderer/engine.ts:696:16": {
+      "scopeId": "src/renderer/engine.ts:696:16",
       "name": "next_key",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:695:16"
+      "location": "src/renderer/engine.ts:696:16"
     },
-    "src/renderer/engine.ts:772:14": {
-      "scopeId": "src/renderer/engine.ts:772:14",
+    "src/renderer/engine.ts:773:14": {
+      "scopeId": "src/renderer/engine.ts:773:14",
       "name": "set_at",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:772:14"
+      "location": "src/renderer/engine.ts:773:14"
     },
-    "src/renderer/engine.ts:827:19": {
-      "scopeId": "src/renderer/engine.ts:827:19",
+    "src/renderer/engine.ts:828:19": {
+      "scopeId": "src/renderer/engine.ts:828:19",
       "name": "end_of_text",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:827:19"
+      "location": "src/renderer/engine.ts:828:19"
     },
-    "src/renderer/engine.ts:850:18": {
-      "scopeId": "src/renderer/engine.ts:850:18",
+    "src/renderer/engine.ts:851:18": {
+      "scopeId": "src/renderer/engine.ts:851:18",
       "name": "get_strings",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:850:18"
+      "location": "src/renderer/engine.ts:851:18"
     },
-    "src/renderer/engine.ts:868:22": {
-      "scopeId": "src/renderer/engine.ts:868:22",
+    "src/renderer/engine.ts:869:22": {
+      "scopeId": "src/renderer/engine.ts:869:22",
       "name": "prepare_strings",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:868:22"
-    },
-    "src/renderer/engine.ts:869:22": {
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "name": "real_prepare",
-      "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:868:22",
-      "filePath": "src/renderer/engine.ts",
       "location": "src/renderer/engine.ts:869:22"
     },
-    "src/renderer/engine.ts:907:29": {
-      "scopeId": "src/renderer/engine.ts:907:29",
+    "src/renderer/engine.ts:870:22": {
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "name": "real_prepare",
+      "kind": "function",
+      "parentScopeId": "src/renderer/engine.ts:869:22",
+      "filePath": "src/renderer/engine.ts",
+      "location": "src/renderer/engine.ts:870:22"
+    },
+    "src/renderer/engine.ts:908:29": {
+      "scopeId": "src/renderer/engine.ts:908:29",
       "name": "prepare_strings_pos",
       "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:868:22",
+      "parentScopeId": "src/renderer/engine.ts:869:22",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:907:29"
+      "location": "src/renderer/engine.ts:908:29"
     },
-    "src/renderer/engine.ts:942:16": {
-      "scopeId": "src/renderer/engine.ts:942:16",
+    "src/renderer/engine.ts:943:16": {
+      "scopeId": "src/renderer/engine.ts:943:16",
       "name": "counter",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:942:16"
+      "location": "src/renderer/engine.ts:943:16"
     },
-    "src/renderer/engine.ts:973:18": {
-      "scopeId": "src/renderer/engine.ts:973:18",
+    "src/renderer/engine.ts:974:18": {
+      "scopeId": "src/renderer/engine.ts:974:18",
       "name": "shower",
       "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:942:16",
+      "parentScopeId": "src/renderer/engine.ts:943:16",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:973:18"
+      "location": "src/renderer/engine.ts:974:18"
     },
-    "src/renderer/engine.ts:1002:23": {
-      "scopeId": "src/renderer/engine.ts:1002:23",
+    "src/renderer/engine.ts:1003:23": {
+      "scopeId": "src/renderer/engine.ts:1003:23",
       "name": "blur_focus_reset",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1002:23"
+      "location": "src/renderer/engine.ts:1003:23"
     },
-    "src/renderer/engine.ts:1016:14": {
-      "scopeId": "src/renderer/engine.ts:1016:14",
+    "src/renderer/engine.ts:1017:14": {
+      "scopeId": "src/renderer/engine.ts:1017:14",
       "name": "pauser",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1016:14"
+      "location": "src/renderer/engine.ts:1017:14"
     },
-    "src/renderer/engine.ts:1052:31": {
-      "scopeId": "src/renderer/engine.ts:1052:31",
-      "name": "src/renderer/engine.ts:1052",
+    "src/renderer/engine.ts:1053:31": {
+      "scopeId": "src/renderer/engine.ts:1053:31",
+      "name": "src/renderer/engine.ts:1053",
       "kind": "function",
-      "parentScopeId": "src/renderer/engine.ts:1016:14",
+      "parentScopeId": "src/renderer/engine.ts:1017:14",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1052:31"
+      "location": "src/renderer/engine.ts:1053:31"
     },
-    "src/renderer/engine.ts:1067:15": {
-      "scopeId": "src/renderer/engine.ts:1067:15",
+    "src/renderer/engine.ts:1068:15": {
+      "scopeId": "src/renderer/engine.ts:1068:15",
       "name": "focuser",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1067:15"
+      "location": "src/renderer/engine.ts:1068:15"
     },
-    "src/renderer/engine.ts:1071:15": {
-      "scopeId": "src/renderer/engine.ts:1071:15",
+    "src/renderer/engine.ts:1072:15": {
+      "scopeId": "src/renderer/engine.ts:1072:15",
       "name": "keyup",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1071:15"
+      "location": "src/renderer/engine.ts:1072:15"
     },
-    "src/renderer/engine.ts:1075:22": {
-      "scopeId": "src/renderer/engine.ts:1075:22",
+    "src/renderer/engine.ts:1076:22": {
+      "scopeId": "src/renderer/engine.ts:1076:22",
       "name": "keyboard_start",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1075:22"
+      "location": "src/renderer/engine.ts:1076:22"
     },
-    "src/renderer/engine.ts:1079:21": {
-      "scopeId": "src/renderer/engine.ts:1079:21",
+    "src/renderer/engine.ts:1080:21": {
+      "scopeId": "src/renderer/engine.ts:1080:21",
       "name": "keyboard_stop",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1079:21"
+      "location": "src/renderer/engine.ts:1080:21"
     },
-    "src/renderer/engine.ts:1086:14": {
-      "scopeId": "src/renderer/engine.ts:1086:14",
+    "src/renderer/engine.ts:1087:14": {
+      "scopeId": "src/renderer/engine.ts:1087:14",
       "name": "boot",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1086:14"
+      "location": "src/renderer/engine.ts:1087:14"
     },
-    "src/renderer/engine.ts:1104:19": {
-      "scopeId": "src/renderer/engine.ts:1104:19",
-      "name": "src/renderer/engine.ts:1104",
+    "src/renderer/engine.ts:1105:19": {
+      "scopeId": "src/renderer/engine.ts:1105:19",
+      "name": "src/renderer/engine.ts:1105",
       "kind": "function",
       "parentScopeId": "src/renderer/engine.ts",
       "filePath": "src/renderer/engine.ts",
-      "location": "src/renderer/engine.ts:1104:19"
+      "location": "src/renderer/engine.ts:1105:19"
     },
     "src/renderer/layouts.ts": {
       "scopeId": "src/renderer/layouts.ts",
@@ -2540,13 +2540,13 @@
       "filePath": "models/Session/Run/Vocabulary/index.ts",
       "location": "models/Session/Run/Vocabulary/index.ts:1:1"
     },
-    "models/Session/Run/Vocabulary/index.ts:14:18": {
-      "scopeId": "models/Session/Run/Vocabulary/index.ts:14:18",
+    "models/Session/Run/Vocabulary/index.ts:15:18": {
+      "scopeId": "models/Session/Run/Vocabulary/index.ts:15:18",
       "name": "Vocabulary",
       "kind": "function",
       "parentScopeId": "models/Session/Run/Vocabulary/index.ts",
       "filePath": "models/Session/Run/Vocabulary/index.ts",
-      "location": "models/Session/Run/Vocabulary/index.ts:14:18"
+      "location": "models/Session/Run/Vocabulary/index.ts:15:18"
     },
     "models/Session/RunControl/index.ts": {
       "scopeId": "models/Session/RunControl/index.ts",
@@ -5367,15 +5367,15 @@
     {
       "name": "line",
       "scopeId": "src/preload.ts:258:10",
-      "declaration": "src/preload.ts:267:11",
+      "declaration": "src/preload.ts:270:11",
       "isParameter": false,
       "isMutable": false,
       "reassignments": []
     },
     {
       "name": "e",
-      "scopeId": "src/preload.ts:271:13",
-      "declaration": "src/preload.ts:271:14",
+      "scopeId": "src/preload.ts:274:13",
+      "declaration": "src/preload.ts:274:14",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6237,10 +6237,10 @@
       "isMutable": true,
       "reassignments": [
         "src/renderer/engine.ts:90:5",
-        "src/renderer/engine.ts:110:6",
-        "src/renderer/engine.ts:112:6",
-        "src/renderer/engine.ts:121:6",
-        "src/renderer/engine.ts:123:6"
+        "src/renderer/engine.ts:111:6",
+        "src/renderer/engine.ts:113:6",
+        "src/renderer/engine.ts:122:6",
+        "src/renderer/engine.ts:124:6"
       ],
       "inferredType": "boolean"
     },
@@ -6251,8 +6251,8 @@
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:113:6",
-        "src/renderer/engine.ts:124:6"
+        "src/renderer/engine.ts:114:6",
+        "src/renderer/engine.ts:125:6"
       ]
     },
     {
@@ -6274,25 +6274,25 @@
     {
       "name": "vocText",
       "scopeId": "src/renderer/engine.ts:76:9",
-      "declaration": "src/renderer/engine.ts:97:9",
+      "declaration": "src/renderer/engine.ts:98:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:105:6"
+        "src/renderer/engine.ts:106:6"
       ]
     },
     {
       "name": "vocData",
       "scopeId": "src/renderer/engine.ts:76:9",
-      "declaration": "src/renderer/engine.ts:108:10",
+      "declaration": "src/renderer/engine.ts:109:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "startPos",
-      "scopeId": "src/renderer/engine.ts:179:16",
-      "declaration": "src/renderer/engine.ts:179:25",
+      "scopeId": "src/renderer/engine.ts:180:16",
+      "declaration": "src/renderer/engine.ts:180:25",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6300,96 +6300,96 @@
     },
     {
       "name": "sa",
-      "scopeId": "src/renderer/engine.ts:179:16",
-      "declaration": "src/renderer/engine.ts:181:8",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "session",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:182:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "isBook",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "session",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:183:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "isVoc",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "isBook",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:184:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "title",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "isVoc",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:185:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "id",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "title",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:186:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "from",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "id",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:187:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "run",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "from",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:188:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "paragraph",
-      "scopeId": "src/renderer/engine.ts:179:16",
+      "name": "run",
+      "scopeId": "src/renderer/engine.ts:180:16",
       "declaration": "src/renderer/engine.ts:189:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "paragraph",
+      "scopeId": "src/renderer/engine.ts:180:16",
+      "declaration": "src/renderer/engine.ts:190:8",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "book",
-      "scopeId": "src/renderer/engine.ts:179:16",
-      "declaration": "src/renderer/engine.ts:191:9",
+      "scopeId": "src/renderer/engine.ts:180:16",
+      "declaration": "src/renderer/engine.ts:192:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "lesson",
-      "scopeId": "src/renderer/engine.ts:179:16",
-      "declaration": "src/renderer/engine.ts:197:9",
+      "scopeId": "src/renderer/engine.ts:180:16",
+      "declaration": "src/renderer/engine.ts:198:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "value",
-      "scopeId": "src/renderer/engine.ts:202:11",
-      "declaration": "src/renderer/engine.ts:202:20",
+      "scopeId": "src/renderer/engine.ts:203:11",
+      "declaration": "src/renderer/engine.ts:203:20",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6397,16 +6397,16 @@
     },
     {
       "name": "current",
-      "scopeId": "src/renderer/engine.ts:211:17",
-      "declaration": "src/renderer/engine.ts:213:8",
+      "scopeId": "src/renderer/engine.ts:212:17",
+      "declaration": "src/renderer/engine.ts:214:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "keys",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:228:29",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:229:29",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6414,91 +6414,91 @@
     },
     {
       "name": "z",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:229:7",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:230:7",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "go_next",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:233:8",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:234:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:280:7",
-        "src/renderer/engine.ts:292:7",
-        "src/renderer/engine.ts:340:8",
-        "src/renderer/engine.ts:350:9",
-        "src/renderer/engine.ts:358:8",
-        "src/renderer/engine.ts:364:8"
+        "src/renderer/engine.ts:281:7",
+        "src/renderer/engine.ts:293:7",
+        "src/renderer/engine.ts:341:8",
+        "src/renderer/engine.ts:351:9",
+        "src/renderer/engine.ts:359:8",
+        "src/renderer/engine.ts:365:8"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "klm",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:237:11",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "klb",
-      "scopeId": "src/renderer/engine.ts:228:20",
+      "scopeId": "src/renderer/engine.ts:229:20",
       "declaration": "src/renderer/engine.ts:238:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "kll",
-      "scopeId": "src/renderer/engine.ts:228:20",
+      "name": "klb",
+      "scopeId": "src/renderer/engine.ts:229:20",
       "declaration": "src/renderer/engine.ts:239:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "LessLen",
-      "scopeId": "src/renderer/engine.ts:228:20",
+      "name": "kll",
+      "scopeId": "src/renderer/engine.ts:229:20",
       "declaration": "src/renderer/engine.ts:240:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "LessLen",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:241:11",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "i",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:262:16",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:263:16",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "needToDo",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:261:12",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:262:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:267:23"
+        "src/renderer/engine.ts:268:23"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "pgo",
-      "scopeId": "src/renderer/engine.ts:228:20",
-      "declaration": "src/renderer/engine.ts:346:13",
+      "scopeId": "src/renderer/engine.ts:229:20",
+      "declaration": "src/renderer/engine.ts:347:13",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "keys",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:381:25",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:382:25",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6506,167 +6506,167 @@
     },
     {
       "name": "z",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:382:7",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:383:7",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "runControl",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:392:9",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:393:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "sp",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:403:11",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "vp",
-      "scopeId": "src/renderer/engine.ts:381:16",
+      "scopeId": "src/renderer/engine.ts:382:16",
       "declaration": "src/renderer/engine.ts:404:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "vp",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:405:11",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "del_err",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:438:19",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:439:19",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "mapK",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:473:11",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "mapB",
-      "scopeId": "src/renderer/engine.ts:381:16",
+      "scopeId": "src/renderer/engine.ts:382:16",
       "declaration": "src/renderer/engine.ts:474:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "mapSB",
-      "scopeId": "src/renderer/engine.ts:381:16",
+      "name": "mapB",
+      "scopeId": "src/renderer/engine.ts:382:16",
       "declaration": "src/renderer/engine.ts:475:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "mapSB",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:476:11",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "pressed",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:477:11",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:478:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:483:9",
-        "src/renderer/engine.ts:487:9",
-        "src/renderer/engine.ts:510:27"
+        "src/renderer/engine.ts:484:9",
+        "src/renderer/engine.ts:488:9",
+        "src/renderer/engine.ts:511:27"
       ],
       "inferredType": "string"
     },
     {
       "name": "CompareChar",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:479:11",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:480:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "keyTyped",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:493:11",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:494:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:563:8"
+        "src/renderer/engine.ts:564:8"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "foundInMap",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:497:12",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:498:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:503:9"
+        "src/renderer/engine.ts:504:9"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "keyCompare",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:498:12",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:499:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:506:11",
-        "src/renderer/engine.ts:509:11"
+        "src/renderer/engine.ts:507:11",
+        "src/renderer/engine.ts:510:11"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "shiftCompare",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:499:12",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:500:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:517:9",
-        "src/renderer/engine.ts:519:53"
+        "src/renderer/engine.ts:518:9",
+        "src/renderer/engine.ts:520:53"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "laGo",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:500:12",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:501:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:531:11",
-        "src/renderer/engine.ts:535:9"
+        "src/renderer/engine.ts:532:11",
+        "src/renderer/engine.ts:536:9"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "keystroke",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:548:13",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:549:13",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "runActive",
-      "scopeId": "src/renderer/engine.ts:381:16",
-      "declaration": "src/renderer/engine.ts:555:14",
+      "scopeId": "src/renderer/engine.ts:382:16",
+      "declaration": "src/renderer/engine.ts:556:14",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "str",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:607:23",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:608:23",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6674,8 +6674,8 @@
     },
     {
       "name": "par",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:607:36",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:608:36",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6683,8 +6683,8 @@
     },
     {
       "name": "start",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:607:47",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:608:47",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -6692,64 +6692,64 @@
     },
     {
       "name": "re",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:608:8",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "re1",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:609:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "re2",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "name": "re1",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:610:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "re3",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "name": "re2",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:611:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "re4",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "name": "re3",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:612:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "re5",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "name": "re4",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:613:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "re5",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:614:8",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "reEnter",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:615:8",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:616:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "retr",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:617:8",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:618:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [],
@@ -6757,349 +6757,338 @@
     },
     {
       "name": "stre",
-      "scopeId": "src/renderer/engine.ts:617:15",
-      "declaration": "src/renderer/engine.ts:617:24",
+      "scopeId": "src/renderer/engine.ts:618:15",
+      "declaration": "src/renderer/engine.ts:618:24",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:618:5"
+        "src/renderer/engine.ts:619:5"
       ],
       "inferredType": "string"
     },
     {
       "name": "va",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:626:10",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:627:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:628:7",
-        "src/renderer/engine.ts:633:8"
+        "src/renderer/engine.ts:629:7",
+        "src/renderer/engine.ts:634:8"
       ]
     },
     {
       "name": "stri",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:638:10",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:639:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:651:7",
-        "src/renderer/engine.ts:655:7"
+        "src/renderer/engine.ts:652:7",
+        "src/renderer/engine.ts:656:7"
       ],
       "inferredType": "string"
     },
     {
       "name": "sp",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:639:10",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "vp",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:640:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "vl",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "name": "vp",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:641:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
-      "name": "diff",
-      "scopeId": "src/renderer/engine.ts:607:14",
+      "name": "vl",
+      "scopeId": "src/renderer/engine.ts:608:14",
       "declaration": "src/renderer/engine.ts:642:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "diff",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:643:10",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "i",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:643:15",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:644:15",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:643:30"
+        "src/renderer/engine.ts:644:30"
       ],
       "inferredType": "number"
     },
     {
       "name": "pos",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:644:11",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:645:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "sss",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:645:11",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:646:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:648:9"
+        "src/renderer/engine.ts:649:9"
       ]
     },
     {
       "name": "sl",
-      "scopeId": "src/renderer/engine.ts:607:14",
-      "declaration": "src/renderer/engine.ts:654:11",
+      "scopeId": "src/renderer/engine.ts:608:14",
+      "declaration": "src/renderer/engine.ts:655:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "v",
-      "scopeId": "src/renderer/engine.ts:663:16",
-      "declaration": "src/renderer/engine.ts:664:8",
+      "scopeId": "src/renderer/engine.ts:664:16",
+      "declaration": "src/renderer/engine.ts:665:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:671:7",
-        "src/renderer/engine.ts:677:9",
-        "src/renderer/engine.ts:683:8"
+        "src/renderer/engine.ts:672:7",
+        "src/renderer/engine.ts:678:9",
+        "src/renderer/engine.ts:684:8"
       ],
       "inferredType": "string"
     },
     {
       "name": "currMap",
-      "scopeId": "src/renderer/engine.ts:663:16",
-      "declaration": "src/renderer/engine.ts:667:10",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "nkey",
-      "scopeId": "src/renderer/engine.ts:663:16",
+      "scopeId": "src/renderer/engine.ts:664:16",
       "declaration": "src/renderer/engine.ts:668:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "nkey",
+      "scopeId": "src/renderer/engine.ts:664:16",
+      "declaration": "src/renderer/engine.ts:669:10",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "letterfound",
-      "scopeId": "src/renderer/engine.ts:663:16",
-      "declaration": "src/renderer/engine.ts:673:11",
+      "scopeId": "src/renderer/engine.ts:664:16",
+      "declaration": "src/renderer/engine.ts:674:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:678:9"
+        "src/renderer/engine.ts:679:9"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "i",
-      "scopeId": "src/renderer/engine.ts:663:16",
-      "declaration": "src/renderer/engine.ts:674:15",
+      "scopeId": "src/renderer/engine.ts:664:16",
+      "declaration": "src/renderer/engine.ts:675:15",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "map",
-      "scopeId": "src/renderer/engine.ts:663:16",
-      "declaration": "src/renderer/engine.ts:675:12",
+      "scopeId": "src/renderer/engine.ts:664:16",
+      "declaration": "src/renderer/engine.ts:676:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "thereIsNoErrors",
-      "scopeId": "src/renderer/engine.ts:695:16",
-      "declaration": "src/renderer/engine.ts:697:9",
+      "scopeId": "src/renderer/engine.ts:696:16",
+      "declaration": "src/renderer/engine.ts:698:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:701:7",
-        "src/renderer/engine.ts:705:9",
-        "src/renderer/engine.ts:711:7"
+        "src/renderer/engine.ts:702:7",
+        "src/renderer/engine.ts:706:9",
+        "src/renderer/engine.ts:712:7"
       ],
       "inferredType": "boolean"
     },
     {
       "name": "currMap",
-      "scopeId": "src/renderer/engine.ts:695:16",
-      "declaration": "src/renderer/engine.ts:716:11",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "nkey",
-      "scopeId": "src/renderer/engine.ts:695:16",
+      "scopeId": "src/renderer/engine.ts:696:16",
       "declaration": "src/renderer/engine.ts:717:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "nkey",
+      "scopeId": "src/renderer/engine.ts:696:16",
+      "declaration": "src/renderer/engine.ts:718:11",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "shifterOb",
-      "scopeId": "src/renderer/engine.ts:695:16",
-      "declaration": "src/renderer/engine.ts:726:12",
+      "scopeId": "src/renderer/engine.ts:696:16",
+      "declaration": "src/renderer/engine.ts:727:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "currForSpaceKey",
-      "scopeId": "src/renderer/engine.ts:695:16",
-      "declaration": "src/renderer/engine.ts:744:14",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": [
-        "src/renderer/engine.ts:751:11"
-      ],
-      "inferredType": "string"
-    },
-    {
-      "name": "currForSpaceKeyShift",
-      "scopeId": "src/renderer/engine.ts:695:16",
+      "scopeId": "src/renderer/engine.ts:696:16",
       "declaration": "src/renderer/engine.ts:745:14",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
         "src/renderer/engine.ts:752:11"
       ],
+      "inferredType": "string"
+    },
+    {
+      "name": "currForSpaceKeyShift",
+      "scopeId": "src/renderer/engine.ts:696:16",
+      "declaration": "src/renderer/engine.ts:746:14",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": [
+        "src/renderer/engine.ts:753:11"
+      ],
       "inferredType": "any"
     },
     {
       "name": "prevChar",
-      "scopeId": "src/renderer/engine.ts:695:16",
-      "declaration": "src/renderer/engine.ts:747:15",
+      "scopeId": "src/renderer/engine.ts:696:16",
+      "declaration": "src/renderer/engine.ts:748:15",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:749:12"
+        "src/renderer/engine.ts:750:12"
       ],
       "inferredType": "string"
     },
     {
       "name": "posarr",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:783:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:784:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "alr",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:785:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:786:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:789:7",
-        "src/renderer/engine.ts:804:6"
+        "src/renderer/engine.ts:790:7",
+        "src/renderer/engine.ts:805:6"
       ],
       "inferredType": "string"
     },
     {
       "name": "ttp",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:786:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:787:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:797:8",
-        "src/renderer/engine.ts:809:7"
+        "src/renderer/engine.ts:798:8",
+        "src/renderer/engine.ts:810:7"
       ],
       "inferredType": "string"
     },
     {
       "name": "count",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:787:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:788:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:790:7",
-        "src/renderer/engine.ts:793:6",
-        "src/renderer/engine.ts:801:7"
+        "src/renderer/engine.ts:791:7",
+        "src/renderer/engine.ts:794:6",
+        "src/renderer/engine.ts:802:7"
       ],
       "inferredType": "number"
     },
     {
       "name": "i",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:788:14",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:789:14",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:788:76"
+        "src/renderer/engine.ts:789:76"
       ]
     },
     {
       "name": "maxim",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:792:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:793:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "j",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:795:14",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:796:14",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:795:84"
+        "src/renderer/engine.ts:796:84"
       ]
     },
     {
       "name": "dttp",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:805:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:806:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "ttp1",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:806:10",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:807:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:808:7",
-        "src/renderer/engine.ts:811:7"
+        "src/renderer/engine.ts:809:7",
+        "src/renderer/engine.ts:812:7"
       ],
       "inferredType": "string"
     },
     {
       "name": "str",
-      "scopeId": "src/renderer/engine.ts:772:14",
-      "declaration": "src/renderer/engine.ts:818:11",
+      "scopeId": "src/renderer/engine.ts:773:14",
+      "declaration": "src/renderer/engine.ts:819:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "diff",
-      "scopeId": "src/renderer/engine.ts:850:18",
-      "declaration": "src/renderer/engine.ts:853:9",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": [
-        "src/renderer/engine.ts:854:5",
-        "src/renderer/engine.ts:860:5"
-      ]
-    },
-    {
-      "name": "fr",
-      "scopeId": "src/renderer/engine.ts:850:18",
-      "declaration": "src/renderer/engine.ts:853:15",
+      "scopeId": "src/renderer/engine.ts:851:18",
+      "declaration": "src/renderer/engine.ts:854:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
@@ -7108,21 +7097,32 @@
       ]
     },
     {
-      "name": "to",
-      "scopeId": "src/renderer/engine.ts:850:18",
-      "declaration": "src/renderer/engine.ts:853:19",
+      "name": "fr",
+      "scopeId": "src/renderer/engine.ts:851:18",
+      "declaration": "src/renderer/engine.ts:854:15",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
         "src/renderer/engine.ts:856:5",
         "src/renderer/engine.ts:862:5"
+      ]
+    },
+    {
+      "name": "to",
+      "scopeId": "src/renderer/engine.ts:851:18",
+      "declaration": "src/renderer/engine.ts:854:19",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": [
+        "src/renderer/engine.ts:857:5",
+        "src/renderer/engine.ts:863:5"
       ],
       "inferredType": "number"
     },
     {
       "name": "par",
-      "scopeId": "src/renderer/engine.ts:868:22",
-      "declaration": "src/renderer/engine.ts:868:31",
+      "scopeId": "src/renderer/engine.ts:869:22",
+      "declaration": "src/renderer/engine.ts:869:31",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -7130,8 +7130,8 @@
     },
     {
       "name": "real_prepare",
-      "scopeId": "src/renderer/engine.ts:868:22",
-      "declaration": "src/renderer/engine.ts:869:7",
+      "scopeId": "src/renderer/engine.ts:869:22",
+      "declaration": "src/renderer/engine.ts:870:7",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [],
@@ -7139,47 +7139,47 @@
     },
     {
       "name": "str",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:871:8",
-      "isParameter": false,
-      "isMutable": true,
-      "reassignments": []
-    },
-    {
-      "name": "strs",
-      "scopeId": "src/renderer/engine.ts:869:22",
+      "scopeId": "src/renderer/engine.ts:870:22",
       "declaration": "src/renderer/engine.ts:872:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
+      "name": "strs",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:873:8",
+      "isParameter": false,
+      "isMutable": true,
+      "reassignments": []
+    },
+    {
       "name": "i",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:900:12",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:901:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:900:35"
+        "src/renderer/engine.ts:901:35"
       ],
       "inferredType": "number"
     },
     {
       "name": "car",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:876:8",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:877:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:886:7",
-        "src/renderer/engine.ts:892:5"
+        "src/renderer/engine.ts:887:7",
+        "src/renderer/engine.ts:893:5"
       ],
       "inferredType": "number"
     },
     {
       "name": "arr",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:877:8",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:878:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [],
@@ -7187,43 +7187,43 @@
     },
     {
       "name": "k",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:879:12",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:880:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "dstr",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:880:9",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:881:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "j",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:884:13",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:885:13",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "counter",
-      "scopeId": "src/renderer/engine.ts:869:22",
-      "declaration": "src/renderer/engine.ts:899:8",
+      "scopeId": "src/renderer/engine.ts:870:22",
+      "declaration": "src/renderer/engine.ts:900:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:902:5"
+        "src/renderer/engine.ts:903:5"
       ],
       "inferredType": "number"
     },
     {
       "name": "prepare_strings_pos",
-      "scopeId": "src/renderer/engine.ts:868:22",
-      "declaration": "src/renderer/engine.ts:907:7",
+      "scopeId": "src/renderer/engine.ts:869:22",
+      "declaration": "src/renderer/engine.ts:908:7",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [],
@@ -7231,80 +7231,80 @@
     },
     {
       "name": "pos",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:908:8",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:909:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "arr_pos",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:909:8",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:910:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:913:6"
+        "src/renderer/engine.ts:914:6"
       ],
       "inferredType": "number"
     },
     {
       "name": "str_arr",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:910:8",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:911:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:916:6"
+        "src/renderer/engine.ts:917:6"
       ],
       "inferredType": "number"
     },
     {
       "name": "i",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:911:12",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:912:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:911:45"
+        "src/renderer/engine.ts:912:45"
       ],
       "inferredType": "number"
     },
     {
       "name": "diff",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:919:8",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:920:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "stored_row",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:920:8",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:921:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:927:6",
-        "src/renderer/engine.ts:931:5"
+        "src/renderer/engine.ts:928:6",
+        "src/renderer/engine.ts:932:5"
       ],
       "inferredType": "number"
     },
     {
       "name": "diff_stored_row",
-      "scopeId": "src/renderer/engine.ts:907:29",
-      "declaration": "src/renderer/engine.ts:921:8",
+      "scopeId": "src/renderer/engine.ts:908:29",
+      "declaration": "src/renderer/engine.ts:922:8",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:923:5"
+        "src/renderer/engine.ts:924:5"
       ],
       "inferredType": "number"
     },
     {
       "name": "shower",
-      "scopeId": "src/renderer/engine.ts:942:16",
-      "declaration": "src/renderer/engine.ts:973:9",
+      "scopeId": "src/renderer/engine.ts:943:16",
+      "declaration": "src/renderer/engine.ts:974:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [],
@@ -7312,58 +7312,58 @@
     },
     {
       "name": "sz",
-      "scopeId": "src/renderer/engine.ts:973:18",
-      "declaration": "src/renderer/engine.ts:977:11",
+      "scopeId": "src/renderer/engine.ts:974:18",
+      "declaration": "src/renderer/engine.ts:978:11",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "perc",
-      "scopeId": "src/renderer/engine.ts:942:16",
-      "declaration": "src/renderer/engine.ts:992:12",
+      "scopeId": "src/renderer/engine.ts:943:16",
+      "declaration": "src/renderer/engine.ts:993:12",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "par",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1016:23",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1017:23",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:1019:27"
+        "src/renderer/engine.ts:1020:27"
       ],
       "inferredType": "any"
     },
     {
       "name": "message",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1016:34",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1017:34",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:1022:5",
-        "src/renderer/engine.ts:1024:5"
+        "src/renderer/engine.ts:1023:5",
+        "src/renderer/engine.ts:1025:5"
       ],
       "inferredType": "any"
     },
     {
       "name": "stBottom",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1033:9",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1034:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:1036:6"
+        "src/renderer/engine.ts:1037:6"
       ],
       "inferredType": "number"
     },
     {
       "name": "stEls",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1034:9",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1035:9",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [],
@@ -7371,56 +7371,56 @@
     },
     {
       "name": "stI",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1035:13",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1036:13",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:1035:42"
+        "src/renderer/engine.ts:1036:42"
       ],
       "inferredType": "number"
     },
     {
       "name": "kbTop",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1039:10",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1040:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:1040:11"
+        "src/renderer/engine.ts:1041:11"
       ],
       "inferredType": "number"
     },
     {
       "name": "limit",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1041:10",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1042:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "avail",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1042:10",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1043:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": [
-        "src/renderer/engine.ts:1043:22"
+        "src/renderer/engine.ts:1044:22"
       ]
     },
     {
       "name": "mSt",
-      "scopeId": "src/renderer/engine.ts:1016:14",
-      "declaration": "src/renderer/engine.ts:1044:10",
+      "scopeId": "src/renderer/engine.ts:1017:14",
+      "declaration": "src/renderer/engine.ts:1045:10",
       "isParameter": false,
       "isMutable": true,
       "reassignments": []
     },
     {
       "name": "_keys",
-      "scopeId": "src/renderer/engine.ts:1071:15",
-      "declaration": "src/renderer/engine.ts:1071:24",
+      "scopeId": "src/renderer/engine.ts:1072:15",
+      "declaration": "src/renderer/engine.ts:1072:24",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -7429,7 +7429,7 @@
     {
       "name": "boot",
       "scopeId": "src/renderer/engine.ts",
-      "declaration": "src/renderer/engine.ts:1086:7",
+      "declaration": "src/renderer/engine.ts:1087:7",
       "isParameter": false,
       "isMutable": false,
       "reassignments": [],
@@ -7437,8 +7437,8 @@
     },
     {
       "name": "hookData",
-      "scopeId": "src/renderer/engine.ts:1104:19",
-      "declaration": "src/renderer/engine.ts:1104:29",
+      "scopeId": "src/renderer/engine.ts:1105:19",
+      "declaration": "src/renderer/engine.ts:1105:29",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],
@@ -7447,7 +7447,7 @@
     {
       "name": "kbDive",
       "scopeId": "src/renderer/engine.ts",
-      "declaration": "src/renderer/engine.ts:1114:8",
+      "declaration": "src/renderer/engine.ts:1115:8",
       "isParameter": false,
       "isMutable": false,
       "reassignments": []
@@ -9955,8 +9955,8 @@
     },
     {
       "name": "this",
-      "scopeId": "models/Session/Run/Vocabulary/index.ts:14:18",
-      "declaration": "models/Session/Run/Vocabulary/index.ts:14:38",
+      "scopeId": "models/Session/Run/Vocabulary/index.ts:15:18",
+      "declaration": "models/Session/Run/Vocabulary/index.ts:15:38",
       "isParameter": true,
       "isMutable": false,
       "reassignments": [],
@@ -9964,8 +9964,8 @@
     },
     {
       "name": "chars",
-      "scopeId": "models/Session/Run/Vocabulary/index.ts:14:18",
-      "declaration": "models/Session/Run/Vocabulary/index.ts:14:60",
+      "scopeId": "models/Session/Run/Vocabulary/index.ts:15:18",
+      "declaration": "models/Session/Run/Vocabulary/index.ts:15:60",
       "isParameter": true,
       "isMutable": true,
       "reassignments": [],

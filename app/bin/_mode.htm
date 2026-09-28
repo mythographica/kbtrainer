@@ -203,7 +203,13 @@ var buildSLmap = function(smap){
 			for(var k in lm[i].les){
 				var name = ""+selectedLessonMap+"_"+i+"_"+k;
 
-				var l_sel = mix.addObj("snk_less_" + i + "_select_id", "less_select", "INPUT", {
+				// the id must carry the FULL lesson name: the label's
+				// for= snk_less_<name>_select_id resolves by id, and a
+				// per-base id ("snk_less_" + i) made every lesson of a
+				// base share ONE id — only the first radio kept a
+				// handler and every label pointed nowhere, so a pick
+				// always fell back to the first lesson (2026-09-28)
+				var l_sel = mix.addObj("snk_less_" + name + "_select_id", "less_select", "INPUT", {
 					  type	: "radio"
 					, name	: "less_select_nm"
 					, value	: name

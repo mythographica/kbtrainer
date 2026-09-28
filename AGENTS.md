@@ -157,11 +157,13 @@ npm run start:strat        # = USE_STRATEGY=1 electron .
 ```
 
 With `USE_STRATEGY=1` the preload hosts a `@mnemonica/strategy` channel
-(without it there is none — a regular user never gets a WS server). Its
-host, port and token are in the log, in a thin line under the keyboard
-(`fit.js` keeps that band free — `kbFitReserveBottom`), and in
-`app/strategy-channel.json`, which mnemographica's App Channel reads. The
-smoke run sets the flag itself. Answer runtime questions against the live
+(without it there is none — a regular user never gets a WS server). The
+log line and the thin line under the keyboard (`fit.js` keeps that band
+free — `kbFitReserveBottom`) carry the whole target as ONE copy-pasteable
+`ws://127.0.0.1:<port>/?token=<token>` line — the shape mnemographica's
+App Channel and the exported 3D graph pages take as-is; the parts also
+land in `app/strategy-channel.json`. The smoke run sets the flag itself.
+Answer runtime questions against the live
 session instead of from the source:
 
 ```js

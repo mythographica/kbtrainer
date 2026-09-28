@@ -220,10 +220,14 @@
 									// the pasted vocabulary text travels back and is
 									// kept whenever it is non-empty — even if the
 									// final selection is another mode (like the old
-									// standalone window did). Memory only, never
-									// persisted to user.txt
+									// standalone window did).
 									if(typeof formd.vocText === "string" && formd.vocText.length > 0){
 										window.__vocabText = formd.vocText;
+										// and it is also dropped next to the books as
+										// lib/vocabulary.txt (raw pasted text, newlines
+										// kept) — memory-only turned out to lose the
+										// paste on every restart (2026-09-28)
+										try{ kbfs.write(fs.lib() + "vocabulary.txt", formd.vocText, "UTF-8"); }catch(e){}
 									}
 									app.restart();
 								}

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-27T20:53:32.371Z",
+  "generatedAt": "2026-09-28T00:50:36.507Z",
   "eds": {
     "unknown": [
       {
@@ -16,7 +16,7 @@
     ],
     "app.mooving_keys": [
       {
-        "location": "src/renderer/engine.ts:1116:22",
+        "location": "src/renderer/engine.ts:1117:22",
         "kind": "wrap",
         "code": "kbDive.wrap(app.mooving_keys, kbstore.session, \"keystroke\")",
         "targetType": "app.mooving_keys",

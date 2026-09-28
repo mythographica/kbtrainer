@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-27T20:53:32.416Z",
+  "generatedAt": "2026-09-28T00:50:36.543Z",
   "roots": [
     {
       "name": "Program",
@@ -315,7 +315,7 @@
             {
               "name": "Vocabulary",
               "fullPath": "Session.Run.Vocabulary",
-              "location": "models/Session/Run/Vocabulary/index.ts:14:18",
+              "location": "models/Session/Run/Vocabulary/index.ts:15:18",
               "children": []
             }
           ]

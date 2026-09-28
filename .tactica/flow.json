@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-27T20:53:32.372Z",
+  "generatedAt": "2026-09-28T00:50:36.507Z",
   "flow": {
     "Set": [
       {
@@ -1359,7 +1359,7 @@
         "context": "stats"
       },
       {
-        "location": "src/renderer/engine.ts:188:18",
+        "location": "src/renderer/engine.ts:189:18",
         "kind": "propertyRead",
         "code": "session.Run",
         "propertyName": "Run",
@@ -2407,54 +2407,54 @@
     ],
     "Session.Run": [
       {
-        "location": "src/renderer/engine.ts:188:14",
+        "location": "src/renderer/engine.ts:189:14",
         "kind": "instantiation",
         "code": "new session.Run(title, sa.data, from)",
         "context": "new expression"
       },
       {
-        "location": "src/renderer/engine.ts:191:20",
+        "location": "src/renderer/engine.ts:192:20",
         "kind": "propertyRead",
         "code": "run.Book",
         "propertyName": "Book",
         "targetType": "Session.Run"
       },
       {
-        "location": "src/renderer/engine.ts:195:9",
+        "location": "src/renderer/engine.ts:196:9",
         "kind": "propertyRead",
         "code": "run.Vocabulary",
         "propertyName": "Vocabulary",
         "targetType": "Session.Run"
       },
       {
-        "location": "src/renderer/engine.ts:197:22",
+        "location": "src/renderer/engine.ts:198:22",
         "kind": "propertyRead",
         "code": "run.Lesson",
         "propertyName": "Lesson",
         "targetType": "Session.Run"
       },
       {
-        "location": "src/renderer/engine.ts:201:23",
+        "location": "src/renderer/engine.ts:202:23",
         "kind": "return",
         "code": "return run.pos;",
         "targetType": "Session.Run"
       },
       {
-        "location": "src/renderer/engine.ts:201:30",
+        "location": "src/renderer/engine.ts:202:30",
         "kind": "propertyRead",
         "code": "run.pos",
         "propertyName": "pos",
         "targetType": "Session.Run"
       },
       {
-        "location": "src/renderer/engine.ts:202:36",
+        "location": "src/renderer/engine.ts:203:36",
         "kind": "propertyWrite",
         "code": "run.pos = value",
         "propertyName": "pos",
         "targetType": "Session.Run"
       },
       {
-        "location": "src/renderer/engine.ts:202:36",
+        "location": "src/renderer/engine.ts:203:36",
         "kind": "propertyRead",
         "code": "run.pos",
         "propertyName": "pos",
@@ -2736,20 +2736,20 @@
     ],
     "Session.Run.Book": [
       {
-        "location": "src/renderer/engine.ts:191:16",
+        "location": "src/renderer/engine.ts:192:16",
         "kind": "instantiation",
         "code": "new run.Book()",
         "context": "new expression"
       },
       {
-        "location": "src/renderer/engine.ts:192:24",
+        "location": "src/renderer/engine.ts:193:24",
         "kind": "propertyRead",
         "code": "book.Paragraph",
         "propertyName": "Paragraph",
         "targetType": "Session.Run.Book"
       },
       {
-        "location": "src/renderer/engine.ts:192:55",
+        "location": "src/renderer/engine.ts:193:55",
         "kind": "propertyRead",
         "code": "book.Native",
         "propertyName": "Native",
@@ -2758,7 +2758,7 @@
     ],
     "Session.Run.Book.Paragraph": [
       {
-        "location": "src/renderer/engine.ts:192:20",
+        "location": "src/renderer/engine.ts:193:20",
         "kind": "instantiation",
         "code": "new book.Paragraph(id)",
         "context": "new expression"
@@ -2766,7 +2766,7 @@
     ],
     "Session.Run.Book.Native": [
       {
-        "location": "src/renderer/engine.ts:192:51",
+        "location": "src/renderer/engine.ts:193:51",
         "kind": "instantiation",
         "code": "new book.Native(id)",
         "context": "new expression"
@@ -2774,7 +2774,7 @@
     ],
     "Session.Run.Vocabulary": [
       {
-        "location": "src/renderer/engine.ts:195:5",
+        "location": "src/renderer/engine.ts:196:5",
         "kind": "instantiation",
         "code": "new run.Vocabulary(sa.data.length)",
         "context": "new expression"
@@ -2782,20 +2782,20 @@
     ],
     "Session.Run.Lesson": [
       {
-        "location": "src/renderer/engine.ts:197:18",
+        "location": "src/renderer/engine.ts:198:18",
         "kind": "instantiation",
         "code": "new run.Lesson()",
         "context": "new expression"
       },
       {
-        "location": "src/renderer/engine.ts:198:24",
+        "location": "src/renderer/engine.ts:199:24",
         "kind": "propertyRead",
         "code": "lesson.Paragraph",
         "propertyName": "Paragraph",
         "targetType": "Session.Run.Lesson"
       },
       {
-        "location": "src/renderer/engine.ts:198:57",
+        "location": "src/renderer/engine.ts:199:57",
         "kind": "propertyRead",
         "code": "lesson.Native",
         "propertyName": "Native",
@@ -2804,7 +2804,7 @@
     ],
     "Session.Run.Lesson.Paragraph": [
       {
-        "location": "src/renderer/engine.ts:198:20",
+        "location": "src/renderer/engine.ts:199:20",
         "kind": "instantiation",
         "code": "new lesson.Paragraph(id)",
         "context": "new expression"
@@ -2812,7 +2812,7 @@
     ],
     "Session.Run.Lesson.Native": [
       {
-        "location": "src/renderer/engine.ts:198:53",
+        "location": "src/renderer/engine.ts:199:53",
         "kind": "instantiation",
         "code": "new lesson.Native(id)",
         "context": "new expression"
@@ -2820,7 +2820,7 @@
     ],
     "Session.Run.Finish": [
       {
-        "location": "src/renderer/engine.ts:214:17",
+        "location": "src/renderer/engine.ts:215:17",
         "kind": "instantiation",
         "code": "new current.Finish()",
         "context": "new expression"
@@ -2840,13 +2840,13 @@
     ],
     "Session.RunControl": [
       {
-        "location": "src/renderer/engine.ts:392:22",
+        "location": "src/renderer/engine.ts:393:22",
         "kind": "instantiation",
         "code": "new kbstore.session.RunControl()",
         "context": "new expression"
       },
       {
-        "location": "src/renderer/engine.ts:393:9",
+        "location": "src/renderer/engine.ts:394:9",
         "kind": "propertyRead",
         "code": "runControl.Resume",
         "propertyName": "Resume",
@@ -2915,7 +2915,7 @@
     ],
     "Session.RunControl.Resume": [
       {
-        "location": "src/renderer/engine.ts:393:5",
+        "location": "src/renderer/engine.ts:394:5",
         "kind": "instantiation",
         "code": "new runControl.Resume()",
         "context": "new expression"
@@ -2929,20 +2929,20 @@
     ],
     "Session.KeyStroke": [
       {
-        "location": "src/renderer/engine.ts:548:25",
+        "location": "src/renderer/engine.ts:549:25",
         "kind": "instantiation",
         "code": "new kbstore.session.KeyStroke(pressed)",
         "context": "new expression"
       },
       {
-        "location": "src/renderer/engine.ts:556:14",
+        "location": "src/renderer/engine.ts:557:14",
         "kind": "propertyRead",
         "code": "keystroke.Correct",
         "propertyName": "Correct",
         "targetType": "Session.KeyStroke"
       },
       {
-        "location": "src/renderer/engine.ts:560:14",
+        "location": "src/renderer/engine.ts:561:14",
         "kind": "propertyRead",
         "code": "keystroke.Mistake",
         "propertyName": "Mistake",
@@ -2999,7 +2999,7 @@
     ],
     "Session.KeyStroke.Correct": [
       {
-        "location": "src/renderer/engine.ts:556:10",
+        "location": "src/renderer/engine.ts:557:10",
         "kind": "instantiation",
         "code": "new keystroke.Correct()",
         "context": "new expression"
@@ -3013,7 +3013,7 @@
     ],
     "Session.KeyStroke.Mistake": [
       {
-        "location": "src/renderer/engine.ts:560:10",
+        "location": "src/renderer/engine.ts:561:10",
         "kind": "instantiation",
         "code": "new keystroke.Mistake()",
         "context": "new expression"

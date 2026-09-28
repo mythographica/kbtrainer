@@ -238,7 +238,7 @@ try {
 		// the channel line under the keyboard: fit.js keeps this band free
 		// (kbFitReserveBottom), so it never covers the design canvas
 		// tall enough to aim at: the text sits mid-band, off the window edge,
-		// so a double-click selects the token without a pixel hunt
+		// so a double-click selects the line without a pixel hunt
 		const barPx = 24;
 		w.kbFitReserveBottom = barPx;
 		const showChannel = (line: string) => {
@@ -264,7 +264,10 @@ try {
 				try {
 					fs.writeFileSync(channelFile, JSON.stringify(info, null, 2));
 				} catch (e) { /* the log line below is the fallback channel */ }
-				const line = "STRATEGY channel | host: 127.0.0.1 | port: " + info.port + " | token: " + info.token;
+				// the whole connection target as ONE copy-pasteable line —
+				// the exported graph pages and mnemographica's App Channel
+				// take it as-is
+				const line = "STRATEGY channel | ws://127.0.0.1:" + info.port + "/?token=" + info.token;
 				console.log(line);
 				showChannel(line);
 				window.addEventListener("beforeunload", stopChannel);
