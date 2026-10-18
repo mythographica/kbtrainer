@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "generatedAt": "2026-09-28T00:50:36.505Z",
+  "version": "1.2",
+  "generatedAt": "2026-10-18T19:08:17.534Z",
   "definitions": {
     "Program": {
       "name": "Program",
@@ -8,7 +8,81 @@
       "kind": "define",
       "parent": null,
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "version",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "screen",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "startedAt",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "zoom",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "prefsDirty",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "dialog",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "litKey",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "flashKey",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "windowState",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "library",
+          "type": "Array<any>",
+          "optional": false
+        },
+        {
+          "name": "logs",
+          "type": "Array<any>",
+          "optional": false
+        },
+        {
+          "name": "session",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "profile",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "opts",
+          "type": "{ version?: string; screen?: any }",
+          "optional": true
+        }
+      ]
     },
     "Session": {
       "name": "Session",
@@ -16,7 +90,61 @@
       "kind": "define",
       "parent": null,
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "program",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "paused",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "quitRequested",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "layoutIndex",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "run",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "expectedChar",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "stats",
+          "type": "object",
+          "optional": false
+        },
+        {
+          "name": "handler",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "program",
+          "type": "{ profile: any }",
+          "optional": false
+        }
+      ]
     },
     "Timer": {
       "name": "Timer",
@@ -24,7 +152,26 @@
       "kind": "define",
       "parent": null,
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "session",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "ticks",
+          "type": "number",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "session",
+          "type": "{ stats: any }",
+          "optional": false
+        }
+      ]
     },
     "Program.BookMark": {
       "name": "BookMark",
@@ -32,7 +179,31 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "path",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "position",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "path",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "position",
+          "type": "number",
+          "optional": false
+        }
+      ]
     },
     "Program.FileDialog": {
       "name": "FileDialog",
@@ -40,7 +211,14 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "close",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.KeyFlash": {
       "name": "KeyFlash",
@@ -48,7 +226,21 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "key",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "key",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.KeyLight": {
       "name": "KeyLight",
@@ -56,7 +248,21 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "char",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "char",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.LibDialog": {
       "name": "LibDialog",
@@ -64,7 +270,19 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "openedAt",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "close",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.Log": {
       "name": "Log",
@@ -72,7 +290,36 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "text",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "at",
+          "type": "number",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "text",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.ModeDialog": {
       "name": "ModeDialog",
@@ -80,7 +327,19 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "openedAt",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "close",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.SettingsDialog": {
       "name": "SettingsDialog",
@@ -88,7 +347,24 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "openedAt",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "closed",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "close",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.UserProfile": {
       "name": "UserProfile",
@@ -96,7 +372,54 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "hiderInterval",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "errorControl",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "oneErrorOnly",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "countErrorsAlways",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "skipNonTypable",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "selectedMaps",
+          "type": "Array<any>",
+          "optional": false
+        },
+        {
+          "name": "skin",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "hideStatsOnPause",
+          "type": "boolean",
+          "optional": false
+        },
+        {
+          "name": "cntFull",
+          "type": "number",
+          "optional": false
+        }
+      ]
     },
     "Program.ViewControl": {
       "name": "ViewControl",
@@ -104,7 +427,14 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "from",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.WindowState": {
       "name": "WindowState",
@@ -112,7 +442,41 @@
       "kind": "define",
       "parent": "Program",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "width",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "height",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "x",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "y",
+          "type": "null",
+          "optional": false
+        },
+        {
+          "name": "at",
+          "type": "number",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "rect",
+          "type": "{ width: number; height: number; x?: number; y?: number }",
+          "optional": false
+        }
+      ]
     },
     "Session.EventHandler": {
       "name": "EventHandler",
@@ -120,7 +484,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "dispatchKey",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.KeyStroke": {
       "name": "KeyStroke",
@@ -128,7 +499,31 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "key",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "expected",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "at",
+          "type": "number",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "key",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Session.LetterPick": {
       "name": "LetterPick",
@@ -136,7 +531,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "char",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF1": {
       "name": "ModeF1",
@@ -144,7 +546,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "openedAt",
+          "type": "number",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF12": {
       "name": "ModeF12",
@@ -152,7 +561,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "entries",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF2": {
       "name": "ModeF2",
@@ -160,7 +576,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "layout",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF3": {
       "name": "ModeF3",
@@ -168,7 +591,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "typingMode",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF4": {
       "name": "ModeF4",
@@ -176,7 +606,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "dialogInstance",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF5": {
       "name": "ModeF5",
@@ -184,7 +621,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "dialogInstance",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.ModeF7": {
       "name": "ModeF7",
@@ -192,7 +636,8 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": []
     },
     "Session.ModeF8": {
       "name": "ModeF8",
@@ -200,7 +645,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "dialogInstance",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.Run": {
       "name": "Run",
@@ -208,7 +660,61 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "title",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "text",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "words",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "pos",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "wordIndex",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "pick",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "startedAt",
+          "type": "number",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "title",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "startPos",
+          "type": "number",
+          "optional": true
+        }
+      ]
     },
     "Session.RunControl": {
       "name": "RunControl",
@@ -216,7 +722,14 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "wasPaused",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.WordPick": {
       "name": "WordPick",
@@ -224,7 +737,19 @@
       "kind": "define",
       "parent": "Session",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "word",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "char",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Timer.Tick": {
       "name": "Tick",
@@ -232,7 +757,24 @@
       "kind": "define",
       "parent": "Timer",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "n",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "at",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "speed",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.FileDialog.DirList": {
       "name": "DirList",
@@ -240,7 +782,31 @@
       "kind": "define",
       "parent": "Program.FileDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "dirPath",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "entries",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dirPath",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "entries",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.FileDialog.FilePick": {
       "name": "FilePick",
@@ -248,7 +814,21 @@
       "kind": "define",
       "parent": "Program.FileDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "filePath",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "filePath",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.LibDialog.BookDeleteRequest": {
       "name": "BookDeleteRequest",
@@ -256,7 +836,26 @@
       "kind": "define",
       "parent": "Program.LibDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "pending",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.LibDialog.BookImport": {
       "name": "BookImport",
@@ -264,7 +863,21 @@
       "kind": "define",
       "parent": "Program.LibDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.LibDialog.BookSelect": {
       "name": "BookSelect",
@@ -272,7 +885,21 @@
       "kind": "define",
       "parent": "Program.LibDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.ModeDialog.BookPick": {
       "name": "BookPick",
@@ -280,7 +907,21 @@
       "kind": "define",
       "parent": "Program.ModeDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "path",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "path",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.ModeDialog.LessonPick": {
       "name": "LessonPick",
@@ -288,7 +929,21 @@
       "kind": "define",
       "parent": "Program.ModeDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "lessonId",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "lessonId",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.ModeDialog.ModeSet": {
       "name": "ModeSet",
@@ -296,7 +951,21 @@
       "kind": "define",
       "parent": "Program.ModeDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "mode",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "mode",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.SettingsDialog.MapsPairSet": {
       "name": "MapsPairSet",
@@ -304,7 +973,26 @@
       "kind": "define",
       "parent": "Program.SettingsDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "selectedMaps",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "layoutA",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "layoutB",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.SettingsDialog.PrefSet": {
       "name": "PrefSet",
@@ -312,7 +1000,31 @@
       "kind": "define",
       "parent": "Program.SettingsDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.SettingsDialog.SkinPreview": {
       "name": "SkinPreview",
@@ -320,7 +1032,21 @@
       "kind": "define",
       "parent": "Program.SettingsDialog",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "skin",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "skinName",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Program.ViewControl.ZoomIn": {
       "name": "ZoomIn",
@@ -328,7 +1054,14 @@
       "kind": "define",
       "parent": "Program.ViewControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "zoom",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Program.ViewControl.ZoomOut": {
       "name": "ZoomOut",
@@ -336,7 +1069,14 @@
       "kind": "define",
       "parent": "Program.ViewControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "zoom",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.KeyStroke.Correct": {
       "name": "Correct",
@@ -344,7 +1084,19 @@
       "kind": "define",
       "parent": "Session.KeyStroke",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "key",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "statUpdate",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.KeyStroke.Mistake": {
       "name": "Mistake",
@@ -352,7 +1104,24 @@
       "kind": "define",
       "parent": "Session.KeyStroke",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "key",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "expected",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "statUpdate",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Book": {
       "name": "Book",
@@ -360,7 +1129,14 @@
       "kind": "define",
       "parent": "Session.Run",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "kind",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Finish": {
       "name": "Finish",
@@ -368,7 +1144,49 @@
       "kind": "define",
       "parent": "Session.Run",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "title",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "typed",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "correct",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "errors",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "timerCnt",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "speed",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "accuracy",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "finishedAt",
+          "type": "number",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Lesson": {
       "name": "Lesson",
@@ -376,7 +1194,14 @@
       "kind": "define",
       "parent": "Session.Run",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "kind",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Vocabulary": {
       "name": "Vocabulary",
@@ -384,7 +1209,21 @@
       "kind": "define",
       "parent": "Session.Run",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "chars",
+          "type": "number",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "chars",
+          "type": "number",
+          "optional": true
+        }
+      ]
     },
     "Session.RunControl.BaseNext": {
       "name": "BaseNext",
@@ -392,7 +1231,31 @@
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "direction",
+          "type": "any",
+          "optional": false
+        },
+        {
+          "name": "lessonId",
+          "type": "null",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "direction",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "lessonId",
+          "type": "string",
+          "optional": true
+        }
+      ]
     },
     "Session.RunControl.LessonNext": {
       "name": "LessonNext",
@@ -400,7 +1263,21 @@
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "lessonId",
+          "type": "null",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "lessonId",
+          "type": "string",
+          "optional": true
+        }
+      ]
     },
     "Session.RunControl.LessonPrev": {
       "name": "LessonPrev",
@@ -408,7 +1285,21 @@
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "lessonId",
+          "type": "null",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "lessonId",
+          "type": "string",
+          "optional": true
+        }
+      ]
     },
     "Session.RunControl.Pause": {
       "name": "Pause",
@@ -416,7 +1307,8 @@
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": []
     },
     "Session.RunControl.Quit": {
       "name": "Quit",
@@ -424,7 +1316,8 @@
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": []
     },
     "Session.RunControl.Resume": {
       "name": "Resume",
@@ -432,7 +1325,8 @@
       "kind": "define",
       "parent": "Session.RunControl",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": []
     },
     "Program.LibDialog.BookDeleteRequest.BookDeleted": {
       "name": "BookDeleted",
@@ -440,7 +1334,14 @@
       "kind": "define",
       "parent": "Program.LibDialog.BookDeleteRequest",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.KeyStroke.Correct.StatUpdate": {
       "name": "StatUpdate",
@@ -448,7 +1349,14 @@
       "kind": "define",
       "parent": "Session.KeyStroke.Correct",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "next",
+          "type": "any",
+          "optional": false
+        }
+      ]
     },
     "Session.KeyStroke.Mistake.StatUpdate": {
       "name": "StatUpdate",
@@ -456,7 +1364,8 @@
       "kind": "define",
       "parent": "Session.KeyStroke.Mistake",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": []
     },
     "Session.Run.Book.Native": {
       "name": "Native",
@@ -464,7 +1373,21 @@
       "kind": "define",
       "parent": "Session.Run.Book",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "book",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Book.Paragraph": {
       "name": "Paragraph",
@@ -472,7 +1395,21 @@
       "kind": "define",
       "parent": "Session.Run.Book",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "book",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Lesson.Native": {
       "name": "Native",
@@ -480,7 +1417,21 @@
       "kind": "define",
       "parent": "Session.Run.Lesson",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "lessonId",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "lessonId",
+          "type": "string",
+          "optional": false
+        }
+      ]
     },
     "Session.Run.Lesson.Paragraph": {
       "name": "Paragraph",
@@ -488,7 +1439,21 @@
       "kind": "define",
       "parent": "Session.Run.Lesson",
       "strictChain": true,
-      "blockErrors": false
+      "blockErrors": false,
+      "fields": [
+        {
+          "name": "lessonId",
+          "type": "any",
+          "optional": false
+        }
+      ],
+      "args": [
+        {
+          "name": "lessonId",
+          "type": "string",
+          "optional": false
+        }
+      ]
     }
   }
 }
